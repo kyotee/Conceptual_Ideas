@@ -1,0 +1,7 @@
+{
+  "name": "Conceptual_Ideas-tamkylet",
+  "private": true,
+  "dependencies": {
+    "webpacker-react": "^0.3.2"
+  }
+}
