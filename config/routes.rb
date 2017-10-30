@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   # default view pages named routes
   root 'default_view_pages#home'
   get '/tutorial', to: 'default_view_pages#tutorial'
