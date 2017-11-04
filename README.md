@@ -2,6 +2,10 @@
 
 Associated web based application serves as learning of various software libraries, frameworks, and other technologies with use of (and in addition to learning as well) Ruby on Rails. Intent for learning is related to personal interests and ambition in achieving competence in skills required for industry.
 
+## Application URL
+
+[a link](https://conceptual-ideas.herokuapp.com/)
+
 ## Table of Contents
 
 - [Technologies](#Technologies)

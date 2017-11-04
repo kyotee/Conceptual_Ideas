@@ -25,6 +25,8 @@ gem 'webpacker-react'
 gem 'bcrypt',         '3.1.11'
 # Replaces default fixtures in testing
 gem 'factory_girl_rails', '~> 4.0'
+# Write xlsx for creating excel files
+gem 'write_xlsx'
 
 
 # Gems belonging to both development and test environment
@@ -60,7 +62,7 @@ end
 # Gems belonging to only production environment
 group :production do
   # Host server Heroku uses Postgres
-  gem 'pg', '0.20.0'
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
