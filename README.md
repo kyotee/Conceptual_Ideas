@@ -4,7 +4,7 @@ Associated web based application serves as learning of various software librarie
 
 ## Application URL
 
-[a link](https://conceptual-ideas.herokuapp.com/)
+https://conceptual-ideas.herokuapp.com/
 
 ## Table of Contents
 
