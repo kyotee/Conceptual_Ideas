@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 # Ruby on Rails version
 gem 'rails', '~> 5.1.4'
-# Database for Active Record
-gem 'sqlite3'
 # Puma as the app server
 gem 'puma', '~> 3.7'
 # SCSS for stylesheets
@@ -31,6 +29,8 @@ gem 'write_xlsx'
 
 # Gems belonging to both development and test environment
 group :development, :test do
+  # Database for Active Record
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Call 'pry-rails' anywhere in Capybara acceptance test code to stop execution for manual debugging
