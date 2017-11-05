@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+
+#debug-border {
+	text-align: center;
+	font-weight: bold;
+	font-style: italic;
+	color: #545454;
+    border: 0.25em;
+    border-style: solid;
+    border-color: #0080ff;
+    border-radius: 1em;
+    background-color: #ffff99;
+}
