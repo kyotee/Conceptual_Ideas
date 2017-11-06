@@ -15,8 +15,10 @@ class User < ApplicationRecord
 
   private
 
+  # modify credentials before saving to database
   def modify_credentials
   	self.name = name.downcase
+  	self.name = name.capitalize
   	self.email = email.downcase
   end
 end

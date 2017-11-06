@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/new'
+  resources :users
 
   # default view pages named routes
   root 'default_view_pages#home'
