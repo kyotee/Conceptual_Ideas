@@ -19,10 +19,15 @@ https://conceptual-ideas.herokuapp.com/
 
 Application currently utilizes the following technologies:
 
-- `Ruby on Rails`
-- `RSpec/Capybara`
-- `Selenium/Poltergeist`
-- `React(Babel;Webpack)/Jquery`
+- `Ruby on Rails => web application framework`
+- `Built-in debug method from framework => intuitive debugging information for development environment`
+- `Built-in params.require method from framework => only accept permitted input values`
+- `Bcrypt => secure hashing for sensitive information`
+- `SSL => encrypt information before it leaves local browser`
+- `RSpec/Capybara/Factory Girl => quality assurance`
+- `Selenium/Poltergeist => web testing drivers`
+- `React(Babel;Webpack;Yarn)/Jquery => JavaScript libraries and associated transpiling`
+- `Write xlsx => generate excel file for tracking user activity`
 
 ## <a name="APIs"></a>APIs
 
