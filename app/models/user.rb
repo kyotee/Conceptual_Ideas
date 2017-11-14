@@ -13,9 +13,22 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6, maximum: 12 }
 
+  # Password Hash
+  # PRE: -
+  # POST: Hashes input (password) for fixtures; password field in DB is a hash
+  # PARAMS: string = password in plain text
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
   private
 
-  # modify credentials before saving to database
+  # Credential Modification Before Saving
+  # PRE: Valid credentials submitted
+  # POST: Modifies credentials and then saved to database
+  # PARAMS: -
   def modify_credentials
   	self.name = name.downcase
   	self.name = name.capitalize
