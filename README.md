@@ -26,7 +26,7 @@ Application currently utilizes the following technologies:
 - `SSL => encrypt information before it leaves local browser`
 - `RSpec/Capybara/Factory Girl => quality assurance`
 - `Selenium/Poltergeist => web testing drivers`
-- `React(Babel;Webpack;Yarn)/Jquery => JavaScript libraries and associated transpiling`
+- `React(Babel;ES6;Redux;Webpack;Yarn)/Jquery => JavaScript libraries`
 - `Write xlsx => generate excel file for tracking user activity`
 
 ## <a name="APIs"></a>APIs
