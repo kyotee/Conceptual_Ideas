@@ -19,21 +19,21 @@ https://conceptual-ideas.herokuapp.com/
 
 Application currently utilizes the following technologies:
 
-- ```diff - Ruby on Rails```<br>
+- `Ruby on Rails`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web application framework
-- ```diff - Built-in debug method from Ruby on Rails```<br>
+- `Built-in debug method from Ruby on Rails`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intuitive debugging information
-- ```diff - Built-in params.require method from Ruby on Rails```<br>
+- `Built-in params.require method from Ruby on Rails`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;only accept permitted input values
-- ```diff - Bcrypt```<br>
+- `Bcrypt`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;secure hashing and salting for sensitive information
-- ```diff - SSL from Heroku server```<br>
+- `SSL from Heroku server`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encrypt packets of information
-- ```diff - RSpec; Capybara; Factory Girl```<br>
+- `RSpec; Capybara; Factory Girl`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quality assurance
-- ```diff - Selenium (head); Poltergeist (headless)```<br>
+- `Selenium (head); Poltergeist (headless)`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web testing drivers
-- ```diff - React; JQuery  Babel; ES6; Redux; Webpack; Yarn```<br>
+- `React; JQuery; Babel; ES6; Redux; Webpack; Yarn`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaScript libraries with associated syntax and managers
 
 ## <a name="APIs"></a>APIs
