@@ -19,21 +19,29 @@ https://conceptual-ideas.herokuapp.com/
 
 Application currently utilizes the following technologies:
 
-- `Ruby on Rails => web application framework`
-- `Built-in debug method from framework => intuitive debugging information for development environment`
-- `Built-in params.require method from framework => only accept permitted input values`
-- `Bcrypt => secure hashing for sensitive information`
-- `SSL => encrypt information before it leaves local browser`
-- `RSpec/Capybara/Factory Girl => quality assurance`
-- `Selenium/Poltergeist => web testing drivers`
-- `React(Babel;ES6;Redux;Webpack;Yarn)/Jquery => JavaScript libraries`
-- `Write xlsx => generate excel file for tracking user activity`
+- ```diff - Ruby on Rails```<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web application framework
+- ```diff - Built-in debug method from Ruby on Rails```<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intuitive debugging information
+- ```diff - Built-in params.require method from Ruby on Rails```<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;only accept permitted input values
+- ```diff - Bcrypt```<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;secure hashing and salting for sensitive information
+- ```diff - SSL from Heroku server```<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encrypt packets of information
+- ```diff - RSpec; Capybara; Factory Girl```<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quality assurance
+- ```diff - Selenium (head); Poltergeist (headless)```<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web testing drivers
+- ```diff - React; JQuery  Babel; ES6; Redux; Webpack; Yarn```<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaScript libraries with associated syntax and managers
 
 ## <a name="APIs"></a>APIs
 
 In addition, application currently utilizes the following APIs:
 - `Rails Internationalization (I18n)`
 - `Google Maps`
+- `Write xlsx`
 
 ## <a name="Format"></a>Format
 
