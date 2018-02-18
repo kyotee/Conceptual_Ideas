@@ -14,6 +14,7 @@ https://conceptual-ideas.herokuapp.com/
 - [Accessibility](#Accessibility)
 - [Commitment](#Commitment)
 - [Questions or Concerns](#Questions-or-Concerns)
+- [Learning Queue](#Learning-Queue)
 
 ## <a name="Technologies"></a>Technologies
 
@@ -51,12 +52,22 @@ Each feature implemented into this application represents an epic with associate
 
 To access this application use the following credentials:
 
-- `username:`
-- `password:`
+- `username`
+- `password`
 
 ## <a name="Commitment"></a>Commitment
 
 Time commitment for this application is flexible. Any free time available is allocated into this application.
+
+## <a name="Learning-Queue"></a>Learning Queue
+
+List of tasks to be completed either concurrently or nonconcurrently with development:
+
+- `Review Ruby on Rails notes for sign up/log in and associated sessions and cookies`
+- `Understand and document how Ruby on Rails and React communicate with each other in terms of data`
+- `Review React and Redux notes`
+- `Create tests with RSpec and Capybara`
+- `Investigate and implement CI`
 
 ## <a name="Questions-or-Concerns"></a>Questions or Concerns
 
