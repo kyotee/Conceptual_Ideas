@@ -1,19 +1,5 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
+$light-yellow: #ffffCC;
+$default-fonts: Helvetica, Arial, sans-serif;
 
 body, html {
 	width: 100%;
@@ -30,17 +16,45 @@ body, html {
 
 #nav {
 	background: rgba(255,255,255,0.6);
-	border-bottom: 0.25em solid #ffff99
+	border-bottom: 0.25em solid $light-yellow
 }
 
 #name-container {
 	display: inline-block
 }
 
+#login-signup {
+	float: right
+}
+
+#login-signup > p {
+	display: inline-block;
+	font-family: $default-fonts;
+	font-size: 1.5em;
+	margin: 0;
+	line-height: 4em
+}
+
+#login-signup > p:nth-child(1) {
+    border: 0.1.5em;
+    border-style: solid;
+    border-color: #0080ff;
+    border-radius: 1em;
+    background-color: $light-yellow;
+
+    padding: 0.1em 0.7em 0.1em 0.7em
+}
+
+#login-signup > p:nth-child(2) {
+	padding-left: 0.8em;
+	margin-right: 2em
+}
+
 #footer {
 	background: rgba(255,255,255,0.6);
     position: fixed;
-    bottom: 0
+    bottom: 0;
+    border-top: 0.25em solid $light-yellow
 }
 
 #idea-icon {
@@ -51,7 +65,7 @@ body, html {
 }
 
 #title1 {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: $default-fonts;
 	font-size: 3em;
 	opacity: 0.6;
 	color: #68838B;
@@ -61,7 +75,7 @@ body, html {
 
 #title2 {
 	padding-left: 0.25em;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: $default-fonts;
 	font-size: 3em;
 	opacity: 0.5;
 	color: blue;
@@ -79,7 +93,7 @@ body, html {
     border-style: solid;
     border-color: #0080ff;
     border-radius: 1em;
-    background-color: #ffff99;
+    background-color: $light-yellow;
 
     position: fixed;
     bottom: 0;
