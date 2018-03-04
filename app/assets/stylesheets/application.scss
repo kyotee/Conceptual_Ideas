@@ -24,7 +24,8 @@ body, html {
 }
 
 #login-signup {
-	float: right
+	float: right;
+	margin-top: 0.85em
 }
 
 #login-signup > p {
@@ -32,17 +33,18 @@ body, html {
 	font-family: $default-fonts;
 	font-size: 1em;
 	margin: 0;
-	line-height: 4em
+	color: #68838B
 }
 
 #login-signup > p:nth-child(1) {
-    border: 0.1.5em;
+    border: 0.2em;
     border-style: solid;
-    border-color: #0080ff;
-    border-radius: 1em;
-    background-color: $light-yellow;
+    border-color: #32CD32;
+    border-radius: 0.5em;
+    background-color: #32CD32;
 
-    padding: 0.1em 0.7em 0.1em 0.7em
+    color: white;
+    padding: 0.5em 0.7em 0.5em 0.7em
 }
 
 #login-signup > p:nth-child(2) {
