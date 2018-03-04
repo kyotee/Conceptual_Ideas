@@ -54,9 +54,27 @@ body, html {
 
 #footer {
 	background: rgba(255,255,255,0.6);
-    position: fixed;
-    bottom: 0;
-    border-top: 0.25em solid $light-yellow
+	border-top: 0.25em solid $light-yellow;
+	position: fixed;
+	bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    color: #68838B;
+    opacity: 0.6;
+    font-family: $default-fonts
+}
+
+#references {
+	float: right;
+	margin-right: 2em;
+	padding-top: 1em
+}
+
+.links-color a:link, a:visited {
+	color: #68838B !important
 }
 
 #idea-icon {
@@ -97,7 +115,7 @@ body, html {
     border-radius: 1em;
     background-color: $light-yellow;
 
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
