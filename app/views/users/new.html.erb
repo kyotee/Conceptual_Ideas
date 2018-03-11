@@ -1,20 +1,36 @@
-<% provide(:title, 'Sign Up') %>
-
-<h1>Sign up</h1>
+<% provide(:title, 'Sign up') %>
 
 <%= form_for(@user) do |f| %>
 	<%= render 'shared/error_messages' %> 
-	<%= f.label :name %>
-	<%= f.text_field :name -%>
-	<br/><br/>
-	<%= f.label :email %>
-	<%= f.email_field :email -%>
-	<br/><br/>
-	<%= f.label :password %>
-	<%= f.password_field :password -%>
-	<br/><br/>
-	<%= f.label :password_confirmation, "Confirmation" %>
-	<%= f.password_field :password_confirmation %>
-	<br/><br/>
-	<%= f.submit "Create Account", class: "accept-button" %>
+	<table>
+		<tbody>
+		<tr>
+			<th>User Name</th>
+		</tr>
+		<tr>
+			<td><%= f.text_field :name -%></td>
+		</tr>
+		<tr>
+			<th>E-mail</th>
+		</tr>
+		<tr>
+			<td><%= f.email_field :email -%></td>
+		</tr>
+		<tr>
+			<th>Password</th>
+		</tr>
+		<tr>
+			<td><%= f.password_field :password -%></td>
+		</tr>
+		<tr>
+			<th>Password Confirmation</th>
+		</tr>
+		<tr>
+			<td><%= f.password_field :password_confirmation %></td>
+		</tr>
+		<tr>
+			<td><%= f.submit "Sign up", class: "accept-button" %></td>
+		</tr>
+		</tbody>
+	</table>
 <% end %>
