@@ -12,11 +12,24 @@
 	margin: auto;
 	width: 50%;
 	tr > th > p {
-		font-family: Arial;
+		font-family: Arial, Calibri, sans-serif;
+		font-weight: normal;
+		font-size: 1.15em;
+		color: #68838B;
 		margin-bottom: 0;
 		text-align: left
 	}
 	tr > td > input {
-		width: 100%
+		width: 100%;
+		height: 2em;
+    	border-radius: 0.5em;
+    	border-style: solid;
 	}
+}
+
+#accept-button {
+	border-radius: 0 !important;
+	width: 101% !important;
+	margin-top: 1.5em;
+	height: 3em !important
 }
