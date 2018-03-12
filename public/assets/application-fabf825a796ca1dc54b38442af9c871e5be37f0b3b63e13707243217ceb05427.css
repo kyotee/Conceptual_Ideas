@@ -1,0 +1,154 @@
+/* line 4, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+body, html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  background-image: url("normal_background.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* line 17, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#nav {
+  background: rgba(255, 255, 255, 0.6);
+  border-bottom: 0.25em solid #ffffCC;
+}
+
+/* line 22, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#name-container {
+  display: inline-block;
+}
+
+/* line 26, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#login-signup {
+  float: right;
+  margin-top: 0.85em;
+}
+
+/* line 31, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#login-signup > p {
+  display: inline-block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  margin: 0;
+}
+
+/* line 38, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+.no-link-line {
+  text-decoration: none;
+}
+
+/* line 42, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#login-signup > p:nth-child(1) {
+  border: 0.2em;
+  border-style: solid;
+  border-color: #32CD32;
+  border-radius: 0.5em;
+  background-color: #32CD32;
+  color: white;
+  padding: 0.5em 0.7em 0.5em 0.7em;
+}
+/* line 52, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#login-signup > p:nth-child(1) a:link {
+  color: white;
+}
+/* line 55, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#login-signup > p:nth-child(1) a:visited {
+  color: white;
+}
+
+/* line 60, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#login-signup > p:nth-child(2) {
+  padding-left: 0.8em;
+  margin-right: 2em;
+  color: #68838B;
+}
+
+/* line 66, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#footer {
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 0.25em solid #ffffCC;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  color: #68838B;
+  opacity: 0.6;
+  font-family: Helvetica, Arial, sans-serif;
+  padding-bottom: 1em;
+}
+
+/* line 82, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#references {
+  float: right;
+  margin-right: 2em;
+  padding-top: 1em;
+}
+
+/* line 89, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+.links-color a:link {
+  color: white;
+}
+/* line 92, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+.links-color a:visited {
+  color: white;
+}
+
+/* line 97, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#idea-icon {
+  width: 2em;
+  height: auto;
+  margin-left: 2em;
+  opacity: 0.5;
+}
+
+/* line 104, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#title1 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  opacity: 0.6;
+  color: #68838B;
+  display: inline-block;
+  margin: 0.5em 0 0.5em 0.4em;
+}
+
+/* line 113, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#title2 {
+  padding-left: 0.25em;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  opacity: 0.5;
+  color: blue;
+  display: inline-block;
+  margin: 0.5em 0.75em 0.5em 0;
+}
+
+/* line 123, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#debug-border {
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+  color: #545454;
+  border: 0.25em;
+  border-style: solid;
+  border-color: #0080ff;
+  border-radius: 1em;
+  background-color: #ffffCC;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+/* line 144, /home/tamkylet/rails_apps/Conceptual_Ideas-tamkylet/app/assets/stylesheets/application.scss */
+#inner-body {
+  margin-left: 2em;
+}

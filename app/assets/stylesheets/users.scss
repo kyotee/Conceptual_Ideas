@@ -1,4 +1,22 @@
-.accept-button {
-	padding: 1em;
-	background-color: green;
+#signup-table-rails {
+	margin: auto;
+	width: 50%
+}
+
+#signup-table {
+	margin: auto;
+	width: 50%
+}
+
+#signup-table tbody {
+	margin: auto;
+	width: 50%;
+	tr > th > p {
+		font-family: Arial;
+		margin-bottom: 0;
+		text-align: left
+	}
+	tr > td > input {
+		width: 100%
+	}
 }

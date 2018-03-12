@@ -1,3 +1,9 @@
+/* SCSS files */
+//= require users
+
+/* JavaScript files */
+
+
 $light-yellow: #ffffCC;
 $default-fonts: Helvetica, Arial, sans-serif;
 
@@ -32,8 +38,11 @@ body, html {
 	display: inline-block;
 	font-family: $default-fonts;
 	font-size: 1em;
-	margin: 0;
-	color: #68838B
+	margin: 0
+}
+
+.no-link-line {
+	text-decoration: none
 }
 
 #login-signup > p:nth-child(1) {
@@ -44,12 +53,20 @@ body, html {
     background-color: #32CD32;
 
     color: white;
-    padding: 0.5em 0.7em 0.5em 0.7em
+    padding: 0.5em 0.7em 0.5em 0.7em;
+
+    a:link {
+		color: white
+	}
+	a:visited {
+		color: white
+	}
 }
 
 #login-signup > p:nth-child(2) {
 	padding-left: 0.8em;
-	margin-right: 2em
+	margin-right: 2em;
+	color: #68838B
 }
 
 #footer {
@@ -74,8 +91,13 @@ body, html {
 	padding-top: 1em
 }
 
-.links-color a:link, a:visited {
-	color: #68838B !important
+.links-color {
+	a:link {
+		color: white
+	}
+	a:visited {
+		color: white
+	}
 }
 
 #idea-icon {
@@ -126,5 +148,5 @@ body, html {
 }
 
 #inner-body {
-	margin-left: 2em
+
 }
