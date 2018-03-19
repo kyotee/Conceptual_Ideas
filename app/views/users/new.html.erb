@@ -4,30 +4,31 @@
 	<%= form_for(@user) do |f| %>
 		<%= render 'shared/error_messages' %> 
 		<table id="signup-table">
+			<%= render 'shared/error_messages' %>
 			<tbody>
 			<tr>
 				<th><p>User Name</p></th>
 			</tr>
 			<tr>
-				<td><%= f.text_field :name -%></td>
+				<td><%= f.text_field :name, :id => "verify-name" -%><p style="display: inline">1 to 12 letters</p></td>
 			</tr>
 			<tr>
 				<th><p>E-mail</p></th>
 			</tr>
 			<tr>
-				<td><%= f.email_field :email -%></td>
+				<td><%= f.email_field :email, :id => "verify-email" -%><p style="display: inline">valid e-mail under 40 characters</p></td>
 			</tr>
 			<tr>
 				<th><p>Password</p></th>
 			</tr>
 			<tr>
-				<td><%= f.password_field :password -%></td>
+				<td><%= f.password_field :password, :id => "verify-password" -%><p style="display: inline">between 6 to 12 characters</p></td>
 			</tr>
 			<tr>
 				<th><p>Password Confirmation</p></th>
 			</tr>
 			<tr>
-				<td><%= f.password_field :password_confirmation %></td>
+				<td><%= f.password_field :password_confirmation, :id => "verify-password-confirm" %><p style="display: inline">matches password</p></td>
 			</tr>
 			<tr>
 				<td><%= f.submit "Sign up", id: "accept-button" %></td>
@@ -36,3 +37,16 @@
 		</table>
 	<% end %>
 </div>
+
+<script>
+	function signupEventListener(element, eventsList, action) {
+		var events = eventsList.split(' ');
+		alert('${events}');
+
+		for (var counter = 0, eventsList = events.length; counter < eventsList; counter++) {
+			document.getElementById('verify-name').addEventListener(events[counter], action);
+		}
+	}
+
+	signupEventListener('verify-name', 'keypress paste', function() {alert("hello");});
+</script>
