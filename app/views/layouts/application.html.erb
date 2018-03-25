@@ -11,6 +11,7 @@
 
   <body>
 	  <%= render 'layouts/header' %>
+    <%= react_component("Post", {title: "Hello world"}) %>
     <div id="inner-body">
       <%= yield %>
     </div>

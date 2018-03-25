@@ -2,6 +2,12 @@
   "name": "Conceptual_Ideas-tamkylet",
   "private": true,
   "dependencies": {
+    "@rails/webpacker": "^3.4.1",
+    "coffeescript": "1.12.7",
+    "react_ujs": "^2.4.4",
     "webpacker-react": "^0.3.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.1.1"
   }
 }
