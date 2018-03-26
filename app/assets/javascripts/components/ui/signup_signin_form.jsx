@@ -6,7 +6,21 @@ window.Post = createReactClass({
 
 
 window.SignupSigninForm = createReactClass({
+	signupEventListener(element, eventsList, action) {
+		var events = eventsList.split(' ');
+
+		for (var counter = 0, eventsList = events.length; counter < eventsList; counter++) {
+			document.getElementById('verify-name').addEventListener(events[counter], action);
+		}
+	},
+	highlight() {
+		this.signupEventListener('verify-name', 'keypress paste', function() {alert("hello");});
+	},
+
 	render: function () {
+		if(this.props.formType == "Sign up")
+			alert("This is the signup form.");
+
 		return (
 			<div id="signup-table-rails">
 				<table id="signup-table">
@@ -15,7 +29,7 @@ window.SignupSigninForm = createReactClass({
 						<th><p>User Name</p></th>
 					</tr>
 					<tr>
-						<td id="verify-name">
+						<td id="verify-name" onChange={this.highlight} >
 							<input type="text" name="name"></input>
 							<p>1 to 12 letters</p>
 						</td>
@@ -56,5 +70,3 @@ window.SignupSigninForm = createReactClass({
 		)
 	}
 })
-
-

@@ -26,6 +26,11 @@
     	border-style: solid;
     	outline: none
 	}
+	tr > td > p {
+		display: inline;
+		font-family: Arial, Calibri, sans-serif;
+		font-size: 85%
+	}
 }
 
 #accept-button {
