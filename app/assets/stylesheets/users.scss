@@ -15,21 +15,25 @@
 		font-family: Arial, Calibri, sans-serif;
 		font-weight: normal;
 		font-size: 1.15em;
-		color: #68838B;
 		margin-bottom: 0;
-		text-align: left
+		text-align: left;
+		color: #68838B
 	}
 	tr > td > input {
 		width: 100%;
 		height: 2em;
     	border-radius: 0.5em;
     	border-style: solid;
-    	outline: none
+    	outline: none;
+    	border-color: #68838B;
+    	padding-left: 0.5em
 	}
 	tr > td > p {
 		display: inline;
 		font-family: Arial, Calibri, sans-serif;
-		font-size: 85%
+		font-size: 85%;
+		color: #00aced;
+		display: none
 	}
 }
 
