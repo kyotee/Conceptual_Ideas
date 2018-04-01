@@ -21,22 +21,22 @@ window.SignupSigninForm = createReactClass({
 	componentDidMount() {
 		this.signupEventListener('verify-name-input', 'click keypress paste', function() {
 			this.style.borderColor = "#00aced";
-			document.getElementsByClassName('verify-name')[0].style.color = "#00aced";
+			document.getElementsByClassName('verify-name')[0].style.color = "#0080ff";
 			document.getElementsByClassName('verify-name')[1].style.display = "inline";
 		});
 		this.signupEventListener('verify-email-input', 'click keypress paste', function() {
 			this.style.borderColor = "#00aced";
-			document.getElementsByClassName('verify-email')[0].style.color = "#00aced";
+			document.getElementsByClassName('verify-email')[0].style.color = "#0080ff";
 			document.getElementsByClassName('verify-email')[1].style.display = "inline";
 		});
 		this.signupEventListener('verify-password-input', 'click keypress paste', function() {
 			this.style.borderColor = "#00aced";
-			document.getElementsByClassName('verify-password')[0].style.color = "#00aced";
+			document.getElementsByClassName('verify-password')[0].style.color = "#0080ff";
 			document.getElementsByClassName('verify-password')[1].style.display = "inline";
 		});
 		this.signupEventListener('verify-password-confirm-input', 'click keypress paste', function() {
 			this.style.borderColor = "#00aced";
-			document.getElementsByClassName('verify-password-confirm')[0].style.color = "#00aced";
+			document.getElementsByClassName('verify-password-confirm')[0].style.color = "#0080ff";
 			document.getElementsByClassName('verify-password-confirm')[1].style.display = "inline";
 		});
 	},
