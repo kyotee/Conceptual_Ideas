@@ -9,40 +9,77 @@ window.SignupSigninForm = createReactClass({
 	componentDidMount() {
 		this.signupEventListener('verify-name-input', 'click keyup paste', function() {
 			this.style.borderColor = "#00aced";
-			document.getElementsByClassName('verify-name')[0].style.color = "#0080ff";
-			document.getElementsByClassName('verify-name')[1].style.display = "inline";
+
+			var verifyNameColor = document.getElementsByClassName('verify-name')[0];
+			var verifyNameDisplay = document.getElementsByClassName('verify-name')[1];
+
+			verifyNameColor.style.color = "#0080ff";
+			verifyNameDisplay.style.display = "inline";
 
 			var nameLength = document.getElementById('verify-name-input').value.length;
 
 			if (nameLength > 0 && nameLength <= 12) {
 				this.style.borderColor = "#32CD32";
-				document.getElementsByClassName('verify-name')[0].style.color = "#32CD32";
-				document.getElementsByClassName('verify-name')[1].style.display = "none";
+
+				verifyNameColor.style.color = "#32CD32";
+				verifyNameDisplay.style.display = "none";
 			}
 		});
 		this.signupEventListener('verify-email-input', 'click keyup paste', function() {
 			this.style.borderColor = "#00aced";
-			document.getElementsByClassName('verify-email')[0].style.color = "#0080ff";
-			document.getElementsByClassName('verify-email')[1].style.display = "inline";
+
+			var verifyEmailColor = document.getElementsByClassName('verify-email')[0];
+			var verifyEmailDisplay = document.getElementsByClassName('verify-email')[1];
+
+			verifyEmailColor.style.color = "#0080ff";
+			verifyEmailDisplay.style.display = "inline";
 
 			var emailValue = document.getElementById('verify-email-input').value;
 			var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     	
-    		if (re.test(String(emailValue).toLowerCase()) && emailValue.length > 0 && emailValue.length < 40) {
+    		if (re.test(String(emailValue)) && emailValue.length > 0 && emailValue.length < 40) {
 				this.style.borderColor = "#32CD32";
-				document.getElementsByClassName('verify-email')[0].style.color = "#32CD32";
-				document.getElementsByClassName('verify-email')[1].style.display = "none";
+
+				verifyEmailColor.style.color = "#32CD32";
+				verifyEmailDisplay.style.display = "none";
     		}
 		});
 		this.signupEventListener('verify-password-input', 'click keyup paste', function() {
 			this.style.borderColor = "#00aced";
-			document.getElementsByClassName('verify-password')[0].style.color = "#0080ff";
-			document.getElementsByClassName('verify-password')[1].style.display = "inline";
+
+			var verifyPasswordColor = document.getElementsByClassName('verify-password')[0];
+			var verifyPasswordDisplay = document.getElementsByClassName('verify-password')[1];
+
+			verifyPasswordColor.style.color = "#0080ff";
+			verifyPasswordDisplay.style.display = "inline";
+
+			var passwordLength = document.getElementById('verify-password-input').value.length;
+
+			if(passwordLength >= 6 && passwordLength <= 12) {
+				this.style.borderColor = "#32CD32";
+
+				verifyPasswordColor.style.color = "#32CD32";
+				verifyPasswordDisplay.style.display = "none";				
+			}
 		});
 		this.signupEventListener('verify-password-confirm-input', 'click keyup paste', function() {
 			this.style.borderColor = "#00aced";
-			document.getElementsByClassName('verify-password-confirm')[0].style.color = "#0080ff";
-			document.getElementsByClassName('verify-password-confirm')[1].style.display = "inline";
+
+			var verifyPasswordConfColor = document.getElementsByClassName('verify-password-confirm')[0];
+			var verifyPasswordConfDisplay = document.getElementsByClassName('verify-password-confirm')[1];
+
+			verifyPasswordConfColor.style.color = "#0080ff";
+			verifyPasswordConfDisplay.style.display = "inline";
+
+			var passwordValue = document.getElementById('verify-password-input').value;
+			var passwordVerValue = document.getElementById('verify-password-confirm-input').value;
+
+			if (passwordValue == passwordVerValue) {
+				this.style.borderColor = "#32CD32";
+				
+				verifyPasswordConfColor.style.color = "#32CD32";
+				verifyPasswordConfDisplay.style.display = "none";				
+			}
 		});
 	},
 

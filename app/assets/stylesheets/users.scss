@@ -20,7 +20,7 @@
 		color: #68838B
 	}
 	tr > td > input {
-		width: 100%;
+		width: 95%;
 		height: 2em;
     	border-radius: 0.5em;
     	border-style: solid;
@@ -38,8 +38,10 @@
 }
 
 #accept-button {
-	border-radius: 0 !important;
-	width: 101% !important;
-	margin-top: 1.5em;
-	height: 3em !important
+   	border-radius: 0.5em;
+	border-style: solid;
+	width: 100%;
+	margin-top: 1.75em;
+	height: 3em !important;
+	outline: none
 }
