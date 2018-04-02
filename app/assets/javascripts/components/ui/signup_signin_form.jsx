@@ -1,17 +1,5 @@
-window.Post = createReactClass({
-	render: function() {
-		return <h1>{this.props.title}</h1>
-	}
-})
-
-
 window.SignupSigninForm = createReactClass({
-	toggleFields(element) {
-
-	},
 	signupEventListener(element, eventsList, action) {
-		this.toggleFields(element);
-
 		var events = eventsList.split(' ');
 
 		for (var counter = 0, eventsList = events.length; counter < eventsList; counter++) {
@@ -19,22 +7,39 @@ window.SignupSigninForm = createReactClass({
 		}
 	},
 	componentDidMount() {
-		this.signupEventListener('verify-name-input', 'click keypress paste', function() {
+		this.signupEventListener('verify-name-input', 'click keyup paste', function() {
 			this.style.borderColor = "#00aced";
 			document.getElementsByClassName('verify-name')[0].style.color = "#0080ff";
 			document.getElementsByClassName('verify-name')[1].style.display = "inline";
+
+			var nameLength = document.getElementById('verify-name-input').value.length;
+
+			if (nameLength > 0 && nameLength <= 12) {
+				this.style.borderColor = "#32CD32";
+				document.getElementsByClassName('verify-name')[0].style.color = "#32CD32";
+				document.getElementsByClassName('verify-name')[1].style.display = "none";
+			}
 		});
-		this.signupEventListener('verify-email-input', 'click keypress paste', function() {
+		this.signupEventListener('verify-email-input', 'click keyup paste', function() {
 			this.style.borderColor = "#00aced";
 			document.getElementsByClassName('verify-email')[0].style.color = "#0080ff";
 			document.getElementsByClassName('verify-email')[1].style.display = "inline";
+
+			var emailValue = document.getElementById('verify-email-input').value;
+			var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    	
+    		if (re.test(String(emailValue).toLowerCase()) && emailValue.length > 0 && emailValue.length < 40) {
+				this.style.borderColor = "#32CD32";
+				document.getElementsByClassName('verify-email')[0].style.color = "#32CD32";
+				document.getElementsByClassName('verify-email')[1].style.display = "none";
+    		}
 		});
-		this.signupEventListener('verify-password-input', 'click keypress paste', function() {
+		this.signupEventListener('verify-password-input', 'click keyup paste', function() {
 			this.style.borderColor = "#00aced";
 			document.getElementsByClassName('verify-password')[0].style.color = "#0080ff";
 			document.getElementsByClassName('verify-password')[1].style.display = "inline";
 		});
-		this.signupEventListener('verify-password-confirm-input', 'click keypress paste', function() {
+		this.signupEventListener('verify-password-confirm-input', 'click keyup paste', function() {
 			this.style.borderColor = "#00aced";
 			document.getElementsByClassName('verify-password-confirm')[0].style.color = "#0080ff";
 			document.getElementsByClassName('verify-password-confirm')[1].style.display = "inline";
@@ -43,7 +48,7 @@ window.SignupSigninForm = createReactClass({
 
 	render: function () {
 		if(this.props.formType == "Sign up")
-			// alert("This is the signup form.");
+			// keep all fields; else only e-mail and password fields
 
 		return (
 			<div id="signup-table-rails">
