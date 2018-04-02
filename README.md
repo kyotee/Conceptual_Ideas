@@ -46,7 +46,10 @@ In addition, application currently utilizes the following APIs:
 
 ## <a name="Format"></a>Format
 
-Each feature implemented into this application represents an epic with associated user stories. To see this documentation visit __________________. The features are based on conceptual ideas that are independent from each other. At the moment the following features have been implemented with considerations for security and vigorous testing:
+Each feature implemented into this application represents an epic with associated user stories, quality assurance (QA) checklist, and reflection of problems encountered as well as implementation choices. To see this documentation visit: https://drive.google.com/open?id=1aC4IzSaJYS0I-9aukyNbc9CqeaEBEHCb. At the moment the following epics have been implemented with considerations for security and vigorous testing:
+
+- `01 - Signup Form` (in progress)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Elegant, intuitive, minimal signup/signin form
 
 ## <a name="Accessibility"></a>Accessibility
 
