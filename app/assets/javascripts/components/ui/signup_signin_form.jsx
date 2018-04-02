@@ -7,6 +7,18 @@ window.SignupSigninForm = createReactClass({
 		}
 	},
 	componentDidMount() {
+		function buttonValidChecker() {
+			var passColor = "rgb(50, 205, 50)";
+			var nameCheck = document.getElementsByClassName('verify-name')[0].style.color == passColor;
+			var emailCheck = document.getElementsByClassName('verify-email')[0].style.color == passColor;
+			var passCheck = document.getElementsByClassName('verify-password')[0].style.color == passColor;
+			var passVerCheck = document.getElementsByClassName('verify-password-confirm')[0].style.color == passColor;
+
+			if (nameCheck && emailCheck && passCheck && passVerCheck) {
+				alert("Worked!");
+			}
+		}
+
 		this.signupEventListener('verify-name-input', 'click keyup paste', function() {
 			this.style.borderColor = "#00aced";
 
@@ -23,6 +35,8 @@ window.SignupSigninForm = createReactClass({
 
 				verifyNameColor.style.color = "#32CD32";
 				verifyNameDisplay.style.display = "none";
+
+				buttonValidChecker();
 			}
 		});
 		this.signupEventListener('verify-email-input', 'click keyup paste', function() {
@@ -42,6 +56,8 @@ window.SignupSigninForm = createReactClass({
 
 				verifyEmailColor.style.color = "#32CD32";
 				verifyEmailDisplay.style.display = "none";
+
+				buttonValidChecker();
     		}
 		});
 		this.signupEventListener('verify-password-input', 'click keyup paste', function() {
@@ -59,7 +75,9 @@ window.SignupSigninForm = createReactClass({
 				this.style.borderColor = "#32CD32";
 
 				verifyPasswordColor.style.color = "#32CD32";
-				verifyPasswordDisplay.style.display = "none";				
+				verifyPasswordDisplay.style.display = "none";
+
+				buttonValidChecker();				
 			}
 		});
 		this.signupEventListener('verify-password-confirm-input', 'click keyup paste', function() {
@@ -78,7 +96,9 @@ window.SignupSigninForm = createReactClass({
 				this.style.borderColor = "#32CD32";
 				
 				verifyPasswordConfColor.style.color = "#32CD32";
-				verifyPasswordConfDisplay.style.display = "none";				
+				verifyPasswordConfDisplay.style.display = "none";	
+
+				buttonValidChecker();		
 			}
 		});
 	},
