@@ -14,8 +14,31 @@ window.SignupSigninForm = createReactClass({
 			var passCheck = document.getElementsByClassName('verify-password')[0].style.color == passColor;
 			var passVerCheck = document.getElementsByClassName('verify-password-confirm')[0].style.color == passColor;
 
+			var buttonColor = document.getElementById('accept-button');
+
 			if (nameCheck && emailCheck && passCheck && passVerCheck) {
-				alert("Worked!");
+				buttonColor.style.color = "#FFFFFF";
+				buttonColor.style.backgroundColor = "#32CD32";
+				buttonColor.addEventListener('mouseover', function() {
+					buttonColor.style.transition = "transform .0.5s";
+					buttonColor.style.transform = "scale(1.1)";
+				});
+				buttonColor.addEventListener('mouseout', function() {
+					buttonColor.style.transition = "transform .0.5s";
+					buttonColor.style.transform = "scale(1)";
+				});
+			}
+			else {
+				buttonColor.style.color = "#68838B";
+				buttonColor.style.backgroundColor = "#D3D3D3";
+				buttonColor.addEventListener('mouseover', function() {
+					buttonColor.style.transition = "";
+					buttonColor.style.transform = "";
+				});
+				buttonColor.addEventListener('mouseout', function() {
+					buttonColor.style.transition = "";
+					buttonColor.style.transform = "";
+				});
 			}
 		}
 
@@ -38,6 +61,8 @@ window.SignupSigninForm = createReactClass({
 
 				buttonValidChecker();
 			}
+			else
+				buttonValidChecker();
 		});
 		this.signupEventListener('verify-email-input', 'click keyup paste', function() {
 			this.style.borderColor = "#00aced";
@@ -59,6 +84,8 @@ window.SignupSigninForm = createReactClass({
 
 				buttonValidChecker();
     		}
+    		else
+    			buttonValidChecker();
 		});
 		this.signupEventListener('verify-password-input', 'click keyup paste', function() {
 			this.style.borderColor = "#00aced";
@@ -79,9 +106,12 @@ window.SignupSigninForm = createReactClass({
 
 				buttonValidChecker();				
 			}
+			else
+				buttonValidChecker();
 		});
 		this.signupEventListener('verify-password-confirm-input', 'click keyup paste', function() {
 			this.style.borderColor = "#00aced";
+			buttonValidChecker();
 
 			var verifyPasswordConfColor = document.getElementsByClassName('verify-password-confirm')[0];
 			var verifyPasswordConfDisplay = document.getElementsByClassName('verify-password-confirm')[1];
@@ -96,10 +126,12 @@ window.SignupSigninForm = createReactClass({
 				this.style.borderColor = "#32CD32";
 				
 				verifyPasswordConfColor.style.color = "#32CD32";
-				verifyPasswordConfDisplay.style.display = "none";	
+				verifyPasswordConfDisplay.style.display = "none";
 
-				buttonValidChecker();		
+				buttonValidChecker();			
 			}
+			else
+				buttonValidChecker();
 		});
 	},
 
@@ -148,7 +180,7 @@ window.SignupSigninForm = createReactClass({
 							</td>
 						</tr>
 						<tr>
-							<td><button id="accept-button">Submit</button></td>
+							<td><button id="accept-button">Sign up</button></td>
 						</tr>
 					</tbody>
 				</table>
