@@ -169,6 +169,7 @@ window.SignupSigninForm = createReactClass({
 
 		return (
 			<div id="signup-table-rails">
+				<p id="signup-title">Sign up</p>
 				<table id="signup-table">
 					<tbody>
 						<tr>
