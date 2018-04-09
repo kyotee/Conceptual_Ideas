@@ -120,6 +120,12 @@ window.SignupSigninForm = createReactClass({
 
 			var passwordLength = document.getElementById('verify-password-input').value.length;
 
+			if (document.getElementById('verify-password-input').value != document.getElementById('verify-password-confirm-input').value
+				&& document.getElementsByClassName('verify-password-confirm')[0].style.color == "rgb(50, 205, 50)") {
+				document.getElementsByClassName('verify-password-confirm')[0].style.color = "#0080ff";
+				document.getElementById('verify-password-confirm-input').style.borderColor = "#00aced";
+			}
+
 			if(passwordLength >= 6 && passwordLength <= 12) {
 				this.style.borderColor = "#32CD32";
 
