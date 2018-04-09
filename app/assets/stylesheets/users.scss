@@ -4,21 +4,16 @@
 }
 
 #signup-title {
-	text-align: center;
+	text-align: left;
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 1.75em;
+	font-weight: 400;
 	color: #0080ff;
-	margin: 0;
-	padding-bottom: 0.25em
+	margin: 0
 }
 
 #signup-table {
 	margin: auto;
-	width: 50%;
-	border-radius: 0.5em;
-	border-style: solid;
-	border-color: #ffffCC;
-	border-spacing: 2em 0em
+	width: 50%
 }
 
 #signup-table tbody {
