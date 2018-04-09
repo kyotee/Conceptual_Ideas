@@ -27,6 +27,28 @@ window.SignupSigninForm = createReactClass({
 					buttonColor.style.transition = "transform .0.5s";
 					buttonColor.style.transform = "scale(1)";
 				});
+				buttonColor.addEventListener('click', function() {
+					userCredentials = {
+						user: {
+							  name: document.getElementById('verify-name-input').value,
+							  email: document.getElementById('verify-email-input').value,
+							  password: document.getElementById('verify-password-input').value,
+							  password_confirmation: document.getElementById('verify-password-confirm-input').value
+							}
+					};
+
+					$.ajax({
+						type: "POST",
+						url: "/signup",
+						data: userCredentials,
+						success: function(data, textStatus, jqXHR) {
+							console.log("Submission successful.");
+						},
+						error: function(jqXHR, textStatus, errorThrown) {
+							console.log("Submission unsuccessful.");
+						}
+					});
+				});
 			}
 			else {
 				buttonColor.style.color = "#68838B";

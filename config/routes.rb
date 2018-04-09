@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # user (sign up and sign in) named routes
   get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
 
   # sessions (signup and signout) named routes
   get '/login', to: 'sessions#new'

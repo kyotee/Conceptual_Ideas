@@ -25,6 +25,8 @@ gem 'bcrypt',         '3.1.11'
 gem 'factory_girl_rails', '~> 4.0'
 # Write xlsx for creating excel files
 gem 'write_xlsx'
+# jQuery for ajax calls of json client data
+gem 'jquery-rails'
 
 
 # Gems belonging to both development and test environment
