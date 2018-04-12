@@ -162,19 +162,14 @@ window.SignupSigninForm = createReactClass({
 				buttonValidChecker();
 		});
 	},
-
-	render: function () {
-		if(this.props.formType == "Sign up")
-			// keep all fields; else only e-mail and password fields
-
+	signUpForm() {
 		return (
 			<div id="signup-table-rails">
 				<table id="signup-table">
 					<tbody>
 						<tr>
-							<th><h2 id="signup-title">Sign up</h2></th>
+							<th><%= image_tag("idea.svg", :alt => "idea icon", :class => "idea-icon-form") %><h2 className="form-title">Sign up</h2></th>
 						</tr>
-
 						<tr>
 							<th><p className="verify-name">User Name</p></th>
 						</tr>
@@ -218,5 +213,46 @@ window.SignupSigninForm = createReactClass({
 				</table>
 			</div>
 		)
+	},
+	signInForm() {
+		return (
+			<div id="signup-table-rails">
+				<table id="signup-table">
+					<tbody>
+						<tr>
+							<th><%= image_tag("idea.svg", :alt => "idea icon", :class => "idea-icon-form") %><h2 className="form-title">Sign in</h2></th>
+						</tr>
+						<tr>
+							<th><p className="verify-email">E-mail</p></th>
+						</tr>
+						<tr>
+							<td>
+								<input id="verify-email-input" type="text" name="email"></input>
+								<p className="verify-email">valid e-mail under 40 characters</p>
+							</td>
+						</tr>
+						<tr>
+							<th><p className="verify-password">Password</p></th>
+						</tr>
+						<tr>
+							<td>
+								<input id="verify-password-input" type="password" name="password"></input>
+								<p className="verify-password">between 6 to 12 characters</p>
+							</td>
+						</tr>
+						<tr>
+							<td><button id="accept-button">Sign up</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		)
+	},
+
+	render: function () {
+		if(this.props.formType == "Sign up")
+			return this.signUpForm();
+		else
+			return this.signInForm();
 	}
 })
