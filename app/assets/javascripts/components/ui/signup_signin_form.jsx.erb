@@ -22,8 +22,8 @@ class SignupSigninForm extends React.Component {
 			var passVerCheck = document.getElementsByClassName('verify-password-confirm')[0].style.color == passColor;
 
 		var buttonColor = document.getElementById('accept-button');
-		
-		if ((nameCheck && emailCheck && passCheck && passVerCheck) || (this.props.formType == "Sign up" && emailCheck && passCheck)) {
+
+		if ((nameCheck && emailCheck && passCheck && passVerCheck) || (this.props.formType == "Sign in" && emailCheck && passCheck)) {
 			buttonColor.style.color = "#FFFFFF";
 			buttonColor.style.backgroundColor = "#32CD32";
 			buttonColor.addEventListener('mouseover', function() {
@@ -78,19 +78,18 @@ class SignupSigninForm extends React.Component {
 	componentDidMount() {
 		if(this.props.formType == "Sign up") {
 			this.signupEventListener('verify-name-input', 'click keyup paste', function() {
-				document.getElementById('verify-name-input').style.borderColor = "#00aced";
-
+				var verifyNameInput = document.getElementById('verify-name-input');
 				var verifyNameColor = document.getElementsByClassName('verify-name')[0];
 				var verifyNameDisplay = document.getElementsByClassName('verify-name')[1];
 
+				verifyNameInput.style.borderColor = "#00aced";
 				verifyNameColor.style.color = "#0080ff";
 				verifyNameDisplay.style.display = "inline";
 
-				var nameLength = document.getElementById('verify-name-input').value.length;
+				var nameLength = verifyNameInput.value.length;
 
 				if (nameLength > 0 && nameLength <= 12) {
-					document.getElementById('verify-name-input').style.borderColor = "#32CD32";
-
+					verifyNameInput.style.borderColor = "#32CD32";
 					verifyNameColor.style.color = "#32CD32";
 					verifyNameDisplay.style.display = "none";
 
@@ -101,21 +100,20 @@ class SignupSigninForm extends React.Component {
 			}.bind(this));
 		}
 		this.signupEventListener('verify-email-input', 'click keyup paste', function() {
-			if(this.props.formType == "Sign up") {
-				document.getElementById('verify-email-input').style.borderColor = "#00aced";
-
+				var verifyEmailInput = document.getElementById('verify-email-input');
 				var verifyEmailColor = document.getElementsByClassName('verify-email')[0];
 				var verifyEmailDisplay = document.getElementsByClassName('verify-email')[1];
 
+			if(this.props.formType == "Sign up") {
+				verifyEmailInput.style.borderColor = "#00aced";
 				verifyEmailColor.style.color = "#0080ff";
 				verifyEmailDisplay.style.display = "inline";
 
-				var emailValue = document.getElementById('verify-email-input').value;
+				var emailValue = verifyEmailInput.value;
 				var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	    	
 	    		if (re.test(String(emailValue)) && emailValue.length > 0 && emailValue.length < 40) {
-					document.getElementById('verify-email-input').style.borderColor = "#32CD32";
-
+					verifyEmailInput.style.borderColor = "#32CD32";
 					verifyEmailColor.style.color = "#32CD32";
 					verifyEmailDisplay.style.display = "none";
 
@@ -124,38 +122,37 @@ class SignupSigninForm extends React.Component {
 	    		else
 	    			this.buttonValidChecker();
 	    	} else {
-	    		if (document.getElementById('verify-email-input').value.length > 0) {
-	    			document.getElementsByClassName('verify-email')[0].style.color = "#32CD32";
-	    			document.getElementById('verify-email-input').style.borderColor = "#32CD32";
+	    		if (verifyEmailInput.value.length > 0) {
+	    			verifyEmailColor.style.color = "#32CD32";
+	    			verifyEmailInput.style.borderColor = "#32CD32";
 	    		}
 	    		else {
-	    			document.getElementsByClassName('verify-email')[0].style.color = "#0080ff";
-	    			document.getElementById('verify-email-input').style.borderColor = "#00aced";
+	    			verifyEmailColor.style.color = "#0080ff";
+	    			verifyEmailInput.style.borderColor = "#00aced";
 	    		}
 	    		this.buttonValidChecker();
 	    	}
 		}.bind(this));
 		this.signupEventListener('verify-password-input', 'click keyup paste', function() {
-			if(this.props.formType == "Sign up") {
-				document.getElementById('verify-password-input').style.borderColor = "#00aced";
-
+				var verifyPasswordInput = document.getElementById('verify-password-input');
 				var verifyPasswordColor = document.getElementsByClassName('verify-password')[0];
 				var verifyPasswordDisplay = document.getElementsByClassName('verify-password')[1];
 
+			if(this.props.formType == "Sign up") {
+				verifyPasswordInput.style.borderColor = "#00aced";
 				verifyPasswordColor.style.color = "#0080ff";
 				verifyPasswordDisplay.style.display = "inline";
 
-				var passwordLength = document.getElementById('verify-password-input').value.length;
+				var passwordLength = verifyPasswordInput.value.length;
 
-				if (document.getElementById('verify-password-input').value != document.getElementById('verify-password-confirm-input').value
+				if (verifyPasswordInput.value != document.getElementById('verify-password-confirm-input').value
 					&& document.getElementsByClassName('verify-password-confirm')[0].style.color == "rgb(50, 205, 50)") {
 					document.getElementsByClassName('verify-password-confirm')[0].style.color = "#0080ff";
 					document.getElementById('verify-password-confirm-input').style.borderColor = "#00aced";
 				}
 
 				if(passwordLength >= 6 && passwordLength <= 12) {
-					document.getElementById('verify-password-input').style.borderColor = "#32CD32";
-
+					verifyPasswordInput.style.borderColor = "#32CD32";
 					verifyPasswordColor.style.color = "#32CD32";
 					verifyPasswordDisplay.style.display = "none";
 
@@ -164,33 +161,31 @@ class SignupSigninForm extends React.Component {
 				else
 					this.buttonValidChecker();
 			} else {
-	    		if (document.getElementById('verify-password-input').value.length > 0) {
-	    			document.getElementsByClassName('verify-password')[0].style.color = "#32CD32";
-	    			document.getElementById('verify-password-input').style.borderColor = "#32CD32";
+	    		if (verifyPasswordInput.value.length > 0) {
+	    			verifyPasswordColor.style.color = "#32CD32";
+	    			verifyPasswordInput.style.borderColor = "#32CD32";
 	    		}
 	    		else {
-	    			document.getElementsByClassName('verify-password')[0].style.color = "#0080ff";
-	    			document.getElementById('verify-password-input').style.borderColor = "#00aced";
+	    			verifyPasswordColor.style.color = "#0080ff";
+	    			verifyPasswordInput.style.borderColor = "#00aced";
 	    		}
 	    		this.buttonValidChecker();	
 			}
 		}.bind(this));
 		if(this.props.formType == "Sign up") {
 			this.signupEventListener('verify-password-confirm-input', 'click keyup paste', function() {
-				document.getElementById('verify-password-confirm-input').style.borderColor = "#00aced";
-
+				var verifyPasswordConfInput = document.getElementById('verify-password-confirm-input');
 				var verifyPasswordConfColor = document.getElementsByClassName('verify-password-confirm')[0];
 				var verifyPasswordConfDisplay = document.getElementsByClassName('verify-password-confirm')[1];
 
+				verifyPasswordConfInput.style.borderColor = "#00aced";
 				verifyPasswordConfColor.style.color = "#0080ff";
 				verifyPasswordConfDisplay.style.display = "inline";
 
-				var passwordValue = document.getElementById('verify-password-input').value;
-				var passwordVerValue = document.getElementById('verify-password-confirm-input').value;
+				var passwordVerValue = verifyPasswordConfInput.value;
 
-				if (passwordValue == passwordVerValue) {
-					document.getElementById('verify-password-confirm-input').style.borderColor = "#32CD32";
-					
+				if (document.getElementById('verify-password-input').value == passwordVerValue) {
+					verifyPasswordConfInput.style.borderColor = "#32CD32";
 					verifyPasswordConfColor.style.color = "#32CD32";
 					verifyPasswordConfDisplay.style.display = "none";
 
@@ -280,7 +275,7 @@ class SignupSigninForm extends React.Component {
 							</td>
 						</tr>
 						<tr>
-							<td><button id="accept-button">Sign up</button></td>
+							<td><button id="accept-button">{this.props.formType}</button></td>
 						</tr>
 					</tbody>
 				</table>
