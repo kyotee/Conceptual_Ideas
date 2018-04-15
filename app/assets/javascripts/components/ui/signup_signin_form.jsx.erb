@@ -202,7 +202,7 @@ class SignupSigninForm extends React.Component {
 				<table id="signup-table">
 					<tbody>
 						<tr>
-							<th><%= image_tag("idea.svg", :alt => "idea icon", :class => "idea-icon-form") %><h2 className="form-title">Sign up</h2></th>
+							<th><%= image_tag("idea.svg", :alt => "idea icon", :class => "idea-icon-form") %><h2 className="form-title">{this.props.formType}</h2></th>
 						</tr>
 						<tr>
 							<th><p className="verify-name">User Name</p></th>
@@ -241,7 +241,7 @@ class SignupSigninForm extends React.Component {
 							</td>
 						</tr>
 						<tr>
-							<td><button id="accept-button">Sign up</button></td>
+							<td><button id="accept-button">{this.props.formType}</button></td>
 						</tr>
 					</tbody>
 				</table>
@@ -254,7 +254,7 @@ class SignupSigninForm extends React.Component {
 				<table id="signup-table">
 					<tbody>
 						<tr>
-							<th><%= image_tag("idea.svg", :alt => "idea icon", :class => "idea-icon-form") %><h2 className="form-title">Sign in</h2></th>
+							<th><%= image_tag("idea.svg", :alt => "idea icon", :class => "idea-icon-form") %><h2 className="form-title">{this.props.formType}</h2></th>
 						</tr>
 						<tr>
 							<th><p className="verify-email">E-mail</p></th>
@@ -262,7 +262,6 @@ class SignupSigninForm extends React.Component {
 						<tr>
 							<td>
 								<input id="verify-email-input" type="text" name="email"></input>
-								<p className="verify-email">valid e-mail under 40 characters</p>
 							</td>
 						</tr>
 						<tr>
@@ -271,7 +270,6 @@ class SignupSigninForm extends React.Component {
 						<tr>
 							<td>
 								<input id="verify-password-input" type="password" name="password"></input>
-								<p className="verify-password">between 6 to 12 characters</p>
 							</td>
 						</tr>
 						<tr>
