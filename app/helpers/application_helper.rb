@@ -12,4 +12,21 @@ module ApplicationHelper
 			page_title + " | " + base_title
 		end
 	end
+
+	# Message Notifier
+	# PRE: Valid color and non-empty message must be specified 
+	# POST: Provides react component with notification message aswell as associated type
+	# PARAMS: -
+	def notify_messsage()
+		color = $color
+		message = $message
+		$color = $message = nil
+		colorArray = ["Blue", "Green", "Red", "Yellow"]
+
+		if (colorArray.include? color) && message != nil && message.length > 0
+			return color, message
+		else
+			return nil, nil
+		end
+	end
 end

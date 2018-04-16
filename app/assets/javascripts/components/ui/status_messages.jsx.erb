@@ -3,22 +3,22 @@ class StatusMessages extends React.Component {
 		var notify = document.getElementById('messages');
 		var messageText = document.getElementById('message-positioning');
 
-		if(this.props.notification != null) {
+		if(this.props.notification[0] != null && this.props.notification[1] != null) {
 			notify.style.background = "red";
 
 			setTimeout(function() {
 				messageText.classList.toggle('fade');
-			}, 2200);
+			}, 1800);
 
 			setTimeout(function() {
 				notify.className = 'disappear';
-			}, 10000);
+			}, 9000);
 		}
 	}
 	render() {
 		return (
 			<div id="messages">
-				<p id="message-positioning">{this.props.notification}</p>
+				<p id="message-positioning">{this.props.notification[1]}</p>
 			</div>
 		)
 	}
