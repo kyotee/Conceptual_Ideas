@@ -1,30 +1,32 @@
 class UsersController < ApplicationController
   def new
-	   @user = User.new
+    @user = User.new
   end
 
   def show
-	   @user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def create
-	   @user = User.new(user_params)
+    @user = User.new(user_params)
 
-  	 if @user.save
-         $color = "Green"
-         $message = "Successfully created."
+    if @user.save
+      $color = "Green"
+      $message = "Successfully created an account."
 
-         log_in @user
-  	     redirect_to @user
-     else
-         render 'new'
-     end
+      log_in @user
+      redirect_to @user
+    else
+      $color = "Red"
+      $message = "Submission unsuccessful. Ensure input fields are valid."
+
+      render 'new'
+    end
   end
 
   private
 
-  # accept only these attributes for security
   def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
