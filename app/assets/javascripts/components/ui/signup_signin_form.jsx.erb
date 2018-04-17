@@ -58,7 +58,24 @@ class SignupSigninForm extends React.Component {
 					});
 				}
 				else {
-					// for signin :D
+					userCredentials = {
+						user: {
+							  email: document.getElementById('verify-email-input').value,
+							  password: document.getElementById('verify-password-input').value
+							}
+					};
+
+					$.ajax({
+						type: "POST",
+						url: "/login",
+						data: userCredentials,
+						success: function(data, textStatus, jqXHR) {
+							console.log("Submission successful.");
+						},
+						error: function(jqXHR, textStatus, errorThrown) {
+							console.log("Submission unsuccessful.");
+						}
+					});
 				}
 			}.bind(this));
 		}

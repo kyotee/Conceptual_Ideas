@@ -1,15 +1,5 @@
- <% provide(:title, "Log In") %>
+<% provide(:title, 'Sign in') %>
 
-<h1>Log in</h1>
-
-<%= form_for(:session, url: login_path) do |f| %>
-<%= f.label :email %>
-<%= f.email_field :email %>
-<br/><br/>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<br/><br/>
-<%= f.submit "Log In", class: "accept-button" %>
-<% end %>
+<%= react_component("SignupSigninForm", {formType: "Sign in"}) %>
 
 <p>New user? <%= link_to "Sign Up Now!", signup_path %></p>

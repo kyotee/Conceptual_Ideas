@@ -105,8 +105,8 @@ body, html {
 #footer {
 	background: rgba(0,0,0,0.2);
 	border-top: 0.25em solid $light-yellow;
-	position: fixed;
-	bottom: 0;
+	height: 3em;
+	padding-bottom: 2em;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -175,7 +175,7 @@ body, html {
     border-radius: 1em;
     background-color: $light-yellow;
 
-    position: relative;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
@@ -185,5 +185,6 @@ body, html {
 }
 
 #inner-body {
-	padding-top: 2.5em
+	padding-top: 2.5em;
+	padding-bottom: 8em
 }
