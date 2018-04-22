@@ -17,7 +17,8 @@ body, html {
 #background-img {
 	background-image: url("normal_background.svg");
 	background-position: center;
-	background-repeat: no-repeat
+	background-repeat: no-repeat;
+	min-height: 100%
 }
 
 #nav {

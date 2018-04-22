@@ -15,8 +15,8 @@
       <div id="inner-body">
         <%= yield %>
       </div>
-      <%= render 'layouts/footer' %>
       <% if Rails.env.development? %><div id="debug-border"><%= debug(params) %></div><% end %>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
