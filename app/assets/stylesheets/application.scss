@@ -11,12 +11,13 @@ body, html {
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	position: absolute;
+	position: absolute
+}
 
+#background-img {
 	background-image: url("normal_background.svg");
 	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover
+	background-repeat: no-repeat
 }
 
 #nav {
