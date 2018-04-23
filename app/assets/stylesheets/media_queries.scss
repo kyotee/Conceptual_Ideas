@@ -9,8 +9,11 @@
 
 #signup-table tbody {
 	tr > td > input {
-		@media screen and (max-width: 767px){
-		    width: 17em
+		@media screen and (max-width: 321px){
+		    width: 11em
+		}
+		@media screen and (min-width: 322px) and (max-width: 766px){
+		    width: 14em
 		}
 		@media screen and (min-width: 768px){
 		    width: 27em
@@ -19,8 +22,11 @@
 }
 
 #accept-button {
-	@media screen and (max-width: 767px){
-	    width: 14.9em
+	@media screen and (max-width: 321px){
+	    width:9.9em
+	}
+	@media screen and (min-width: 322px) and (max-width: 766px){
+	    width:12.4em
 	}
 	@media screen and (min-width: 768px){
 	    width: 23.2em
