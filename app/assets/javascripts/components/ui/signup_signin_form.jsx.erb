@@ -162,10 +162,19 @@ class SignupSigninForm extends React.Component {
 
 				var passwordLength = verifyPasswordInput.value.length;
 
+				// case were new password field != password confirm password
 				if (verifyPasswordInput.value != document.getElementById('verify-password-confirm-input').value
 					&& document.getElementsByClassName('verify-password-confirm')[0].style.color == "rgb(50, 205, 50)") {
 					document.getElementsByClassName('verify-password-confirm')[0].style.color = "#0080ff";
 					document.getElementById('verify-password-confirm-input').style.borderColor = "#00aced";
+				}
+
+				// case where new password field == password confirm password
+				if (verifyPasswordInput.value == document.getElementById('verify-password-confirm-input').value 
+					&& verifyPasswordInput.value != "") {
+					document.getElementById('verify-password-confirm-input').style.borderColor = "#32CD32";
+					document.getElementsByClassName('verify-password-confirm')[0].style.color = "#32CD32";
+					document.getElementsByClassName('verify-password-confirm')[1].style.display = "none";
 				}
 
 				if(passwordLength >= 6 && passwordLength <= 12) {
@@ -201,7 +210,8 @@ class SignupSigninForm extends React.Component {
 
 				var passwordVerValue = verifyPasswordConfInput.value;
 
-				if (document.getElementById('verify-password-input').value == passwordVerValue) {
+				// case where new confirm password field == password field
+				if (document.getElementById('verify-password-input').value == passwordVerValue && passwordVerValue != "") {
 					verifyPasswordConfInput.style.borderColor = "#32CD32";
 					verifyPasswordConfColor.style.color = "#32CD32";
 					verifyPasswordConfDisplay.style.display = "none";

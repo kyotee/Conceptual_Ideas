@@ -18,10 +18,10 @@ module ApplicationHelper
 	# POST: Provides react component with notification message aswell as associated type
 	# PARAMS: -
 	def notify_messsage()
+		colorArray = ["Blue", "Green", "Red", "Yellow"]
 		color = $color
 		message = $message
 		$color = $message = nil
-		colorArray = ["Blue", "Green", "Red", "Yellow"]
 
 		if (colorArray.include? color) && message != nil && message.length > 0
 			return color, message
