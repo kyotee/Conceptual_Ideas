@@ -18,7 +18,8 @@ body, html {
 	background-image: url("normal_background.svg");
 	background-position: center;
 	background-repeat: no-repeat;
-	min-height: 100%
+	min-height: 100%;
+	max-height: 100%
 }
 
 #nav {
@@ -187,6 +188,23 @@ body, html {
 }
 
 #inner-body {
-	padding-top: 2.5em;
-	padding-bottom: 8em
+	padding: 2.5em 8em 8em 8em;
+	min-height: 100vh
+}
+
+.applications {
+	display: block;
+	max-width: 100em;
+	text-align: center;
+	margin: 0 auto
+}
+
+.boxes {
+	display: inline-block;
+	width: 20em;
+	height: 10em;
+	background-color: blue;
+	margin-left: 2em;
+	margin-right: 2em;
+	margin-bottom: 2em
 }

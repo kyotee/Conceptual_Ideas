@@ -1,0 +1,20 @@
+class UserApplications extends React.Component {
+	applicationBoxes() {
+		var boxes = [];
+
+		for (var index = 0; index < 20; index++) {
+			boxes.push(<div class="boxes" num={index}>{index}</div>);
+		}
+
+		return boxes;
+	}
+	render() {
+		return (
+			<div id="applications">
+				<ul>
+					{this.applicationBoxes()}
+				</ul>
+			</div>
+		)
+	}
+}
