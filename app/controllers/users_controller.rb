@@ -10,20 +10,18 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
+    if request.xhr?
       if @user.save
         $color = "Green"
         $message = "Successfully created an account."
 
         log_in @user
-        format.html {redirect_to @user}
-        format.js
+        redirect_to @user
       else
         $color = "Red"
         $message = "Submission unsuccessful. Ensure input fields are valid."
 
-        format.html {render action: 'new'}
-        format.js
+        render action: 'new'
       end
     end
   end
