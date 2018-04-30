@@ -14,7 +14,6 @@
     <div id="background-img">
   	  <%= render 'layouts/header' %>
       <div id="inner">
-        <%= react_component("StatusMessages", {notification: notify_messsage($color, $message)}) %>
         <div id="inner-body">
           <%= yield %>
         </div>
@@ -22,5 +21,6 @@
       <%= render 'layouts/footer' %>
 <!--       <% if Rails.env.development? %><div id="debug-border"><%= debug(params) %></div><% end %> -->
     </div>
+    <%= render 'layouts/messages' %>
   </body>
 </html>
