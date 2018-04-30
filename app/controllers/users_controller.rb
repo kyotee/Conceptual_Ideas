@@ -19,9 +19,9 @@ class UsersController < ApplicationController
         redirect_to @user
       else
         $color = "Red"
-        $message = "Submission unsuccessful. Ensure input fields are valid."
+        $message = "E-mail already exists, try another one."
 
-        render action: 'new'
+        redirect_to action: 'new'
       end
     end
   end

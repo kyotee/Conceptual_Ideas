@@ -3,18 +3,32 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    
-    if user && user.authenticate(params[:session][:password])
-    	log_in user
-        redirect_to user  
-    else
-    	render 'new'
+    if request.xhr?
+      user = User.find_by(email: user_signin_params[:email].downcase)
+      
+      if user && user.authenticate(user_signin_params[:password])
+        $color = "Blue"
+        $message = "Welcome back #{user[:name]}."
+
+      	log_in user
+          redirect_to user  
+      else
+        $color = "Red"
+        $message = "Invalid Credentials."
+
+      	redirect_to action: 'new'
+      end
     end
   end
 
   def destroy
     log_out
     redirect_to root_url
+  end
+
+  private
+
+  def user_signin_params
+    params.require(:userLogin).permit(:email, :password)
   end
 end

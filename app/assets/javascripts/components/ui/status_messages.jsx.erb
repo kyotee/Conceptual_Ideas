@@ -4,7 +4,7 @@ class StatusMessages extends React.Component {
 		var messageText = document.getElementById('message-positioning');
 
 		if(this.props.notification[0] != null && this.props.notification[1] != null) {
-			let map = new Map([["Blue", ["#7EC0EE", "#4c4cff"]], ["Green", ["#b2ffb2", "#00cc00"]], ["Red", ["#ff7f7f", "#ff1919"]], ["Yellow", ["#ffffb2", "#b2b200"]]]);
+			let map = new Map([["Blue", ["#7EC0EE", "#FFFFFF"]], ["Green", ["#b2ffb2", "#00cc00"]], ["Red", ["#ff7f7f", "#ff1919"]], ["Yellow", ["#ffffb2", "#b2b200"]]]);
 			
 			notify.style.background = map.get(this.props.notification[0])[0];
 			messageText.style.color = map.get(this.props.notification[0])[1];

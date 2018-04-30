@@ -50,16 +50,16 @@ class SignupSigninForm extends React.Component {
 						url: "/signup",
 						data: userCredentials,
 						success: function(data, textStatus, jqXHR) {
-							console.log("Submission successful.");
+							console.log("User creation; submission successful.");
 						},
 						error: function(jqXHR, textStatus, errorThrown) {
-							console.log("Submission unsuccessful.");
+							console.log("User creation; submission unsuccessful.");
 						}
 					});
 				}
 				else {
 					userCredentials = {
-						user: {
+						userLogin: {
 							  email: document.getElementById('verify-email-input').value,
 							  password: document.getElementById('verify-password-input').value
 							}
@@ -70,10 +70,10 @@ class SignupSigninForm extends React.Component {
 						url: "/login",
 						data: userCredentials,
 						success: function(data, textStatus, jqXHR) {
-							console.log("Submission successful.");
+							console.log("User login; submission successful.");
 						},
 						error: function(jqXHR, textStatus, errorThrown) {
-							console.log("Submission unsuccessful.");
+							console.log("User login; submission unsuccessful.");
 						}
 					});
 				}
