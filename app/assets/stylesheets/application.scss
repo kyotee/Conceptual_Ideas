@@ -15,7 +15,8 @@ body, html {
 }
 
 #background-img {
-	background-image: url("normal_background.svg");
+	position: relative;
+	background-image: linear-gradient(to bottom, transparent, white), url("normal_background.svg");
 	background-position: center;
 	background-repeat: no-repeat;
 	min-height: 100%;
@@ -188,23 +189,23 @@ body, html {
 }
 
 #inner-body {
-	padding: 2.5em 8em 8em 8em;
 	min-height: 100vh
 }
 
-.applications {
+#applications {
 	display: block;
-	max-width: 100em;
 	text-align: center;
-	margin: 0 auto
+	margin: 0 auto;
+
+	ul {
+		padding: 0;
+		margin: 0
+	}
 }
 
 .boxes {
 	display: inline-block;
-	width: 20em;
-	height: 10em;
-	background-color: blue;
-	margin-left: 2em;
-	margin-right: 2em;
-	margin-bottom: 2em
+	background-color: #7EC0EE;
+	opacity: 0.3;
+	border-radius: 0.5em;
 }
