@@ -3,11 +3,11 @@ class StatusMessages extends React.Component {
 		var notify = document.getElementById('messages');
 		var messageText = document.getElementById('message-positioning');
 
-		if(this.props.color != null && this.props.message != null) {
+		if(this.props.notification[0] != null && this.props.notification[1] != null) {
 			let map = new Map([["Blue", ["#7EC0EE", "#4c4cff"]], ["Green", ["#b2ffb2", "#00cc00"]], ["Red", ["#ff7f7f", "#ff1919"]], ["Yellow", ["#ffffb2", "#b2b200"]]]);
 			
-			notify.style.background = map.get(this.props.color)[0];
-			messageText.style.color = map.get(this.props.color)[1];
+			notify.style.background = map.get(this.props.notification[0])[0];
+			messageText.style.color = map.get(this.props.notification[0])[1];
 
 			setTimeout(function() {
 				messageText.classList.toggle('fade');
@@ -21,7 +21,7 @@ class StatusMessages extends React.Component {
 	render() {
 		return (
 			<div id="messages">
-				<p id="message-positioning">{this.props.message}</p>
+				<p id="message-positioning">{this.props.notification[1]}</p>
 			</div>
 		)
 	}
