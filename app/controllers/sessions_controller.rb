@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         $message = "Welcome back #{user[:name]}."
 
       	log_in user
-          redirect_to user  
+        redirect_to user  
       else
         $color = "Red"
         $message = "Invalid Credentials."
