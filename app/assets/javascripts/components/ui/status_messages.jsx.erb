@@ -1,4 +1,7 @@
 class StatusMessages extends React.Component {
+	shouldComponentUpdate(nextProps, nextState) {
+		return (nextprops.color != this.props.color && nextprops.message != this.props.message);
+	}
 	componentDidMount() {
 		var notify = document.getElementById('messages');
 		var messageText = document.getElementById('message-positioning');
