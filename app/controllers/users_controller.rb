@@ -12,14 +12,14 @@ class UsersController < ApplicationController
 
     if request.xhr?
       if @user.save
-        $color = "Green"
-        $message = "Successfully created an account."
+        flash[:alert] = "Green"
+        flash[:notice] = "Successfully created an account."
 
         log_in @user
         redirect_to @user
       else
-        $color = "Red"
-        $message = "E-mail already exists; try another one."
+        flash[:alert] = "Red"
+        flash[:notice] = "E-mail already exists."
 
         redirect_to action: 'new'
       end

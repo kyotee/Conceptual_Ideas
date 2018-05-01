@@ -7,15 +7,15 @@ class SessionsController < ApplicationController
       user = User.find_by(email: user_signin_params[:email].downcase)
       
       if user && user.authenticate(user_signin_params[:password])
-        $color = "Blue"
-        $message = "Welcome back #{user[:name]}."
+        flash[:alert] = "Blue"
+        flash[:notice] = "Welcome back #{user[:name]}."
 
       	log_in user
-        remember user
+        # remember user
         redirect_to user  
       else
-        $color = "Red"
-        $message = "Invalid credentials entered."
+        flash[:alert] = "Red"
+        flash[:notice] = "Email doesn't exist or invalid credentials submitted."
 
       	redirect_to action: 'new'
       end

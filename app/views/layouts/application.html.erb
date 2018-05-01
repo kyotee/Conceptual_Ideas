@@ -13,6 +13,7 @@
   <body>
     <div id="background-img">
   	  <%= render 'layouts/header' %>
+      <%= render 'layouts/messages' %>
       <div id="inner">
         <div id="inner-body">
           <%= yield %>
@@ -21,6 +22,5 @@
       <%= render 'layouts/footer' %>
 <!--       <% if Rails.env.development? %><div id="debug-border"><%= debug(params) %></div><% end %> -->
     </div>
-    <%= render 'layouts/messages' %>
   </body>
 </html>
