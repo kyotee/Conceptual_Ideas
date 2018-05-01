@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         redirect_to @user
       else
         $color = "Red"
-        $message = "E-mail already exists, try another one."
+        $message = "E-mail already exists; try another one."
 
         redirect_to action: 'new'
       end

@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   # sessions (signup and signout) named routes
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  delete '/login', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
 end

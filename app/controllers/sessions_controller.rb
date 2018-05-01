@@ -11,10 +11,11 @@ class SessionsController < ApplicationController
         $message = "Welcome back #{user[:name]}."
 
       	log_in user
+        remember user
         redirect_to user  
       else
         $color = "Red"
-        $message = "Invalid Credentials."
+        $message = "Invalid credentials entered."
 
       	redirect_to action: 'new'
       end

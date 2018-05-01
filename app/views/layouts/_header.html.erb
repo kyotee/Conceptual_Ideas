@@ -6,7 +6,11 @@
 	</div>
 
 	<div id="login-signup">
-		<p><%= link_to "Sign up", signup_path , :class => "no-link-line" %></p>
-		<p><%= link_to "Sign in", login_path %></p>
+		<% if logged_in? %>
+			<p><%= link_to "Sign out", logout_path, method: "delete" %></p>
+		<% else %>
+			<p><%= link_to "Sign up", signup_path , :class => "no-link-line" %></p>
+			<p><%= link_to "Sign in", login_path %></p>
+		<% end %>
 	</div>
 </div>
