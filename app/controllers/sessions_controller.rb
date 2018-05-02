@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         flash[:notice] = "Welcome back #{user[:name]}."
 
       	log_in user
-        # remember user
+        remember user
         redirect_to user  
       else
         flash[:alert] = "Red"
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to root_url
   end
 

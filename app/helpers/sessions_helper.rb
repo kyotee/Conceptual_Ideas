@@ -7,29 +7,28 @@ module SessionsHelper
 	  	session[:user_id] = user.id
 	end
 
-	# Dynamically Access Sessions Parameter (on subsequent pages)
-	# PRE: User must exist in database
-	# POST: Returns instance variable of user found in database (based on sessions parameter)
+	# User Finder
+	# PRE: -
+	# POST: Finds user if session or cookies exist
 	# PARAMS: -
-  	def current_user
-    	@current_user ||= User.find_by(id: session[:user_id])
-  	end
+	def current_user
+		if (user_id = session[:user_id])
+		  @current_user ||= User.find_by(id: user_id)
+		elsif (user_id = cookies.signed[:user_id])
+		  user = User.find_by(id: user_id)
+		  if user && user.authenticated?(:remember, cookies[:remember_token])
+		    log_in user
+		    @current_user = user
+		  end
+		end
+	end
 
-	# Dynamically Access Sessions Parameter (on subsequent pages)
-	# PRE: User must exist in database
-	# POST: Returns boolean value for whether user exists in database and has logged in (used in views)
+	# Sessions and Cookies Login
+	# PRE: -
+	# POST: Returns true if user is found by associated session or cookies
 	# PARAMS: -
   	def logged_in?          
     	!current_user.nil?    
-	end
-
-	# Dynamically Access Sessions Parameter (on subsequent pages)
-	# PRE: User must exist in database
-	# POST: Deletes sessions parameter associated to user
-	# PARAMS: -
-	def log_out
-		session.delete(:user_id)
-		@current_user = nil
 	end
 
 	# Remembers a user in a persistent session.
@@ -37,5 +36,21 @@ module SessionsHelper
 		user.remember
 		cookies.permanent.signed[:user_id] = user.id
 		cookies.permanent[:remember_token] = user.remember_token
+	end
+
+	def forget(user)
+		user.forget
+		cookies.delete(:user_id)
+		cookies.delete(:remember_token)
+	end
+
+	# Destroy 
+	# PRE: User must exist in database
+	# POST: Deletes sessions parameter associated to user
+	# PARAMS: -
+	def log_out
+		forget(current_user)
+		session.delete(:user_id)
+		@current_user = nil
 	end
 end
