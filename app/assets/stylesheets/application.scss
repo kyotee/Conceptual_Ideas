@@ -30,7 +30,8 @@ body, html {
 }
 
 #name-container {
-	display: inline-block
+	display: inline-block;
+	cursor: pointer
 }
 
 #login-signup {
@@ -108,7 +109,7 @@ body, html {
 }
 
 #footer {
-	background: rgba(0,0,0,0.2);
+	background: #D3D3D3;
 	border-top: 0.25em solid $light-yellow;
 	height: 3em;
 	padding-bottom: 2em;
@@ -120,21 +121,17 @@ body, html {
     color: #68838B;
     opacity: 0.6;
     font-family: $default-fonts;
-    padding-bottom: 1em
-}
 
-#references {
-	float: right;
-	margin-right: 2em;
-	padding-top: 1em
+    #references {
+    	background: #D3D3D3;
+    	float: right;
+		padding: 1em 2em 1em 2em
+    }
 }
 
 .links-color {
-	a:link {
-		color: white
-	}
-	a:visited {
-		color: white
+	a:link, a:visited, a:hover {
+		color: #0080ff
 	}
 }
 

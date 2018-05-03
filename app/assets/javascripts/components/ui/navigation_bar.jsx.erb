@@ -1,6 +1,8 @@
 class NavigationBar extends React.Component {
 	componentDidMount() {
-
+		document.getElementById('name-container').addEventListener("click", function(){
+			window.location = "/";
+		});
 	}
 	loggedin() {
 		if(this.props.signedin) {
