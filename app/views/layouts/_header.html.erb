@@ -1,16 +1,1 @@
-<div id="nav">
-	<div id="name-container">
-		<%= image_tag("idea.svg", :alt => "idea icon", :id => "idea-icon") %>
-		<p id="title1">Conceptual</p>
-		<p id="title2">Ideas</p>
-	</div>
-
-	<div id="login-signup">
-		<% if logged_in? %>
-			<p><%= link_to "Sign out", logout_path, method: "delete" %></p>
-		<% else %>
-			<p><%= link_to "Sign up", signup_path , :class => "no-link-line" %></p>
-			<p><%= link_to "Sign in", login_path %></p>
-		<% end %>
-	</div>
-</div>
+<%= react_component("NavigationBar", {signedin: logged_in?}) %>
