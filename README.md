@@ -34,7 +34,7 @@ Application currently utilizes the following technologies:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quality assurance
 - `Selenium (head); Poltergeist (headless)`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web testing drivers
-- `React; JQuery; Babel; ES6; Redux; Webpack; Yarn`<br>
+- `React; Babel; ES6; Redux; Webpack; Yarn`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaScript libraries with associated syntax and managers
 
 ## <a name="APIs"></a>APIs
@@ -48,15 +48,21 @@ In addition, application currently utilizes the following APIs:
 
 Each feature implemented into this application represents an epic with associated user stories, quality assurance (QA) checklist, and reflection of problems encountered as well as implementation choices. To see this documentation visit: https://drive.google.com/open?id=1aC4IzSaJYS0I-9aukyNbc9CqeaEBEHCb. At the moment the following epics have been implemented with considerations for security and vigorous testing:
 
-- `01 - Signup Form` (in progress)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Elegant, intuitive, minimal signup/signin form
+- <del>`01 - Sign Up and Sign In Form`</del><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intuitive sign up sign in form
+- <del>`02 - Notification Messages`</del><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notification messages on status for users 
+- `03 - College Course Selection` (in progress)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;College planner which promotes quick course selection
 
 ## <a name="Accessibility"></a>Accessibility
 
 To access this application use the following credentials:
 
 - `username`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;admin
 - `password`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;admin
 
 ## <a name="Commitment"></a>Commitment
 
@@ -66,11 +72,13 @@ Time commitment for this application is flexible. Any free time available is all
 
 List of tasks to be completed either concurrently or nonconcurrently with development:
 
-- `Review Ruby on Rails notes for sign up/log in and associated sessions and cookies`
-- `Understand and document how Ruby on Rails and React communicate with each other in terms of data`
-- `Review React and Redux notes`
-- `Create tests with RSpec and Capybara`
-- `Investigate and implement CI`
+- <del>`Implement Heroku CLI for building and deploying application to Heroku server`</del>
+- <del>`Implement cookies and sessions`</del>
+- <del>`Learn and implement react`</del>
+- <del>`Learn and implement redux`</del>
+- <del>`Learn react routes for potential future use`</del>
+- `Implement (first) model, controller, integration and acceptance tests with RSpec and Capybara`
+- `Investigate and implement a continuous integration tool to run tests when new build executes`
 
 ## <a name="Questions-or-Concerns"></a>Questions or Concerns
 
