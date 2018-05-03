@@ -18,7 +18,7 @@ https://conceptual-ideas.herokuapp.com/
 
 ## <a name="Technologies"></a>Technologies
 
-Application currently utilizes the following technologies:
+Application currently utilizes the following methods and technologies:
 
 - `Ruby on Rails`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web application framework
@@ -32,8 +32,10 @@ Application currently utilizes the following technologies:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encrypt packets of information
 - `RSpec; Capybara; Factory Girl`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quality assurance
-- `Selenium (head); Poltergeist (headless)`<br>
+- `Selenium (browser based); Poltergeist (headless)`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web testing drivers
+- `Media Queries`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;responsive web design
 - `React; Babel; ES6; Redux; Webpack; Yarn`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaScript libraries with associated syntax and managers
 
@@ -48,9 +50,9 @@ In addition, application currently utilizes the following APIs:
 
 Each feature implemented into this application represents an epic with associated user stories, quality assurance (QA) checklist, and reflection of problems encountered as well as implementation choices. To see this documentation visit: https://drive.google.com/open?id=1aC4IzSaJYS0I-9aukyNbc9CqeaEBEHCb. At the moment the following epics have been implemented with considerations for security and vigorous testing:
 
-- <del>`01 - Sign Up and Sign In Form`</del><br>
+- `01 - Sign Up and Sign In Form`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intuitive sign up sign in form
-- <del>`02 - Notification Messages`</del><br>
+- `02 - Notification Messages`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notification messages on status for users 
 - `03 - College Course Selection` (in progress)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;College planner which promotes quick course selection
@@ -59,9 +61,9 @@ Each feature implemented into this application represents an epic with associate
 
 To access this application use the following credentials:
 
-- `username`
+- `username`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;admin
-- `password`
+- `password`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;admin
 
 ## <a name="Commitment"></a>Commitment

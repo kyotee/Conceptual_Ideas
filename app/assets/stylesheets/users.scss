@@ -1,3 +1,6 @@
+$form-fonts: Arial, Calibri, sans-serif;
+
+
 #signup-table-rails {
 	margin: auto
 }
@@ -17,7 +20,7 @@
 #signup-table tbody {
 	margin: auto;
 	tr > th > p {
-		font-family: Arial, Calibri, sans-serif;
+		font-family: $form-fonts;
 		font-weight: normal;
 		font-size: 1.15em;
 		margin-bottom: 0;
@@ -34,7 +37,7 @@
 	}
 	tr > td > p {
 		display: inline;
-		font-family: Arial, Calibri, sans-serif;
+		font-family: $form-fonts;
 		font-size: 85%;
 		color: #0080ff;
 		display: none
