@@ -31,13 +31,16 @@ body, html {
 
 #sandwich {
 	display: inline-block;
-    cursor: pointer
+    cursor: pointer;
+    position: absolute;
+    left: 2em;
+    top: 1em
 }
 
 #bar1, #bar2, #bar3 {
     width: 1.5em;
     height: 0.2em;
-    background-color: #68838B;
+    background-color: #C0C0C0;
     margin: 0.3em 0;
     transition: 0.4s;
 }
@@ -45,6 +48,7 @@ body, html {
 .change #bar1 {
     -webkit-transform: rotate(-45deg) translate(-0.2em, 0.5em);
     transform: rotate(-45deg) translate(-0.2em, 0.5em);
+    background-color: #0080ff
 }
 
 .change #bar2 {
@@ -54,6 +58,7 @@ body, html {
 .change #bar3 {
     -webkit-transform: rotate(45deg) translate(-0.14em, -0.55em);
     transform: rotate(45deg) translate(-0.14em, -0.55em);
+    background-color: #0080ff
 }
 
 #name-container {
