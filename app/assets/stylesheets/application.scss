@@ -76,18 +76,39 @@ body, html {
 
 #side-navigate {
 	position: fixed;
-	top: 4.5em;
-	height: 86.5%;
-    width: 15em;
+    width: 18em;
     background-color: red;
     opacity: 0.5;
     overflow-x: hidden;
-    padding-top: 20px;
+    top: 4.5em;
+    bottom: 0;
+    font-family: Arial, Calibri, sans-serif
 }
 
+.dropdown-content {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+}
 
+#side-navigate a, .dropdown-button {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
 
-
+.arrow-icon {
+    float: right;
+    padding: 0.2em 1em 0 0
+}
 
 
 
