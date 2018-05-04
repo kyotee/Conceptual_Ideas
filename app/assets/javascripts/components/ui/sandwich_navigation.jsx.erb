@@ -1,0 +1,16 @@
+class SandwichNavigation extends React.Component {
+	componentDidMount() {
+		document.getElementById('sandwich').addEventListener("click", function(){
+			document.querySelector("#sandwich").classList.toggle('change');
+		});
+	}
+	render() {
+		return (
+			<div id="sandwich">
+				<div id="bar1"></div>
+				<div id="bar2"></div>
+				<div id="bar3"></div>
+			</div>
+		)
+	}
+}
