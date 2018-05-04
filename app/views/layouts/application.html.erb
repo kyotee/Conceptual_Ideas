@@ -14,10 +14,9 @@
     <div id="background-img">
   	  <%= render 'layouts/header' %>
       <%= render 'layouts/messages' %>
-      <div id="inner">
-        <div id="inner-body">
-          <%= yield %>
-        </div>
+      <%= react_component("SideNavigationBar") %>
+      <div id="inner-body">
+        <%= yield %>
       </div>
       <%= render 'layouts/footer' %>
 <!--       <% if Rails.env.development? %><div id="debug-border"><%= debug(params) %></div><% end %> -->
