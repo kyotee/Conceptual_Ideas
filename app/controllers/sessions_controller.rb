@@ -12,10 +12,11 @@ class SessionsController < ApplicationController
 
       	log_in user
         remember user
-        redirect_to user  
+        # redirect_to user
+        redirect_to root_url
       else
         flash[:alert] = "Red"
-        flash[:notice] = "Email doesn't exist or invalid credentials submitted."
+        flash[:notice] = "Invalid credentials submitted."
 
       	redirect_to action: 'new'
       end

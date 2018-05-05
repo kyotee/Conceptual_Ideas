@@ -77,12 +77,13 @@ body, html {
 #side-navigate {
 	position: fixed;
     width: 18em;
-    background-color: red;
-    opacity: 0.5;
+    background: rgba(200,200,200,0.3);
     overflow-x: hidden;
     top: 4.5em;
     bottom: 0;
-    font-family: Arial, Calibri, sans-serif
+    z-index: 1;
+    font-family: Arial, Calibri, sans-serif;
+    border-right: 0.25em solid $light-yellow
 }
 
 .dropdown-content {
@@ -92,22 +93,36 @@ body, html {
 }
 
 #side-navigate a, .dropdown-button {
-    padding: 6px 8px 6px 16px;
+    width: 100%;
     text-decoration: none;
-    font-size: 20px;
-    color: #818181;
+    font-size: 1.25em;
+    color: #8aacb8;
     display: block;
     border: none;
     background: none;
     width: 100%;
     text-align: left;
     cursor: pointer;
-    outline: none;
+    outline: none
+}
+
+#side-navigate a:nth-child(2) {
+	border-bottom: 0.05em solid rgba(255,255,255,0.6)
+}
+
+#side-navigate a:hover, .dropdown-content:hover, .dropdown-button:hover {
+    color: #0080ff;
+    background-color: rgba(255,255,204,0.6)
+
+}
+
+#top-line {
+	border-top: 0.05em solid rgba(255,255,255,0.6) !important
 }
 
 .arrow-icon {
     float: right;
-    padding: 0.2em 1em 0 0
+    padding: 0.2em 1.5em 0 0
 }
 
 
