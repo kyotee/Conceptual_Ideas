@@ -2,6 +2,7 @@ class SideNavigationBar extends React.Component {
 	componentDidMount() {
 		document.getElementById("dropdown-button").addEventListener("click", function(){
 			document.querySelector("#dropdown-content").classList.toggle('active');
+			document.querySelector("#arrow-icon").classList.toggle('flip');
 		});
 	}
 	render() {
@@ -10,7 +11,7 @@ class SideNavigationBar extends React.Component {
 				<a href="/">Sign up</a>
 				<a href="/">Sign in</a>
 				<button id="dropdown-button">Applications
-					<i className="arrow-icon">^</i>
+					<div id="arrow-icon">^</div>
 				</button>
 				<div id="dropdown-content">
 					<a href="/">&nbsp;&nbsp;&nbsp;&nbsp;Application 1</a>

@@ -28,7 +28,8 @@ body, html {
 	background: rgba(255,255,255,0.6);
 	border-bottom: 0.25em solid $light-yellow;
 	position: fixed;
-	width: 100%
+	width: 100%;
+	z-index: 1
 }
 
 #sandwich {
@@ -67,6 +68,13 @@ body, html {
 	cursor: pointer
 }
 
+#arrow-icon.flip {
+	-webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    margin: 0 2em 0.2em 0
+}
+
+
 
 
 
@@ -79,7 +87,7 @@ body, html {
     width: 18em;
     background: rgba(200,200,200,0.3);
     overflow-x: hidden;
-    top: 4.5em;
+    top: 4.55em;
     bottom: 0;
     z-index: 1;
     font-family: Arial, Calibri, sans-serif;
@@ -87,14 +95,12 @@ body, html {
 }
 
 #side-navigate a, #dropdown-button {
-    width: 100%;
     text-decoration: none;
     font-size: 1.25em;
     color: #8aacb8;
     display: block;
     border: none;
     background: none;
-    width: 100%;
     text-align: left;
     cursor: pointer;
     outline: none
@@ -120,9 +126,9 @@ body, html {
 	border-top: 0.05em solid rgba(255,255,255,0.6) !important
 }
 
-.arrow-icon {
+#arrow-icon {
     float: right;
-    padding: 0.2em 1.5em 0 0
+    margin: 0.2em 2em 0 0
 }
 
 #dropdown-content {
