@@ -2,6 +2,17 @@ class SandwichNavigation extends React.Component {
 	componentDidMount() {
 		document.getElementById('sandwich').addEventListener("click", function(){
 			this.classList.toggle('change');
+			document.querySelector('#side-navigate').classList.toggle('slide');
+
+			var bodyColor = document.getElementById('inner-body');
+
+			bodyColor.style.backgroundColor = "rgba(88,88,88,0.3)";
+
+			bodyColor.addEventListener("click", function(){
+				bodyColor.style.backgroundColor = "";
+				document.getElementById('sandwich').classList.toggle('change');
+				document.querySelector('#side-navigate').classList.toggle('slide');
+			});
 		});
 	}
 	render() {
