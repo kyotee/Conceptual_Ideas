@@ -88,7 +88,7 @@ body, html {
     transition: 1s;
     background: #f1f3f4;
     overflow-x: hidden;
-    top: 4.52em;
+    top: 4.55em;
     bottom: 0;
     z-index: 1;
     font-family: Arial, Calibri, sans-serif;
@@ -145,6 +145,17 @@ body, html {
     transition: 1s;
     left: 0
 }
+
+#inner-body.slide {
+	background-color: rgba(88,88,88,0.3)
+}
+
+body.slide {
+	overflow: hidden
+}
+
+
+
 
 
 

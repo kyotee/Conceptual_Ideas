@@ -1,18 +1,25 @@
 class SandwichNavigation extends React.Component {
 	componentDidMount() {
-		document.getElementById('sandwich').addEventListener("click", function(){
+		var sandwich = document.getElementById('sandwich');
+		var navey = document.querySelector('#side-navigate');
+		var outNavey = document.querySelector('#inner-body');
+		var wholeBody = document.getElementsByTagName('body')[0];
+
+		sandwich.addEventListener("click", function(){
 			this.classList.toggle('change');
-			document.querySelector('#side-navigate').classList.toggle('slide');
+			navey.classList.toggle('slide');
+			outNavey.classList.toggle('slide');
+			wholeBody.classList.toggle('slide');
+		});
 
-			var bodyColor = document.getElementById('inner-body');
-
-			bodyColor.style.backgroundColor = "rgba(88,88,88,0.3)";
-
-			bodyColor.addEventListener("click", function(){
-				bodyColor.style.backgroundColor = "";
-				document.getElementById('sandwich').classList.toggle('change');
-				document.querySelector('#side-navigate').classList.toggle('slide');
-			});
+		outNavey.addEventListener("click", function(){
+			if(navey.classList.contains('slide'))
+			{
+				sandwich.classList.toggle('change');
+				navey.classList.toggle('slide');
+				this.classList.toggle('slide');
+				wholeBody.classList.toggle('slide');
+			}
 		});
 	}
 	render() {
