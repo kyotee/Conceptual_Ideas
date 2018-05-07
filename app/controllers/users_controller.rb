@@ -8,9 +8,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-
     if request.xhr?
+      @user = User.new(user_params)
+
       if @user.save
         flash[:alert] = "Green"
         flash[:notice] = "Successfully created an account."
