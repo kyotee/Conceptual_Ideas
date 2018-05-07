@@ -78,7 +78,7 @@ body, html {
     width: 18em;
     left: -18.25em;
     transition: 1s;
-    background: #e6f3f7;
+    background: white;
     overflow-x: hidden;
     top: 4.55em;
     z-index: 1;
@@ -94,6 +94,7 @@ body, html {
     border: none;
     background: none;
     text-align: left;
+    background: white;
     cursor: pointer;
     outline: none
 }
@@ -104,10 +105,7 @@ body, html {
 
 #side-navigate a:hover,
 #dropdown-content:hover,
-#dropdown-button:hover,
-#side-navigate a:active,
-#dropdown-content:active,
-#dropdown-button:active
+#dropdown-button:hover
  {
     color: #0080ff;
     background-color: rgba(255,255,204,0.6);
@@ -120,7 +118,8 @@ body, html {
 
 #arrow-icon {
     float: right;
-    margin-right: 1.5em
+    margin-right: 1.2em;
+    font-weight: 1000
 }
 
 #dropdown-content {
@@ -132,8 +131,12 @@ body, html {
     background-color: #e3e7ea
 }
 
+.idea-dropdown {
+	height: 0.75em;
+	width: 0.75em
+}
+
 #side-navigate.slide {
-    transition: 1s;
     left: 0
 }
 
@@ -145,7 +148,7 @@ body.slide {
 	overflow: hidden
 }
 
-#login-signup {
+#login-signup, #login-signup-on {
 	float: right;
 	margin-top: 0.85em
 }
@@ -167,6 +170,7 @@ body.slide {
     border-color: #32CD32;
     border-radius: 0.5em;
     background-color: #32CD32;
+    cursor: pointer;
 
     color: white;
     padding: 0.5em 0.7em 0.5em 0.7em;
@@ -180,9 +184,27 @@ body.slide {
 }
 
 #login-signup > p:nth-child(2) {
-	padding-left: 0.8em;
+	padding-left: 1.25em;
 	margin-right: 2em;
-	color: #68838B
+	color: #68838B;
+
+    a:link {
+		color: #68838B
+	}
+	a:visited {
+		color: #68838B
+	}
+}
+
+#login-signup-on > p {
+	margin-right: 2em;
+
+    a:link {
+		color: #68838B
+	}
+	a:visited {
+		color: #68838B
+	}
 }
 
 #messages {

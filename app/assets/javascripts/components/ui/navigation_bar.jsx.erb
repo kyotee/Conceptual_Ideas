@@ -3,18 +3,24 @@ class NavigationBar extends React.Component {
 		document.getElementById('name-container').addEventListener("click", function() {
 			window.location = "/";
 		});
+
+		if (this.props.signedin == false) {
+			document.getElementById('signing-up').addEventListener("click", function() {
+				window.location = "/signup";
+			});
+		}
 	}
 	loggedin() {
 		if(this.props.signedin) {
 			return (
-				<div id="login-signup">
+				<div id="login-signup-on">
 					<p><a href="/logout" data-method="delete">Sign out</a></p>
 				</div>
 			)
 		} else {
 			return (
 				<div id="login-signup">
-					<p><a href="/signup" className="no-link-line">Sign up</a></p>
+					<p id="signing-up">Sign up</p>
 					<p><a href="/login">Sign in</a></p>
 				</div>
 			)

@@ -41,6 +41,15 @@
 	}
 }
 
+#side-navigate.slide {
+	@media screen and (max-width: 767px){
+	    transition: 0.4s
+	}
+	@media screen and (min-width: 768px){
+	    transition: 1s
+	}
+}
+
 #dropdown-button {
 	@media screen and (max-width: 767px){
 	    padding: 0.5em 0 0.5em 1.3em;
