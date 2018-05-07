@@ -73,14 +73,6 @@ body, html {
     transform: rotate(180deg)
 }
 
-
-
-
-
-
-
-
-
 #side-navigate {
 	position: fixed;
     width: 18em;
@@ -89,7 +81,6 @@ body, html {
     background: #f1f3f4;
     overflow-x: hidden;
     top: 4.55em;
-    bottom: 0;
     z-index: 1;
     font-family: Arial, Calibri, sans-serif;
     border-right: 0.25em solid $light-yellow
@@ -153,12 +144,6 @@ body, html {
 body.slide {
 	overflow: hidden
 }
-
-
-
-
-
-
 
 #login-signup {
 	float: right;

@@ -22,6 +22,15 @@
 	}
 }
 
+#side-navigate {
+	@media screen and (max-width: 767px){
+			bottom: -2em
+	}
+	@media screen and (min-width: 768px){
+		    bottom: 0
+	}
+}
+
 #side-navigate a {
 	@media screen and (max-width: 767px){
 	    padding: 0.5em 0 0.5em 1.3em
