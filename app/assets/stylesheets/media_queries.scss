@@ -50,6 +50,13 @@
 	}
 }
 
+#arrow-icon {
+	@media screen and (max-width: 767px){
+	    font-weight: 1000
+	}
+}
+
+
 #dropdown-button {
 	@media screen and (max-width: 767px){
 	    padding: 0.5em 0 0.5em 1.3em;

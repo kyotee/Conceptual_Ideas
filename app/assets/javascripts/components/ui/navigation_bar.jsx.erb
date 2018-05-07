@@ -11,13 +11,7 @@ class NavigationBar extends React.Component {
 		}
 	}
 	loggedin() {
-		if(this.props.signedin) {
-			return (
-				<div id="login-signup-on">
-					<p><a href="/logout" data-method="delete">Sign out</a></p>
-				</div>
-			)
-		} else {
+		if(this.props.signedin == false) {
 			return (
 				<div id="login-signup">
 					<p id="signing-up">Sign up</p>
@@ -29,7 +23,7 @@ class NavigationBar extends React.Component {
 	render() {
 		return (
 			<div id="nav">
-				<SandwichNavigation/>
+				<SandwichNavigation signedin={this.props.signedin} />
 				<div id="name-container">
 					<%= image_tag("idea.svg", :alt => "idea icon", :id => "idea-icon") %>
 					<p id="title1">Conceptual</p>

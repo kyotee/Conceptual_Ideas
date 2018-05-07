@@ -20,6 +20,16 @@ class SandwichNavigation extends React.Component {
 				wholeBody.classList.toggle('slide');
 			}
 		});
+
+		// for mobile support
+		outNavey.addEventListener("touchstart", function() {
+			if(navey.classList.contains('slide')) {
+				sandwich.classList.toggle('change');
+				navey.classList.toggle('slide');
+				this.classList.toggle('slide');
+				wholeBody.classList.toggle('slide');
+			}
+		});
 	}
 	render() {
 		return (
@@ -29,7 +39,7 @@ class SandwichNavigation extends React.Component {
 					<div id="bar2"></div>
 					<div id="bar3"></div>
 				</div>
-				<SideNavigationBar/>
+				<SideNavigationBar signedin={this.props.signedin} />
 			</div>
 		)
 	}

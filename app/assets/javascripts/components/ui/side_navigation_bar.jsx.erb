@@ -5,11 +5,26 @@ class SideNavigationBar extends React.Component {
 			document.querySelector("#arrow-icon").classList.toggle('flip');
 		});
 	}
+	loggedin() {
+		if(this.props.signedin == true) {
+			return (
+				<div>
+					<a className="line-on-it" href="/logout" data-method="delete">Sign out</a>
+				</div>
+			)
+		} else {
+			return (
+				<div>
+					<a href="/signup">Sign up</a>
+					<a className="line-on-it" href="/login">Sign in</a>
+				</div>
+			)
+		}
+	}
 	render() {
 		return (
 			<div id="side-navigate">
-				<a href="/signup">Sign up</a>
-				<a href="/login">Sign in</a>
+				{this.loggedin()}
 				<button id="dropdown-button">Applications
 					<div id="arrow-icon">↑</div>
 				</button>
