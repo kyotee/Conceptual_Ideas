@@ -30,12 +30,12 @@ Application currently utilizes the following methods and technologies:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;secure hashing and salting for sensitive information
 - `SSL from Heroku server`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encrypt packets of information
-- `RSpec; Capybara; Factory Girl`<br>
+- `RSpec; Capybara; Factory Bot`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quality assurance
 - `Selenium (browser based); Poltergeist (headless)`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web testing drivers
 - `Media Queries`<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;responsive web design
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;responsive web design (ex mobile and tablet resolution support)
 - `React; Babel; ES6; Redux; Webpack; Yarn`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaScript libraries with associated syntax and managers
 
@@ -48,7 +48,7 @@ In addition, application currently utilizes the following APIs:
 
 ## <a name="Format"></a>Format
 
-Each feature implemented into this application represents an epic with associated user stories, quality assurance (QA) checklist, and reflection of problems encountered as well as implementation choices. To see this documentation visit: https://drive.google.com/open?id=1aC4IzSaJYS0I-9aukyNbc9CqeaEBEHCb. At the moment the following epics have been implemented with considerations for security and vigorous testing:
+Each feature implemented into this application represents an epic with associated user stories, quality assurance (QA) checklist and reflection of problems encountered as well as implementation choices. To see this documentation visit: https://drive.google.com/open?id=1aC4IzSaJYS0I-9aukyNbc9CqeaEBEHCb. At the moment the following epics have been implemented with considerations for security and vigorous testing:
 
 - `01 - Sign Up and Sign In Form`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intuitive sign up sign in form

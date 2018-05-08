@@ -21,8 +21,6 @@ gem 'react-rails'
 gem 'webpacker-react'
 # ActiveModel for has_secure_password; stores and verifies passwords securely
 gem 'bcrypt',         '3.1.11'
-# Replaces default fixtures in testing
-gem 'factory_girl_rails', '~> 4.0'
 # Write xlsx for creating excel files
 gem 'write_xlsx'
 # jQuery for ajax calls of json client data
@@ -39,7 +37,8 @@ group :development, :test do
   gem 'pry-rails'
   # Replaces default testing (test directory)
   gem 'rspec-rails', '~> 3.6'
-
+  # Replaces default fixtures in testing
+  gem 'factory_bot_rails'
   # Capybara for acceptance testing
   gem 'capybara', '~> 2.13'
   # Head driver for acceptance testing
