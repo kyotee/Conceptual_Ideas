@@ -37,6 +37,7 @@ group :development, :test do
   gem 'pry-rails'
   # Replaces default testing (test directory)
   gem 'rspec-rails', '~> 3.6'
+  gem 'rails-controller-testing'
   # Replaces default fixtures in testing
   gem 'factory_bot_rails'
   # Capybara for acceptance testing
