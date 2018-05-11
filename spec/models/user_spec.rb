@@ -14,7 +14,8 @@ describe User do
 	end
 
 	it "doesn't create an account if existing e-mail is submitted" do
-		expect(build(:user, email: "testuser@gmail.com")).to_not be_valid  # PRE: e-mail already created in DB
+		create(:user, email: "testusers@gmail.com")
+		expect(build(:user, email: "testusers@gmail.com")).to_not be_valid
 	end
 
 	it "doesn't create an account if username is over 12 characters" do
