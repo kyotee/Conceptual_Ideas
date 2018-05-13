@@ -1,6 +1,7 @@
 require 'capybara'
 require 'capybara/poltergeist'
 require 'capybara_process_helper'
+require 'capybara-screenshot/rspec'
 
 include CapybaraProcessHelper
 
@@ -15,8 +16,6 @@ Capybara.configure do |config|
   config.default_max_wait_time = 20
 end
 
-Capybara.javascript_driver = :chrome
-
 RSpec.configure do |config|
   config.before(:each, type: :feature) do
     Capybara.current_session.driver.browser.manage.window.resize_to(1_800, 800)
@@ -24,8 +23,9 @@ RSpec.configure do |config|
 end
 
 # Poltergeist test driver
+# Capybara.default_driver = :poltergeist
+
 # Capybara.configure do |config|
-#   config.javascript_driver = :poltergeist
 #   config.default_max_wait_time = 20
 # end
 

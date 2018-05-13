@@ -42,6 +42,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   # Capybara for acceptance testing
   gem 'capybara', '~> 2.13'
+  gem 'capybara-screenshot'
   # Head driver for acceptance testing
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
