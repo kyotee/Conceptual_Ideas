@@ -84,7 +84,7 @@ feature "Existing User Signs In" do
 		within("div#side-navigate") do
 			expect(page).to have_no_content("Sign up")
 			expect(page).to have_no_content("Sign in")
-			expect(page).to have_no_content("Sign out")
+			expect(page).to have_content("Sign out")
 
 			click_link("signout_link")
 		end
