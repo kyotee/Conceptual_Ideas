@@ -1,30 +1,33 @@
 require 'capybara'
 require 'capybara/poltergeist'
+require 'capybara_process_helper'
+
+include CapybaraProcessHelper
 
 
 # Selenium test driver with Chromium browser
-# Capybara.register_driver :selenium do |app|
-#   Capybara::Selenium::Driver.new(app, :browser => :chrome, args: ["--disable-infobars"])
-# end
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome, args: ["--disable-infobars"])
+end
 
-# Capybara.configure do |config|
-#   config.default_driver = :selenium
-#   config.default_max_wait_time = 20
-# end
-
-# Capybara.javascript_driver = :chrome
-
-# RSpec.configure do |config|
-#   config.before(:each, type: :feature) do
-#     Capybara.current_session.driver.browser.manage.window.resize_to(1_800, 800)
-#   end
-# end
-
-# Poltergeist test driver
 Capybara.configure do |config|
-  config.javascript_driver = :poltergeist
+  config.default_driver = :selenium
   config.default_max_wait_time = 20
 end
+
+Capybara.javascript_driver = :chrome
+
+RSpec.configure do |config|
+  config.before(:each, type: :feature) do
+    Capybara.current_session.driver.browser.manage.window.resize_to(1_800, 800)
+  end
+end
+
+# Poltergeist test driver
+# Capybara.configure do |config|
+#   config.javascript_driver = :poltergeist
+#   config.default_max_wait_time = 20
+# end
 
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration

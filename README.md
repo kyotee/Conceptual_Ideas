@@ -24,6 +24,10 @@ Application currently utilizes the following methods and technologies:
 
 - `Ruby on Rails`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web application framework
+- `Travis CI`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continuous integration service that builds and executes RSpec/Capybara tests (every git push)
+- `Heroku`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;host server for application (must pass their build before every deployment)
 - `Built-in debug method from Ruby on Rails`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intuitive debugging information
 - `Built-in params.require method from Ruby on Rails`<br>
@@ -61,12 +65,12 @@ Each feature implemented into this application represents an epic with associate
 
 ## <a name="Accessibility"></a>Accessibility
 
-To access this application use the following credentials:
+To access this application with administrator privileges use the following credentials:
 
-- `username`<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;admin
+- `e-mail`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;admin@hotmail.com
 - `password`<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;admin
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;admin1
 
 ## <a name="Commitment"></a>Commitment
 
@@ -81,8 +85,8 @@ List of tasks to be completed either concurrently or nonconcurrently with develo
 - <del>`Learn and implement react`</del>
 - <del>`Learn and implement redux`</del>
 - <del>`Learn react routes for potential future use`</del>
-- `Implement (first) model, controller, integration and acceptance tests with RSpec and Capybara`
-- `Investigate and implement a continuous integration tool to run tests when new build executes`
+- <del>`Implement (first) model, controller, integration and acceptance tests with RSpec and Capybara`</del>
+- <del>`Investigate and implement a continuous integration tool to run tests when new build executes`</del>
 
 ## <a name="Questions-or-Concerns"></a>Questions or Concerns
 
