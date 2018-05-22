@@ -1,4 +1,6 @@
-<% provide(:title, 'Home') %>
+<% provide(:title, 'Account') %>
 
 <%= gravatar_for @user %>
 <%= @user.name %>, <%= @user.email %>
+
+<%= link_to "Change Password", edit_user_path(current_user) %>

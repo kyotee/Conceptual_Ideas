@@ -120,32 +120,31 @@ class SignupSigninForm extends React.Component {
 			});
 		}
 	}
-	componentDidMount() {
-		function colorChanger(id1, id2, id3, color) {
-			if (color == "Blue") {
-				id1.style.borderColor = "#00aced";
-				id2.style.color = "#0080ff";
-				id3.style.display = "inline";
-			} else {
-				id1.style.borderColor = "#32CD32";
-				id2.style.color = "#32CD32";
-				id3.style.display = "none";
-			}
-
+	colorChanger(id1, id2, id3, color) {
+		if (color == "Blue") {
+			id1.style.borderColor = "#00aced";
+			id2.style.color = "#0080ff";
+			id3.style.display = "inline";
+		} else {
+			id1.style.borderColor = "#32CD32";
+			id2.style.color = "#32CD32";
+			id3.style.display = "none";
 		}
 
+	}
+	componentDidMount() {
 		if(this.props.formType == "Sign up") {
 			this.signupEventListener('verify-name-input', 'click keyup paste', function() {
 				var verifyNameInput = document.getElementById('verify-name-input');
 				var verifyNameColor = document.getElementsByClassName('verify-name')[0];
 				var verifyNameDisplay = document.getElementsByClassName('verify-name')[1];
 
-				colorChanger(verifyNameInput, verifyNameColor, verifyNameDisplay, "Blue");
+				this.colorChanger(verifyNameInput, verifyNameColor, verifyNameDisplay, "Blue");
 
 				var nameLength = verifyNameInput.value.length;
 
 				if (nameLength > 0 && nameLength <= 12) {
-					colorChanger(verifyNameInput, verifyNameColor, verifyNameDisplay, "Green");
+					this.colorChanger(verifyNameInput, verifyNameColor, verifyNameDisplay, "Green");
 
 					this.buttonValidChecker();
 				}
@@ -159,13 +158,13 @@ class SignupSigninForm extends React.Component {
 				var verifyEmailDisplay = document.getElementsByClassName('verify-email')[1];
 
 			if(this.props.formType == "Sign up") {
-				colorChanger(verifyEmailInput, verifyEmailColor, verifyEmailDisplay, "Blue");
+				this.colorChanger(verifyEmailInput, verifyEmailColor, verifyEmailDisplay, "Blue");
 
 				var emailValue = verifyEmailInput.value;
 				var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	    	
 	    		if (re.test(String(emailValue)) && emailValue.length > 0 && emailValue.length < 40) {
-					colorChanger(verifyEmailInput, verifyEmailColor, verifyEmailDisplay, "Green");
+					this.colorChanger(verifyEmailInput, verifyEmailColor, verifyEmailDisplay, "Green");
 
 					this.buttonValidChecker();
 	    		}
@@ -189,7 +188,7 @@ class SignupSigninForm extends React.Component {
 				var verifyPasswordDisplay = document.getElementsByClassName('verify-password')[1];
 
 			if(this.props.formType == "Sign up") {
-				colorChanger(verifyPasswordInput, verifyPasswordColor, verifyPasswordDisplay, "Blue");
+				this.colorChanger(verifyPasswordInput, verifyPasswordColor, verifyPasswordDisplay, "Blue");
 
 				var passwordLength = verifyPasswordInput.value.length;
 
@@ -209,7 +208,7 @@ class SignupSigninForm extends React.Component {
 				}
 
 				if(passwordLength >= 6 && passwordLength <= 12) {
-					colorChanger(verifyPasswordInput, verifyPasswordColor, verifyPasswordDisplay, "Green");
+					this.colorChanger(verifyPasswordInput, verifyPasswordColor, verifyPasswordDisplay, "Green");
 
 					this.buttonValidChecker();				
 				}
@@ -233,13 +232,13 @@ class SignupSigninForm extends React.Component {
 				var verifyPasswordConfColor = document.getElementsByClassName('verify-password-confirm')[0];
 				var verifyPasswordConfDisplay = document.getElementsByClassName('verify-password-confirm')[1];
 
-				colorChanger(verifyPasswordConfInput, verifyPasswordConfColor, verifyPasswordConfDisplay, "Blue");
+				this.colorChanger(verifyPasswordConfInput, verifyPasswordConfColor, verifyPasswordConfDisplay, "Blue");
 
 				var passwordVerValue = verifyPasswordConfInput.value;
 
 				// case where new confirm password field == password field
 				if (document.getElementById('verify-password-input').value == passwordVerValue && passwordVerValue != "") {
-					colorChanger(verifyPasswordConfInput, verifyPasswordConfColor, verifyPasswordConfDisplay, "Green");
+					this.colorChanger(verifyPasswordConfInput, verifyPasswordConfColor, verifyPasswordConfDisplay, "Green");
 
 					this.buttonValidChecker();			
 				}
