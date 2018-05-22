@@ -7,13 +7,12 @@ class SessionsController < ApplicationController
       user = User.find_by(email: user_signin_params[:email].downcase)
       
       if user && user.authenticate(user_signin_params[:password])
-        # flash[:alert] = "Blue"
-        # flash[:notice] = "Welcome back #{user[:name]}."
+        flash[:alert] = "Blue"
+        flash[:notice] = "Welcome back #{user[:name]}."
 
       	log_in user
         remember user
         redirect_to user
-        # redirect_to root_url
       else
         flash[:alert] = "Red"
         flash[:notice] = "Invalid credentials submitted."

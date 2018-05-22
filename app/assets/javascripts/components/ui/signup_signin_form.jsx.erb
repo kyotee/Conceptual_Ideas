@@ -34,80 +34,7 @@ class SignupSigninForm extends React.Component {
 				buttonColor.style.transition = "transform .0.5s";
 				buttonColor.style.transform = "scale(1)";
 			});
-
-			var submission = function() {
-				if (this.props.formType == "Sign up") {
-					userCredentials = {
-						user: {
-							  name: document.getElementById('verify-name-input').value,
-							  email: document.getElementById('verify-email-input').value,
-							  password: document.getElementById('verify-password-input').value,
-							  password_confirmation: document.getElementById('verify-password-confirm-input').value
-							}
-					};
-
-					$.ajax({
-						type: "POST",
-						url: "/signup",
-						data: userCredentials,
-						success: function(data, textStatus, jqXHR) {
-							console.log("User creation; submission successful.");
-						},
-						error: function(jqXHR, textStatus, errorThrown) {
-							console.log("User creation; submission unsuccessful.");
-						}
-					});
-				}
-				else {
-					userCredentials = {
-						userLogin: {
-							  email: document.getElementById('verify-email-input').value,
-							  password: document.getElementById('verify-password-input').value
-							}
-					};
-
-					$.ajax({
-						type: "POST",
-						url: "/login",
-						data: userCredentials,
-						success: function(data, textStatus, jqXHR) {
-							console.log("User login; submission successful.");
-						},
-						error: function(jqXHR, textStatus, errorThrown) {
-							console.log("User login; submission unsuccessful.");
-						}
-					});
-				}
-			}.bind(this);
-
-			// deal with enter key submission
-			function sharedSubmission(e) {
-				var key = e.which || e.keyCode;
-
-				if (e.keyCode == 13)
-					submission();
-			};
-
-			if (this.props.formType == "Sign up") {
-				document.getElementById('verify-name-input').addEventListener("keypress", function(e) {
-					sharedSubmission(e);
-				});
-
-				document.getElementById('verify-password-confirm-input').addEventListener("keypress", function(e) {
-					sharedSubmission(e);
-				});
-			}
-			
-			document.getElementById('verify-email-input').addEventListener("keypress", function(e) {
-				sharedSubmission(e);
-			});
-			document.getElementById('verify-password-input').addEventListener("keypress", function(e) {
-				sharedSubmission(e);
-			});
-
-			buttonColor.addEventListener('click', submission);
-		}
-		else {
+		} else {
 			buttonColor.style.color = "#68838B";
 			buttonColor.style.backgroundColor = "#D3D3D3";
 			buttonColor.addEventListener('mouseover', function() {
@@ -246,6 +173,87 @@ class SignupSigninForm extends React.Component {
 					this.buttonValidChecker();
 			}.bind(this));
 		}
+
+		var submission = function() {
+			if (this.props.formType == "Sign up") {
+				userCredentials = {
+					user: {
+						  name: document.getElementById('verify-name-input').value,
+						  email: document.getElementById('verify-email-input').value,
+						  password: document.getElementById('verify-password-input').value,
+						  password_confirmation: document.getElementById('verify-password-confirm-input').value
+						}
+				};
+
+				if (userCredentials.user.name == "" || 
+					userCredentials.user.email == "" || 
+					userCredentials.user.password == "" || 
+					userCredentials.user.password_confirmation == "") 
+					return;
+
+				$.ajax({
+					type: "POST",
+					url: "/signup",
+					data: userCredentials,
+					success: function(data, textStatus, jqXHR) {
+						console.log("User creation; submission successful.");
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						console.log("User creation; submission unsuccessful.");
+					}
+				});
+			}
+			else {
+				userCredentials = {
+					userLogin: {
+						  email: document.getElementById('verify-email-input').value,
+						  password: document.getElementById('verify-password-input').value
+						}
+				};
+
+				if (userCredentials.userLogin.email == "" || userCredentials.userLogin.password == "")
+					return;
+
+				$.ajax({
+					type: "POST",
+					url: "/login",
+					data: userCredentials,
+					success: function(data, textStatus, jqXHR) {
+						console.log("User login; submission successful.");
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						console.log("User login; submission unsuccessful.");
+					}
+				});
+			}
+		}.bind(this);
+
+		// deal with enter key submission
+		function sharedSubmission(e) {
+			var key = e.which || e.keyCode;
+
+			if (e.keyCode == 13)
+				submission();
+		};
+
+		if (this.props.formType == "Sign up") {
+			document.getElementById('verify-name-input').addEventListener("keypress", function(e) {
+				sharedSubmission(e);
+			});
+
+			document.getElementById('verify-password-confirm-input').addEventListener("keypress", function(e) {
+				sharedSubmission(e);
+			});
+		}
+		
+		document.getElementById('verify-email-input').addEventListener("keypress", function(e) {
+			sharedSubmission(e);
+		});
+		document.getElementById('verify-password-input').addEventListener("keypress", function(e) {
+			sharedSubmission(e);
+		});
+
+		document.getElementById('accept-button').addEventListener('click', submission);
 	}
 	signUpForm() {
 		return (
