@@ -18,4 +18,5 @@ Rails.application.routes.draw do
 
   # user application named routes
   get '/image_difference', to: 'image_difference#index'
+  get '/image_difference_generate', to: 'image_difference#show'
 end
