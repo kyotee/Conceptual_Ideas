@@ -2,36 +2,37 @@ source 'https://rubygems.org'
 
 # Ruby on Rails version
 gem 'rails', '~> 5.1.4'
-# Puma as the app server
+# Application server
 gem 'puma', '~> 3.7'
-# SCSS for stylesheets
+# SCSS
 gem 'sass-rails', '~> 5.0'
-# Uglifier as compressor for JavaScript assets
+# Compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# Turbolinks for navigating your web application faster
+# Navigating your web application faster
 gem 'turbolinks', '~> 5'
-# JSON for building APIs with ease
+# Building APIs with ease (JSON)
 gem 'jbuilder', '~> 2.5'
-# I18n for localization ('L'+10+'n' and 'I'+18+'n'
+# Localization ('L'+10+'n') and Internationalization ('I'+18+'n')
 gem 'rails-i18n'
 # Use and manage React components 
 gem 'react-rails'
 gem 'webpacker-react'
-# ActiveModel for has_secure_password; stores and verifies passwords securely
-gem 'bcrypt',         '3.1.11'
-# Write xlsx for creating excel files
+# Stores and verifies passwords securely
+gem 'bcrypt', '3.1.11'
+# Creating excel files
 gem 'write_xlsx'
-# jQuery for ajax calls of json client data
+# Ajax calls with json client data
 gem 'jquery-rails'
-
+# Read and write PNG images
+gem 'chunky_png'
 
 # Gems belonging to both development and test environment
 group :development, :test do
-  # Database for Active Record
+  # Database of Active Record
   gem 'sqlite3'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Stop execution and get a debugger console (call 'byebug')
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Call 'pry-rails' anywhere in Capybara acceptance test code to stop execution for manual debugging
   gem 'pry-rails'
@@ -40,7 +41,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   # Replaces default fixtures in testing
   gem 'factory_bot_rails'
-  # Capybara for acceptance testing
+  # Acceptance testing
   gem 'capybara', '~> 2.13'
   gem 'capybara-screenshot'
   # Head driver for acceptance testing
@@ -49,7 +50,6 @@ group :development, :test do
   # Headless driver for acceptance testing
   gem 'poltergeist'
 end
-
 
 # Gems belonging to only development environment
 group :development do
@@ -60,7 +60,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
 
 # Gems belonging to only production environment
 group :production do

@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  # user application named routes
+  get '/image_difference', to: 'image_difference#index'
 end
