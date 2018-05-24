@@ -44,13 +44,20 @@ class ImageDifferenceController < ApplicationController
 	    }
 
 	    absMaxYMin = absMaxYMin.sort
+	    # localXMin = 0
+	    localYMin = absMaxYMin[0]
 
 	    # y-axis tolerance set of 15 pixels
 	    absMaxYMin.each_with_index { |y, yIndex|
 	    	if (absMaxYMin[yIndex+1] != nil && y+15 < absMaxYMin[yIndex+1]) || y == absMaxYMin[-1]
-			    screenshots.last.rect(xMin, absMaxYMin.min, xValue[0], absMaxYMin.max, ChunkyPNG::Color.rgb(0,225,255))
-			    screenshots.last.rect(xMin-2, absMaxYMin.min-2, xValue[0]+2, absMaxYMin.max+2, ChunkyPNG::Color.rgb(0,225,255))
-			    xIncrement = 0   # need to be manipulated
+			    screenshots.last.rect(xMin, localYMin, xValue[0], y, ChunkyPNG::Color.rgb(0,225,255))
+			    screenshots.last.rect(xMin-2, localYMin-2, xValue[0]+2, y+2, ChunkyPNG::Color.rgb(0,225,255))
+
+	    		if y == absMaxYMin[-1]
+					xIncrement = 0
+				else
+					localYMin = absMaxYMin[yIndex+1]
+	    		end
 	    	end
 	    }
 	  end
