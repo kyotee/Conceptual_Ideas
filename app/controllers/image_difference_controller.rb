@@ -36,26 +36,46 @@ class ImageDifferenceController < ApplicationController
 
 	  # x-axis tolerance set to 15 pixels
 	  if (pixelHolder[xIndex+1] != nil && xValue[0]+15 < pixelHolder[xIndex+1][0]) || xValue[0] == pixelHolder[-1][0]
-	    absMaxYMin = []
+	  	absMaxYMin = []
 	    absMaxMin = pixelHolder[xMinIndex .. xIndex]
 
 	    absMaxMin.each { |y|
 	      absMaxYMin.push(y[1])
 	    }
 
-	    absMaxYMin = absMaxYMin.sort
-	    # localXMin = 0
+	    absMaxYMin = absMaxYMin.sort.uniq
+
+	    localXMin = xMin
+	    localXMax = xValue[0]
 	    localYMin = absMaxYMin[0]
 
 	    # y-axis tolerance set of 15 pixels
 	    absMaxYMin.each_with_index { |y, yIndex|
 	    	if (absMaxYMin[yIndex+1] != nil && y+15 < absMaxYMin[yIndex+1]) || y == absMaxYMin[-1]
-			    screenshots.last.rect(xMin, localYMin, xValue[0], y, ChunkyPNG::Color.rgb(0,225,255))
-			    screenshots.last.rect(xMin-2, localYMin-2, xValue[0]+2, y+2, ChunkyPNG::Color.rgb(0,225,255))
-
 	    		if y == absMaxYMin[-1]
 					xIncrement = 0
 				else
+					pixelHolder.each_with_index { |arr, idx|
+						if arr[1] == localYMin
+							localXMin = arr[0]
+
+							localxMinMaxFind = pixelHolder[idx .. -1]
+							localxMinMaxFind.each { |arr1|
+								if arr1[1] == y
+									localXMax = arr1[0]
+									break
+								end
+							}
+
+							break
+						end
+					}
+				end
+
+			    screenshots.last.rect(localXMin, localYMin, localXMax, y, ChunkyPNG::Color.rgb(0,225,255))
+			    screenshots.last.rect(localXMin-2, localYMin-2, localXMax+2, y+2, ChunkyPNG::Color.rgb(0,225,255))
+
+			    if y != absMaxYMin[-1]
 					localYMin = absMaxYMin[yIndex+1]
 	    		end
 	    	end
