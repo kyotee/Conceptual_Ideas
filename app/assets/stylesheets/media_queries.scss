@@ -134,3 +134,58 @@
 		padding: 2.5em 8em 8em 8em
 	}
 }
+
+.app-title-space {
+	@media screen and (max-width: 767px){
+		text-align: center
+	}
+}
+
+.idea-icon-title {
+	@media screen and (max-width: 767px){
+		width: 1em;
+		height: 1em;
+		float: left;
+		padding-right: 0.5em
+	}
+	@media screen and (min-width: 768px){
+		width: 2em;
+		height: 2em;
+		float: left;
+		padding-right: 0.75em
+	}
+}
+
+.app-title-space {
+	@media screen and (max-width: 767px){
+		text-align: center
+	}
+}
+
+.app-titles {
+	@media screen and (max-width: 767px){
+		display: inline-block
+	}
+}
+
+.app-title {
+	@media screen and (max-width: 767px){
+		float: right
+	}
+	@media screen and (min-width: 768px){
+		font-size: x-large
+	}
+}
+
+.img-lining {
+	@media screen and (max-width: 767px){
+		display: block;
+		height: 50%;
+		width: 80%
+	}
+	@media screen and (min-width: 768px){
+		display: inline-block;
+		height: 30%;
+		width: 40%
+	}
+}

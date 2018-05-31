@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   # user application named routes
-  get '/image_difference', to: 'image_difference#index'
-  get '/image_difference_generate', to: 'image_difference#show'
+  get '/image_differences', to: 'image_differences#index'
+  get '/image_differences_generate', to: 'image_differences#show'
 end

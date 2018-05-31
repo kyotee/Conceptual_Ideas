@@ -1,4 +1,4 @@
-class ImageDifferenceController < ApplicationController
+class ImageDifferencesController < ApplicationController
   def index
 	screenshots = [
 	  ChunkyPNG::Image.from_file('app/assets/images/before_epic.png'),
