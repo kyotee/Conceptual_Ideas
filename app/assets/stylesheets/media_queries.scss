@@ -179,23 +179,29 @@
 
 .img-lining {
 	@media screen and (max-width: 767px){
+		h2 {
+			font-size: 105%
+		}
+	}
+	@media screen and (max-width: 1100px){
 		display: block;
+		width: 80%;
+		text-align: center;
+		margin: 1em auto;
 
 		img {
 			height: 50%;
 			width: 80%
 		}
 	}
-	@media screen and (min-width: 768px){
+	@media screen and (min-width: 1101px){
 		display: inline-block;
 		width: 45%;
 		margin: 0.5em 1em 0 1em;
-		text-align: left;
 
 		img {
 			height: 50%;
 			width: 95%;
-			padding-left: 0.9em;
 
 			&:hover {
 				opacity: 0.65;
@@ -208,11 +214,13 @@
 		}
 
 		h2 {
-			padding-left: 0.6em
+			padding-left: 0.6em;
+			text-align: left
 		}
 
 		p {
-			padding-left: 1em
+			padding-left: 1em;
+			text-align: left
 		}
 	}
 }
