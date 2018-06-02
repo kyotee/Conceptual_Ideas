@@ -1,0 +1,30 @@
+class ImageDifferences extends React.Component {
+	componentDidMount() {
+		
+	}
+	render() {
+		return (
+			<div>
+				<div className="app-title-space">
+					<div className="app-titles">
+						<%= image_tag("idea.svg", :alt => "idea icon", :class => "idea-icon-title") %>
+						<p className="app-title">Image Differences</p>
+					</div>
+				</div>
+
+				<div id="img-compare">
+					<div className="img-lining">
+						<h2>Before Epic</h2>
+						<%= image_tag("before_epic.png", :alt => "before epic screenshot") %>
+						<p>Sign up page before epic.</p>
+					</div>
+					<div className="img-lining">
+						<h2>After Epic</h2>
+						<%= image_tag("after_epic.png", :alt => "after epic screenshot") %>
+						<p>Sign up page after epic.</p>
+					</div>
+				</div>
+			</div>
+		)
+	}
+}
