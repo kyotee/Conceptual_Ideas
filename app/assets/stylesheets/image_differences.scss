@@ -27,3 +27,37 @@
 		color: #0080ff
 	}
 }
+
+#img-button {
+	width: 20em;
+   	border-radius: 0.5em;
+	border-style: solid;
+	margin-top: 3em;
+	height: 3em !important;
+	outline: none;
+	font-size: 1em;
+	color: white;
+	background-color: rgb(50, 205, 50);
+	margin-bottom: 1.75em;
+	cursor: pointer
+}
+
+#img-1, #img-2 {
+	transition-duration: 0.8s
+}
+
+#img-diff-contain {
+	height: 75vh;
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	right: 5%;
+	bottom: 5%;
+	z-index: 1;
+	display: none
+}
+
+#img-1-full {
+	max-width: 100%;
+	height: auto;
+}

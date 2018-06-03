@@ -1,6 +1,9 @@
 class ImageDifferences extends React.Component {
 	componentDidMount() {
-		
+		document.getElementById('img-1').addEventListener('click', function() {
+			document.getElementById('img-diff-contain').style.display = "block";
+			// load images below outside inner div ... when click we will enlarge and etc
+		});
 	}
 	render() {
 		return (
@@ -11,18 +14,21 @@ class ImageDifferences extends React.Component {
 						<p className="app-title">Image Differences</p>
 					</div>
 				</div>
-
 				<div id="img-compare">
 					<div className="img-lining">
 						<h2>Before Epic</h2>
-						<%= image_tag("before_epic.png", :alt => "before epic screenshot") %>
+						<%= image_tag("before_epic.png", :alt => "before epic screenshot", :id => "img-1") %>
 						<p>Sign up page before epic.</p>
 					</div>
 					<div className="img-lining">
 						<h2>After Epic</h2>
-						<%= image_tag("after_epic.png", :alt => "after epic screenshot") %>
+						<%= image_tag("after_epic.png", :alt => "after epic screenshot", :id => "img-2") %>
 						<p>Sign up page after epic.</p>
 					</div>
+					<button id="img-button">Detect Differences</button>
+				</div>
+				<div id="img-diff-contain">
+					<%= image_tag("before_epic.png", :alt => "before epic screenshot", :id => "img-1-full") %>
 				</div>
 			</div>
 		)
