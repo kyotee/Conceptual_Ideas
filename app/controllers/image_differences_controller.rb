@@ -1,5 +1,17 @@
 class ImageDifferencesController < ApplicationController
   def index
+  end
+
+  def show
+  	# delayed job option:
+  	# - call: Image.delay.detect_difference (detect_difference and difference_generate
+  	#         is the same code
+  	# - need to add "worker: rake jobs:work" to Procfile
+  	# - need to install: gem 'delayed_job_active_record'
+    # - need to isntall: gem 'daemons'
+  end
+
+  def difference_generate
 	screenshots = [
 	  ChunkyPNG::Image.from_file('app/assets/images/before_epic.png'),
 	  ChunkyPNG::Image.from_file('app/assets/images/after_epic.png')
@@ -81,6 +93,5 @@ class ImageDifferencesController < ApplicationController
 	screenshots.last.save('app/assets/images/difference_of_epic.png')
   end
 
-  def show
-  end
+  # handle_asynchronously :difference_generate
 end

@@ -135,16 +135,83 @@ body, html {
 	width: 0.75em
 }
 
+.icon-dropdown {
+	height: 0.85em;
+	width: 0.85em
+}
+
+.loading-container {
+	position: relative;
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.loading-idea {
+	margin: -3.7em auto;
+	height: 1.5em;
+	width: 1.5em;
+	animation: pulse 0.5s infinite;
+	display: table;
+	animation-direction: alternate;
+	-webkit-animation-name: loading-idea;
+	animation-name: loading-idea
+}
+
+@-webkit-keyframes loading-idea {
+  0% {
+    -webkit-transform: scale(1)
+  }
+  50% {
+    -webkit-transform: scale(1.1)
+  }
+  100% {
+    -webkit-transform: scale(1)
+  }
+}
+
+@keyframes loading-idea {
+  0% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.1)
+  }
+  100% {
+    transform: scale(1)
+  }
+}
+
 #side-navigate.slide {
     left: 0
 }
 
 #inner-body.slide {
-	background-color: rgba(88,88,88,0.3)
+	background-color: rgba(88,88,88,0.3);
+	opacity: 0.3
 }
 
 body.slide {
 	overflow: hidden
+}
+
+#github {
+	height: 2em;
+	width: 5em;
+	opacity: 0.3;
+	padding-left: 2.2em;
+	cursor: pointer
 }
 
 #login-signup, #login-signup-on {
@@ -242,6 +309,15 @@ body.slide {
     color: #68838B;
     opacity: 0.6;
     font-family: $default-fonts;
+    width: 100%;
+
+    #footer-links {
+    	float: left;
+
+    	p {
+    		display: inline
+    	}
+    }
 
     #references {
     	background: #D3D3D3;
@@ -327,4 +403,5 @@ body.slide {
 	background-color: #7EC0EE;
 	opacity: 0.3;
 	border-radius: 0.5em;
+	cursor: pointer
 }

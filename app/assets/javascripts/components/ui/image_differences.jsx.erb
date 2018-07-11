@@ -1,9 +1,57 @@
 class ImageDifferences extends React.Component {
 	componentDidMount() {
+		var outNavey = document.querySelector('#inner-body');
+		var wholeBody = document.getElementsByTagName('body')[0];
+
 		document.getElementById('img-1').addEventListener('click', function() {
-			document.getElementById('img-diff-contain').style.display = "block";
-			// load images below outside inner div ... when click we will enlarge and etc
+			document.getElementById('img-diff-contain-1').style.display = "block";
+			outNavey.classList.toggle('slider');
+			wholeBody.classList.toggle('slider');
 		});
+
+		document.getElementById('img-2').addEventListener('click', function() {
+			document.getElementById('img-diff-contain-2').style.display = "block";
+			outNavey.classList.toggle('slider');
+			wholeBody.classList.toggle('slider');
+		});
+
+		if (document.getElementById('img-button') != null)
+			document.getElementById('img-button').addEventListener('click', function() {
+				window.location = "/image_differences_generate";
+			});
+
+
+
+
+		// var image01 = document.getElementById("img-1");
+		// var outNavey = document.querySelector('#inner-body');
+		// var wholeBody = document.getElementsByTagName('body')[0];
+
+		// image01.addEventListener("click", function() {
+		// 	outNavey.classList.toggle('slider');
+		// 	wholeBody.classList.toggle('slider');
+		// });
+
+
+
+
+	}
+	index_checker() {
+		if(this.props.index == true) {
+			return (
+				<div>
+					<button id="img-button">Detect Differences</button>
+				</div>
+			)
+		}
+		else {
+			return (
+				<div>
+					<br/><br/>
+					<Loadinggif />
+				</div>
+			)
+		}
 	}
 	render() {
 		return (
@@ -25,10 +73,15 @@ class ImageDifferences extends React.Component {
 						<%= image_tag("after_epic.png", :alt => "after epic screenshot", :id => "img-2") %>
 						<p>Sign up page after epic.</p>
 					</div>
-					<button id="img-button">Detect Differences</button>
+					{this.index_checker()}
 				</div>
-				<div id="img-diff-contain">
-					<%= image_tag("before_epic.png", :alt => "before epic screenshot", :id => "img-1-full") %>
+				<div id="img-diff-contain-1">
+					<%= image_tag("before_epic.png", :alt => "before epic screenshot", :class => "img-full") %>
+					<div id="exit-img-1">X</div>
+				</div>
+				<div id="img-diff-contain-2">
+					<%= image_tag("after_epic.png", :alt => "before epic screenshot", :class => "img-full") %>
+					<div id="exit-img-2">X</div>				
 				</div>
 			</div>
 		)

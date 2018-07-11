@@ -224,3 +224,18 @@
 		}
 	}
 }
+
+#exit-img-1, #exit-img-2 {
+	@media screen and (max-width: 767px){
+		width: 0.25em;
+		height: 0.25em;
+		font-size: 1.5em;
+		right: -2vh;
+	}
+	@media screen and (min-width: 768px){
+		width: 1em;
+		height: 1em;
+		font-size: 3em;
+		right: -9vh;
+	}
+}

@@ -65,6 +65,7 @@ feature "Existing User Signs In" do
 	end
 
 	scenario "side navigation should have sign up and sign in links" do
+		sleep(2)
 		go_to_side_navigation
 
 		within("div#side-navigate") do

@@ -1,9 +1,23 @@
 class UserApplications extends React.Component {
 	applicationBoxes() {
+		const apps = {
+			app1: {
+				name: "Hello",
+				image: "hello",
+				description: "ello",
+				route: "llo"
+			},
+			app2: {
+				name: "Hello",
+				image: "hello",
+				description: "ello",
+				route: "llo"
+			}	
+		};
 		var boxes = [];
 
 		for (var index = 0; index < 20; index++) {
-			boxes.push(<div className="boxes" num={index}>{index}</div>);
+			boxes.push(<div className="boxes" num={index} key={index}>{apps.app1.route}</div>);
 		}
 
 		return boxes;
