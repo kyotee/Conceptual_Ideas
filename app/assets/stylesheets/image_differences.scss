@@ -75,3 +75,16 @@ $img-fonts: Helvetica, Arial, sans-serif;
 	color: white;
 	cursor: pointer
 }
+
+#difference-result {
+	max-width: 100%;
+	height: auto;
+	display: none;
+    -webkit-animation: fadein 2s;
+	animation: fadein 2s
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

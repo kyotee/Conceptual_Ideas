@@ -68,6 +68,12 @@ class ImageDifferences extends React.Component {
 		} else {
 		    var elmnt = document.getElementsByClassName("loading-container")[0];
 		    elmnt.scrollIntoView();
+
+			setTimeout(
+			function() {
+				document.getElementsByClassName("loading-container")[0].style.display = "none";
+				document.getElementById("difference-result").style.display = "block";
+			}, 4500);
 		}
 	}
 	index_checker() {
@@ -117,6 +123,7 @@ class ImageDifferences extends React.Component {
 					<%= image_tag("after_epic.png", :alt => "after epic screenshot", :class => "img-full") %>
 					<div id="exit-img-2">Ⓧ</div> 				
 				</div>
+				<%= image_tag("difference_of_epic.png", :alt => "difference epic screenshot", :id => "difference-result") %>	
 			</div>
 		)
 	}
