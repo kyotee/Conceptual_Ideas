@@ -51,32 +51,27 @@ $img-fonts: Helvetica, Arial, sans-serif;
 
 #img-diff-contain-1, #img-diff-contain-2 {
 	position: absolute;
-	top: 50vh;
-	left: 8%;
-	right: 8%;
-	transform: translateY(-50%);
+	bottom: 6em;
+	max-width: 100%;
+	height: auto;
+	width: auto;
 	z-index: 1;
 	display: none
 }
 
 .img-full {
 	max-width: 100%;
-	height: auto;
-
+	height: auto
 }
 
-#inner-body.slider:not([name="epic-screen-1"]) {
-	background-color: rgba(88,88,88,0.3);
-}
-
-body.slider {
-	overflow: hidden
+#inner-body.slider {
+	background-color: rgba(88,88,88,0.3)
 }
 
 #exit-img-1, #exit-img-2 {
 	position: absolute; 
 	font-family: $img-fonts;
 	top: 0em;
-	color: #0080ff;
+	color: white;
 	cursor: pointer
 }

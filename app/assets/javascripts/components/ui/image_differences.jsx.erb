@@ -2,39 +2,40 @@ class ImageDifferences extends React.Component {
 	componentDidMount() {
 		var outNavey = document.querySelector('#inner-body');
 		var wholeBody = document.getElementsByTagName('body')[0];
+		var img1 = document.getElementById('img-1');
+		var img2 = document.getElementById('img-2');
 
-		document.getElementById('img-1').addEventListener('click', function() {
+		img1.addEventListener('click', function() {
 			document.getElementById('img-diff-contain-1').style.display = "block";
+			img1.style.opacity = "0.3";
+			img2.style.opacity = "0.3";
 			outNavey.classList.toggle('slider');
 			wholeBody.classList.toggle('slider');
 		});
 
-		document.getElementById('img-2').addEventListener('click', function() {
+		img2.addEventListener('click', function() {
 			document.getElementById('img-diff-contain-2').style.display = "block";
+			img1.style.opacity = "0.3";
+			img2.style.opacity = "0.3";
 			outNavey.classList.toggle('slider');
 			wholeBody.classList.toggle('slider');
+		});
+
+		outNavey.addEventListener("mousedown", function(e) {
+			if(this.classList.contains('slider') && !document.getElementById('img-diff-contain-1').contains(e.target)) {
+				outNavey.classList.toggle('slider');
+				wholeBody.classList.toggle('slider');
+				document.getElementById('img-diff-contain-1').style.display = "none";
+				document.getElementById('img-diff-contain-2').style.display = "none";
+				img1.style.opacity = "";
+				img2.style.opacity = "";
+			}
 		});
 
 		if (document.getElementById('img-button') != null)
 			document.getElementById('img-button').addEventListener('click', function() {
 				window.location = "/image_differences_generate";
 			});
-
-
-
-
-		// var image01 = document.getElementById("img-1");
-		// var outNavey = document.querySelector('#inner-body');
-		// var wholeBody = document.getElementsByTagName('body')[0];
-
-		// image01.addEventListener("click", function() {
-		// 	outNavey.classList.toggle('slider');
-		// 	wholeBody.classList.toggle('slider');
-		// });
-
-
-
-
 	}
 	index_checker() {
 		if(this.props.index == true) {
@@ -77,11 +78,11 @@ class ImageDifferences extends React.Component {
 				</div>
 				<div id="img-diff-contain-1">
 					<%= image_tag("before_epic.png", :alt => "before epic screenshot", :class => "img-full") %>
-					<div id="exit-img-1">X</div>
+					<div id="exit-img-1">Ⓧ</div>
 				</div>
 				<div id="img-diff-contain-2">
-					<%= image_tag("after_epic.png", :alt => "before epic screenshot", :class => "img-full") %>
-					<div id="exit-img-2">X</div> 				
+					<%= image_tag("after_epic.png", :alt => "after epic screenshot", :class => "img-full") %>
+					<div id="exit-img-2">Ⓧ</div> 				
 				</div>
 			</div>
 		)
