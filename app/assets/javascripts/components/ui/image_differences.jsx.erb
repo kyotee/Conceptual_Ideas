@@ -1,55 +1,59 @@
 class ImageDifferences extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.focusView = this.focusView.bind(this);
+		this.focusOut = this.focusOut.bind(this);
+	}
+	focusView(imgLrg, img1, img2, imgRes, innerBody, body) {
+	    document.body.scrollTop = 0;
+	    document.documentElement.scrollTop = 0;
+		imgLrg.style.display = "block";
+		img1.style.opacity = "0.3";
+		img2.style.opacity = "0.3";
+		imgRes.style.opacity = "0.3";
+		innerBody.classList.toggle('slider');
+		body.classList.toggle('slide');
+	}
+	focusOut(innerBody, body, imgLrg1, imgLrg2, img1, img2, imgLrgResult) {
+		innerBody.classList.toggle('slider');
+		body.classList.toggle('slide');
+		imgLrg1.style.display = "none";
+		imgLrg2.style.display = "none";
+		img1.style.opacity = "";
+		img2.style.opacity = "";
+		imgLrgResult.style.opacity = "";
+	}
 	componentDidMount() {
 		var outNavey = document.querySelector('#inner-body');
 		var wholeBody = document.getElementsByTagName('body')[0];
 		var img1 = document.getElementById('img-1');
 		var img2 = document.getElementById('img-2');
+		var beforeImg1 = document.getElementById('img-diff-contain-1');
+		var afterImg2 = document.getElementById('img-diff-contain-2');
 		var detectButton = document.getElementById('img-button');
+		var imgResult = document.getElementById('difference-result');
 
 		img1.addEventListener('click', function() {
-		    document.body.scrollTop = 0;
-		    document.documentElement.scrollTop = 0;
-			document.getElementById('img-diff-contain-1').style.display = "block";
-			img1.style.opacity = "0.3";
-			img2.style.opacity = "0.3";
-			outNavey.classList.toggle('slider');
-			wholeBody.classList.toggle('slider');
-		});
+			this.focusView(beforeImg1, img1, img2, imgResult, outNavey, wholeBody);
+		}.bind(this));
 
 		img2.addEventListener('click', function() {
-    		document.body.scrollTop = 0;
-		    document.documentElement.scrollTop = 0;
-			document.getElementById('img-diff-contain-2').style.display = "block";
-			img1.style.opacity = "0.3";
-			img2.style.opacity = "0.3";
-			outNavey.classList.toggle('slider');
-			wholeBody.classList.toggle('slider');
-		});
+			this.focusView(afterImg2, img1, img2, imgResult, outNavey, wholeBody);
+		}.bind(this));
 
 		outNavey.addEventListener("mousedown", function(e) {
-			if(this.classList.contains('slider') && 
-			!document.getElementById('img-diff-contain-1').contains(e.target)) {
-				outNavey.classList.toggle('slider');
-				wholeBody.classList.toggle('slider');
-				document.getElementById('img-diff-contain-1').style.display = "none";
-				document.getElementById('img-diff-contain-2').style.display = "none";
-				img1.style.opacity = "";
-				img2.style.opacity = "";
-			}
-		});
+			if(outNavey.classList.contains('slider') && 
+			!beforeImg1.contains(e.target))
+				this.focusOut(outNavey, wholeBody, beforeImg1, afterImg2, img1, img2, imgResult);
+		}.bind(this));
 
 		// for mobile support
 		outNavey.addEventListener("touchstart", function() {
-			if(this.classList.contains('slider') && 
-			!document.getElementById('img-diff-contain-1').contains(e.target)) {
-				outNavey.classList.toggle('slider');
-				wholeBody.classList.toggle('slider');
-				document.getElementById('img-diff-contain-1').style.display = "none";
-				document.getElementById('img-diff-contain-2').style.display = "none";
-				img1.style.opacity = "";
-				img2.style.opacity = "";
-			}
-		});
+			if(outNavey.classList.contains('slider') && 
+			!beforeImg1.contains(e.target))
+				this.focusOut(outNavey, wholeBody, beforeImg1, afterImg2, img1, img2, imgResult);
+		}.bind(this));
 
 		if (detectButton != null) {
 			detectButton.addEventListener('mouseover', function() {
