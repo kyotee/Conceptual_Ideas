@@ -31,20 +31,6 @@ $img-fonts: Helvetica, Arial, sans-serif;
 	}
 }
 
-#img-button {
-	width: 20em;
-   	border-radius: 0.5em;
-	border-style: solid;
-	margin-top: 3em;
-	height: 3em !important;
-	outline: none;
-	font-size: 1em;
-	color: white;
-	background-color: #00b0b0;
-	margin-bottom: 1.75em;
-	cursor: pointer
-}
-
 #img-1, #img-2 {
 	transition-duration: 0.8s
 }
@@ -62,6 +48,10 @@ $img-fonts: Helvetica, Arial, sans-serif;
 .img-full {
 	max-width: 100%;
 	height: auto
+}
+
+.img-margin .img-button {
+	margin: 3em 0em 1.75em 0em
 }
 
 #inner-body.slider {

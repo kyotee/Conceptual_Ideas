@@ -122,11 +122,15 @@ body, html {
 }
 
 #dropdown-content {
-	display: none
+	display: block;
+
+	a {
+		background-color: #f6fbfc
+	}
 }
 
 #dropdown-content.active {
-	display: block;
+	display: none;
     background-color: #e3e7ea
 }
 
@@ -299,7 +303,7 @@ body.slide {
 #footer {
 	background: #D3D3D3;
 	border-top: 0.25em solid $light-yellow;
-	height: 3em;
+	height: 10em;
 	padding-bottom: 2em;
     left: 0;
     right: 0;
@@ -313,9 +317,12 @@ body.slide {
 
     #footer-links {
     	float: left;
+    	padding: 1em 2em 1em 2em;
 
-    	p {
-    		display: inline
+    	a {
+    		display: inline;
+    		padding-right: 0.5em;
+    		text-decoration: none
     	}
     }
 
@@ -398,10 +405,66 @@ body.slide {
 	}
 }
 
-.boxes {
-	display: inline-block;
-	background-color: #7EC0EE;
-	opacity: 0.3;
-	border-radius: 0.5em;
+.img-button {
+	width: 20em;
+   	border-radius: 0.5em;
+	border-style: solid;
+	height: 3em !important;
+	outline: none;
+	font-size: 1em;
+	color: white;
+	background-color: #00b0b0;
 	cursor: pointer
 }
+
+.boxes {
+	display: inline-block;
+	width: 19em;
+	border-radius: 0.5em;
+	background-color: white;
+	box-shadow: 0em 0.3em 0.3em 0em rgba(0, 0, 0, 0.2), 0 0.3em 0.3em 0em rgba(0, 0, 0, 0.1);
+	cursor: pointer
+
+}
+
+.header-apps, .image-apps, .describe-apps, .button-apps {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	font-family: $default-fonts
+}
+
+.header-apps {
+	height: 13%;
+	border-radius: 0.5em 0.5em 0em 0em;
+	background-color: #0080ff;
+	font-size: 125%;
+	color: white
+}
+
+.image-apps {
+	height: 39%;
+	background-color: black
+}
+
+.describe-apps {
+	height: 22%;
+	background-color: white
+}
+
+.button-apps {
+	height: 20%;
+	border-radius: 0em 0em 0.5em 0.5em;
+	margin-top: 1em;
+	margin-left: 1.45em;
+	background-color: white
+}
+
+ .button-apps .img-button {
+ 	width: 16em
+ }
+
+ .idea-icon-apps {
+ 	width: 4.5em;
+ 	margin-left: 7.2em
+ }

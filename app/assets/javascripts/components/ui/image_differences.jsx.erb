@@ -29,10 +29,11 @@ class ImageDifferences extends React.Component {
 		var wholeBody = document.getElementsByTagName('body')[0];
 		var img1 = document.getElementById('img-1');
 		var img2 = document.getElementById('img-2');
+		var detectButton = document.getElementsByClassName('img-button')[0];
 		var beforeImg1 = document.getElementById('img-diff-contain-1');
 		var afterImg2 = document.getElementById('img-diff-contain-2');
-		var detectButton = document.getElementById('img-button');
 		var imgResult = document.getElementById('difference-result');
+		var exitImg1 = document.getElementById("exit-img-1");
 
 		img1.addEventListener('click', function() {
 			this.focusView(beforeImg1, img1, img2, imgResult, outNavey, wholeBody);
@@ -48,6 +49,10 @@ class ImageDifferences extends React.Component {
 				this.focusOut(outNavey, wholeBody, beforeImg1, afterImg2, img1, img2, imgResult);
 		}.bind(this));
 
+		exitImg1.addEventListener("click", function() {
+			this.focusOut(outNavey, wholeBody, beforeImg1, afterImg2, img1, img2, imgResult);
+		}.bind(this));
+
 		// for mobile support
 		outNavey.addEventListener("touchstart", function() {
 			if(outNavey.classList.contains('slider') && 
@@ -55,17 +60,11 @@ class ImageDifferences extends React.Component {
 				this.focusOut(outNavey, wholeBody, beforeImg1, afterImg2, img1, img2, imgResult);
 		}.bind(this));
 
+		exitImg1.addEventListener("touchstart", function() {
+			this.focusOut(outNavey, wholeBody, beforeImg1, afterImg2, img1, img2, imgResult);
+		}.bind(this));
+
 		if (detectButton != null) {
-			detectButton.addEventListener('mouseover', function() {
-				detectButton.style.transition = "transform .0.5s";
-				detectButton.style.transform = "scale(1.1)";
-			});
-
-			detectButton.addEventListener('mouseout', function() {
-				detectButton.style.transition = "transform .0.5s";
-				detectButton.style.transform = "scale(1)";
-			});
-
 			detectButton.addEventListener('click', function() {
 				window.location = "/image_differences_generate";
 			});
@@ -83,8 +82,8 @@ class ImageDifferences extends React.Component {
 	index_checker() {
 		if(this.props.index == true) {
 			return (
-				<div>
-					<button id="img-button">Detect Differences</button>
+				<div className="img-margin">
+					<ActionButton text={"Detect Differences"} />
 				</div>
 			)
 		}
@@ -132,3 +131,7 @@ class ImageDifferences extends React.Component {
 		)
 	}
 }
+
+ImageDifferences.propTypes = {
+	index: PropTypes.bool
+};

@@ -1,23 +1,36 @@
 class UserApplications extends React.Component {
+	componentDidMount() {
+		var routes = [];
+
+		for (var index = 0; index <  apps.app.length; index++) {
+			routes.push(apps.app[index].route);
+
+			document.getElementById(`box-${index}`).addEventListener("click", function() {
+				console.log(index);
+				// window.location = `/${routes[index]}`;
+			});
+		}
+	}
 	applicationBoxes() {
-		const apps = {
-			app1: {
-				name: "Hello",
-				image: "hello",
-				description: "ello",
-				route: "llo"
-			},
-			app2: {
-				name: "Hello",
-				image: "hello",
-				description: "ello",
-				route: "llo"
-			}	
-		};
 		var boxes = [];
 
 		for (var index = 0; index < 20; index++) {
-			boxes.push(<div className="boxes" num={index} key={index}>{apps.app1.route}</div>);
+			boxes.push(
+				<div className="boxes" id={"box-"+index} key={index}>
+					<div className="header-apps">
+						<p>Sign Up Form</p>
+					</div>
+					<div className="image-apps">
+						<%= image_tag("idea.svg", :alt => "idea icon", :class => "idea-icon-apps") %>
+					</div>
+					<div className="describe-apps">
+						<p>button ewfewfew ewfewfew fqwq hehthtr wewfewf tyregew wdqwd</p>
+					</div>
+					<div className="button-apps">
+						<ActionButton text={"See Feature"} />
+					</div>
+				</div>
+			);
 		}
 
 		return boxes;
@@ -32,3 +45,20 @@ class UserApplications extends React.Component {
 		)
 	}
 }
+
+const apps = {
+	"app": [
+		{
+			name: "Sign Up Form",
+			image: "",
+			description: "ello",
+			route: "signup"
+		},
+		{
+			name: "Image Differences",
+			image: "",
+			description: "ello",
+			route: "image_differences"
+		}
+	]
+};

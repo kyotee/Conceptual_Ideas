@@ -38,8 +38,12 @@ class SideNavigationBar extends React.Component {
 				<a id="top-line" href="/"><%= image_tag("044-information.svg", :alt => "icon", :class => "icon-dropdown") %>&nbsp;&nbsp;&nbsp;&nbsp;About</a>
 				<a href="/"><%= image_tag("049-send-mail.svg", :alt => "icon", :class => "icon-dropdown") %>&nbsp;&nbsp;&nbsp;&nbsp;Contact</a>
 				<br/><br/>
-				<%= image_tag("GitHub_Logo.png", :alt => "github", :id => "github") %>
+				<a href="https://github.com/tamkylet/Conceptual_Ideas-tamkylet" target="_blank"><%= image_tag("GitHub_Logo.png", :alt => "github", :id => "github") %></a>
 			</div>
 		)
 	}
 }
+
+SideNavigationBar.propTypes = {
+	signedin: PropTypes.bool
+};

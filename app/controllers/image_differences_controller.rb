@@ -3,8 +3,8 @@ class ImageDifferencesController < ApplicationController
   end
 
   def show
-  	# delayed job option:
-  	# - call: Image.delay.detect_difference (detect_difference and difference_generate
+  	# delayed job option with difference_generate definition:
+  	# - call: Image.delay.detect_difference (detect_difference and difference_generate)
   	#         is the same code
   	# - need to add "worker: rake jobs:work" to Procfile
   	# - need to install: gem 'delayed_job_active_record'
