@@ -17,8 +17,9 @@ gem 'jbuilder', '~> 2.5'
 # Localization ('L'+10+'n') and Internationalization ('I'+18+'n')
 gem 'rails-i18n'
 # Use and manage React components 
+gem 'babel-transpiler'
 gem 'react-rails'
-gem 'webpacker-react'
+gem 'browserify-rails'
 # Stores and verifies passwords securely
 gem 'bcrypt', '3.1.11'
 # Creating excel files
