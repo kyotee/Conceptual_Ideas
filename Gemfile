@@ -18,8 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'rails-i18n'
 # Use and manage React components 
 gem 'react-rails'
-gem 'babel-transpiler'
-gem 'browserify-rails'
+gem 'webpacker-react'
 # Stores and verifies passwords securely
 gem 'bcrypt', '3.1.11'
 # Creating excel files
