@@ -7,7 +7,7 @@ import {setCounter} from '../actions/counter';
 
 const store = configureStore();
 
-export default class Root extends Component {
+class Root extends React.Component {
   componentWillMount() {
     store.dispatch(setCounter(this.props.counter));
   }
@@ -20,3 +20,4 @@ export default class Root extends Component {
   }
 }
 
+export default Root;

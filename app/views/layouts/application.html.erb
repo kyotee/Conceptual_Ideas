@@ -16,7 +16,6 @@
       <%= render 'layouts/messages' %>
       <div id="inner-body">
         <%= react_component('Root', {counter: 10}, {prerender: true} ) %>
-        <div id="test-123"></div>
         <%= yield %>
       </div>
       <%= render 'layouts/footer' %>
