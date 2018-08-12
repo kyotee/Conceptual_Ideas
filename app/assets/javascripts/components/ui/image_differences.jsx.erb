@@ -101,7 +101,7 @@ class ImageDifferences extends React.Component {
 			<div>
 				<div className="app-title-space">
 					<div className="app-titles">
-						<%= image_tag("idea.svg", :alt => "idea icon", :class => "idea-icon-title") %>
+						<%= image_tag("idea.svg", :alt => "idea icon", :id => "idea-icon-title") %>
 						<p className="app-title">Image Differences</p>
 					</div>
 				</div>
@@ -119,11 +119,11 @@ class ImageDifferences extends React.Component {
 					{this.index_checker()}
 				</div>
 				<div id="img-diff-contain-1">
-					<%= image_tag("before_epic.png", :alt => "before epic screenshot", :class => "img-full") %>
+					<%= image_tag("before_epic.png", :alt => "before epic screenshot", :id => "img-full") %>
 					<div id="exit-img-1">Ⓧ</div>
 				</div>
 				<div id="img-diff-contain-2">
-					<%= image_tag("after_epic.png", :alt => "after epic screenshot", :class => "img-full") %>
+					<%= image_tag("after_epic.png", :alt => "after epic screenshot", :id => "img-full") %>
 					<div id="exit-img-2">Ⓧ</div> 				
 				</div>
 				<%= image_tag("difference_of_epic.png", :alt => "difference epic screenshot", :id => "difference-result") %>	
