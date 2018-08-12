@@ -20,6 +20,7 @@ gem 'rails-i18n'
 gem 'babel-transpiler'
 gem 'react-rails'
 gem 'browserify-rails'
+gem 'webpacker-react'
 # Stores and verifies passwords securely
 gem 'bcrypt', '3.1.11'
 # Creating excel files
