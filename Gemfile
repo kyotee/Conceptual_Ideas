@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'rails-i18n'
 # Use and manage React components 
 gem 'babel-transpiler'
+gem 'sprockets', '4.0.0.beta2'
 gem 'react-rails'
 gem 'browserify-rails'
 gem 'webpacker-react'
