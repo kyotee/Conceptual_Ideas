@@ -20,4 +20,4 @@ class Root extends React.Component {
   }
 }
 
-export {Root};
+export default Root;
