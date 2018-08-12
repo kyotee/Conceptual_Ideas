@@ -8,8 +8,6 @@ global.Root = Root
 
 import Counter from './components/ui/Counter';
 
-
-
 ReactDOM.render(
 	<Counter />,
 	document.getElementById('test-123')
