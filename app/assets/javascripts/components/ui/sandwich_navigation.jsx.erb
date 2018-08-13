@@ -1,4 +1,6 @@
-class SandwichNavigation extends React.Component {
+import React, { Component } from 'react';
+
+class SandwichNavigation extends Component {
 	componentDidMount() {
 		var sandwich = document.getElementById('sandwich');
 		var navey = document.querySelector('#side-navigate');
@@ -48,3 +50,5 @@ class SandwichNavigation extends React.Component {
 SandwichNavigation.propTypes = {
 	signedin: PropTypes.bool
 };
+
+export default SandwichNavigation;

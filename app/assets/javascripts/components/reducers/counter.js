@@ -1,12 +1,12 @@
-import C from '../actions/counterTypes';
+import { INCREMENT_COUNTER, DECREMENT_COUNTER, SET_COUNTER } from '../actions/counterTypes';
 
 export default function counter(state = 0, action) {
   switch (action.type) {
-  case C.INCREMENT_COUNTER:
+  case INCREMENT_COUNTER:
     return state + 1;
-  case C.DECREMENT_COUNTER:
+  case DECREMENT_COUNTER:
     return state - 1;
-  case C.SET_COUNTER:
+  case SET_COUNTER:
     return action.counter;
   default:
     return state;

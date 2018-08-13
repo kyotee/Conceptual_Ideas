@@ -1,4 +1,6 @@
-class NavigationBar extends React.Component {
+import React, { Component } from 'react';
+
+class NavigationBar extends Component {
 	componentDidMount() {
 		document.getElementById('name-container').addEventListener("click", function() {
 			window.location = "/";
@@ -39,3 +41,6 @@ class NavigationBar extends React.Component {
 NavigationBar.propTypes = {
 	signedin: PropTypes.bool
 };
+
+
+export default NavigationBar;

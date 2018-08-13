@@ -1,4 +1,6 @@
-class SideNavigationBar extends React.Component {
+import React, { Component } from 'react';
+
+class SideNavigationBar extends Component {
 	componentDidMount() {
 		document.getElementById("dropdown-button").addEventListener("click", function(){
 			document.querySelector("#dropdown-content").classList.toggle('active');
@@ -47,3 +49,5 @@ class SideNavigationBar extends React.Component {
 SideNavigationBar.propTypes = {
 	signedin: PropTypes.bool
 };
+
+export default SideNavigationBar;

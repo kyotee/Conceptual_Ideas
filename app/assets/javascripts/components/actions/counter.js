@@ -1,21 +1,21 @@
-import C from './counterTypes';
+import {SET_COUNTER, INCREMENT_COUNTER, DECREMENT_COUNTER} from './counterTypes';
 
 export function setCounter(counter) {
   return {
-    type: C.SET_COUNTER,
+    type: SET_COUNTER,
     counter: counter
   };
 }
 
 export function increment() {
   return {
-    type: C.INCREMENT_COUNTER
+    type: INCREMENT_COUNTER
   };
 }
 
 export function decrement() {
   return {
-    type: C.DECREMENT_COUNTER
+    type: DECREMENT_COUNTER
   };
 }
 

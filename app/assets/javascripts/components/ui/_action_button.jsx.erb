@@ -1,4 +1,6 @@
-class ActionButton extends React.Component {
+import React, { Component } from 'react';
+
+class ActionButton extends Component {
 	componentDidMount() {
 		var detectButton = document.getElementsByClassName('img-button')[0];
 
@@ -22,3 +24,5 @@ class ActionButton extends React.Component {
 ActionButton.propTypes = {
 	text: PropTypes.string
 };
+
+export default ActionButton;

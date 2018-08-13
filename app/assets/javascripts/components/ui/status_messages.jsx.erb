@@ -1,4 +1,6 @@
-class StatusMessages extends React.Component {
+import React, { Component } from 'react';
+
+class StatusMessages extends Component {
 	shouldComponentUpdate(nextProps, nextState) {
 		return (nextprops.color != this.props.color && nextprops.message != this.props.message);
 	}
@@ -34,3 +36,5 @@ StatusMessages.propTypes = {
 	color: PropTypes.string,
  	message: PropTypes.string
 };
+
+export default StatusMessages;

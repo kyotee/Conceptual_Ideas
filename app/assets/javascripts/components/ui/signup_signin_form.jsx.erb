@@ -1,4 +1,6 @@
-class SignupSigninForm extends React.Component {
+import React, { Component } from 'react';
+
+class SignupSigninForm extends Component {
 	constructor(props) {
 		super(props);
 
@@ -352,3 +354,5 @@ class SignupSigninForm extends React.Component {
 SignupSigninForm.propTypes = {
 	formType: PropTypes.string
 };
+
+export default SignupSigninForm;
