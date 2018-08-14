@@ -4,8 +4,7 @@ class Loadinggif extends Component {
 	render() {
 		return (
 			<div className="loading-container">
-				<%= image_tag("Rolling-0.8s-89px.gif", :alt => "loading") %>
-				<%= image_tag("idea.svg", :alt => "idea icon", :id => "loading-idea") %>
+
 			</div>
 		)
 	}

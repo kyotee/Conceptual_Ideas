@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ActionButton from './_action_button.jsx';
+import ActionButton from './_action_button.js';
 // import myImage from '../../../images/idea.svg';  -- parsing problem
 
 class UserApplications extends Component {

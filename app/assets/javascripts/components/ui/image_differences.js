@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ActionButton from './_action_button.js';
+import Loadinggif from './_loading_gif.js';
 
 class ImageDifferences extends Component {
 	constructor(props) {
@@ -103,32 +105,32 @@ class ImageDifferences extends Component {
 			<div>
 				<div className="app-title-space">
 					<div className="app-titles">
-						<%= image_tag("idea.svg", :alt => "idea icon", :id => "idea-icon-title") %>
+						<div id="idea-icon-title"></div>
 						<p className="app-title">Image Differences</p>
 					</div>
 				</div>
 				<div id="img-compare">
 					<div className="img-lining">
 						<h2>Before Epic</h2>
-						<%= image_tag("before_epic.png", :alt => "before epic screenshot", :id => "img-1") %>
+						<div id="img-1"></div>
 						<p>Sign up page before epic.</p>
 					</div>
 					<div className="img-lining">
 						<h2>After Epic</h2>
-						<%= image_tag("after_epic.png", :alt => "after epic screenshot", :id => "img-2") %>
+						<div id="img-2"></div>
 						<p>Sign up page after epic.</p>
 					</div>
 					{this.index_checker()}
 				</div>
 				<div id="img-diff-contain-1">
-					<%= image_tag("before_epic.png", :alt => "before epic screenshot", :id => "img-full") %>
+					<div id="img-full"></div>
 					<div id="exit-img-1">Ⓧ</div>
 				</div>
 				<div id="img-diff-contain-2">
-					<%= image_tag("after_epic.png", :alt => "after epic screenshot", :id => "img-full") %>
+					<div id="img-full"></div>
 					<div id="exit-img-2">Ⓧ</div> 				
 				</div>
-				<%= image_tag("difference_of_epic.png", :alt => "difference epic screenshot", :id => "difference-result") %>	
+				<div id="difference-result"></div>	
 			</div>
 		)
 	}

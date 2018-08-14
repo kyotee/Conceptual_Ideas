@@ -6,6 +6,11 @@ $img-fonts: Helvetica, Arial, sans-serif;
 	margin-top: 0
 }
 
+#idea-icon-title {
+	background-image: url(idea.svg);
+	background-repeat: no-repeat
+}
+
 #img-compare {
 	display: block;	
 	text-align: center;
@@ -32,7 +37,19 @@ $img-fonts: Helvetica, Arial, sans-serif;
 }
 
 #img-1, #img-2 {
-	transition-duration: 0.8s
+	transition-duration: 0.8s;
+	margin: 0em 1em 0em 1em;
+    background-repeat: no-repeat;
+    background-size: 30em 15em;
+    height: 15em
+}
+
+#img-1 {
+	background-image: url(before_epic.png)
+}
+
+#img-2 {
+	background-image: url(after_epic.png)
 }
 
 #img-diff-contain-1, #img-diff-contain-2 {
