@@ -263,7 +263,7 @@ class SignupSigninForm extends Component {
 				<table id="signup-table">
 					<tbody>
 						<tr>
-							<th><%= image_tag("idea.svg", :alt => "idea icon", :id => "idea-icon-form") %><h2 className="form-title">{this.props.formType}</h2></th>
+							<th><div className="idea-icon-form"></div><h2 className="form-title">{this.props.formType}</h2></th>
 						</tr>
 						<tr>
 							<th><p className="verify-name">User Name</p></th>
@@ -315,7 +315,7 @@ class SignupSigninForm extends Component {
 				<table id="signup-table">
 					<tbody>
 						<tr>
-							<th><%= image_tag("idea.svg", :alt => "idea icon", :id => "idea-icon-form") %><h2 className="form-title">{this.props.formType}</h2></th>
+							<th><div className="idea-icon-form"></div><h2 className="form-title">{this.props.formType}</h2></th>
 						</tr>
 						<tr>
 							<th><p className="verify-email">E-mail</p></th>

@@ -134,7 +134,7 @@ body, html {
     background-color: #e3e7ea
 }
 
-.idea-dropdown, .icon-dropdown {
+.idea-dropdown, .icon-dropdown, .idea-icon-form {
 	position: relative;
 	display: inline-block;
 	background-repeat: no-repeat
@@ -161,6 +161,14 @@ body, html {
 	opacity: 0.3;
 	padding-left: 2.2em;
 	cursor: pointer
+}
+
+.idea-icon-form {
+	background-image: url(idea.svg);
+	width: 2em;
+	height: 2em;
+	float: left;
+	padding-right: 0.75em
 }
 
 .drop-signup {
@@ -377,13 +385,6 @@ body.slide {
 	height: 2em;
 	display: inline-block;
 	background-repeat: no-repeat
-}
-
-#idea-icon-form {
-	width: 2em;
-	height: 2em;
-	float: left;
-	padding-right: 0.75em
 }
 
 #title1 {
