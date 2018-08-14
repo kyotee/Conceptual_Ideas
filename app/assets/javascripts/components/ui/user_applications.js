@@ -25,7 +25,7 @@ class UserApplications extends Component {
 						<p>Sign Up Form</p>
 					</div>
 					<div className="image-apps">
-						 <div id="idea-icon-apps"></div>​
+						 <div className="idea-icon-apps"></div>​
 					</div>
 					<div className="describe-apps">
 						<p>button ewfewfew ewfewfew fqwq hehthtr wewfewf tyregew wdqwd</p>

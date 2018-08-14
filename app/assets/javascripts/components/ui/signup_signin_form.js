@@ -178,7 +178,7 @@ class SignupSigninForm extends Component {
 
 		var submission = function() {
 			if (this.props.formType == "Sign up") {
-				userCredentials = {
+				var userCredentials = {
 					user: {
 						  name: document.getElementById('verify-name-input').value,
 						  email: document.getElementById('verify-email-input').value,
@@ -206,7 +206,7 @@ class SignupSigninForm extends Component {
 				});
 			}
 			else {
-				userCredentials = {
+				var userCredentials = {
 					userLogin: {
 						  email: document.getElementById('verify-email-input').value,
 						  password: document.getElementById('verify-password-input').value

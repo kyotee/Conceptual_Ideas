@@ -7,6 +7,7 @@ import UserApplications from './components/ui/user_applications.js';
 import ImageDifferences from './components/ui/image_differences.js';
 import NavigationBar from './components/ui/navigation_bar.js';
 import SignupSigninForm from './components/ui/signup_signin_form.js';
+import StatusMessages from './components/ui/status_messages.js';
 
 global.React = React
 global.ReactDOM = ReactDOM
@@ -17,3 +18,4 @@ global.UserApplications = UserApplications
 global.ImageDifferences = ImageDifferences
 global.NavigationBar = NavigationBar
 global.SignupSigninForm = SignupSigninForm
+global.StatusMessages = StatusMessages

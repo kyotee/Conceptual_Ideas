@@ -13,7 +13,6 @@ class SideNavigationBar extends Component {
 				<div>
 					<a className="line-on-it" href="/logout" data-method="delete" id="signout_link">
 						<div className="icon-dropdown drop-signout"></div>&nbsp;&nbsp;&nbsp;&nbsp;Sign out</a>
-					<div className="idea-dropdown"></div>
 				</div>
 			)
 		} else {
