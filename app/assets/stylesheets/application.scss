@@ -134,14 +134,53 @@ body, html {
     background-color: #e3e7ea
 }
 
-#idea-dropdown {
-	height: 0.75em;
-	width: 0.75em
+.idea-dropdown, .icon-dropdown {
+	position: relative;
+	display: inline-block;
+	background-repeat: no-repeat
 }
 
-#icon-dropdown {
+.idea-dropdown {
+	background-image: url(idea.svg);
+	height: 0.75em;
+	width: 0.75em;
+}
+
+.icon-dropdown {
 	height: 0.85em;
 	width: 0.85em
+}
+
+.github {
+	position: relative;
+	display: inline-block;
+	background-repeat: no-repeat;
+	height: 15em;
+	width: 15em;
+	background-image: url(github-logo.png);
+	opacity: 0.3;
+	padding-left: 2.2em;
+	cursor: pointer
+}
+
+.drop-signup {
+	background-image: url(045-add.svg)
+}
+
+.drop-signin {
+	background-image: url(051-user.svg)
+}
+
+.drop-about {
+	background-image: url(044-information.svg)
+}
+
+.drop-contact {
+	background-image: url(049-send-mail.svg)
+}
+
+.drop-signout {
+	background-image: url(043-power-button.svg)
 }
 
 .loading-container {
@@ -208,14 +247,6 @@ body, html {
 
 body.slide {
 	overflow: hidden
-}
-
-#github {
-	height: 2em;
-	width: 5em;
-	opacity: 0.3;
-	padding-left: 2.2em;
-	cursor: pointer
 }
 
 #login-signup, #login-signup-on {
@@ -340,8 +371,12 @@ body.slide {
 }
 
 #idea-icon {
+	position: relative;
+	background-image: url(idea.svg);
 	width: 2em;
-	height: auto
+	height: 2em;
+	display: inline-block;
+	background-repeat: no-repeat
 }
 
 #idea-icon-form {

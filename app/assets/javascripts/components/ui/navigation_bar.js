@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SandwichNavigation from './sandwich_navigation.js';
 
 class NavigationBar extends Component {
 	componentDidMount() {
@@ -27,7 +28,7 @@ class NavigationBar extends Component {
 			<div id="nav">
 				<SandwichNavigation signedin={this.props.signedin} />
 				<div id="name-container">
-					<%= image_tag("idea.svg", :alt => "idea icon", :id => "idea-icon") %>
+					<div id="idea-icon"></div>
 					<p id="title1">Conceptual</p>
 					<p id="title2">Ideas</p>
 				</div>

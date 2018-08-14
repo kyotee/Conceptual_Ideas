@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SideNavigationBar from './side_navigation_bar.js';
 
 class SandwichNavigation extends Component {
 	componentDidMount() {
