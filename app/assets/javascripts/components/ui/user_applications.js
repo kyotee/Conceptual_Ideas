@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ActionButton from './_action_button.jsx';
+// import myImage from '../../../images/idea.svg';  -- parsing problem
 
 class UserApplications extends Component {
 	componentDidMount() {
@@ -23,7 +25,7 @@ class UserApplications extends Component {
 						<p>Sign Up Form</p>
 					</div>
 					<div className="image-apps">
-						<%= image_tag("idea.svg", :alt => "idea icon", :id => "idea-icon-apps") %>
+						 <div id="idea-icon-apps"></div>​
 					</div>
 					<div className="describe-apps">
 						<p>button ewfewfew ewfewfew fqwq hehthtr wewfewf tyregew wdqwd</p>

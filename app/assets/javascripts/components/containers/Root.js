@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom'
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import CounterApp from './CounterApp';
 import configureStore from '../store/configureStore';
@@ -7,7 +7,7 @@ import {setCounter} from '../actions/counter'
 
 const store = configureStore();
 
-export default class Root extends Component {
+class Root extends Component {
   componentWillMount() {
     store.dispatch(setCounter(this.props.counter));
   }
@@ -19,3 +19,5 @@ export default class Root extends Component {
     );
   }
 }
+
+export default Root;

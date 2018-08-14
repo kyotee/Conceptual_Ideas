@@ -465,6 +465,11 @@ body.slide {
  }
 
  #idea-icon-apps {
+ 	position: relative;
+ 	background-image: url(idea.svg);
  	width: 4.5em;
- 	margin-left: 7.2em
+ 	height: 5em;
+ 	top: 0.6em;
+ 	left: 7.2em;
+    background-repeat: no-repeat
  }
