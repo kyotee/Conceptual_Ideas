@@ -15,8 +15,9 @@ https://conceptual-ideas.herokuapp.com/
 - [Format](#Format)
 - [Accessibility](#Accessibility)
 - [Commitment](#Commitment)
-- [Questions or Concerns](#Questions-or-Concerns)
 - [Learning Queue](#Learning-Queue)
+- [Remarks](#Remarks)
+- [Questions or Concerns](#Questions-or-Concerns)
 
 ## <a name="Technologies"></a>Technologies
 
@@ -87,6 +88,14 @@ List of tasks to be completed either concurrently or nonconcurrently with develo
 - <del>`Learn react routes for potential future use`</del>
 - <del>`Implement (first) model, controller, integration and acceptance tests with RSpec and Capybara`</del>
 - <del>`Investigate and implement a continuous integration tool to run tests when new build executes`</del>
+
+## <a name="Remarks"></a>Remarks
+
+Significant commits involved for troubleshooting and resolving problems:
+
+- `Guarantee that primitive-types passed from controller to associated view will be received by React components upon view render`
+- `Integrate Travis CI for automated test builds`
+- `React and Redux deployable with Heroku`
 
 ## <a name="Questions-or-Concerns"></a>Questions or Concerns
 
