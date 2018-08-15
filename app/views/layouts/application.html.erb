@@ -15,7 +15,7 @@
   	  <%= render 'layouts/header' %>
       <%= render 'layouts/messages' %>
       <div id="inner-body">
-        <%= react_component('Root', {counter: 10}, {prerender: true} ) %>
+        <%= react_component('CounterRedux', {counter: 10} ) %>
         <%= yield %>
       </div>
       <%= render 'layouts/footer' %>

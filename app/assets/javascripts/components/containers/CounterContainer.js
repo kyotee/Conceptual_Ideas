@@ -13,4 +13,6 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(CounterActions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+const CounterContainer = connect(mapStateToProps, mapDispatchToProps)(Counter);
+
+export default CounterContainer;

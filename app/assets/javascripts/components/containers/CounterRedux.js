@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import CounterApp from './CounterApp';
+import CounterContainer from './CounterContainer';
 import configureStore from '../store/configureStore';
 import {setCounter} from '../actions/counter'
 
 const store = configureStore();
 
-class Root extends Component {
+class CounterRedux extends Component {
   componentWillMount() {
     store.dispatch(setCounter(this.props.counter));
   }
   render() {
     return (
       <Provider store={store}>
-        <CounterApp />
+        <CounterContainer />
       </Provider>
     );
   }
 }
 
-export default Root;
+export default CounterRedux;
