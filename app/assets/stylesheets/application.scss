@@ -217,8 +217,18 @@ body, html {
 	}
 }
 
+#loading-gif {
+	background-image: url(Rolling-0.8s-89px.gif);
+	background-repeat:no-repeat;
+	background-position: center center;
+	height: 5em
+}
+
 #loading-idea {
-	margin: -3.7em auto;
+	background-image: url(idea.svg);
+	background-repeat:no-repeat;
+	background-position: center center;
+	margin: -3.2em auto;
 	height: 1.5em;
 	width: 1.5em;
 	animation: pulse 0.5s infinite;

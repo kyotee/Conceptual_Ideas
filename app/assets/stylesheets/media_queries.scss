@@ -207,10 +207,7 @@
 }
 
 #img-1, #img-2 {
-	@media screen and (max-width: 500px){
-		height: 5em
-	}
-	@media screen and (min-width: 501px) and (max-width: 700px){
+	@media screen and (max-width: 700px){
 	    height: 7em
 	}
 	@media screen and (min-width: 701px) and (max-width: 900px){

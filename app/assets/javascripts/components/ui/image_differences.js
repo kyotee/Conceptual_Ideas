@@ -123,11 +123,9 @@ class ImageDifferences extends Component {
 					{this.index_checker()}
 				</div>
 				<div id="img-diff-contain-1">
-					<div id="img-full"></div>
 					<div id="exit-img-1">Ⓧ</div>
 				</div>
 				<div id="img-diff-contain-2">
-					<div id="img-full"></div>
 					<div id="exit-img-2">Ⓧ</div> 				
 				</div>
 				<div id="difference-result"></div>	

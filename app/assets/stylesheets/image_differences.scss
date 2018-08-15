@@ -60,7 +60,18 @@ $img-fonts: Helvetica, Arial, sans-serif;
 	-o-transform: scale(1.1)
 }
 
+#img-diff-contain-1 {
+	background-image: url(before_epic.png)
+}
+
+#img-diff-contain-2 {
+	background-image: url(after_epic.png)
+}
+
 #img-diff-contain-1, #img-diff-contain-2 {
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: contain;
 	position: absolute;
 	bottom: 6em;
 	max-width: 100%;
@@ -92,9 +103,13 @@ $img-fonts: Helvetica, Arial, sans-serif;
 }
 
 #difference-result {
-	max-width: 100%;
-	height: auto;
+	background-image: url(difference_of_epic.png);
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: contain;
 	display: none;
+	height: 35em;
+	max-width: 100%;
     -webkit-animation: fadein 2s;
 	animation: fadein 2s
 }
