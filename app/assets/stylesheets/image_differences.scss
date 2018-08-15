@@ -37,10 +37,10 @@ $img-fonts: Helvetica, Arial, sans-serif;
 }
 
 #img-1, #img-2 {
-	transition-duration: 0.8s;
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: contain;
 	margin: 0em 1em 0em 1em;
-    background-repeat: no-repeat;
-    background-size: 30em 15em;
     height: 15em
 }
 
