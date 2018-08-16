@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/tamkylet/Conceptual_Ideas-tamkylet.svg?branch=master)](https://travis-ci.org/tamkylet/Conceptual_Ideas-tamkylet)
 
-Associated web based application serves as learning of various software libraries, frameworks, and other technologies with use of (and in addition to learning as well) Ruby on Rails. Intent for learning is related to personal interests and ambition in achieving competence in skills required for industry. Note that development targets application use with Chrome Browser.
+Associated web based application serves as learning of various software libraries, frameworks, and other technologies with use of (and in addition to learning as well) Ruby on Rails. Intent for learning is related to personal interests. Note that development targets application use with Chrome Browser.
 
 ## Application URL
 

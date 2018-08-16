@@ -1,37 +1,42 @@
 import React, { Component } from 'react';
 import ActionButton from './_action_button.js';
-// import myImage from '../../../images/idea.svg';  -- parsing problem
+// import myImage from '../../../images/idea.svg';  -- parsing problem; imgs called via css now
 
 class UserApplications extends Component {
 	componentDidMount() {
-		var routes = [];
+		for (let index = 1; index < Object.keys(apps.app).length; index++) {
+			let detectButton = document.getElementById(`box-${index}`);
 
-		for (var index = 0; index <  apps.app.length; index++) {
-			routes.push(apps.app[index].route);
+			detectButton.addEventListener('mouseover', function() {
+				detectButton.style.transition = "transform .0.5s";
+				detectButton.style.transform = "scale(1.1)";
+			});
 
-			document.getElementById(`box-${index}`).addEventListener("click", function() {
-				console.log(index);
-				// window.location = `/${routes[index]}`;
+			detectButton.addEventListener('mouseout', function() {
+				detectButton.style.transition = "transform .0.5s";
+				detectButton.style.transform = "scale(1)";
 			});
 		}
 	}
 	applicationBoxes() {
 		var boxes = [];
 
-		for (var index = 0; index < 20; index++) {
+		for (let index = 0; index < Object.keys(apps.app).length; index++) {
 			boxes.push(
-				<div className="boxes" id={"box-"+index} key={index}>
+				<div className="boxes" onClick={() => { window.location = `/${apps.app[parseInt(index)].route}` }} key={index}>
 					<div className="header-apps">
-						<p>Sign Up Form</p>
+						<p>{apps.app[index].name}</p>
 					</div>
 					<div className="image-apps">
 						 <div className="idea-icon-apps"></div>​
 					</div>
 					<div className="describe-apps">
-						<p>button ewfewfew ewfewfew fqwq hehthtr wewfewf tyregew wdqwd</p>
+						<p>{apps.app[index].description}</p>
 					</div>
 					<div className="button-apps">
-						<ActionButton text={"See Feature"} />
+						<div className="button-apps-container" id={"box-"+index}>
+							<ActionButton text={"See Feature"} />
+						</div>
 					</div>
 				</div>
 			);
@@ -54,14 +59,32 @@ const apps = {
 	"app": [
 		{
 			name: "Sign Up Form",
-			image: "",
-			description: "ello",
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			route: "signup"
 		},
 		{
 			name: "Image Differences",
-			image: "",
-			description: "ello",
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			route: "image_differences"
+		},
+		{
+			name: "App Template",
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			route: "image_differences"
+		},
+		{
+			name: "App Template",
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			route: "image_differences"
+		},
+		{
+			name: "App Template",
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			route: "image_differences"
+		},
+		{
+			name: "App Template",
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			route: "image_differences"
 		}
 	]
