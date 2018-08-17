@@ -68,9 +68,9 @@ const apps = {
 			route: "image_differences"
 		},
 		{
-			name: "App Template",
+			name: "Courses",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-			route: "image_differences"
+			route: "courses_list"
 		},
 		{
 			name: "App Template",

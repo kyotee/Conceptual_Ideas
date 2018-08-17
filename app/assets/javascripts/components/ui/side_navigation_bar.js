@@ -34,7 +34,7 @@ class SideNavigationBar extends Component {
 				<div id="dropdown-content">
 					<a href="/signup"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Sign up Form</a>
 					<a href="/image_differences"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Image Differences</a>
-					<a href="/"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Application 3</a>
+					<a href="/courses_list"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Courses</a>
 					<a href="/"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Application 4</a>
 				</div>
 				<a id="top-line" href="/"><div className="icon-dropdown drop-about"></div>&nbsp;&nbsp;&nbsp;&nbsp;About</a>
