@@ -1,5 +1,5 @@
 const courses = {
-	"engl": [
+	"classes": [
 		{
 			course: "engl-100",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -49,9 +49,7 @@ const courses = {
 			course: "engl-450",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			prerequisites: ""
-		}		
-	],
-	"comp": [
+		},
 		{
 			course: "comp-100",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -101,9 +99,7 @@ const courses = {
 			course: "comp-450",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			prerequisites: ""
-		}		
-	],
-	"fine": [
+		},
 		{
 			course: "fine-100",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -153,9 +149,7 @@ const courses = {
 			course: "fine-450",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			prerequisites: ""
-		}		
-	],
-	"geog": [
+		},
 		{
 			course: "geog-100",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -205,9 +199,7 @@ const courses = {
 			course: "geog-450",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			prerequisites: ""
-		}		
-	],
-	"hist": [
+		},
 		{
 			course: "hist-100",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -257,9 +249,7 @@ const courses = {
 			course: "hist-450",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			prerequisites: ""
-		}		
-	],
-	"math": [
+		},
 		{
 			course: "math-100",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -309,9 +299,7 @@ const courses = {
 			course: "math-450",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			prerequisites: ""
-		}		
-	],
-	"sci": [
+		},
 		{
 			course: "sci-100",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

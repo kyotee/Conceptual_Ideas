@@ -70,9 +70,11 @@ class SignupSigninForm extends Component {
 
 				this.colorChanger(verifyNameInput, verifyNameColor, verifyNameDisplay, "Blue");
 
+				var name = verifyNameInput.value;
 				var nameLength = verifyNameInput.value.length;
+				var reg = /^[a-zA-Z]+$/;
 
-				if (nameLength > 0 && nameLength <= 12) {
+				if (nameLength > 0 && nameLength <= 12 && reg.test(String(name))) {
 					this.colorChanger(verifyNameInput, verifyNameColor, verifyNameDisplay, "Green");
 
 					this.buttonValidChecker();

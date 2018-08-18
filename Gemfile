@@ -31,6 +31,8 @@ gem 'chunky_png'
 # Asynchronous execution of tasks in controllers
 # gem 'delayed_job_active_record'
 # gem 'daemons'
+# Fake seed data
+gem 'faker'
 
 # Gems belonging to both development and test environment
 group :development, :test do
