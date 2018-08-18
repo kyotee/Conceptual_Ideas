@@ -4,7 +4,3 @@ rvm:
 env:
   global:
     - CI=true
-
-- TEST_SUITE=controllers
-- TEST_SUITE=models
-script: "bundle exec rake spec:$TEST_SUITE"
