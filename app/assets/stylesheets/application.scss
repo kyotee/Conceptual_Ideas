@@ -2,6 +2,7 @@
 //= require users
 //= require sessions
 //= require image_differences
+//= require courses
 //= require media_queries
 
 
@@ -478,7 +479,6 @@ body.slide {
 	background-color: white;
 	box-shadow: 0em 0.3em 0.3em 0em rgba(0, 0, 0, 0.2), 0 0.3em 0.3em 0em rgba(0, 0, 0, 0.1);
 	cursor: pointer
-
 }
 
 .header-apps, .image-apps, .describe-apps, .button-apps, .button-apps-container {
@@ -503,6 +503,7 @@ body.slide {
 
 .describe-apps {
 	height: 22%;
+	padding-top: 0.4em;
 	background-color: white
 }
 

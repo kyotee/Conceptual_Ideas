@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Course from './course.js';
 
 class CourseList extends Component {
 	listCourses(courses) {
@@ -15,6 +16,9 @@ class CourseList extends Component {
 	render() {
 		return (
 			<div>
+				<Course />
+				<Course />
+				<Course />
 				{this.listCourses(this.props.courses)}
 			</div>
 		)
