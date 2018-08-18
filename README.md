@@ -96,6 +96,7 @@ Significant commits involved for troubleshooting and resolving problems:
 - `Guarantee that primitive-types passed from controller to associated view will be received by React components upon view render`
 - `Integrate Travis CI for automated test builds`
 - `React and Redux deployable with Heroku`
+- `Poltergeist for acceptance tests unable to detect react components as of 18/07/15 (requires more investigation in future; Selenium still works and associated tests removed from CI builds)`
 
 ## <a name="Questions-or-Concerns"></a>Questions or Concerns
 
