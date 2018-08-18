@@ -482,7 +482,9 @@ body.slide {
 }
 
 .header-apps, .image-apps, .describe-apps, .button-apps, .button-apps-container {
-
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 	font-family: $default-fonts
 }
 
