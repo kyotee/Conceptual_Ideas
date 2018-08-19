@@ -17,7 +17,17 @@ class CourseList extends Component {
 
 		for (let index = 0; index < courses.length; index++) {
 			coursesCombined.push(
-				<Course courseid={courses[index].course_id} colorNumber={courses[index].color_number} position={index} key={index} />
+				<Course 
+					courseid={courses[index].course_id}
+					description={courses[index].description}
+					professor={courses[index].professor}
+					count={courses[index].count}
+					cap_off={courses[index].cap_off}
+					prerequisites={courses[index].prerequisites}
+			        colorNumber={courses[index].color_number} 
+			        position={index} 
+			        key={index} 
+			    />
 			);
 		}
 
