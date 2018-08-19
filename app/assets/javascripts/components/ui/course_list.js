@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import Course from './course.js';
 
 class CourseList extends Component {
+	componentDidMount() {
+		var clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
+
+		window.addEventListener('scroll', function() {
+			if((window.innerHeight + window.scrollY) >= (clientHeight+400)) {
+				document.getElementsByClassName('next_page')[0].click();
+			}
+		});
+	}
 	listCourses(courses) {
 		var coursesCombined = [];
 		let int = 0;
@@ -16,7 +25,7 @@ class CourseList extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className="course-listings">
 				{this.listCourses(this.props.courses)}
 			</div>
 		)

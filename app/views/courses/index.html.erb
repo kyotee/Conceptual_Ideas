@@ -1,3 +1,5 @@
 <%= render 'titles' %>
 
 <%= react_component("CourseList", {courses: @courses}) %>
+
+<%= will_paginate @courses %>

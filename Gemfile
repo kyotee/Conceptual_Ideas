@@ -33,6 +33,8 @@ gem 'chunky_png'
 # gem 'daemons'
 # Fake seed data
 gem 'faker'
+# Divide data into different pages
+gem 'will_paginate'
 
 # Gems belonging to both development and test environment
 group :development, :test do
