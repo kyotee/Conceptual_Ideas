@@ -24,7 +24,9 @@ class CourseList extends Component {
 					count={courses[index].count}
 					cap_off={courses[index].cap_off}
 					prerequisites={courses[index].prerequisites}
-			        colorNumber={courses[index].color_number} 
+			        colorNumber={courses[index].color_number}
+			        start_date={courses[index].start_date}
+			        end_date={courses[index].end_date}
 			        position={index} 
 			        key={index} 
 			    />

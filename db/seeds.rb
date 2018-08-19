@@ -20,7 +20,7 @@ courseNameStub = ["Comp-", "Engl-", "Fine-", "Geog-", "Hist-", "Math-", "Psyc-",
 	randomNumber = Random.rand(101..500)
 
 	course_id = "#{randomCourse}#{randomNumber}"
-	description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+	description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 	professor = Faker::FunnyName.two_word_name
 	count = 0
 	cap_off = 25 + Random.rand(100)
