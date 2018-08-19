@@ -4,10 +4,11 @@ import Course from './course.js';
 class CourseList extends Component {
 	listCourses(courses) {
 		var coursesCombined = [];
+		let int = 0;
 
 		for (let index = 0; index < courses.length; index++) {
 			coursesCombined.push(
-				<p>{courses[index].course_id}</p>
+				<Course courseid={courses[index].course_id} colorNumber={courses[index].color_number} position={index} key={index} />
 			);
 		}
 
@@ -16,9 +17,6 @@ class CourseList extends Component {
 	render() {
 		return (
 			<div>
-				<Course />
-				<Course />
-				<Course />
 				{this.listCourses(this.props.courses)}
 			</div>
 		)

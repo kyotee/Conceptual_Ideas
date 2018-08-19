@@ -15,7 +15,8 @@ end
 courseNameStub = ["Comp-", "Engl-", "Fine-", "Geog-", "Hist-", "Math-", "Psyc-", "Soci-"]
 
 500.times do |n|
-	randomCourse = courseNameStub[Random.rand(8)]
+	randomInt = Random.rand(8)
+	randomCourse = courseNameStub[randomInt]
 	randomNumber = Random.rand(101..500)
 
 	course_id = "#{randomCourse}#{randomNumber}"
@@ -25,6 +26,7 @@ courseNameStub = ["Comp-", "Engl-", "Fine-", "Geog-", "Hist-", "Math-", "Psyc-",
 	cap_off = 25 + Random.rand(100)
 	prerequisites = "#{randomCourse}#{Random.rand(100..randomNumber)}"
 	comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+	color_number = randomInt
 	Course.create!(
 		course_id: course_id,
 		description: description,
@@ -32,6 +34,7 @@ courseNameStub = ["Comp-", "Engl-", "Fine-", "Geog-", "Hist-", "Math-", "Psyc-",
 		count: count,
 		cap_off: cap_off,
 		prerequisites: prerequisites,
-		comment: comment
+		comment: comment,
+		color_number: color_number
 	)
 end
