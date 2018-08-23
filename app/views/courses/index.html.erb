@@ -1,5 +1,5 @@
 <%= render 'titles' %>
 
-<%= react_component("CourseList", {courses: @courses}) %>
+<%= puts @courses[0].color_number %>
 
-<%= will_paginate @courses %>
+<%= react_component("CourseList", {courses: @courses, test: @test}) %>

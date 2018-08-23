@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Course from './course.js';
 
 class CourseList extends Component {
+	constructor(props) {
+		super(props);
+	}
 	componentDidMount() {
 		var clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
 
@@ -10,6 +13,33 @@ class CourseList extends Component {
 				document.getElementsByClassName('next_page')[0].click();
 			}
 		});
+
+		document.getElementById("hit").addEventListener('click', function() {
+			var userCredentials = {
+				course: {
+					  search: "#b2d8d8"
+					}
+			};
+
+
+			$.ajax({
+				type: "get",
+				url: "/courses_list",
+				data: userCredentials,
+				success: function(data, textStatus, jqXHR) {
+					console.log("User creation; submission successful.");
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					console.log("User creation; submission unsuccessful.");
+				}
+			});
+		});
+	}
+	componentDidUpdate(prevProps, prevState) {
+	  alert("wdwd");
+	  if (prevProps.courses[0] !== this.props.courses[0]) {
+	    alert("lol");
+	  }
 	}
 	listCourses(courses) {
 		var coursesCombined = [];
@@ -38,6 +68,9 @@ class CourseList extends Component {
 	render() {
 		return (
 			<div className="course-listings">
+				<button id="hit">lol</button>
+
+				{this.props.courses[0].color_number}
 				{this.listCourses(this.props.courses)}
 			</div>
 		)

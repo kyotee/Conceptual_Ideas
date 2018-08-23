@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Counter from '../ui/Counter';
+import Counter from '../ui/counter.js';
 import * as CounterActions from '../actions/counter';
 
 function mapStateToProps(state) {

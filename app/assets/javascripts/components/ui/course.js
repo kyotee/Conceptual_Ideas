@@ -16,7 +16,7 @@ class Course extends Component {
 		return (
 			<div className="course">
 				<div className="tab">
-					<p>{this.props.courseid}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>A Boring Course</i></p>
+					<p>{this.props.courseid}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>A Boring Course</i></p>
 				</div>
 				<div>
 					<p>{this.props.description}</p><br/>
