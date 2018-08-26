@@ -35,12 +35,6 @@ class CourseList extends Component {
 			});
 		});
 	}
-	componentDidUpdate(prevProps, prevState) {
-	  alert("wdwd");
-	  if (prevProps.courses[0] !== this.props.courses[0]) {
-	    alert("lol");
-	  }
-	}
 	listCourses(courses) {
 		var coursesCombined = [];
 		let int = 0;
@@ -66,12 +60,11 @@ class CourseList extends Component {
 		return coursesCombined;
 	}
 	render() {
+		const { courses } = this.props;
 		return (
 			<div className="course-listings">
 				<button id="hit">lol</button>
-
-				{this.props.courses[0].color_number}
-				{this.listCourses(this.props.courses)}
+				{this.listCourses(courses)}
 			</div>
 		)
 	}

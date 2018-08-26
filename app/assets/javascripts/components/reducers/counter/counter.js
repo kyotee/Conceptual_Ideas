@@ -1,17 +1,17 @@
 import C from '../../actions/counterTypes.js';
 
 const initalState = {
-  counter: 0
+  counterNum: 0
 };
 
-export default function counter(state = initalState.counter, action) {
+export default function counter(state = initalState.counterNum, action) {
   switch (action.type) {
   case C.INCREMENT_COUNTER:
     return state + 1 ;
   case C.DECREMENT_COUNTER:
     return state - 1;
   case C.SET_COUNTER:
-    return action.counter;
+    return action.counterNum;
   default:
     return state;
   }

@@ -1,7 +1,8 @@
 import C from './courseListTypes.js';
 
-export function viewCourses(counter) {
+export function viewCourses(courses) {
   return {
-    type: C.VIEW_COURSES
+    type: C.VIEW_COURSES,
+    courses: courses
   };
 }

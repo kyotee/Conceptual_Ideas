@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 // Redux Components
 import CounterRedux from './components/containers/counterRedux.js';
+import CourseListRedux from './components/containers/courseListRedux.js';
 
 // UI Components
 import Counter from './components/ui/counter.js';
@@ -19,9 +20,11 @@ global.ReactDOM = ReactDOM
 
 global.CounterRedux = CounterRedux
 global.Counter = Counter
+global.CourseListRedux = CourseListRedux
+global.CourseList = CourseList
+
 global.UserApplications = UserApplications
 global.ImageDifferences = ImageDifferences
 global.NavigationBar = NavigationBar
 global.SignupSigninForm = SignupSigninForm
 global.StatusMessages = StatusMessages
-global.CourseList = CourseList

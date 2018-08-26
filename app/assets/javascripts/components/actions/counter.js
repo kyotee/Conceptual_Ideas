@@ -1,9 +1,9 @@
 import C from './counterTypes.js';
 
-export function setCounter(counter) {
+export function setCounter(counterNum) {
   return {
     type: C.SET_COUNTER,
-    counter: counter
+    counterNum: counterNum
   };
 }
 
@@ -21,9 +21,9 @@ export function decrement() {
 
 export function incrementIfOdd() {
   return (dispatch, getState) => {
-    const { counter } = getState();
+    const { counterNum } = getState();
 
-    if (counter % 2 === 0) {
+    if (counterNum % 2 === 0) {
       return;
     }
 
