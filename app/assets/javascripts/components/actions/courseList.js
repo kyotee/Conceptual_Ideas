@@ -6,3 +6,9 @@ export function viewCourses(courses) {
     courses: courses
   };
 }
+
+export function appendCourses() {
+  return {
+    type: C.APPEND_COURSES
+  };
+}

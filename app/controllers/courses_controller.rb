@@ -1,14 +1,8 @@
 class CoursesController < ApplicationController
   def index
-    if params[:course]
-      @test = "test"
-      @courses = Course.search(params[:course][:search])
-    else
-      @test = "LOOOL"
-      @courses = Course.all
-    end
+    @courses = Course.paginate(page: params[:page], per_page: 15)
   end
-   
+
   def show
   end
 

@@ -60,7 +60,7 @@ class CourseList extends Component {
 		return coursesCombined;
 	}
 	render() {
-		const { courses } = this.props;
+		const { appendCourses, courses } = this.props;
 		return (
 			<div className="course-listings">
 				<button id="hit">lol</button>
