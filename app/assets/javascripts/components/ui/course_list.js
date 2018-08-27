@@ -7,10 +7,20 @@ class CourseList extends Component {
 	}
 	componentDidMount() {
 		var clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
+		
+		if (localStorage.getItem("scrollPosition") != null) {
+			if (localStorage.getItem("scrollPosition") < clientHeight)
+				localStorage.setItem("scrollPosition", clientHeight);
+		}
 
 		window.addEventListener('scroll', function() {
-			if((window.innerHeight + window.scrollY) >= (clientHeight+400)) {
-				document.getElementsByClassName('next_page')[0].click();
+			if (window.scrollY >= (clientHeight-400)) {		
+				if (localStorage.getItem("scrollPosition") == null || (!window.location.href.includes("/courses_list?"))) {
+					localStorage.setItem("scrollPosition", clientHeight);
+					document.getElementsByClassName('next_page')[0].click();
+				} else if ((localStorage.getItem("scrollPosition")-400) < clientHeight) {
+					document.getElementsByClassName('next_page')[0].click();
+				}
 			}
 		});
 
@@ -20,7 +30,6 @@ class CourseList extends Component {
 					  search: "#b2d8d8"
 					}
 			};
-
 
 			$.ajax({
 				type: "get",
