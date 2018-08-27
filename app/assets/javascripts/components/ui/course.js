@@ -14,7 +14,7 @@ class Course extends Component {
 	}
 	render() {
 		return (
-			<div className="course">
+			<div className="course" id={"course-"+this.props.recordid}>
 				<div className="tab">
 					<p>{this.props.courseid}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>A Boring Course</i></p>
 				</div>
