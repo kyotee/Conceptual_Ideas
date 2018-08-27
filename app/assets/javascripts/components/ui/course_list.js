@@ -15,7 +15,7 @@ class CourseList extends Component {
 		var currCourseNum = this.props.courses.length;
 
 		if (currCourseNum != 15)
-			document.getElementById("course-"+this.props.courses[(currCourseNum-15)].id.toString()).scrollIntoView();
+			document.getElementById("course-"+this.props.courses[(currCourseNum-18)].id.toString()).scrollIntoView();
 
 		var clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
 
