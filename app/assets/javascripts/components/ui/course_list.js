@@ -62,7 +62,7 @@ class CourseList extends Component {
 					console.log("User creation; submission unsuccessful.");
 				}
 			});
-		});
+		}.bind(this));
 	}
 	// componentDidUpdate(prevProps, prevState) {
 	//   if (this.state.scrollInfo > prevState.scrollInfo)
@@ -96,15 +96,15 @@ class CourseList extends Component {
 	isPaginateDone(num) {
 		if (num % 15 == 0) {
 			return (
-				<Loadinggif/>
+				<Loadinggif />
 			)
 		}
 	}
 	render() {
-		const { appendCourses, courses } = this.props;
+		const { courses } = this.props;
 		return (
 			<div className="course-listings">
-				<button id="hit">lol</button>
+				<button id="hit">category</button>
 				{this.listCourses(courses)}
 				{this.isPaginateDone(courses.length)}
 			</div>

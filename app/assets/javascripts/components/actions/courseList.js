@@ -7,8 +7,9 @@ export function viewCourses(courses) {
   };
 }
 
-export function appendCourses() {
+export function appendCourses(courses) {
   return {
-    type: C.APPEND_COURSES
+    type: C.APPEND_COURSES,
+    courses: courses
   };
 }
