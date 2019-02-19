@@ -55,14 +55,13 @@ In addition, application currently utilizes the following APIs:
 
 ## <a name="Format"></a>Format
 
-Each feature implemented into this application represents an epic with associated user stories, quality assurance (QA) checklist and reflection of problems encountered as well as implementation choices. To see this documentation visit: https://drive.google.com/open?id=1aC4IzSaJYS0I-9aukyNbc9CqeaEBEHCb. At the moment the following epics have been implemented with considerations for security and vigorous testing:
+Each feature implemented into this application is documented: https://drive.google.com/drive/folders/1FD1H089nWSV6atxVGSfrZEpWKHIAoZiN?usp=sharing. Here are the current completed and in progress features:
 
-- `01 - Sign Up and Sign In Form`<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intuitive sign up sign in form
-- `02 - Notification Messages`<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notification messages on status for users 
-- `03 - College Course Selection` (in progress)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;College planner which promotes quick course selection
+- `0 - Framework Setup and Integration`<br>
+- `1 - User Management`<br>
+- `2 - Image Differences Detection`<br>
+- `3 - College Course Selection` (in progress)<br>
+- `4 - Comprehensive User Monitoring` (in progress)<br>
 
 ## <a name="Accessibility"></a>Accessibility
 
