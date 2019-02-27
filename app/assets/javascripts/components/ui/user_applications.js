@@ -28,7 +28,7 @@ class UserApplications extends Component {
 					<div className="header-apps">
 						<p>{apps.app[index].name}</p>
 					</div>
-					<div className="image-apps">
+					<div className="image-apps" style={{ backgroundColor: apps.app[index].color }}>
 						 <div className="idea-icon-apps"></div>​
 					</div>
 					<div className="describe-apps">
