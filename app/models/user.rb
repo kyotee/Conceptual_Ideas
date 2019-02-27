@@ -2,7 +2,6 @@ class User < ApplicationRecord
   # virtual attribute
   attr_accessor :remember_token
 
-
   before_save :modify_credentials
 
   VALID_NAME_REGEX = /\A[a-zA-Z]+\z/
@@ -16,7 +15,6 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6, maximum: 12 }
-
 
   # Random 22 Character String Generator
   # PRE: -
@@ -58,7 +56,6 @@ class User < ApplicationRecord
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
   end
-
 
   private
 

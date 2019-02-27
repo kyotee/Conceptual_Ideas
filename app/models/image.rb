@@ -1,6 +1,6 @@
 class Image < ActiveRecord::Base
 	# delayed jobs option; execute asynchronously in background
-	# code is copied from image_differences_controller
+	# code is interpreted from image_differences_controller
 	def self.detect_difference
 		screenshots = [
 		  ChunkyPNG::Image.from_file('app/assets/images/before_epic.png'),
