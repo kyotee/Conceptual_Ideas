@@ -53,9 +53,10 @@ class User < ApplicationRecord
   # PRE: User has a remember_token (cookies.permanent[:remember_token])
   # POST: Verifies if remember_token matches encrpyted version attribute of user
   # PARAMS: - remember_token = random string (corresponding to user)
-  def authenticated?(remember_token)
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
 
