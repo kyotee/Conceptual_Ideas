@@ -6,6 +6,8 @@ class MonitoringUsers extends Component {
 	}
 	tableType(list, users) {
 		if (list == true) {
+			users.shift();
+			users.sort(function(a,b) {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);} );
 			var rows = [];
 
 			for (var i = 0; i < users.length; i++) {
@@ -13,20 +15,13 @@ class MonitoringUsers extends Component {
 					<tr>
 						<td>{users[i].name}</td>
 						<td>{users[i].email}</td>
-						<td><a href={"/user_monitoring_profile/"+users[i].id}>activty</a></td>
-						<td><a href="">delete</a></td>
+						<td><a className="monitor-link" href={"/user_monitoring_profile/"+users[i].id}>activty</a></td>
+						<td><a className="monitor-link" href={"/user_monitoring_delete/"+users[i].id} data-method="delete">delete</a></td>
 					</tr>
 				);		
 			}
 			return (
 				<div>
-					<div class="app-title-space">
-						<div class="app-titles">
-							<div id="idea-icon-title"></div>
-							<p class="app-title">User Monitoring</p>
-						</div>
-					</div>
-
 					<table id="user-info">
 						<tbody>			
 							<tr>
@@ -43,12 +38,7 @@ class MonitoringUsers extends Component {
 		} else {
 			return (
 				<div>
-					<div class="app-title-space">
-						<div class="app-titles">
-							<div id="idea-icon-title"></div>
-							<p class="app-title">User Monitoring</p>
-						</div>
-					</div>
+					<p id="monitor-name">{users.name}</p>
 
 					<table id="user-info">
 						<tbody>			
@@ -80,6 +70,14 @@ class MonitoringUsers extends Component {
 	render() {
 		return (
 			<div>
+				<div class="app-title-space">
+					<div class="app-titles">
+						<div id="idea-icon-title"></div>
+						<p class="app-title">User Monitoring</p>
+					</div>
+				</div>
+				<br/>
+
 				{this.tableType(this.props.list, this.props.users)}
 			</div>
 		)

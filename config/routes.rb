@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/user_monitoring', to: 'users#index'
   get '/user_monitoring_profile/:id', to: 'users#show'
+  delete '/user_monitoring_delete/:id', to: 'users#destroy'
 
   # sessions (sign in and sign out) named routes
   get '/login', to: 'sessions#new'

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
         flash[:notice] = "Successfully created an account."
 
         log_in @user
-        redirect_to @user
+        redirect_to root_url
       else
         flash[:alert] = "Red"
         flash[:notice] = "E-mail already exists."
@@ -32,6 +32,13 @@ class UsersController < ApplicationController
 
   def edit
     
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:alert] = "Green"
+    flash[:notice] = "Successfully deleted account."
+    redirect_to action: 'index'
   end
 
   private

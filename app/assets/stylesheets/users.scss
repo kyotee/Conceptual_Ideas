@@ -109,3 +109,15 @@ $form-fonts: Arial, Calibri, sans-serif;
   	background-color: #45ba45;
   	color: white
 }
+
+.monitor-link {
+	color: #008080
+}
+
+#monitor-name {
+	margin:0;
+	padding-bottom: 0.5em;
+	color: green;
+	font-family: $form-fonts;
+	font-size: 125%;
+}
