@@ -56,3 +56,56 @@ $form-fonts: Arial, Calibri, sans-serif;
 	margin-bottom: 1.75em;
 	cursor: pointer
 }
+
+#monitoring-users {
+	background-color: #0080ff;
+	width: 10em;
+	text-align: center;
+	padding: 1em 2em 1em 2em;
+	border-radius: 0.5em;
+	color: white;
+	font-family: $form-fonts;
+	text-decoration: none;
+	opacity: 0.6
+}
+
+#user-info {
+  font-family: $form-fonts;
+  border-collapse: collapse;
+  width: 100%
+}
+
+#user-info tr:first-child th:first-child {
+    border-top-left-radius: 0.5em
+}
+
+#user-info tr:first-child th:last-child {
+    border-top-right-radius: 0.5em
+}
+
+#user-info tr:last-child td:first-child {
+    border-bottom-left-radius: 0.5em
+}
+
+#user-info tr:last-child td:last-child {
+    border-bottom-right-radius: 0.5em
+}
+
+#user-info td, #user-info th {
+  padding: 0.75em
+}
+
+#user-info tr:nth-child(even) {
+	background-color: white
+}
+
+#user-info tr:nth-child(odd) {
+	background-color: #DCDCDC
+}
+
+#user-info th {
+	padding: 1em 0 1em 0.8em;
+  	text-align: left;
+  	background-color: #45ba45;
+  	color: white
+}

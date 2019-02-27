@@ -1,7 +1,8 @@
 <% provide(:title, "Home") %>
 
 <% if logged_in? && current_user.admin? %>
-	<a href="/user_monitoring">User Monitoring</a>
+	<a href="/user_monitoring" id="monitoring-users">User Monitoring</a>
+	<br/><br/><br/><br/>
 <% end %>
 
 <%= react_component("UserApplications") %>

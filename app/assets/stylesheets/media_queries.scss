@@ -113,6 +113,16 @@
 	}
 }
 
+#monitoring-users {
+	@media screen and (max-width: 767px){
+		margin: auto;
+		display: block
+	}
+	@media screen and (min-width: 768px){
+		margin-left: -2.5em
+	}
+}
+
 .boxes {
 	@media screen and (max-width: 767px){
 	    width: 15em;

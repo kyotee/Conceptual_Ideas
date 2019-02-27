@@ -61,7 +61,7 @@ Each feature implemented into this application is documented: https://drive.goog
 - `1 - User Management`<br>
 - `2 - Image Differences Detection`<br>
 - `3 - College Course Selection` (in progress)<br>
-- `4 - Comprehensive User Monitoring` (in progress)<br>
+- `4 - User Monitoring` (in progress)<br>
 
 ## <a name="Accessibility"></a>Accessibility
 

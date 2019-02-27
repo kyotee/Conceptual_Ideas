@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def index
-
+    @user = User.all
   end
 
   def show
