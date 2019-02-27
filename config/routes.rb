@@ -7,11 +7,12 @@ Rails.application.routes.draw do
   get '/about', to: 'default_view_pages#about'
   get '/contact', to: 'default_view_pages#contact'
 
-  # user (sign up and sign in) named routes
+  # user (sign up and sign in) and user monitoring named routes
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
+  get '/user_monitoring', to: 'users#index'
 
-  # sessions (signup and signout) named routes
+  # sessions (sign in and sign out) named routes
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

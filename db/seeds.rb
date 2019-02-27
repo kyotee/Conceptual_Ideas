@@ -1,4 +1,12 @@
 # User Model Data
+User.create!(
+	name: "admin",
+	email: "admin@hotmail.com",
+	password: "admin1",
+	password_confirmation: "admin1",
+	admin: true
+)
+
 100.times do |n|
 	username  = Faker::Name.first_name[1..13]
 	email = "test-#{n+1}@fakemail.com"
