@@ -37,8 +37,8 @@ class SideNavigationBar extends Component {
 					<a href="/courses_list"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Courses</a>
 					<a href="/"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Application 4</a>
 				</div>
-				<a id="top-line" href="/"><div className="icon-dropdown drop-about"></div>&nbsp;&nbsp;&nbsp;&nbsp;About</a>
-				<a href="/"><div className="icon-dropdown drop-contact"></div>&nbsp;&nbsp;&nbsp;&nbsp;Contact</a>
+				<a id="top-line" href="/about"><div className="icon-dropdown drop-about"></div>&nbsp;&nbsp;&nbsp;&nbsp;About</a>
+				<a href="/contact"><div className="icon-dropdown drop-contact"></div>&nbsp;&nbsp;&nbsp;&nbsp;Contact</a>
 				<br/><br/>
 				<a href="https://github.com/tamkylet/Conceptual_Ideas-tamkylet" target="_blank"><div className="github"></div></a>
 			</div>

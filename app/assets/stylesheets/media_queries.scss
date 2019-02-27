@@ -142,15 +142,15 @@
 }
 
 #idea-icon-title {
+	@media screen and (min-width: 10px){
+		width: 2em;
+		height: 2em
+	}
 	@media screen and (max-width: 767px){
-		width: 1em;
-		height: 1em;
 		float: left;
 		padding-right: 0.5em
 	}
 	@media screen and (min-width: 768px){
-		width: 2em;
-		height: 2em;
 		float: left;
 		padding-right: 0.75em
 	}
@@ -172,7 +172,7 @@
 	@media screen and (max-width: 767px){
 		float: right
 	}
-	@media screen and (min-width: 768px){
+	@media screen and (min-width: 10px){
 		font-size: x-large
 	}
 }
@@ -203,6 +203,12 @@
 			padding-left: 1em;
 			text-align: left
 		}
+	}
+}
+
+.static-page-text {
+	@media screen and (max-width: 767px){
+		padding: 0 2.5em 0 2.5em
 	}
 }
 
