@@ -156,8 +156,9 @@ body, html {
 	position: relative;
 	display: inline-block;
 	background-repeat: no-repeat;
-	height: 15em;
-	width: 15em;
+	height: 1.5em;
+	width: 1.5em;
+	background-size: cover;
 	background-image: url(github-logo.png);
 	opacity: 0.3;
 	padding-left: 2.2em;
