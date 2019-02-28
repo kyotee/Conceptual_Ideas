@@ -48,3 +48,14 @@ courseNameStub = ["Comp-", "Engl-", "Fine-", "Geog-", "Hist-", "Math-", "Psyc-",
 		color_number: color_number
 	)
 end
+
+# User Monitoring (Log) Data
+(2..101).each do |value|
+	20.times do |n|
+		Log.create!(
+			controller: "default_view_pages",
+			action: "index",
+			user_id: value
+		)
+	end
+end

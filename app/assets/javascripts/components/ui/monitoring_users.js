@@ -36,6 +36,19 @@ class MonitoringUsers extends Component {
 				</div>
 			)
 		} else {
+			var logArr = this.props.logs;
+			var rows = [];
+
+			for (var i = 0; i < logArr.length; i++) {
+				rows.push(
+					<tr>
+						<td>{logArr[i].controller}</td>
+						<td>{logArr[i].action}</td>
+						<td>{logArr[i].created_at}</td>
+						<td>20 minutes</td>						
+					</tr>
+				);		
+			}
 			return (
 				<div>
 					<p id="monitor-name">{users.name}</p>
@@ -48,18 +61,7 @@ class MonitoringUsers extends Component {
 								<th>Time</th>
 								<th>Approximate Duration</th>
 							</tr>
-							<tr>
-								<td>User</td>
-								<td>Index</td>
-								<td>September 12, 2019</td>
-								<td>12 minutes</td>
-							</tr>
-							<tr>
-								<td>User</td>
-								<td>Index</td>
-								<td>September 18, 2019</td>
-								<td>10 minutes</td>
-							</tr>
+							{rows}
 						</tbody>
 					</table>
 				</div>
@@ -86,7 +88,8 @@ class MonitoringUsers extends Component {
 
 MonitoringUsers.propTypes = {
 	users: PropTypes.array,
-	list: PropTypes.bool
+	list: PropTypes.bool,
+	logs: PropTypes.array
 };
 
 export default MonitoringUsers;

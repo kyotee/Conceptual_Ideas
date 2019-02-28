@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @log = User.find(params[:id]).logs
   end
 
   def create
