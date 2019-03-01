@@ -59,3 +59,11 @@ end
 		)
 	end
 end
+
+# Chatter Data
+(1..101).each do |value|
+	Chatter.create!(
+		message: Faker::Food,
+		user_id: value
+	)
+end
