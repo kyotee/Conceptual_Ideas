@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :chatter do
+    message "MyText"
+  end
   factory :log do
     controller "MyString"
     action "MyString"

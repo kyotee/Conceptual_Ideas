@@ -31,4 +31,8 @@ Rails.application.routes.draw do
   get '/courses_edit', to: 'courses#edit'
   patch '/courses_edit', to: 'courses#update'
   delete '/courses_delete', to: 'courses#destroy'
+
+  # chatters named routes
+  get '/chatters', to: 'chatters#index'
+  post '/chatters', to: 'chatters#create'
 end

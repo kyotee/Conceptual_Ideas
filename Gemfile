@@ -35,6 +35,9 @@ gem 'chunky_png'
 gem 'faker'
 # Divide data into different pages
 gem 'will_paginate'
+# Chatting with users
+gem 'pusher'
+gem 'figaro'
 
 # Gems belonging to both development and test environment
 group :development, :test do

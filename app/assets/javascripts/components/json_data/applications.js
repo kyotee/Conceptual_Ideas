@@ -19,9 +19,9 @@ const apps = {
 			color: "#FFB6C1"
 		},
 		{
-			name: "App Template",
+			name: "Chatter",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-			route: "",
+			route: "chatters",
 			color: "#b2d8d8"
 		},
 		{
