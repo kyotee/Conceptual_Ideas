@@ -1,2 +1,10 @@
 <h1>Chatters#index</h1>
 <p>Find me in app/views/chatters/index.html.erb</p>
+
+<% @messages.each do |value| %>
+	<p><%= value.user_id %> </p>
+<% end %>
+
+<% provide(:title, "Chatter") %>
+
+<%= react_component("Chatter") %>

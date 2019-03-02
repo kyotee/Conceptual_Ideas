@@ -6,6 +6,9 @@ class SideNavigationBar extends Component {
 			document.querySelector("#dropdown-content").classList.toggle('active');
 			document.querySelector("#arrow-icon").classList.toggle('flip');
 		});
+		document.getElementById("toggle-snow").addEventListener("click", function(){
+			document.querySelector("#snowy").classList.toggle('snow');
+		});
 	}
 	loggedin() {
 		if(this.props.signedin == true) {
@@ -41,6 +44,14 @@ class SideNavigationBar extends Component {
 				<a href="/contact"><div className="icon-dropdown drop-contact"></div>&nbsp;&nbsp;&nbsp;&nbsp;Contact</a>
 				<br/><br/>
 				<a href="https://github.com/tamkylet/Conceptual_Ideas-tamkylet" target="_blank"><div className="github"></div></a>
+				{/* Code reference: https://proto.io/freebies/onoff/ */}
+				<div className="onoffswitch">
+					<input type="checkbox" name="onoffswitch" className="onoffswitch-checkbox" id="myonoffswitch"/>
+					<label id="toggle-snow" className="onoffswitch-label" for="myonoffswitch">
+						<span className="onoffswitch-inner"></span>
+						<span className="onoffswitch-switch"></span>
+					</label>
+				</div>
 			</div>
 		)
 	}
