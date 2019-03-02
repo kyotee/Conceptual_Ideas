@@ -3,6 +3,7 @@
 //= require sessions
 //= require image_differences
 //= require courses
+//= require chatters
 //= require media_queries
 
 
@@ -621,7 +622,7 @@ body.slide {
 	width: 12em;
 	height: 12em;
 	z-index: -10;
-	animation: move 8s linear 8s infinite;
+	animation: move 12s linear 12s infinite;
 	animation-delay: 0s;
 }
 
