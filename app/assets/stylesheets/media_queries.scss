@@ -281,3 +281,28 @@
 		right: -1.5em
 	}
 }
+
+#user-info {
+	@media screen and (max-width: 767px){
+		width: 80%;
+		margin: auto
+	}
+	@media screen and (min-width: 768px){
+		width: 100%
+	}
+}
+
+#monitor-name {
+	@media screen and (max-width: 767px){
+		padding-left: 2em
+	}
+}
+
+.onoffswitch {
+	@media screen and (max-width: 767px){
+		padding-left: 1.9em;
+	}
+	@media screen and (min-width: 768px){
+		padding-left: 2.7em
+	}
+}

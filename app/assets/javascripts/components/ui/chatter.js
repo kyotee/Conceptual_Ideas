@@ -21,6 +21,13 @@ class Chatter extends Component {
   	render() {
 	    return (
 	        <div>
+				<div className="app-title-space">
+					<div className="app-titles">
+						<div id="idea-icon-title"></div>
+						<p className="app-title">Chatter</p>
+					</div>
+				</div>
+
 		      	{this.userMessages(this.props.messages)}
 		      	<div id="input-chatbox">
 
