@@ -1,12 +1,10 @@
 class ChattersController < ApplicationController
-	after_create :notify_pusher, on: :create
-
 	def index
 		@messages = Chatter.all
 	end
 
 	def create
-		@chatter = Chat.new(chatter_params)
+		@chatter = Chatter.new(chatter_params)
 
 		unless @chatter.save
 	        flash[:alert] = "Red"
@@ -18,9 +16,5 @@ class ChattersController < ApplicationController
 
 	def chatter_params
 		params.require(:chatter).permit(:message, :user_id)
-	end
-
-	def notify_pusher
-		Pusher.trigger('chat', 'new', self.as_json)
 	end
 end

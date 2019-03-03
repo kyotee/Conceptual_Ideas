@@ -33,6 +33,6 @@ Rails.application.routes.draw do
   delete '/courses_delete', to: 'courses#destroy'
 
   # chatters named routes
-  get '/chatters', to: 'chatters#index'
+  get '/chatter', to: 'chatters#index'
   post '/chatters', to: 'chatters#create'
 end

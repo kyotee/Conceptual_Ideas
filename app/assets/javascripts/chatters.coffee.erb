@@ -1,0 +1,23 @@
+# app/assets/javascripts/chats.coffee
+
+$(document).ready =>
+  username = ''
+
+  updateChat = (data) ->
+    $('#chatbox').append """
+      <p>#{data.message} #{data.user_id}</p>
+    """
+    return
+
+  $('#chat-form').on 'ajax:success', (data) ->
+    $('#chat-form')[0].reset()
+    return
+
+  pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',
+    cluster: '<%= ENV["PUSHER_CLUSTER"] %>'
+    encrypted: true)
+  channel = pusher.subscribe('chat')
+  channel.bind 'new', (data) ->
+    updateChat data
+    return
+  return

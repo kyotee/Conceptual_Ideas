@@ -21,7 +21,7 @@ const apps = {
 		{
 			name: "Chatter",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-			route: "chatters",
+			route: "chatter",
 			color: "#b2d8d8"
 		},
 		{
