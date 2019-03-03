@@ -90,10 +90,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Exporting Pusher keys
-  ENV['PUSHER_KEY']='f749e06841dc3e887a75'
-  ENV['PUSHER_CLUSTER']='us3'
-
   # Force all access to the app over SSL, use Strict-Transport-Security,
   # and use secure cookies.
   config.force_ssl = true

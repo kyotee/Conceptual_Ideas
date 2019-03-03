@@ -13,8 +13,8 @@ $(document).ready =>
     $('#chat-form')[0].reset()
     return
 
-  pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',
-    cluster: '<%= ENV["PUSHER_CLUSTER"] %>'
+  pusher = new Pusher('<%= Figaro.env.PUSHER_KEY %>',
+    cluster: '<%= Figaro.env.PUSHER_CLUSTER %>'
     encrypted: true)
   channel = pusher.subscribe('chat')
   channel.bind 'new', (data) ->
