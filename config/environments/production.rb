@@ -91,8 +91,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Exporting Pusher keys
-  PUSHER_KEY='f749e06841dc3e887a75'
-  PUSHER_CLUSTER='us3'
+  ENV['PUSHER_KEY']='f749e06841dc3e887a75'
+  ENV['PUSHER_CLUSTER']='us3'
 
   # Force all access to the app over SSL, use Strict-Transport-Security,
   # and use secure cookies.
