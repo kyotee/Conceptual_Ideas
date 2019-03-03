@@ -1,4 +1,6 @@
 class ChattersController < ApplicationController
+	after_create :notify_pusher, on: :create
+
 	def index
 		@messages = Chatter.all
 	end
@@ -16,5 +18,9 @@ class ChattersController < ApplicationController
 
 	def chatter_params
 		params.require(:chatter).permit(:message, :user_id)
+	end
+
+	def notify_pusher
+		Pusher.trigger('chat', 'new', self.as_json)
 	end
 end
