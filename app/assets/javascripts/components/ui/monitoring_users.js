@@ -44,8 +44,8 @@ class MonitoringUsers extends Component {
 					<tr>
 						<td>{logArr[i].controller}</td>
 						<td>{logArr[i].action}</td>
-						<td>{logArr[i].created_at}</td>
-						<td>20 minutes</td>						
+						<td>{logArr[i].ip_address}</td>
+						<td>{logArr[i].created_at}</td>					
 					</tr>
 				);		
 			}
@@ -58,8 +58,8 @@ class MonitoringUsers extends Component {
 							<tr>
 								<th>Controller</th>
 								<th>Action</th>
+								<th>IP Adress</th>
 								<th>Time</th>
-								<th>Approximate Duration</th>
 							</tr>
 							{rows}
 						</tbody>

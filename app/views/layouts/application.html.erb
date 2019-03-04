@@ -22,7 +22,8 @@
       <%= render 'layouts/footer' %>
       <% if logged_in? %>
         <% info = debug(params).split("\n") %>
-        <% Log.create(controller: info[2].match(/:\s*\K.*/), action: info[3].match(/:\s*\K.*/), user_id: current_user.id) %>
+        <% Log.create(controller: info[2].match(/:\s*\K.*/), action: info[3].match(/:\s*\K.*/), 
+        ip_address: request.remote_ip, user_id: current_user.id) %>
       <% end %>
 <!--       <% if Rails.env.development? %><div id="debug-border"><%= debug(params) %></div><% end %> -->
     </div>

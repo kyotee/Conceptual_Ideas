@@ -55,6 +55,7 @@ end
 		Log.create!(
 			controller: "default_view_pages",
 			action: "index",
+			ip_address: "127.0.0.1",
 			user_id: value
 		)
 	end

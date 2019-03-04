@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190301215138) do
+ActiveRecord::Schema.define(version: 20190304002635) do
 
   create_table "chatters", force: :cascade do |t|
     t.text "message"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20190301215138) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ip_address"
     t.index ["user_id"], name: "index_logs_on_user_id"
   end
 
