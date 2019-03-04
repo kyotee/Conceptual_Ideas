@@ -60,13 +60,19 @@ class Chatter extends Component {
 						<p className="app-title">Chatter</p>
 					</div>
 				</div>
-				<h3 id="message-title">A Beering Conversation</h3>
+				<div id="message-title">
+					<h3>A Beering Conversation</h3>
+				</div>
 				<div id="chatbox">
       				{this.userMessages(this.props.messages)}
 	      		</div>
 		      	<div id="chatbox-submit">
-					<input id="message-input" type="text" name="message"></input><br/>
-					<p id="submit-message">SUBMIT</p>
+					<div id="message-input">
+						<input type="text" name="message"></input>
+					</div>
+					<div id="submit-message"> 
+						<p>SEND</p>
+					</div>
 		      	</div>
 	        </div>
 	    );

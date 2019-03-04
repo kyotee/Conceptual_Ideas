@@ -1,9 +1,21 @@
+$chat-fonts: Arial, Calibri, sans-serif;
+
+#message-title {
+	text-align: center;
+	font-family: $chat-fonts;
+	color: white;
+	border-top-left-radius: 0.3em;
+	border-top-right-radius: 0.3em;
+	border: 0.2em solid #ffb101;
+	height: 5em;
+	margin: auto;
+	background-color: #ffb101
+}
+
 #chatbox {
 	height: 20em;
 	margin: auto;
-	border-top-left-radius: 0.3em;
-	border-top-right-radius: 0.3em;
-	border: 0.2em solid #00b0b0;
+	border: 0.2em solid #ffb101;
 	background-color: white;
 	overflow-y: auto;
 	background-color: white;
@@ -12,10 +24,11 @@
 
 #chatbox-submit {
 	margin: auto;
-	background-color: #00b0b0;
+	background-color: #ffb101;
 	border-bottom-left-radius: 0.3em;
 	border-bottom-right-radius: 0.3em;
-	border: 0.2em solid #00b0b0;
+	border: 0.2em solid #ffb101;
+	height: 4em;
 	padding: 0.5em 2em 0.5em 2em
 }
 
@@ -38,9 +51,9 @@
 	padding: 0.5em;
 	background-color: #1e90ff;
 	color: white;
-	font-family: Arial, Calibri, sans-serif;
+	font-family: $chat-fonts;
 	font-weight: 500;
-	border-radius: 0.25em;
+	border-radius: 0.6em;
 	width: auto;
 	display: inline-block;
 	max-width: 15em
@@ -57,17 +70,25 @@
 	padding-top: 0.4em
 }
 
-#message-title {
-	text-align: center;
-	font-family: Arial, Calibri, sans-serif;
-	color: #FFA500
+#message-input {
+	width: 5em;
+	float:left;
+	font-family: $chat-fonts;
+	display: inline-block
 }
 
-#message-input {
-	width: 15em;
-	float:left
+#message-input > input {
+	width: 20em;
 }
 
 #submit-message {
-	float: right
+	width: 4em;
+	text-align: center;
+	background-color: #00b0b0;
+	color: white;
+	border-radius: 0.5em;
+	cursor: pointer;
+	float: right;
+	font-family: $chat-fonts;
+	display: inline-block
 }
