@@ -7,9 +7,10 @@ $chat-fonts: Arial, Calibri, sans-serif;
 	border-top-left-radius: 0.3em;
 	border-top-right-radius: 0.3em;
 	border: 0.2em solid #ffb101;
-	height: 5em;
+	height: 4.5em;
 	margin: auto;
-	background-color: #ffb101
+	background-color: #ffb101;
+	padding: 0.5em 2em 0 2em
 }
 
 #chatbox {
@@ -71,24 +72,27 @@ $chat-fonts: Arial, Calibri, sans-serif;
 }
 
 #message-input {
-	width: 5em;
-	float:left;
 	font-family: $chat-fonts;
-	display: inline-block
+	display: inline-block;
+	width: 80%
 }
 
 #message-input > input {
-	width: 20em;
+	width: 100%;
 }
 
 #submit-message {
-	width: 4em;
+	width: 20%;
 	text-align: center;
 	background-color: #00b0b0;
 	color: white;
 	border-radius: 0.5em;
 	cursor: pointer;
-	float: right;
 	font-family: $chat-fonts;
-	display: inline-block
+	display: inline-block;
+	font-weight: bold
+}
+
+#message-align {
+	margin: auto;
 }
