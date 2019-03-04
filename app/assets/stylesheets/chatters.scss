@@ -29,7 +29,7 @@ $chat-fonts: Arial, Calibri, sans-serif;
 	border-bottom-left-radius: 0.3em;
 	border-bottom-right-radius: 0.3em;
 	border: 0.2em solid #ffb101;
-	height: 4em;
+	height: 2.8em;
 	padding: 0.5em 2em 0.5em 2em
 }
 
@@ -62,7 +62,7 @@ $chat-fonts: Arial, Calibri, sans-serif;
 
 .word-holder {
 	width: 100%;
-	margin: 0.75em 0 0.75em -0.5em;
+	margin: 0.75em 0 0.75em 0;
 	position: relative
 }
 
@@ -74,25 +74,29 @@ $chat-fonts: Arial, Calibri, sans-serif;
 #message-input {
 	font-family: $chat-fonts;
 	display: inline-block;
-	width: 80%
-}
 
-#message-input > input {
-	width: 100%;
+	input {
+		width: 100%;
+		line-height: 2.75em;
+		padding-left: 0.5em;
+		border-top-left-radius: 0.5em;
+		border-bottom-left-radius: 0.5em;
+		border: none
+	}
 }
 
 #submit-message {
-	width: 20%;
 	text-align: center;
 	background-color: #00b0b0;
 	color: white;
-	border-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+	border-bottom-right-radius: 0.5em;
 	cursor: pointer;
 	font-family: $chat-fonts;
 	display: inline-block;
-	font-weight: bold
-}
+	font-weight: bold;
 
-#message-align {
-	margin: auto;
+	p {
+		margin: 0.65em 0.25em 0.65em 0.25em
+	}
 }

@@ -67,13 +67,11 @@ class Chatter extends Component {
       				{this.userMessages(this.props.messages)}
 	      		</div>
 		      	<div id="chatbox-submit">
-		      		<div id="message-align">
-						<div id="message-input">
-							<input type="text" name="message"></input>
-						</div>
-						<div id="submit-message">
-							<p>SEND</p>
-						</div>
+					<div id="message-input">
+						<input type="text" name="message"></input>
+					</div>
+					<div id="submit-message">
+						<p>SEND</p>
 					</div>
 		      	</div>
 	        </div>
