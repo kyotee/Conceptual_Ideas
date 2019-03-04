@@ -11,7 +11,7 @@ class Chatter extends Component {
 			var messageCredentials = {
 				chatter: {
 					  message: document.getElementById('message-input').value,
-					  user_id: document.getElementById('user-id-input').value
+					  user_id: 3
 					}
 			};
 
@@ -60,12 +60,12 @@ class Chatter extends Component {
 						<p className="app-title">Chatter</p>
 					</div>
 				</div>
+				<h3 id="message-title">A Beering Conversation</h3>
 				<div id="chatbox">
       				{this.userMessages(this.props.messages)}
 	      		</div>
-		      	<div id="input-chatbox">
+		      	<div id="chatbox-submit">
 					<input id="message-input" type="text" name="message"></input><br/>
-					<input id="user-id-input" type="text" name="user-id"></input><br/>
 					<p id="submit-message">SUBMIT</p>
 		      	</div>
 	        </div>
