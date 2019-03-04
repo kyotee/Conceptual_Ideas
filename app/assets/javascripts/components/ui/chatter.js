@@ -2,6 +2,9 @@ import React, { Component, PropTypes } from 'react';
 
 class Chatter extends Component {
 	componentDidMount() {
+		var scroller = document.getElementById("chatbox");
+		scroller.scrollTop = scroller.scrollHeight;
+
 		var submit = document.getElementById('submit-message');
 
 		submit.addEventListener('click', function() {
@@ -30,15 +33,24 @@ class Chatter extends Component {
 
 		for (var i = 0; i < messages.length; i++) {
 			rows.push(
-				<p>{messages[i].user_id} {messages[i].message}</p>
+				<div className="word-holder">
+					<div className="no-word-overflow">
+						<small>{messages[i].user_id}</small>
+						<p className="message-mod">{messages[i].message}</p>
+					</div>
+				</div>
 			);		
 		}
 		return (
-      		<div id="chatbox">
+			<div>
 				{rows}
 			</div>
 		)
-	}	
+	}
+	submission() {
+		var scroller = document.getElementById("chatbox");
+		scroller.scrollTop = scroller.scrollHeight;
+	}
   	render() {
 	    return (
 	        <div>
@@ -48,7 +60,9 @@ class Chatter extends Component {
 						<p className="app-title">Chatter</p>
 					</div>
 				</div>
-	      		{this.userMessages(this.props.messages)}
+				<div id="chatbox">
+      				{this.userMessages(this.props.messages)}
+	      		</div>
 		      	<div id="input-chatbox">
 					<input id="message-input" type="text" name="message"></input><br/>
 					<input id="user-id-input" type="text" name="user-id"></input><br/>

@@ -5,7 +5,12 @@ $(document).ready =>
 
   updateChat = (data) ->
     $('#chatbox').append """
-      <p>#{data.message} #{data.user_id}</p>
+      <div class="word-holder">
+        <div class="no-word-overflow">
+          <small>#{data.user_id}</small>
+          <p>#{data.message}</p>
+        </div>
+      </div>
     """
     return
 

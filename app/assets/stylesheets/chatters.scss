@@ -11,12 +11,12 @@
 }
 
 #chatbox::-webkit-scrollbar {
-    width: 0.25em;
+    width: 0.5em;
     background-color: #F5F5F5
 } 
 
 #chatbox::-webkit-scrollbar-thumb {
-    background-color: #ffda6b
+    background-color: #72bcd4
 }
 
 #chatbox::-webkit-scrollbar-track {
@@ -24,6 +24,26 @@
     background-color: #F5F5F5
 }
 
-#input-chatbox {
-	
+.no-word-overflow {
+	word-wrap: break-word;
+	padding: 0.5em;
+	background-color: #1e90ff;
+	color: white;
+	font-family: Arial, Calibri, sans-serif;
+	font-weight: 500;
+	border-radius: 0.25em;
+	width: auto;
+	display: inline-block;
+	max-width: 18em
+}
+
+.word-holder {
+	width: 100%;
+	margin: 0.75em 0 0.75em -0.5em;
+	position: relative
+}
+
+.message-mod {
+	margin: 0;
+	padding-top: 0.4em
 }
