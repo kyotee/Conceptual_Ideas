@@ -1,12 +1,27 @@
 #chatbox {
 	width: 80%;
-	height: 10em;
+	height: 20em;
 	margin: auto;
-	border-radius: 1em;
-	border: 0.2em solid green;
+	border-radius: 0.3em;
+	border: 0.2em solid #00b0b0;
 	background-color: white;
-	padding-bottom: 1em;
-	overflow-y: auto
+	overflow-y: auto;
+	background-color: white;
+	padding: 0.5em 2em 0.5em 2em
+}
+
+#chatbox::-webkit-scrollbar {
+    width: 0.25em;
+    background-color: #F5F5F5
+} 
+
+#chatbox::-webkit-scrollbar-thumb {
+    background-color: #ffda6b
+}
+
+#chatbox::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5
 }
 
 #input-chatbox {
