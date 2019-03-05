@@ -7,7 +7,6 @@ class Chatter extends Component {
 	componentDidMount() {
 		var scroller = document.getElementById("chatbox");
 		scroller.scrollTop = scroller.scrollHeight;
-
 		var submit = document.getElementById('submit-message');
 
 		submit.addEventListener('click', function() {
@@ -18,6 +17,8 @@ class Chatter extends Component {
 					  user_id: this.props.user_id
 					}
 			};
+
+			document.getElementById('msg-input').value = '';
 
 			$.ajax({
 				type: "POST",
@@ -31,6 +32,13 @@ class Chatter extends Component {
 				}
 			});
 		}.bind(this));
+
+		document.getElementById('msg-input').addEventListener("keypress", function(e) {
+			var key = e.which || e.keyCode;
+
+			if (e.keyCode == 13)
+				alert("LOL");
+		});
 	}
 	userMessages(messages) {
 		var rows = [];

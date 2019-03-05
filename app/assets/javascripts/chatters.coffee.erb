@@ -12,6 +12,7 @@ $(document).ready =>
         </div>
       </div>
     """
+    $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight)
     return
 
   $('#chat-form').on 'ajax:success', (data) ->
