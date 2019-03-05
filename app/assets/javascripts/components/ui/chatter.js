@@ -35,7 +35,7 @@ class Chatter extends Component {
 			rows.push(
 				<div className="word-holder">
 					<div className="no-word-overflow">
-						<small>{messages[i].user_id}</small>
+						<small><b>{messages[i].username}</b></small>
 						<p className="message-mod">{messages[i].message}</p>
 					</div>
 				</div>

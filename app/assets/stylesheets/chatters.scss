@@ -57,7 +57,11 @@ $chat-fonts: Arial, Calibri, sans-serif;
 	border-radius: 0.6em;
 	width: auto;
 	display: inline-block;
-	max-width: 15em
+	max-width: 15em;
+
+	small {
+		color: yellow
+	}
 }
 
 .word-holder {

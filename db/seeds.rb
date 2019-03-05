@@ -62,11 +62,13 @@ end
 end
 
 # Chatter Data
-(1..101).each do |value|
-	restaurant = Faker::Beer.name
+(2..101).each do |value|
+	usernames = User.find(value).name
+	beer = Faker::Beer.name
 
 	Chatter.create!(
-		message: restaurant,
+		message: beer,
+		username: usernames,
 		user_id: value
 	)
 end
