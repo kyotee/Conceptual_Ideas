@@ -15,6 +15,6 @@ class ChattersController < ApplicationController
 	private
 
 	def chatter_params
-		params.require(:chatter).permit(:message, :user_id)
+		params.require(:chatter).permit(:message, :username, :user_id)
 	end
 end

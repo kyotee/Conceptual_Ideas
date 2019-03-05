@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 
 class Chatter extends Component {
+	constructor(props) {
+		super(props);
+	}
 	componentDidMount() {
 		var scroller = document.getElementById("chatbox");
 		scroller.scrollTop = scroller.scrollHeight;
@@ -10,8 +13,9 @@ class Chatter extends Component {
 		submit.addEventListener('click', function() {
 			var messageCredentials = {
 				chatter: {
-					  message: document.getElementById('message-input').value,
-					  user_id: 3
+					  message: document.getElementById('msg-input').value,
+					  username: this.props.username,
+					  user_id: this.props.user_id
 					}
 			};
 
@@ -26,7 +30,7 @@ class Chatter extends Component {
 					console.log("Message creation; submission unsuccessful.");
 				}
 			});
-		});
+		}.bind(this));
 	}
 	userMessages(messages) {
 		var rows = [];
@@ -68,7 +72,7 @@ class Chatter extends Component {
 	      		</div>
 		      	<div id="chatbox-submit">
 					<div id="message-input">
-						<input type="text" name="message"></input>
+						<input id="msg-input" type="text" name="message"></input>
 					</div>
 					<div id="submit-message">
 						<p>SEND</p>
