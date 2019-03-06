@@ -26,7 +26,7 @@ class NavigationBar extends Component {
 	render() {
 		return (
 			<div id="nav">
-				<SandwichNavigation signedin={this.props.signedin} />
+				<SandwichNavigation signedin={this.props.signedin} admin={this.props.admin} />
 				<div id="name-container">
 					<div id="idea-icon"></div>
 					<p id="title1">Conceptual</p>
@@ -40,7 +40,8 @@ class NavigationBar extends Component {
 }
 
 NavigationBar.propTypes = {
-	signedin: PropTypes.bool
+	signedin: PropTypes.bool,
+	admin: PropTypes.bool
 };
 
 

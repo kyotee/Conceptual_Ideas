@@ -28,6 +28,20 @@ class SideNavigationBar extends Component {
 			)
 		}
 	}
+	monitoring(admin) {
+		if (admin == true) {
+			return (
+				<div>
+					<a href="/user_monitoring"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;User Monitoring</a>
+				</div>
+			)
+		}
+		else {
+			return (
+				<div></div>
+			)
+		}
+	}
 	render() {
 		return (
 			<div>
@@ -39,6 +53,7 @@ class SideNavigationBar extends Component {
 					<div id="dropdown-content">
 						<a href="/signup"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Sign up Form</a>
 						<a href="/image_differences"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Image Differences</a>
+						{this.monitoring(this.props.admin)}
 						<a href="/chatter"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Chatter</a>
 						<a href="/bids"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Item Bidding</a>												
 						<a href="/courses_list"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Courses</a>
@@ -63,7 +78,8 @@ class SideNavigationBar extends Component {
 }
 
 SideNavigationBar.propTypes = {
-	signedin: PropTypes.bool
+	signedin: PropTypes.bool,
+	admin: PropTypes.bool
 };
 
 export default SideNavigationBar;

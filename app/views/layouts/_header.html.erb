@@ -1,1 +1,1 @@
-<%= react_component("NavigationBar", {signedin: logged_in?}) %>
+<%= react_component("NavigationBar", {signedin: logged_in?, admin: current_user.present? && current_user.admin?}) %>

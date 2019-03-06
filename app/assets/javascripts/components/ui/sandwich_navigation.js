@@ -42,14 +42,15 @@ class SandwichNavigation extends Component {
 					<div id="bar2"></div>
 					<div id="bar3"></div>
 				</div>
-				<SideNavigationBar signedin={this.props.signedin} />
+				<SideNavigationBar signedin={this.props.signedin} admin={this.props.admin} />
 			</div>
 		)
 	}
 }
 
 SandwichNavigation.propTypes = {
-	signedin: PropTypes.bool
+	signedin: PropTypes.bool,
+	admin: PropTypes.bool
 };
 
 export default SandwichNavigation;

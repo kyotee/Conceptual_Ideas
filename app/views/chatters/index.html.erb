@@ -10,5 +10,5 @@
 
 	<p class="static-page-text">You must be signed in to use Chatter. See Github repo for admin credentials which permits the ability to access user monitoring feature as well!</p>
 	<% else %>
-	<%= react_component("Chatter", messages: @messages, username: current_user.name, user_id: current_user.id) %>
+	<%= react_component("Chatter", {messages: @messages, username: current_user.name, user_id: current_user.id}) %>
 <% end %>
