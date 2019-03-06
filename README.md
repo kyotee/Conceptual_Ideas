@@ -15,7 +15,6 @@ https://conceptual-ideas.herokuapp.com/
 - [Format](#Format)
 - [Accessibility](#Accessibility)
 - [Commitment](#Commitment)
-- [Learning Queue](#Learning-Queue)
 - [Remarks](#Remarks)
 - [Questions or Concerns](#Questions-or-Concerns)
 
@@ -55,13 +54,21 @@ In addition, application currently utilizes the following APIs:
 
 ## <a name="Format"></a>Format
 
-Each feature implemented into this application is documented: https://drive.google.com/drive/folders/1FD1H089nWSV6atxVGSfrZEpWKHIAoZiN?usp=sharing. Here are the current completed and in progress features:
+Each feature implemented into this application is documented:
+https://drive.google.com/drive/folders/1FD1H089nWSV6atxVGSfrZEpWKHIAoZiN?usp=sharing
+
+Here are the current completed and incompleted features:
 
 - `0 - Framework Setup and Integration`<br>
 - `1 - User Management`<br>
 - `2 - Image Differences Detection`<br>
-- `3 - College Course Selection` (in progress)<br>
-- `4 - User Monitoring` (in progress)<br>
+- `3 - User Monitoring`<br>
+- `4 - Real Time Messaging`<br>
+- `5 - Item Bidding` <br>
+- `6 - College Course Selection`<br>
+
+Here is the Kanban board to see progress on incompleted features, miscellaneous tasks, and bugs:
+https://trello.com/b/cyxQAQQh/conceptual-ideas-progress
 
 ## <a name="Accessibility"></a>Accessibility
 
@@ -74,19 +81,7 @@ To access this application with administrator privileges use the following crede
 
 ## <a name="Commitment"></a>Commitment
 
-Time commitment for this application is flexible. Any free time available is allocated into this application.
-
-## <a name="Learning-Queue"></a>Learning Queue
-
-List of tasks to be completed either concurrently or nonconcurrently with development:
-
-- <del>`Implement Heroku CLI for building and deploying application to Heroku server`</del>
-- <del>`Implement cookies and sessions`</del>
-- <del>`Learn and implement react`</del>
-- <del>`Learn and implement redux`</del>
-- <del>`Learn react routes for potential future use`</del>
-- <del>`Implement (first) model, controller, integration and acceptance tests with RSpec and Capybara`</del>
-- <del>`Investigate and implement a continuous integration tool to run tests when new build executes`</del>
+Time commitment for this application is intermittent. Any free time available is allocated into this application.
 
 ## <a name="Remarks"></a>Remarks
 
