@@ -23,18 +23,18 @@ describe UsersController do
 		end
 	end
 
-	describe "GET show" do
-		before(:example) do
-			posted
-			get :show, params: { id: 1 }
-		end
+	# describe "GET show" do
+	# 	before(:example) do
+	# 		posted
+	# 		get :show, params: { id: 1 }
+	# 	end
 
-		it "obtains http response as successful" do
-			expect(response).to have_http_status(:ok)
-		end
+	# 	it "obtains http response as successful" do
+	# 		expect(response).to have_http_status(:ok)
+	# 	end
 
-		it "goes to user's profile" do
-			expect(response).to render_template("show")
-		end
-	end
+	# 	it "goes to user's profile" do
+	# 		expect(response).to render_template("show")
+	# 	end
+	# end
 end
