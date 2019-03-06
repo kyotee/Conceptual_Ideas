@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :admin_user, only: [:index, :show]
+
   def new
     @user = User.new
   end
@@ -31,10 +33,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    
-  end
-
   def destroy
     User.find(params[:id]).destroy
     flash[:alert] = "Green"
@@ -43,6 +41,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def admin_user
+    redirect_to(root_url) unless current_user.present? && current_user.admin?
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

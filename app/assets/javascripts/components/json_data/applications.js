@@ -13,22 +13,22 @@ const apps = {
 			color: "#FFFFCC"
 		},
 		{
+			name: "Chatter",
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			route: "chatter",
+			color: "#D8BFD8"
+		},
+		{
+			name: "Item Bidding",
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			route: "bids",
+			color: "#b2d8d8"
+		},
+		{
 			name: "Courses",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			route: "courses_list",
 			color: "#FFB6C1"
-		},
-		{
-			name: "Chatter",
-			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-			route: "chatter",
-			color: "#b2d8d8"
-		},
-		{
-			name: "App Template",
-			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-			route: "",
-			color: "#D8BFD8"
 		},
 		{
 			name: "App Template",

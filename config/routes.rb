@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'bids/index'
+
   resources :users
 
   # default view pages named routes
@@ -35,4 +37,7 @@ Rails.application.routes.draw do
   # chatters named routes
   get '/chatter', to: 'chatters#index'
   post '/chatters', to: 'chatters#create'
+
+  # bids named routes
+  get '/bids', to: 'bids#index'
 end
