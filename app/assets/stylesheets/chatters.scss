@@ -50,7 +50,7 @@ $chat-fonts: Arial, Calibri, sans-serif;
 .no-word-overflow {
 	word-wrap: break-word;
 	padding: 0.5em;
-	background-color: #1e90ff;
+	background-color: #00cece;
 	color: white;
 	font-family: $chat-fonts;
 	font-weight: 500;
@@ -60,7 +60,7 @@ $chat-fonts: Arial, Calibri, sans-serif;
 	max-width: 15em;
 
 	small {
-		color: yellow
+		color: #ffedcc
 	}
 }
 

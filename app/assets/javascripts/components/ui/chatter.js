@@ -95,7 +95,7 @@ class Chatter extends Component {
 					</div>
 				</div>
 				<div id="message-title">
-					<h2>A Beering Conversation</h2>
+					<h2>🍺 A Beering Conversation</h2>
 				</div>
 				<div id="chatbox">
       				{this.userMessages(this.props.messages)}
