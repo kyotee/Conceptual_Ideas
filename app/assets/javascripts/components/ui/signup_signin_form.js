@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { sanitization } from '../input_sanitization.js';
 
 class SignupSigninForm extends Component {
 	constructor(props) {
@@ -182,10 +183,10 @@ class SignupSigninForm extends Component {
 			if (this.props.formType == "Sign up") {
 				var userCredentials = {
 					user: {
-						  name: document.getElementById('verify-name-input').value,
-						  email: document.getElementById('verify-email-input').value,
-						  password: document.getElementById('verify-password-input').value,
-						  password_confirmation: document.getElementById('verify-password-confirm-input').value
+						  name: sanitization(document.getElementById('verify-name-input').value),
+						  email: sanitization(document.getElementById('verify-email-input').value),
+						  password: sanitization(document.getElementById('verify-password-input').value),
+						  password_confirmation: sanitization(document.getElementById('verify-password-confirm-input').value)
 						}
 				};
 
@@ -210,8 +211,8 @@ class SignupSigninForm extends Component {
 			else {
 				var userCredentials = {
 					userLogin: {
-						  email: document.getElementById('verify-email-input').value,
-						  password: document.getElementById('verify-password-input').value
+						  email: sanitization(document.getElementById('verify-email-input').value),
+						  password: sanitization(document.getElementById('verify-password-input').value)
 						}
 				};
 

@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { sanitization } from '../input_sanitization.js';
 
 class Chatter extends Component {
 	constructor(props) {
@@ -12,7 +13,7 @@ class Chatter extends Component {
 		submit.addEventListener('click', function() {
 			var messageCredentials = {
 				chatter: {
-					  message: document.getElementById('msg-input').value,
+					  message: sanitization(document.getElementById('msg-input').value),
 					  username: this.props.username,
 					  user_id: this.props.user_id
 					}
@@ -40,7 +41,7 @@ class Chatter extends Component {
 			if (e.keyCode == 13) {
 				var messageCredentials = {
 					chatter: {
-						  message: document.getElementById('msg-input').value,
+						  message: sanitization(document.getElementById('msg-input').value),
 						  username: this.props.username,
 						  user_id: this.props.user_id
 						}
