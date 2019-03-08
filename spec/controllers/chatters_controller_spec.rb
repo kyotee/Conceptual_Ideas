@@ -1,26 +1,31 @@
-# require 'rails_helper'
+require "rails_helper"
 
-# RSpec.describe ChattersController, type: :controller do
+describe ChattersController do
+	let(:create_message) { post :create, xhr: true, params: { chatter: FactoryBot.attributes_for(:chatter) } }
 
-#   describe "GET #index" do
-#     it "returns http success" do
-#       get :index
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
+	describe "GET index" do
+		before(:example) { get :index }
 
-#   describe "GET #new" do
-#     it "returns http success" do
-#       get :new
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
+		it "obtains http reponse as successful" do
+			expect(response).to have_http_status(:ok)
+		end
 
-#   describe "GET #create" do
-#     it "returns http success" do
-#       get :create
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
+		it "renders new template" do
+			expect(response).to render_template("index")
+		end
+	end
 
-# end
+	describe "POST create" do
+		before(:example) { 
+			create_message
+		}
+
+		it "obtains http response as successful" do
+			expect(response).to have_http_status(204)
+		end
+
+		it "renders no template" do
+			expect(response).to render_template(nil)
+		end
+	end
+end

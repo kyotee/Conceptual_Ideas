@@ -22,7 +22,7 @@ describe SessionsController do
 			expect(response).to have_http_status(:ok)
 		end
 
-		it "logs in user" do
+		it "renders no template" do
 			expect(response).to render_template(nil)
 		end
 	end

@@ -3,7 +3,7 @@ development:
   PUSHER_KEY: '360554eef31f7e3cad83'
   PUSHER_SECRET: '228fba288250ac893f60'
   PUSHER_CLUSTER: 'us3'
-staging:
+test:
   PUSHER_APP_ID: '726460'
   PUSHER_KEY: '6e0d332588ad22f32870'
   PUSHER_SECRET: '1dc6cb2d54f53560acbb'
