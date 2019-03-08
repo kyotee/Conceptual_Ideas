@@ -10,16 +10,13 @@ describe User do
 	let(:wrong_password_pair2) { "testing21" }
 	let(:null_string) { "" }
 
-	before(:all) do
-		@user = build(:user)
-	end
-
 	it "creates an account if valid credentials are submitted" do
-		expect(@user).to be_valid
+		expect(build(:user)).to be_valid
 	end
 
 	it "hashes and salts passwords that populate in database into 60 characters" do
-		expect(@user.password_digest.size).to equal(60)
+		user = build(:user)
+		expect(user.password_digest.size).to equal(60)
 	end
 
 	it "doesn't create an account if existing e-mail is submitted" do

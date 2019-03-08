@@ -1,16 +1,19 @@
 FactoryBot.define do
-  factory :chatter do
-    message "MyText"
+  factory :user do
+    name "testuser"
+    email "testauser@gmail.com"
+    password "testing"
+    password_confirmation "testing"
   end
+
   factory :log do
-    controller "MyString"
-    action "MyString"
-    user nil
+    controller "users"
+    action "index"
+    user_id 1
   end
-	factory :user do
-		name "testuser"
-		email "testauser@gmail.com"
-		password "testing"
-		password_confirmation "testing"
-	end
+
+  factory :chatter do
+    message "Hello world!"
+    user_id 1
+  end
 end
