@@ -79,9 +79,7 @@ feature "Existing User Signs In" do
 		fill_in "verify-password-input", :with => "admin1"
 		find("#accept-button").click
 		sleep(2)
-
 		go_to_side_navigation
-
 		expect(page).to have_content("Sign out")
 		click_link("signout_link")
 	end

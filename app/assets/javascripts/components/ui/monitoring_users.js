@@ -58,7 +58,7 @@ class MonitoringUsers extends Component {
 							<tr>
 								<th>Controller</th>
 								<th>Action</th>
-								<th>IP Adress</th>
+								<th>IP Address</th>
 								<th>Time</th>
 							</tr>
 							{rows}
