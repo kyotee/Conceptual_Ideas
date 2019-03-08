@@ -78,16 +78,11 @@ feature "Existing User Signs In" do
 		fill_in "verify-email-input", :with => "admin@hotmail.com"
 		fill_in "verify-password-input", :with => "admin1"
 		find("#accept-button").click
-		sleep(2)  # need to investigate multiple http request problem
+		sleep(2)
 
 		go_to_side_navigation
 
-		within("div#side-navigate") do
-			expect(page).to have_no_content("Sign up")
-			expect(page).to have_no_content("Sign in")
-			expect(page).to have_content("Sign out")
-
-			click_link("signout_link")
-		end
+		expect(page).to have_content("Sign out")
+		click_link("signout_link")
 	end
 end

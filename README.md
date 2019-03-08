@@ -85,6 +85,10 @@ Time commitment for this application is intermittent. Any free time available is
 
 ## <a name="Remarks"></a>Remarks
 
+Travis CI does not include executing acceptance and integration tests:
+
+- `Tests will fail during execution as application will be updating by Heroku host server`
+
 Significant commits involved for troubleshooting and resolving problems:
 
 - `Guarantee that primitive-types passed from controller to associated view will be received by React components upon view render`
