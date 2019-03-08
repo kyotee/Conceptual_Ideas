@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Viewing User Monitoring Pages as Normal User" do
+feature "Viewing User Monitoring Pages" do
 	before do
 		visit("https://conceptual-ideas.herokuapp.com/")
 		go_to_sign_in
@@ -36,5 +36,7 @@ feature "Viewing User Monitoring Pages as Normal User" do
 		end
 
 		expect(page).to have_content("IP Address")
+		go_to_side_navigation
+		click_link("signout_link")
 	end
 end
