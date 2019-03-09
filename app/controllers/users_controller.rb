@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = User.all
+    @user = User.where.not(email: "admin@hotmail.com")
   end
 
   def show
