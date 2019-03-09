@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'minings/index'
+
   get 'bids/index'
 
   resources :users
@@ -40,4 +42,7 @@ Rails.application.routes.draw do
 
   # bids named routes
   get '/bids', to: 'bids#index'
+
+  # minings named routes
+  get '/minings', to: 'minings#index'
 end

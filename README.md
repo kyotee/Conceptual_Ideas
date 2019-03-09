@@ -66,6 +66,7 @@ Here are the current completed and incompleted features:
 - `4 - Real Time Messaging`<br>
 - `5 - Item Bidding` <br>
 - `6 - College Course Selection`<br>
+- `7 - Data Mining`<br>
 
 Here is the Kanban board to see progress on incompleted features, miscellaneous tasks, and bugs:
 https://trello.com/b/cyxQAQQh/conceptual-ideas-progress
