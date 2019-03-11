@@ -27,7 +27,7 @@ class NavigationBar extends Component {
 		const { signedin, admin } = this.props;
 		return (
 			<div id="nav">
-				<SandwichNavigation signedin={signedin} admin={admin} />
+				<SandwichNavigationRedux signedin={signedin} admin={admin} />
 				<div id="name-container">
 					<div id="idea-icon"></div>
 					<p id="title1">Conceptual</p>
@@ -44,6 +44,5 @@ NavigationBar.propTypes = {
 	signedin: PropTypes.bool.isRequired,
 	admin: PropTypes.bool.isRequired
 };
-
 
 export default NavigationBar;

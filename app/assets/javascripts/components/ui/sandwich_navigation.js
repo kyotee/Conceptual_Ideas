@@ -35,6 +35,7 @@ class SandwichNavigation extends Component {
 		});
 	}
 	render() {
+		const { signedin, admin } = this.props;
 		return (
 			<div>
 				<div id="sandwich">
@@ -42,15 +43,15 @@ class SandwichNavigation extends Component {
 					<div id="bar2"></div>
 					<div id="bar3"></div>
 				</div>
-				<SideNavigationBar signedin={this.props.signedin} admin={this.props.admin} />
+				<SideNavigationBar signedin={signedin} admin={admin} />
 			</div>
 		)
 	}
 }
 
 SandwichNavigation.propTypes = {
-	signedin: PropTypes.bool,
-	admin: PropTypes.bool
+	signedin: PropTypes.bool.isRequired,
+	admin: PropTypes.bool.isRequired
 };
 
 export default SandwichNavigation;
