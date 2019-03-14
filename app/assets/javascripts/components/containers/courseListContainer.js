@@ -5,7 +5,7 @@ import * as CourseListActions from '../actions/courseList';
 
 function mapStateToProps(state) {
   return {
-    courses: state.courseList
+    courses: state.courseList.courses
   }
 }
 

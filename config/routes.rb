@@ -28,13 +28,7 @@ Rails.application.routes.draw do
   get '/image_differences_generate', to: 'image_differences#show'
 
   # courses named routes
-  get '/courses_list', to: 'courses#index'
-  get '/courses_personal', to: 'courses#show'
-  get '/courses_create', to: 'courses#new'
-  post '/courses_create', to: 'courses#create'
-  get '/courses_edit', to: 'courses#edit'
-  patch '/courses_edit', to: 'courses#update'
-  delete '/courses_delete', to: 'courses#destroy'
+  get '/courses_list/:filter', to: 'courses#show'
 
   # chatters named routes
   get '/chatter', to: 'chatters#index'

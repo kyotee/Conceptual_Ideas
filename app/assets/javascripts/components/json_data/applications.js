@@ -27,7 +27,7 @@ const apps = {
 		{
 			name: "Courses",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-			route: "courses_list",
+			route: "courses_list/all",
 			color: "#FFB6C1"
 		},
 		{
