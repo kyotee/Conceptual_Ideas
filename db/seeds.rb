@@ -20,22 +20,19 @@ User.create!(
 end
 
 # Course Model Data
-courseNameStub = ["Comp-", "Engl-", "Fine-", "Geog-", "Hist-", "Math-", "Psyc-", "Soci-"]
+courseType = ["Comp", "Engl", "Fine", "Geog", "Hist", "Math", "Psyc", "Soci"]
 
 500.times do |n|
-	randomInt = Random.rand(8)
-	randomCourse = courseNameStub[randomInt]
-	randomNumber = Random.rand(101..500)
-
-	course_id = "#{randomCourse}#{randomNumber}"
+	randomCourse = courseType[Random.rand(8)]
+	randomNumber = Random.rand(101..499)
+	course_id = "#{randomCourse}-#{randomNumber}"
 	description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 	professor = Faker::FunnyName.two_word_name
-	count = 0
-	cap_off = 25 + Random.rand(100)
-	prerequisites = "#{randomCourse}#{Random.rand(100..randomNumber)}"
+	count = 15
+	cap_off = 15 + Random.rand(4)
+	prerequisites = "#{randomCourse}-#{Random.rand(100..randomNumber-1)}"
 	start_date = Faker::Date.backward(17)
 	end_date = Faker::Date.forward(17)
-	color_number = randomInt
 	Course.create!(
 		course_id: course_id,
 		description: description,
@@ -45,7 +42,7 @@ courseNameStub = ["Comp-", "Engl-", "Fine-", "Geog-", "Hist-", "Math-", "Psyc-",
 		prerequisites: prerequisites,
 		start_date: start_date,
 		end_date: end_date,
-		color_number: color_number
+		course_type: randomCourse
 	)
 end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190304233626) do
+ActiveRecord::Schema.define(version: 20190314003200) do
 
   create_table "chatters", force: :cascade do |t|
     t.text "message"
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20190304233626) do
     t.string "prerequisites"
     t.string "professor"
     t.string "cap_off"
-    t.integer "color_number"
     t.string "start_date"
     t.string "end_date"
+    t.string "course_type"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
