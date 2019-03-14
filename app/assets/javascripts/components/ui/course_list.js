@@ -10,9 +10,14 @@ class CourseList extends Component {
 		var clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
 
 		window.addEventListener('scroll', function() {
-			if (window.scrollY >= (clientHeight-250))
+			if (window.scrollY >= (clientHeight-400))
 					document.getElementsByClassName('next_page')[0].click();
 		}.bind(this));
+
+		document.getElementById('category').addEventListener('click', function() {
+			window.location.replace('/courses_list/Math');
+		}.bind(this));
+
 	}
 	listCourses(courses) {
 		var coursesCombined = [];
@@ -50,7 +55,7 @@ class CourseList extends Component {
 		const { courses } = this.props;
 		return (
 			<div className="course-listings">
-				<button id="hit">category</button>
+				<button id="category">Math Category</button>
 				{this.listCourses(courses)}
 				{this.isPaginateDone(courses.length)}
 			</div>

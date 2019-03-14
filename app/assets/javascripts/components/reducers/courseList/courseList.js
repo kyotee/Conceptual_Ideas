@@ -6,10 +6,9 @@ const initalState = {
 
 export default function courseList(state = initalState, action) {
   switch (action.type) {
-  case C.APPEND_COURSES:
-    state = action.courses;
-    return state;
-  case C.VIEW_COURSES:
+  case C.CATEGORY_COURSES:
+    return { ...state, courses: state.courses.concat(action.courses) };
+  case C.ALL_COURSES:
   	return { ...state, courses: state.courses.concat(action.courses) };
   default:
     return state;

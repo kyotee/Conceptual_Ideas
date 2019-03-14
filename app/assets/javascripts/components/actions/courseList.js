@@ -1,15 +1,15 @@
 import C from './courseListTypes.js';
 
-export function viewCourses(courses) {
+export function categoryCourses(courses) {
   return {
-    type: C.VIEW_COURSES,
+    type: C.CATEGORY_COURSES,
     courses: courses
   };
 }
 
-export function appendCourses(courses) {
+export function allCourses(courses) {
   return {
-    type: C.APPEND_COURSES,
+    type: C.ALL_COURSES,
     courses: courses
   };
 }

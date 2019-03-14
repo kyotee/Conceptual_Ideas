@@ -1,7 +1,6 @@
 <%= render 'titles' %>
 
 <p>===Feature is incomplete===</p>
-
-<%= react_component("CourseListRedux", {courses: @courses}) %>
+<%= react_component("CourseListRedux", {courses: @courses, type: @type}) %>
 
 <%= will_paginate @courses %>

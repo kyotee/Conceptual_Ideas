@@ -22,14 +22,12 @@ class Course extends Component {
 					<p>{this.props.description}</p><br/>
 				</div>
 				<div>
-					<p className="click-me">lol</p>
+					<p className="click-me">^</p>
 				</div>
 				<div className="more-info">
-					<p>hello</p>
-					<p>world</p>
-					<p>this</p>
-					<p>is</p>
-					<p>test</p>
+					<p>place</p>
+					<p>holder</p>
+					<p>text</p>
 				</div>
 			</div>
 		)
