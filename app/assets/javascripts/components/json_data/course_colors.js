@@ -1,30 +1,12 @@
 const colors = {
-	"color": [
-		{
-			hex: "#ff6698"
-		},
-		{
-			hex: "#ffb366"
-		},
-		{
-			hex: "#b2d8d8"
-		},
-		{
-			hex: "#98ff66"
-		},
-		{
-			hex: "#6698ff"
-		},
-		{
-			hex: "#d34836"
-		},
-		{
-			hex: "#1da1f2"
-		},
-		{
-			hex: "#c1abe7"
-		}
-	]
+	"Comp": "#ff6698",
+	"Engl": "#ffb366",
+	"Fine": "#b2d8d8",
+	"Geog": "#98ff66",
+	"Hist": "#6698ff",
+	"Math": "#d34836",
+	"Psyc": "#1da1f2",
+	"Soci": "#c1abe7"
 };
 
 export default colors;

@@ -25,13 +25,13 @@ class CourseList extends Component {
 					description={courses[index].description}
 					professor={courses[index].professor}
 					count={courses[index].count}
-					cap_off={courses[index].cap_off}
+					capOff={courses[index].cap_off}
 					prerequisites={courses[index].prerequisites}
-			        colorNumber={courses[index].color_number}
-			        start_date={courses[index].start_date}
-			        end_date={courses[index].end_date}
+			        courseType={courses[index].course_type}
+			        startDate={courses[index].start_date}
+			        endDate={courses[index].end_date}
 			        position={index}
-			        recordid={courses[index].id}
+			        recordId={courses[index].id}
 			        key={index} 
 			    />
 			);

@@ -6,7 +6,7 @@ class Course extends Component {
 		super(props);
 	}
 	componentDidMount() {
-		document.getElementsByClassName('tab')[this.props.position].style.backgroundColor = colors.color[this.props.colorNumber].hex;
+		document.getElementsByClassName('tab')[this.props.position].style.backgroundColor = colors[this.props.courseType];
 
 		document.getElementsByClassName('click-me')[this.props.position].addEventListener("click", function() {
 			document.getElementsByClassName('more-info')[this.props.position].classList.toggle('show');
@@ -14,7 +14,7 @@ class Course extends Component {
 	}
 	render() {
 		return (
-			<div className="course" id={"course-"+this.props.recordid}>
+			<div className="course" id={"course-"+this.props.recordId}>
 				<div className="tab">
 					<p>{this.props.courseid}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>A Boring Course</i></p>
 				</div>
