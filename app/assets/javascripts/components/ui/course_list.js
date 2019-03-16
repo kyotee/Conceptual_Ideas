@@ -24,7 +24,6 @@ class CourseList extends Component {
 		});
 
 		sortChange.addEventListener('change', function() {
-			this.props.sortCourses(sortChange.value);
 			window.location = `/courses_list/${catChange.value}/${sortChange.value}`;
 		}.bind(this));
 	}
@@ -61,11 +60,7 @@ class CourseList extends Component {
 		}
 	}
 	render() {
-		const { courses,courseTypes,sort,sortCourses } = this.props;
-		// if (sort === "Ascending")
-		// 	courses.sort(function(a,b) {return (a.course_id > b.course_id) ? 1 : ((b.course_id > a.course_id) ? -1 : 0);} );
-		// else
-		// 	courses.sort(function(a,b) {return (a.course_id < b.course_id) ? 1 : ((b.course_id < a.course_id) ? -1 : 0);} );		
+		const { courses,courseTypes,sort } = this.props;	
 		return (
 			<div className="course-listings">
 				<div id="filter-position">

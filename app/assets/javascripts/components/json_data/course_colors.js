@@ -2,7 +2,7 @@ const colors = {
 	"Comp": "#ff6698",
 	"Engl": "#ffb366",
 	"Fine": "#b2d8d8",
-	"Geog": "#98ff66",
+	"Geog": "#20B2AA",
 	"Hist": "#6698ff",
 	"Math": "#d34836",
 	"Psyc": "#1da1f2",
