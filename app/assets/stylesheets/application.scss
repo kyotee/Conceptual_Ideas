@@ -174,6 +174,15 @@ body, html {
 	padding-right: 0.75em
 }
 
+.boxes:hover {
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    border-radius: 1em;
+    -webkit-box-shadow: 0em 0em 2em 0em rgba(93, 173, 226, 0.67);
+    -moz-box-shadow: 0em 0em 2em 0em rgba(93, 173, 226, 0.67);
+    box-shadow: 0em 0em 2em 0em rgba(93, 173, 226, 0.67)
+}
+
 .idea-icon-apps {
 	background-image: url(idea.svg);
 	width: 4.5em;
@@ -493,7 +502,7 @@ body.slide {
 .header-apps {
 	height: 13%;
 	border-radius: 0.5em 0.5em 0em 0em;
-	background-color: #0080ff;
+	background-color: #26abff;
 	font-size: 125%;
 	color: white
 }

@@ -4,37 +4,37 @@ const apps = {
 			name: "Sign Up Form",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			route: "signup",
-			color: "#c5e3ed"
+			color: "#FFEFDB"
 		},
 		{
 			name: "Image Differences",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			route: "image_differences",
-			color: "#FFFFCC"
+			color: "#FFFACD"
 		},
 		{
 			name: "Chatter",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			route: "chatter",
-			color: "#D8BFD8"
+			color: "#FFE4E1"
 		},
 		{
 			name: "Courses",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-			route: "courses_list/all",
-			color: "#FFB6C1"
+			route: "courses_list/All/Ascending",
+			color: "#E8F1D4"
 		},
 		{
 			name: "Item Bidding",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			route: "bids",
-			color: "#b2d8d8"
+			color: "#dbeaf2"
 		},
 		{
 			name: "Data Mining",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			route: "minings",
-			color: "#FBA16C"
+			color: "#E6E6FA"
 		}
 	]
 };

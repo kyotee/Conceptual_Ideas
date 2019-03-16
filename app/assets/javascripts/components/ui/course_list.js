@@ -20,11 +20,12 @@ class CourseList extends Component {
 		});
 
 		catChange.addEventListener('change', function() {
-			window.location = `/courses_list/${catChange.value}`;
+			window.location = `/courses_list/${catChange.value}/${sortChange.value}`;
 		});
 
 		sortChange.addEventListener('change', function() {
 			this.props.sortCourses(sortChange.value);
+			window.location = `/courses_list/${catChange.value}/${sortChange.value}`;
 		}.bind(this));
 	}
 	listCourses(courses) {
@@ -69,15 +70,15 @@ class CourseList extends Component {
 			<div className="course-listings">
 				<div id="filter-position">
 					<select id="cat-selector">  
-						<option value="All">All</option>
-						<option value="Comp">Comp</option>
-						<option value="Engl">Engl</option>
-						<option value="Fine">Fine</option>
-						<option value="Geog">Geog</option>
-						<option value="Hist">Hist</option>
-						<option value="Math">Math</option>
-						<option value="Psyc">Psyc</option>
-						<option value="Soci">Soci</option>
+						<option value="All">All Courses</option>
+						<option value="Comp">Computer Science</option>
+						<option value="Engl">English</option>
+						<option value="Fine">Fine Arts</option>
+						<option value="Geog">Geography</option>
+						<option value="Hist">History</option>
+						<option value="Math">Mathematics</option>
+						<option value="Psyc">Psychology</option>
+						<option value="Soci">Sociology</option>
 					</select>
 					<select id="sort-selector">
 						<option value="Ascending">Low to High</option>
