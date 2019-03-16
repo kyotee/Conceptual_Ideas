@@ -61,23 +61,29 @@ class CourseList extends Component {
 	}
 	render() {
 		const { courses,courseTypes,sort,sortCourses } = this.props;
+		// if (sort === "Ascending")
+		// 	courses.sort(function(a,b) {return (a.course_id > b.course_id) ? 1 : ((b.course_id > a.course_id) ? -1 : 0);} );
+		// else
+		// 	courses.sort(function(a,b) {return (a.course_id < b.course_id) ? 1 : ((b.course_id < a.course_id) ? -1 : 0);} );		
 		return (
 			<div className="course-listings">
-				<select id="cat-selector">  
-					<option value="All">All</option>
-					<option value="Comp">Comp</option>
-					<option value="Engl">Engl</option>
-					<option value="Fine">Fine</option>
-					<option value="Geog">Geog</option>
-					<option value="Hist">Hist</option>
-					<option value="Math">Math</option>
-					<option value="Psyc">Psyc</option>
-					<option value="Soci">Soci</option>
-				</select>
-				<select id="sort-selector">
-					<option value="Ascending">Low to High</option>
-					<option value="Descending">High to Low</option>
-				</select>
+				<div id="filter-position">
+					<select id="cat-selector">  
+						<option value="All">All</option>
+						<option value="Comp">Comp</option>
+						<option value="Engl">Engl</option>
+						<option value="Fine">Fine</option>
+						<option value="Geog">Geog</option>
+						<option value="Hist">Hist</option>
+						<option value="Math">Math</option>
+						<option value="Psyc">Psyc</option>
+						<option value="Soci">Soci</option>
+					</select>
+					<select id="sort-selector">
+						<option value="Ascending">Low to High</option>
+						<option value="Descending">High to Low</option>
+					</select>
+				</div>
 				{this.listCourses(courses)}
 				{this.isPaginateDone(courses.length)}
 			</div>
