@@ -7,9 +7,9 @@ export function allCourses(courses) {
   };
 }
 
-export function courseType(courseType) {
+export function courseType(courseTypes) {
   return {
     type: C.COURSE_TYPE,
-    courseType: courseType
+    courseTypes: courseTypes
   };
 }

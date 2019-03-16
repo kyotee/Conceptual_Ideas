@@ -2,7 +2,7 @@ import C from '../../actions/courseListTypes.js';
 
 const initalState = {
 	courses: [],
-	courseType: ""
+	courseTypes: ""
 };
 
 export default function courseList(state = initalState, action) {
@@ -10,7 +10,7 @@ export default function courseList(state = initalState, action) {
   case C.ALL_COURSES:
   	return { ...state, courses: state.courses.concat(action.courses) };
   case C.COURSE_TYPE:
-  	  	return { ...state, courseType: action.courseType };
+  	  	return { ...state, courseTypes: action.courseTypes };
   default:
     return state;
   }

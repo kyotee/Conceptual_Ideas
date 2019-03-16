@@ -6,7 +6,7 @@ import * as CourseListActions from '../actions/courseList';
 function mapStateToProps(state) {
   return {
     courses: state.courseList.courses,
-    courseType: state.courseList.courseType
+    courseTypes: state.courseList.courseTypes
   }
 }
 

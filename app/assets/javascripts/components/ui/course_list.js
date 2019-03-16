@@ -10,6 +10,8 @@ class CourseList extends Component {
 		var clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
 		var catChange = document.getElementById('cat-selector');
 
+		catChange.value = this.props.courseTypes;
+
 		window.addEventListener('scroll', function() {
 			if (window.scrollY >= (clientHeight-400))
 					document.getElementsByClassName('next_page')[0].click();
@@ -52,19 +54,19 @@ class CourseList extends Component {
 		}
 	}
 	render() {
-		const { courses,courseType } = this.props;
+		const { courses,courseTypes } = this.props;
 		return (
 			<div className="course-listings">
-				<select id="cat-selector">
-				  <option value="All">All</option>
-				  <option value="Comp">Comp</option>
-				  <option value="Engl">Engl</option>
-				  <option value="Fine">Fine</option>
-				  <option value="Geog">Geog</option>
-				  <option value="Hist">Hist</option>
-				  <option value="Math">Math</option>
-				  <option value="Psyc">Psyc</option>
-	  			  <option value="Soci">Soci</option>
+				<select id="cat-selector">  
+					<option value="All">All</option>
+					<option value="Comp">Comp</option>
+					<option value="Engl">Engl</option>
+					<option value="Fine">Fine</option>
+					<option value="Geog">Geog</option>
+					<option value="Hist">Hist</option>
+					<option value="Math">Math</option>
+					<option value="Psyc">Psyc</option>
+					<option value="Soci">Soci</option>
 				</select>
 				{this.listCourses(courses)}
 				{this.isPaginateDone(courses.length)}
