@@ -1,3 +1,5 @@
+$course-fonts: Helvetica, Arial, sans-serif;
+
 .pagination {
 	display: none
 }
@@ -7,7 +9,7 @@
 	width: 100%;
 	border-radius: 0.3em;
 	background-color: white;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: $course-fonts;
 	box-shadow: 0em 0.3em 0.3em 0em rgba(0, 0, 0, 0.2), 0 0.3em 0.3em 0em rgba(0, 0, 0, 0.1);
 	margin-bottom:3em;
 	-webkit-animation: fadein 1s;
@@ -42,4 +44,21 @@
 
 .more-info.show {
 	display: block
+}
+
+#cat-selector, #sort-selector {
+	width: 10em;
+	height: 3em;
+	padding-left: 1em;
+	font-family: $course-fonts;
+	border-radius: 0.5em;
+	outline: none;
+	background-color: white;
+	border: 0.1em solid #0080ff;
+	color: #0080ff;
+	font-weight: bold
+}
+
+#sort-selector {
+	margin-left: 3em
 }

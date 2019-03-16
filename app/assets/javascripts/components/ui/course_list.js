@@ -9,17 +9,23 @@ class CourseList extends Component {
 	componentDidMount() {
 		var clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
 		var catChange = document.getElementById('cat-selector');
+		var sortChange = document.getElementById('sort-selector');
 
 		catChange.value = this.props.courseTypes;
+		sortChange.value = this.props.sort;
 
 		window.addEventListener('scroll', function() {
 			if (window.scrollY >= (clientHeight-400))
-					document.getElementsByClassName('next_page')[0].click();
+				document.getElementsByClassName('next_page')[0].click();
 		});
 
 		catChange.addEventListener('change', function() {
 			window.location = `/courses_list/${catChange.value}`;
 		});
+
+		sortChange.addEventListener('change', function() {
+			this.props.sortCourses(sortChange.value);
+		}.bind(this));
 	}
 	listCourses(courses) {
 		var coursesCombined = [];
@@ -54,7 +60,7 @@ class CourseList extends Component {
 		}
 	}
 	render() {
-		const { courses,courseTypes } = this.props;
+		const { courses,courseTypes,sort,sortCourses } = this.props;
 		return (
 			<div className="course-listings">
 				<select id="cat-selector">  
@@ -67,6 +73,10 @@ class CourseList extends Component {
 					<option value="Math">Math</option>
 					<option value="Psyc">Psyc</option>
 					<option value="Soci">Soci</option>
+				</select>
+				<select id="sort-selector">
+					<option value="Ascending">Low to High</option>
+					<option value="Descending">High to Low</option>
 				</select>
 				{this.listCourses(courses)}
 				{this.isPaginateDone(courses.length)}

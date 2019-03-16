@@ -13,3 +13,10 @@ export function courseType(courseTypes) {
     courseTypes: courseTypes
   };
 }
+
+export function sortCourses(sort) {
+  return {
+    type: C.SORT_COURSES,
+    sort: sort
+  };
+}
