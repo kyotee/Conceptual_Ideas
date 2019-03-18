@@ -71,7 +71,7 @@ class CourseList extends Component {
 			<div className="course-listings">
 				<div id="filter-position">
 					<select id="cat-selector">  
-						<option value="All">All Courses</option>
+						<option value="All">All Categories</option>
 						<option value="Comp">Computer Science</option>
 						<option value="Engl">English</option>
 						<option value="Fine">Fine Arts</option>
@@ -81,16 +81,16 @@ class CourseList extends Component {
 						<option value="Psyc">Psychology</option>
 						<option value="Soci">Sociology</option>
 					</select>
-					<select id="sort-selector">
-						<option value="Ascending">Low to High</option>
-						<option value="Descending">High to Low</option>
-					</select>
 					<select id="level-selector">
 						<option value="0">All Levels</option>
 						<option value="1">100 Level</option>
 						<option value="2">200 Level</option>
 						<option value="3">300 Level</option>
 						<option value="4">400 Level</option>
+					</select>
+					<select id="sort-selector">
+						<option value="Ascending">Sort Low to High</option>
+						<option value="Descending">Sort High to Low</option>
 					</select>
 				</div>
 				{this.listCourses(courses)}
