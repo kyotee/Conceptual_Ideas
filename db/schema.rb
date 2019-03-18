@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190314003200) do
+ActiveRecord::Schema.define(version: 20190318035546) do
 
   create_table "chatters", force: :cascade do |t|
     t.text "message"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20190314003200) do
     t.string "start_date"
     t.string "end_date"
     t.string "course_type"
+    t.string "course_id_num"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|

@@ -26,6 +26,7 @@ courseType = ["Comp", "Engl", "Fine", "Geog", "Hist", "Math", "Psyc", "Soci"]
 	randomCourse = courseType[Random.rand(8)]
 	randomNumber = Random.rand(101..499)
 	course_id = "#{randomCourse}-#{randomNumber}"
+	course_id_num = "#{randomNumber}"[0]
 	description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 	professor = Faker::FunnyName.two_word_name
 	count = 15
@@ -35,6 +36,7 @@ courseType = ["Comp", "Engl", "Fine", "Geog", "Hist", "Math", "Psyc", "Soci"]
 	end_date = Faker::Date.forward(17)
 	Course.create!(
 		course_id: course_id,
+		course_id_num: course_id_num,
 		description: description,
 		professor: professor,
 		count: count,
