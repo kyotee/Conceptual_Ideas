@@ -14,6 +14,13 @@ export function courseType(courseTypes) {
   };
 }
 
+export function courseLevel(courseLevels) {
+  return {
+    type: C.COURSE_LEVEL,
+    courseLevels: courseLevels
+  };
+}
+
 export function sortCourses(sort) {
   return {
     type: C.SORT_COURSES,

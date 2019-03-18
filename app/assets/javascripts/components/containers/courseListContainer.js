@@ -7,6 +7,7 @@ function mapStateToProps(state) {
   return {
     courses: state.courseList.courses,
     courseTypes: state.courseList.courseTypes,
+    courseLevels: state.courseList.courseLevels,
     sort: state.courseList.sort
   }
 }

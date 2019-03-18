@@ -13,6 +13,7 @@ class CourseList extends Component {
 		var levelChange = document.getElementById('level-selector');
 
 		catChange.value = this.props.courseTypes;
+		levelChange.value = this.props.courseLevels;
 		sortChange.value = this.props.sort;
 
 		window.addEventListener('scroll', function() {
@@ -21,11 +22,15 @@ class CourseList extends Component {
 		});
 
 		catChange.addEventListener('change', function() {
-			window.location = `/courses_list/${catChange.value}/${sortChange.value}/AllLevels`;
+			window.location = `/courses_list/${catChange.value}/${sortChange.value}/${levelChange.value}`;
+		});
+
+		levelChange.addEventListener('change', function() {
+			window.location = `/courses_list/${catChange.value}/${sortChange.value}/${levelChange.value}`;
 		});
 
 		sortChange.addEventListener('change', function() {
-			window.location = `/courses_list/${catChange.value}/${sortChange.value}/AllLevels`;
+			window.location = `/courses_list/${catChange.value}/${sortChange.value}/${levelChange.value}`;
 		});
 	}
 	listCourses(courses) {
@@ -61,7 +66,7 @@ class CourseList extends Component {
 		}
 	}
 	render() {
-		const { courses,courseTypes,sort } = this.props;	
+		const { courses,courseTypes,courseLevels,sort } = this.props;
 		return (
 			<div className="course-listings">
 				<div id="filter-position">
@@ -81,11 +86,11 @@ class CourseList extends Component {
 						<option value="Descending">High to Low</option>
 					</select>
 					<select id="level-selector">
-						<option value="AllLevels">All Levels</option>
-						<option value="100">100 Level</option>
-						<option value="200">200 Level</option>
-						<option value="300">300 Level</option>
-						<option value="400">400 Level</option>
+						<option value="0">All Levels</option>
+						<option value="1">100 Level</option>
+						<option value="2">200 Level</option>
+						<option value="3">300 Level</option>
+						<option value="4">400 Level</option>
 					</select>
 				</div>
 				{this.listCourses(courses)}
