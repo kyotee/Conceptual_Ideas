@@ -8,7 +8,7 @@
 		</div>
 	</div>
 
-	<p class="static-page-text">You must be signed in to use Chatter. See Github repo for admin credentials which permits the ability to access user monitoring feature as well!</p>
+	<p class="static-page-text">You must be signed in to use Chatter. Use admin credentials (e-mail: admin@hotmail.com; password: admin1) which permits the ability to access user monitoring feature as well!</p>
 	<% else %>
 	<%= react_component("Chatter", {messages: @messages, username: current_user.name, user_id: current_user.id}) %>
 <% end %>
