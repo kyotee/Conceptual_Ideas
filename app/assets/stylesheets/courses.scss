@@ -46,7 +46,7 @@ $course-fonts: Helvetica, Arial, sans-serif;
 	display: block
 }
 
-#cat-selector, #sort-selector {
+#cat-selector, #sort-selector, #level-selector {
 	width: 12.5em;
 	height: 3em;
 	padding-left: 1em;
@@ -59,7 +59,7 @@ $course-fonts: Helvetica, Arial, sans-serif;
 	font-weight: bold
 }
 
-#sort-selector {
+#sort-selector, #level-selector {
 	margin-left: 3em
 }
 

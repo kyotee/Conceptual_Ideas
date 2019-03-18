@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get '/image_differences_generate', to: 'image_differences#show'
 
   # courses named routes
-  get '/courses_list/:filter/:sort', to: 'courses#show'
+  get '/courses_list/:filter/:sort/:level', to: 'courses#show'
 
   # chatters named routes
   get '/chatter', to: 'chatters#index'

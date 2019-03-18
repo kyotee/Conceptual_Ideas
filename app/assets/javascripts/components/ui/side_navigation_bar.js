@@ -56,7 +56,7 @@ class SideNavigationBar extends Component {
 						<a href="/image_differences"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Image Differences</a>
 						{this.monitoring(admin)}
 						<a href="/chatter"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Chatter</a>
-						<a href="/courses_list/All/Ascending"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Courses</a>						
+						<a href="/courses_list/All/Ascending/AllLevels"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Courses</a>						
 						<a href="/bids"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Item Bidding</a>												
 					</div>
 					<a id="top-line" href="/about"><div className="icon-dropdown drop-about"></div>&nbsp;&nbsp;&nbsp;&nbsp;About</a>

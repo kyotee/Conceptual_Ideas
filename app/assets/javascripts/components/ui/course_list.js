@@ -10,6 +10,7 @@ class CourseList extends Component {
 		var clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
 		var catChange = document.getElementById('cat-selector');
 		var sortChange = document.getElementById('sort-selector');
+		var levelChange = document.getElementById('level-selector');
 
 		catChange.value = this.props.courseTypes;
 		sortChange.value = this.props.sort;
@@ -20,12 +21,12 @@ class CourseList extends Component {
 		});
 
 		catChange.addEventListener('change', function() {
-			window.location = `/courses_list/${catChange.value}/${sortChange.value}`;
+			window.location = `/courses_list/${catChange.value}/${sortChange.value}/AllLevels`;
 		});
 
 		sortChange.addEventListener('change', function() {
-			window.location = `/courses_list/${catChange.value}/${sortChange.value}`;
-		}.bind(this));
+			window.location = `/courses_list/${catChange.value}/${sortChange.value}/AllLevels`;
+		});
 	}
 	listCourses(courses) {
 		var coursesCombined = [];
@@ -78,6 +79,13 @@ class CourseList extends Component {
 					<select id="sort-selector">
 						<option value="Ascending">Low to High</option>
 						<option value="Descending">High to Low</option>
+					</select>
+					<select id="level-selector">
+						<option value="AllLevels">All Levels</option>
+						<option value="100">100 Level</option>
+						<option value="200">200 Level</option>
+						<option value="300">300 Level</option>
+						<option value="400">400 Level</option>
 					</select>
 				</div>
 				{this.listCourses(courses)}

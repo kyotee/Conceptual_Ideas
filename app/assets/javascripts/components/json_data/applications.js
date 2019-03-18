@@ -21,7 +21,7 @@ const apps = {
 		{
 			name: "Courses",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-			route: "courses_list/All/Ascending",
+			route: "courses_list/All/Ascending/AllLevels",
 			color: "#E8F1D4"
 		},
 		{
