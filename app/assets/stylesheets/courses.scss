@@ -79,7 +79,8 @@ $course-fonts: Helvetica, Arial, sans-serif;
 }
 
 .more-info {
-	margin-top: 0
+	margin: 0;
+	padding-left: 1.5em
 }
 
 .click-me.flip {
@@ -96,24 +97,33 @@ $course-fonts: Helvetica, Arial, sans-serif;
 }
 
 .tab-text {
-	float: left
+	float: left;
+	padding-top: 0.2em
 }
 
 .tab-status {
 	float: right;
-	padding-right: 1.5em;
-	cursor: pointer
+	margin-right: 1.5em;
+	cursor: pointer;
+	padding: 0 0.5em 0 0.5em;
+	border: 0.1em solid white;
+	border-radius: 0.3em
 }
 
 .tab-icon-status {
 	float: right;
-	padding-right: 1.5em;
+	padding-right: 3em;
 	width: 2.75em;
 	height: 2.75em;
-	margin: 0.22em 0.2em 0 0;
+	margin: 0.25em 0.2em 0 0;
 	background-image: url(check.gif);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size: 2.75em 2.75em;
 	display: none
+}
+
+.desc-color {
+	display: inline-block;
+	color: grey
 }

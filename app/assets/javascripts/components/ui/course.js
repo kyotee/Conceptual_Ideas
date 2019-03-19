@@ -15,6 +15,7 @@ class Course extends Component {
 
 		tabStatus.addEventListener("click", function() {
 			tabStatus.style.display = "none";
+			tabStatusIcon.style.backgroundImage = "url('/assets/check.gif?v=" + new Date().valueOf() + "')";
 			tabStatusIcon.style.display = "block";
 		});
 
@@ -37,13 +38,13 @@ class Course extends Component {
 				<div>
 					<p className="course-desc">{this.props.description}</p><br/>
 				</div>
+				<div className="more-info">
+					<p><div className="desc-color">Professor</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.professor}</p>
+					<p><div className="desc-color">Enrollment</div>&nbsp;&nbsp;&nbsp;{this.props.count} / {this.props.capOff}</p>
+					<p><div className="desc-color">Duration</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.startDate} to {this.props.endDate}</p>
+				</div>
 				<div>
 					<p className="click-me">↑</p>
-				</div>
-				<div className="more-info">
-					<p>place</p>
-					<p>holder</p>
-					<p>text</p>
 				</div>
 			</div>
 		)
