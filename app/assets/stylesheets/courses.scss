@@ -35,7 +35,7 @@ $course-fonts: Helvetica, Arial, sans-serif;
 	color: white;
 	display: flex;
 	justify-content: center;
-	flex-direction: column;
+	flex-direction: column
 }
 
 .more-info {
@@ -65,4 +65,55 @@ $course-fonts: Helvetica, Arial, sans-serif;
 
 #filter-position {
 	margin-bottom: 2em	
+}
+
+.click-me {
+	text-align: center;
+	cursor: pointer;
+	font-size: 1.75em;
+	margin: 0;
+	background-color: #F8F8F8;
+	color: #B8B8B8;
+	-webkit-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.more-info {
+	margin-top: 0
+}
+
+.click-me.flip {
+	-webkit-transform: rotate(0deg);
+    transform: rotate(0deg)
+}
+
+.course-desc {
+	padding: 0 1.75em 0 1.75em
+}
+
+.tab-container {
+	display: inline-block
+}
+
+.tab-text {
+	float: left
+}
+
+.tab-status {
+	float: right;
+	padding-right: 1.5em;
+	cursor: pointer
+}
+
+.tab-icon-status {
+	float: right;
+	padding-right: 1.5em;
+	width: 2.75em;
+	height: 2.75em;
+	margin: 0.22em 0.2em 0 0;
+	background-image: url(check.gif);
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: 2.75em 2.75em;
+	display: none
 }
