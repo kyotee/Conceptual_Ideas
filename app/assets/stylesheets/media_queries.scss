@@ -333,3 +333,21 @@
 		width: 15%
 	}
 }
+
+#mobile-filter {
+	@media screen and (max-width: 899px){
+		display: block
+	}
+	@media screen and (min-width: 900px){
+		display: none
+	}
+}
+
+#filter-position {
+	@media screen and (max-width: 899px){
+		display: none
+	}
+	@media screen and (min-width: 900px){
+		display: block
+	}
+}

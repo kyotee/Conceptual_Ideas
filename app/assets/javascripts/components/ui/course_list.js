@@ -35,7 +35,6 @@ class CourseList extends Component {
 	}
 	listCourses(courses) {
 		var coursesCombined = [];
-		let int = 0;
 
 		for (let index = 0; index < courses.length; index++) {
 			coursesCombined.push(
@@ -51,7 +50,7 @@ class CourseList extends Component {
 			        endDate={courses[index].end_date}
 			        position={index}
 			        recordId={courses[index].id}
-			        key={index} 
+			        key={index}
 			    />
 			);
 		}
@@ -69,6 +68,8 @@ class CourseList extends Component {
 		const { courses,courseTypes,courseLevels,sort } = this.props;
 		return (
 			<div className="course-listings">
+				<p id="mobile-filter">🔎</p>
+
 				<div id="filter-position">
 					<select id="cat-selector">  
 						<option value="All">All Categories</option>
