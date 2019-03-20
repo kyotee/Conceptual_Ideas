@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :logs, dependent: :destroy
   has_many :chatters, dependent: :destroy
+  has_many :enrollments
+  has_many :courses, through: :enrollments
 
   # virtual attribute
   attr_accessor :remember_token

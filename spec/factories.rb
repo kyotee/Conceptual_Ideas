@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :enrollment do
+    user nil
+    course nil
+  end
   factory :user do
     name "testuser"
     email "testauser@gmail.com"
