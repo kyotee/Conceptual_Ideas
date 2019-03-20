@@ -47,7 +47,6 @@ $course-fonts: Helvetica, Arial, sans-serif;
 }
 
 #cat-selector, #sort-selector, #level-selector {
-	width: 12.5em;
 	height: 3em;
 	padding-left: 1em;
 	font-family: $course-fonts;
@@ -59,12 +58,12 @@ $course-fonts: Helvetica, Arial, sans-serif;
 	font-weight: bold
 }
 
-#sort-selector, #level-selector {
-	margin-left: 3em
-}
-
 #filter-position {
 	margin-bottom: 2em	
+}
+
+#filter-position.change {
+	display: block	
 }
 
 .click-me {
@@ -133,7 +132,18 @@ $course-fonts: Helvetica, Arial, sans-serif;
 	border: 0.1em solid #0080ff;
 	border-radius: 0.5em;
 	width: 2em;
-	color: blue;
+	color: #0080ff;
 	font-size: 150%;
-	text-align: center
+	text-align: center;
+	cursor: pointer;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none
+}
+
+#mobile-filter.change {
+	background-color: yellow
 }

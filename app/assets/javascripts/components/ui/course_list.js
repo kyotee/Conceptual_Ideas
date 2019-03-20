@@ -8,6 +8,7 @@ class CourseList extends Component {
 	}
 	componentDidMount() {
 		var clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
+		var mobileFilter = document.getElementById('mobile-filter');
 		var catChange = document.getElementById('cat-selector');
 		var sortChange = document.getElementById('sort-selector');
 		var levelChange = document.getElementById('level-selector');
@@ -19,6 +20,11 @@ class CourseList extends Component {
 		window.addEventListener('scroll', function() {
 			if (window.scrollY >= (clientHeight-400))
 				document.getElementsByClassName('next_page')[0].click();
+		});
+
+		mobileFilter.addEventListener('click', function() {
+			mobileFilter.classList.toggle('change');
+		 	document.getElementById('filter-position').classList.toggle('change');
 		});
 
 		catChange.addEventListener('change', function() {
