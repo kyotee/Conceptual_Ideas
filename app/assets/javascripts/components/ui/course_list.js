@@ -74,7 +74,7 @@ class CourseList extends Component {
 		const { courses,courseTypes,courseLevels,sort } = this.props;
 		return (
 			<div className="course-listings">
-				<p id="mobile-filter">🔎</p>
+				<p id="mobile-filter" className="no-outline">🔎</p>
 
 				<div id="filter-position">
 					<select id="cat-selector">  

@@ -19,6 +19,11 @@ class Course extends Component {
 			tabStatusIcon.style.display = "block";
 		});
 
+		tabStatusIcon.addEventListener("click", function() {
+			tabStatus.style.display = "block";
+			tabStatusIcon.style.display = "none";
+		});
+
 		moreInfo.addEventListener("click", function() {
 			document.getElementsByClassName('more-info')[this.props.position].classList.toggle('show');
 			moreInfo.classList.toggle('flip');
@@ -30,7 +35,7 @@ class Course extends Component {
 				<div className="tab">
 					<div className="tab-container">
 						<p className="tab-text">{this.props.courseid}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>A Boring Course</i></p>
-						<p className="tab-status">Enroll</p>
+						<p className="tab-status no-outline">Enroll</p>
 						<div className="tab-icon-status">
 						</div>
 					</div>
