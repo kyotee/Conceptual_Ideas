@@ -34,8 +34,6 @@ ActiveRecord::Schema.define(version: 20190320211404) do
     t.string "end_date"
     t.string "course_type"
     t.string "course_id_num"
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -80,11 +78,7 @@ ActiveRecord::Schema.define(version: 20190320211404) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin", default: false
-    t.integer "user_id"
-    t.integer "course_id"
-    t.index ["course_id"], name: "index_users_on_course_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["user_id"], name: "index_users_on_user_id"
   end
 
 end

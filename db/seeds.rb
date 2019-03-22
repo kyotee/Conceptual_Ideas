@@ -71,3 +71,11 @@ end
 		user_id: value
 	)
 end
+
+# User and Course Association
+(1..5).each do |value|
+	Enrollment.create!(
+		user: User.find(value),
+		course: Course.find(value)
+	)
+end
