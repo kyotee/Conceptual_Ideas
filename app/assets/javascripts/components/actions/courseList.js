@@ -27,3 +27,17 @@ export function sortCourses(sort) {
     sort: sort
   };
 }
+
+export function userCourses(courses) {
+  return {
+    type: C.USER_COURSES,
+    coursesUser: courses
+  };
+}
+
+export function userCoursesCount(count) {
+  return {
+    type: C.USER_COURSES_COUNT,
+    coursesUserCount: count
+  };
+}

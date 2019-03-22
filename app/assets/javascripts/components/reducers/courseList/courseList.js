@@ -4,7 +4,9 @@ const initalState = {
 	courses: [],
 	courseTypes: "",
   courseLevels: "1",
-  sort: "Ascending"
+  sort: "Ascending",
+  coursesUser: [],
+  coursesUserCount: 0
 };
 
 export default function courseList(state = initalState, action) {
@@ -17,6 +19,10 @@ export default function courseList(state = initalState, action) {
     return { ...state, courseLevels: action.courseLevels };
   case C.SORT_COURSES:
     return { ...state, sort: action.sort };
+  case C.USER_COURSES:
+    return { ...state, coursesUser: action.coursesUser };
+  case C.USER_COURSES_COUNT:
+    return { ...state, coursesUserCount: action.coursesUserCount };
   default:
     return state;
   }

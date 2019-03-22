@@ -71,7 +71,7 @@ class CourseList extends Component {
 		}
 	}
 	render() {
-		const { courses,courseTypes,courseLevels,sort } = this.props;
+		const { courses,courseTypes,courseLevels,sort,coursesUser,coursesUserCount } = this.props;
 		return (
 			<div className="course-listings">
 				<p id="mobile-filter" className="no-outline">🔎</p>
