@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Course from './course.js';
 import Loadinggif from './_loading_gif.js';
+import { eventListenerMacro } from '../helpers/event_listeners.js';
 
 class CourseList extends Component {
 	constructor(props) {
@@ -27,15 +28,7 @@ class CourseList extends Component {
 		 	document.getElementById('filter-position').classList.toggle('change');
 		});
 
-		catChange.addEventListener('change', function() {
-			window.location = `/courses_list/${catChange.value}/${sortChange.value}/${levelChange.value}`;
-		});
-
-		levelChange.addEventListener('change', function() {
-			window.location = `/courses_list/${catChange.value}/${sortChange.value}/${levelChange.value}`;
-		});
-
-		sortChange.addEventListener('change', function() {
+		eventListenerMacro('cat-selector sort-selector level-selector', 'change', function() {
 			window.location = `/courses_list/${catChange.value}/${sortChange.value}/${levelChange.value}`;
 		});
 	}
