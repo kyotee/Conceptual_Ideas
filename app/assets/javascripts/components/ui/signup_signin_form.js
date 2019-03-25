@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import { sanitization } from '../input_sanitization.js';
+import { eventListenerMacro } from '../helpers/event_listeners.js';
 
 class SignupSigninForm extends Component {
 	constructor(props) {
 		super(props);
 
-		this.signupEventListener = this.signupEventListener.bind(this);
 		this.buttonValidChecker = this.buttonValidChecker.bind(this);
-	}
-	signupEventListener(element, eventsList, action) {
-		var events = eventsList.split(' ');
-
-		for (var counter = 0, eventsList = events.length; counter < eventsList; counter++) {
-			document.getElementById(element).addEventListener(events[counter], action);
-		}
 	}
 	buttonValidChecker() {
 		var passColor = "rgb(50, 205, 50)";
@@ -64,7 +57,7 @@ class SignupSigninForm extends Component {
 	}
 	componentDidMount() {
 		if(this.props.formType == "Sign up") {
-			this.signupEventListener('verify-name-input', 'click keyup paste', function() {
+			eventListenerMacro('verify-name-input', 'click keyup paste', function() {
 				var verifyNameInput = document.getElementById('verify-name-input');
 				var verifyNameColor = document.getElementsByClassName('verify-name')[0];
 				var verifyNameDisplay = document.getElementsByClassName('verify-name')[1];
@@ -84,7 +77,7 @@ class SignupSigninForm extends Component {
 					this.buttonValidChecker();
 			}.bind(this));
 		}
-		this.signupEventListener('verify-email-input', 'click keyup paste', function() {
+		eventListenerMacro('verify-email-input', 'click keyup paste', function() {
 				var verifyEmailInput = document.getElementById('verify-email-input');
 				var verifyEmailColor = document.getElementsByClassName('verify-email')[0];
 				var verifyEmailDisplay = document.getElementsByClassName('verify-email')[1];
@@ -114,7 +107,7 @@ class SignupSigninForm extends Component {
 	    		this.buttonValidChecker();
 	    	}
 		}.bind(this));
-		this.signupEventListener('verify-password-input', 'click keyup paste', function() {
+		eventListenerMacro('verify-password-input', 'click keyup paste', function() {
 				var verifyPasswordInput = document.getElementById('verify-password-input');
 				var verifyPasswordColor = document.getElementsByClassName('verify-password')[0];
 				var verifyPasswordDisplay = document.getElementsByClassName('verify-password')[1];
@@ -159,7 +152,7 @@ class SignupSigninForm extends Component {
 			}
 		}.bind(this));
 		if(this.props.formType == "Sign up") {
-			this.signupEventListener('verify-password-confirm-input', 'click keyup paste', function() {
+			eventListenerMacro('verify-password-confirm-input', 'click keyup paste', function() {
 				var verifyPasswordConfInput = document.getElementById('verify-password-confirm-input');
 				var verifyPasswordConfColor = document.getElementsByClassName('verify-password-confirm')[0];
 				var verifyPasswordConfDisplay = document.getElementsByClassName('verify-password-confirm')[1];
