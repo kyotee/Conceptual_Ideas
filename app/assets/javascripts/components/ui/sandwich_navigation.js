@@ -3,10 +3,10 @@ import SideNavigationBar from './side_navigation_bar.js';
 
 class SandwichNavigation extends Component {
 	componentDidMount() {
-		var sandwich = document.getElementById('sandwich');
-		var navey = document.querySelector('#side-navigate');
-		var outNavey = document.querySelector('#inner-body');
-		var wholeBody = document.getElementsByTagName('body')[0];
+		let sandwich = document.getElementById('sandwich');
+		let navey = document.querySelector('#side-navigate');
+		let outNavey = document.querySelector('#inner-body');
+		let wholeBody = document.getElementsByTagName('body')[0];
 
 		sandwich.addEventListener("click", function() {
 			this.classList.toggle('change');

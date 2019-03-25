@@ -6,10 +6,10 @@ class Course extends Component {
 		super(props);
 	}
 	componentDidMount() {
-		var tab = document.getElementsByClassName('tab')[this.props.position];
-		var tabStatus = document.getElementsByClassName('tab-status')[this.props.position];
-		var tabStatusIcon = document.getElementsByClassName('tab-icon-status')[this.props.position];
-		var moreInfo = document.getElementsByClassName('click-me')[this.props.position];
+		let tab = document.getElementsByClassName('tab')[this.props.position];
+		let tabStatus = document.getElementsByClassName('tab-status')[this.props.position];
+		let tabStatusIcon = document.getElementsByClassName('tab-icon-status')[this.props.position];
+		let moreInfo = document.getElementsByClassName('click-me')[this.props.position];
 
 		tab.style.backgroundColor = colors[this.props.courseType];
 

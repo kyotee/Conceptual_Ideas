@@ -6,17 +6,17 @@ class Chatter extends Component {
 		super(props);
 	}
 	componentDidMount() {
-		var scroller = document.getElementById("chatbox");
+		let scroller = document.getElementById("chatbox");
 		scroller.scrollTop = scroller.scrollHeight;
-		var submit = document.getElementById('submit-message');
+		let submit = document.getElementById('submit-message');
 
 		submit.addEventListener('click', function() {
-			var messageCredentials = {
+			let messageCredentials = {
 				chatter: {
-					  message: sanitization(document.getElementById('msg-input').value),
-					  username: this.props.username,
-					  user_id: this.props.user_id
-					}
+					message: sanitization(document.getElementById('msg-input').value),
+					username: this.props.username,
+					user_id: this.props.user_id
+				}
 			};
 
 			document.getElementById('msg-input').value = '';
@@ -36,15 +36,15 @@ class Chatter extends Component {
 
 		// case where enter key is pressed; needs refactoring
 		document.getElementById('msg-input').addEventListener("keypress", function(e) {
-			var key = e.which || e.keyCode;
+			let key = e.which || e.keyCode;
 
 			if (e.keyCode == 13) {
-				var messageCredentials = {
+				let messageCredentials = {
 					chatter: {
-						  message: sanitization(document.getElementById('msg-input').value),
-						  username: this.props.username,
-						  user_id: this.props.user_id
-						}
+						message: sanitization(document.getElementById('msg-input').value),
+						username: this.props.username,
+						user_id: this.props.user_id
+					}
 				};
 
 				document.getElementById('msg-input').value = '';
@@ -64,9 +64,9 @@ class Chatter extends Component {
 		}.bind(this));
 	}
 	userMessages(messages) {
-		var rows = [];
+		let rows = [];
 
-		for (var i = 0; i < messages.length; i++) {
+		for (let i = 0; i < messages.length; i++) {
 			rows.push(
 				<div className="word-holder">
 					<div className="no-word-overflow">
@@ -83,7 +83,7 @@ class Chatter extends Component {
 		)
 	}
 	submission() {
-		var scroller = document.getElementById("chatbox");
+		let scroller = document.getElementById("chatbox");
 		scroller.scrollTop = scroller.scrollHeight;
 	}
   	render() {

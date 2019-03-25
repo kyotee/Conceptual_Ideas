@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class ActionButton extends Component {
 	componentDidMount() {
-		var detectButton = document.getElementsByClassName('img-button')[0];
+		let detectButton = document.getElementsByClassName('img-button')[0];
 
 		detectButton.addEventListener('mouseover', function() {
 			detectButton.style.transition = "transform .0.5s";

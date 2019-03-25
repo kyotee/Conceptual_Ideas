@@ -5,9 +5,6 @@ import Loadinggif from './_loading_gif.js';
 class ImageDifferences extends Component {
 	constructor(props) {
 		super(props);
-
-		this.focusView = this.focusView.bind(this);
-		this.focusOut = this.focusOut.bind(this);
 	}
 	focusView(imgLrg, img1, img2, imgRes, innerBody, body) {
 	    document.body.scrollTop = 0;

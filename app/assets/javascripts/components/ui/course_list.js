@@ -8,11 +8,11 @@ class CourseList extends Component {
 		super(props);
 	}
 	componentDidMount() {
-		var clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
-		var mobileFilter = document.getElementById('mobile-filter');
-		var catChange = document.getElementById('cat-selector');
-		var sortChange = document.getElementById('sort-selector');
-		var levelChange = document.getElementById('level-selector');
+		let clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
+		let mobileFilter = document.getElementById('mobile-filter');
+		let catChange = document.getElementById('cat-selector');
+		let sortChange = document.getElementById('sort-selector');
+		let levelChange = document.getElementById('level-selector');
 
 		catChange.value = this.props.courseTypes;
 		levelChange.value = this.props.courseLevels;
@@ -33,7 +33,7 @@ class CourseList extends Component {
 		});
 	}
 	listCourses(courses) {
-		var coursesCombined = [];
+		let coursesCombined = [];
 
 		for (let index = 0; index < courses.length; index++) {
 			coursesCombined.push(

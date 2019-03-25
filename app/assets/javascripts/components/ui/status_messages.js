@@ -5,8 +5,8 @@ class StatusMessages extends Component {
 		return (nextprops.color != this.props.color && nextprops.message != this.props.message);
 	}
 	componentDidMount() {
-		var notify = document.getElementById('messages');
-		var messageText = document.getElementById('message-positioning');
+		let notify = document.getElementById('messages');
+		let messageText = document.getElementById('message-positioning');
 
 		if(this.props.color != null && this.props.message != null) {
 			let map = new Map([["Blue", ["#7EC0EE", "#FFFFFF"]], ["Green", ["#b2ffb2", "#00cc00"]], ["Red", ["#ff7f7f", "#ff1919"]], ["Yellow", ["#ffffb2", "#b2b200"]]]);

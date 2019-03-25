@@ -7,9 +7,9 @@ class MonitoringUsers extends Component {
 	tableType(list, users) {
 		if (list == true) {
 			users.sort(function(a,b) {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);} );
-			var rows = [];
+			let rows = [];
 
-			for (var i = 0; i < users.length; i++) {
+			for (let i = 0; i < users.length; i++) {
 				rows.push(
 					<tr>
 						<td>{users[i].name}</td>
@@ -35,10 +35,10 @@ class MonitoringUsers extends Component {
 				</div>
 			)
 		} else {
-			var logArr = this.props.logs;
-			var rows = [];
+			let logArr = this.props.logs;
+			let rows = [];
 
-			for (var i = 0; i < logArr.length; i++) {
+			for (let i = 0; i < logArr.length; i++) {
 				rows.push(
 					<tr>
 						<td>{logArr[i].controller}</td>

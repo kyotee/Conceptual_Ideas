@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ActionButton from './_action_button.js';
 import apps from '../json_data/applications.js';
-// import myImage from '../../../images/idea.svg';  -- parsing problem; imgs called via css now
 
 class UserApplications extends Component {
 	componentDidMount() {
@@ -20,7 +19,7 @@ class UserApplications extends Component {
 		}
 	}
 	applicationBoxes() {
-		var boxes = [];
+		let boxes = [];
 
 		for (let index = 0; index < Object.keys(apps.app).length; index++) {
 			boxes.push(
