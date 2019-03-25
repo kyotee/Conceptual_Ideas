@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ActionButton from './_action_button.js';
 import Loadinggif from './_loading_gif.js';
+import { eventListenerMacro } from '../helpers/event_listeners.js';
 
 class ImageDifferences extends Component {
 	constructor(props) {
@@ -26,15 +27,15 @@ class ImageDifferences extends Component {
 		imgLrgResult.style.opacity = "";
 	}
 	componentDidMount() {
-		var outNavey = document.querySelector('#inner-body');
-		var wholeBody = document.getElementsByTagName('body')[0];
-		var img1 = document.getElementById('img-1');
-		var img2 = document.getElementById('img-2');
-		var detectButton = document.getElementsByClassName('img-button')[0];
-		var beforeImg1 = document.getElementById('img-diff-contain-1');
-		var afterImg2 = document.getElementById('img-diff-contain-2');
-		var imgResult = document.getElementById('difference-result');
-		var exitImg1 = document.getElementById("exit-img-1");
+		let outNavey = document.getElementById('inner-body');
+		let wholeBody = document.getElementsByTagName('body')[0];
+		let img1 = document.getElementById('img-1');
+		let img2 = document.getElementById('img-2');
+		let detectButton = document.getElementsByClassName('img-button')[0];
+		let beforeImg1 = document.getElementById('img-diff-contain-1');
+		let afterImg2 = document.getElementById('img-diff-contain-2');
+		let imgResult = document.getElementById('difference-result');
+		let exitImg1 = document.getElementById("exit-img-1");
 
 		img1.addEventListener('click', function() {
 			this.focusView(beforeImg1, img1, img2, imgResult, outNavey, wholeBody);
@@ -44,24 +45,15 @@ class ImageDifferences extends Component {
 			this.focusView(afterImg2, img1, img2, imgResult, outNavey, wholeBody);
 		}.bind(this));
 
-		outNavey.addEventListener("mousedown", function(e) {
+		// includes mobile support
+		eventListenerMacro('inner-body', 'mousedown touchstart', function(e) {
 			if(outNavey.classList.contains('slider') && 
 			!beforeImg1.contains(e.target))
 				this.focusOut(outNavey, wholeBody, beforeImg1, afterImg2, img1, img2, imgResult);
 		}.bind(this));
 
-		exitImg1.addEventListener("click", function() {
-			this.focusOut(outNavey, wholeBody, beforeImg1, afterImg2, img1, img2, imgResult);
-		}.bind(this));
-
-		// for mobile support
-		outNavey.addEventListener("touchstart", function() {
-			if(outNavey.classList.contains('slider') && 
-			!beforeImg1.contains(e.target))
-				this.focusOut(outNavey, wholeBody, beforeImg1, afterImg2, img1, img2, imgResult);
-		}.bind(this));
-
-		exitImg1.addEventListener("touchstart", function() {
+		// includes mobile support
+		eventListenerMacro('exit-img-1', 'click touchstart', function() {
 			this.focusOut(outNavey, wholeBody, beforeImg1, afterImg2, img1, img2, imgResult);
 		}.bind(this));
 
@@ -70,8 +62,7 @@ class ImageDifferences extends Component {
 				window.location = "/image_differences_generate";
 			});
 		} else {
-		    var elmnt = document.getElementsByClassName("loading-container")[0];
-		    elmnt.scrollIntoView();
+			document.getElementsByClassName("loading-container")[0].scrollIntoView();
 
 			setTimeout(
 			function() {
