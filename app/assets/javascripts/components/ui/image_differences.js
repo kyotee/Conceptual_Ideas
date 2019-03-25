@@ -72,7 +72,7 @@ class ImageDifferences extends Component {
 		}
 	}
 	index_checker() {
-		if(this.props.index == true) {
+		if(this.props.index === true) {
 			return (
 				<div className="img-margin">
 					<ActionButton text={"Detect Differences"} />

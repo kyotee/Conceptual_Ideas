@@ -9,23 +9,26 @@ class SignupSigninForm extends Component {
 		this.buttonValidChecker = this.buttonValidChecker.bind(this);
 	}
 	buttonValidChecker() {
-		var passColor = "rgb(50, 205, 50)";
-		if(this.props.formType == "Sign up")
+		const passColor = "rgb(50, 205, 50)";
+
+		if(this.props.formType === "Sign up") {
 			var nameCheck = document.getElementsByClassName('verify-name')[0].style.color == passColor;
-		var emailCheck = document.getElementsByClassName('verify-email')[0].style.color == passColor;
-		var passCheck = document.getElementsByClassName('verify-password')[0].style.color == passColor;
-		if(this.props.formType == "Sign up")
 			var passVerCheck = document.getElementsByClassName('verify-password-confirm')[0].style.color == passColor;
+		}
 
-		var buttonColor = document.getElementById('accept-button');
+		let emailCheck = document.getElementsByClassName('verify-email')[0].style.color == passColor;
+		let passCheck = document.getElementsByClassName('verify-password')[0].style.color == passColor;
+		let buttonColor = document.getElementById('accept-button');
 
-		if ((nameCheck && emailCheck && passCheck && passVerCheck) || (this.props.formType == "Sign in" && emailCheck && passCheck)) {
+		if ((nameCheck && emailCheck && passCheck && passVerCheck) || (this.props.formType === "Sign in" && emailCheck && passCheck)) {
 			buttonColor.style.color = "#FFFFFF";
 			buttonColor.style.backgroundColor = "#32CD32";
+
 			buttonColor.addEventListener('mouseover', function() {
 				buttonColor.style.transition = "transform .0.5s";
 				buttonColor.style.transform = "scale(1.1)";
 			});
+
 			buttonColor.addEventListener('mouseout', function() {
 				buttonColor.style.transition = "transform .0.5s";
 				buttonColor.style.transform = "scale(1)";
@@ -33,18 +36,15 @@ class SignupSigninForm extends Component {
 		} else {
 			buttonColor.style.color = "#68838B";
 			buttonColor.style.backgroundColor = "#D3D3D3";
-			buttonColor.addEventListener('mouseover', function() {
-				buttonColor.style.transition = "";
-				buttonColor.style.transform = "";
-			});
-			buttonColor.addEventListener('mouseout', function() {
+
+			eventListenerMacro('accept-button', 'mouseover mouseout', function() {
 				buttonColor.style.transition = "";
 				buttonColor.style.transform = "";
 			});
 		}
 	}
 	colorChanger(id1, id2, id3, color) {
-		if (color == "Blue") {
+		if (color === "Blue") {
 			id1.style.borderColor = "#00aced";
 			id2.style.color = "#0080ff";
 			id3.style.display = "inline";
@@ -56,45 +56,40 @@ class SignupSigninForm extends Component {
 
 	}
 	componentDidMount() {
-		if(this.props.formType == "Sign up") {
+		if(this.props.formType === "Sign up") {
 			eventListenerMacro('verify-name-input', 'click keyup paste', function() {
-				var verifyNameInput = document.getElementById('verify-name-input');
-				var verifyNameColor = document.getElementsByClassName('verify-name')[0];
-				var verifyNameDisplay = document.getElementsByClassName('verify-name')[1];
+				let verifyNameInput = document.getElementById('verify-name-input');
+				let verifyNameColor = document.getElementsByClassName('verify-name')[0];
+				let verifyNameDisplay = document.getElementsByClassName('verify-name')[1];
 
 				this.colorChanger(verifyNameInput, verifyNameColor, verifyNameDisplay, "Blue");
 
-				var name = verifyNameInput.value;
-				var nameLength = verifyNameInput.value.length;
-				var reg = /^[a-zA-Z]+$/;
+				let name = verifyNameInput.value;
+				let nameLength = verifyNameInput.value.length;
+				let reg = /^[a-zA-Z]+$/;
 
-				if (nameLength > 0 && nameLength <= 12 && reg.test(String(name))) {
+				if (nameLength > 0 && nameLength <= 12 && reg.test(String(name)))
 					this.colorChanger(verifyNameInput, verifyNameColor, verifyNameDisplay, "Green");
 
-					this.buttonValidChecker();
-				}
-				else
-					this.buttonValidChecker();
+				this.buttonValidChecker();
 			}.bind(this));
 		}
-		eventListenerMacro('verify-email-input', 'click keyup paste', function() {
-				var verifyEmailInput = document.getElementById('verify-email-input');
-				var verifyEmailColor = document.getElementsByClassName('verify-email')[0];
-				var verifyEmailDisplay = document.getElementsByClassName('verify-email')[1];
 
-			if(this.props.formType == "Sign up") {
+		eventListenerMacro('verify-email-input', 'click keyup paste', function() {
+			let verifyEmailInput = document.getElementById('verify-email-input');
+			let verifyEmailColor = document.getElementsByClassName('verify-email')[0];
+			let verifyEmailDisplay = document.getElementsByClassName('verify-email')[1];
+
+			if(this.props.formType === "Sign up") {
 				this.colorChanger(verifyEmailInput, verifyEmailColor, verifyEmailDisplay, "Blue");
 
-				var emailValue = verifyEmailInput.value;
-				var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				let emailValue = verifyEmailInput.value;
+				let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	    	
-	    		if (re.test(String(emailValue)) && emailValue.length > 0 && emailValue.length < 40) {
+	    		if (re.test(String(emailValue)) && emailValue.length > 0 && emailValue.length < 40)
 					this.colorChanger(verifyEmailInput, verifyEmailColor, verifyEmailDisplay, "Green");
 
-					this.buttonValidChecker();
-	    		}
-	    		else
-	    			this.buttonValidChecker();
+    			this.buttonValidChecker();
 	    	} else {
 	    		if (verifyEmailInput.value.length > 0) {
 	    			verifyEmailColor.style.color = "#32CD32";
@@ -104,41 +99,40 @@ class SignupSigninForm extends Component {
 	    			verifyEmailColor.style.color = "#0080ff";
 	    			verifyEmailInput.style.borderColor = "#00aced";
 	    		}
+
 	    		this.buttonValidChecker();
 	    	}
 		}.bind(this));
-		eventListenerMacro('verify-password-input', 'click keyup paste', function() {
-				var verifyPasswordInput = document.getElementById('verify-password-input');
-				var verifyPasswordColor = document.getElementsByClassName('verify-password')[0];
-				var verifyPasswordDisplay = document.getElementsByClassName('verify-password')[1];
 
-			if(this.props.formType == "Sign up") {
+		eventListenerMacro('verify-password-input', 'click keyup paste', function() {
+			let verifyPasswordInput = document.getElementById('verify-password-input');
+			let verifyPasswordColor = document.getElementsByClassName('verify-password')[0];
+			let verifyPasswordDisplay = document.getElementsByClassName('verify-password')[1];
+
+			if(this.props.formType === "Sign up") {
 				this.colorChanger(verifyPasswordInput, verifyPasswordColor, verifyPasswordDisplay, "Blue");
 
-				var passwordLength = verifyPasswordInput.value.length;
+				let passwordLength = verifyPasswordInput.value.length;
 
 				// case were new password field != password confirm password
 				if (verifyPasswordInput.value != document.getElementById('verify-password-confirm-input').value
-					&& document.getElementsByClassName('verify-password-confirm')[0].style.color == "rgb(50, 205, 50)") {
+					&& document.getElementsByClassName('verify-password-confirm')[0].style.color === "rgb(50, 205, 50)") {
 					document.getElementsByClassName('verify-password-confirm')[0].style.color = "#0080ff";
 					document.getElementById('verify-password-confirm-input').style.borderColor = "#00aced";
 				}
 
 				// case where new password field == password confirm password
-				if (verifyPasswordInput.value == document.getElementById('verify-password-confirm-input').value 
-					&& verifyPasswordInput.value != "") {
+				if (verifyPasswordInput.value === document.getElementById('verify-password-confirm-input').value 
+					&& verifyPasswordInput.value !== "") {
 					document.getElementById('verify-password-confirm-input').style.borderColor = "#32CD32";
 					document.getElementsByClassName('verify-password-confirm')[0].style.color = "#32CD32";
 					document.getElementsByClassName('verify-password-confirm')[1].style.display = "none";
 				}
 
-				if(passwordLength >= 6 && passwordLength <= 12) {
+				if(passwordLength >= 6 && passwordLength <= 12)
 					this.colorChanger(verifyPasswordInput, verifyPasswordColor, verifyPasswordDisplay, "Green");
 
-					this.buttonValidChecker();				
-				}
-				else
-					this.buttonValidChecker();
+				this.buttonValidChecker();
 			} else {
 	    		if (verifyPasswordInput.value.length > 0) {
 	    			verifyPasswordColor.style.color = "#32CD32";
@@ -148,45 +142,44 @@ class SignupSigninForm extends Component {
 	    			verifyPasswordColor.style.color = "#0080ff";
 	    			verifyPasswordInput.style.borderColor = "#00aced";
 	    		}
+
 	    		this.buttonValidChecker();	
 			}
 		}.bind(this));
-		if(this.props.formType == "Sign up") {
+
+		if(this.props.formType === "Sign up") {
 			eventListenerMacro('verify-password-confirm-input', 'click keyup paste', function() {
-				var verifyPasswordConfInput = document.getElementById('verify-password-confirm-input');
-				var verifyPasswordConfColor = document.getElementsByClassName('verify-password-confirm')[0];
-				var verifyPasswordConfDisplay = document.getElementsByClassName('verify-password-confirm')[1];
+				let verifyPasswordConfInput = document.getElementById('verify-password-confirm-input');
+				let verifyPasswordConfColor = document.getElementsByClassName('verify-password-confirm')[0];
+				let verifyPasswordConfDisplay = document.getElementsByClassName('verify-password-confirm')[1];
 
 				this.colorChanger(verifyPasswordConfInput, verifyPasswordConfColor, verifyPasswordConfDisplay, "Blue");
 
-				var passwordVerValue = verifyPasswordConfInput.value;
+				let passwordVerValue = verifyPasswordConfInput.value;
 
 				// case where new confirm password field == password field
-				if (document.getElementById('verify-password-input').value == passwordVerValue && passwordVerValue != "") {
+				if (document.getElementById('verify-password-input').value === passwordVerValue && passwordVerValue !== "")
 					this.colorChanger(verifyPasswordConfInput, verifyPasswordConfColor, verifyPasswordConfDisplay, "Green");
 
-					this.buttonValidChecker();			
-				}
-				else
-					this.buttonValidChecker();
+				this.buttonValidChecker();
 			}.bind(this));
 		}
 
 		var submission = function() {
-			if (this.props.formType == "Sign up") {
-				var userCredentials = {
+			if (this.props.formType === "Sign up") {
+				let userCredentials = {
 					user: {
 						  name: sanitization(document.getElementById('verify-name-input').value),
 						  email: sanitization(document.getElementById('verify-email-input').value),
 						  password: sanitization(document.getElementById('verify-password-input').value),
 						  password_confirmation: sanitization(document.getElementById('verify-password-confirm-input').value)
-						}
+					}
 				};
 
-				if (userCredentials.user.name == "" || 
-					userCredentials.user.email == "" || 
-					userCredentials.user.password == "" || 
-					userCredentials.user.password_confirmation == "") 
+				if (userCredentials.user.name === "" || 
+					userCredentials.user.email === "" || 
+					userCredentials.user.password === "" || 
+					userCredentials.user.password_confirmation === "") 
 					return;
 
 				$.ajax({
@@ -202,14 +195,14 @@ class SignupSigninForm extends Component {
 				});
 			}
 			else {
-				var userCredentials = {
+				let userCredentials = {
 					userLogin: {
 						  email: sanitization(document.getElementById('verify-email-input').value),
 						  password: sanitization(document.getElementById('verify-password-input').value)
-						}
+					}
 				};
 
-				if (userCredentials.userLogin.email == "" || userCredentials.userLogin.password == "")
+				if (userCredentials.userLogin.email === "" || userCredentials.userLogin.password === "")
 					return;
 
 				$.ajax({
@@ -227,27 +220,20 @@ class SignupSigninForm extends Component {
 		}.bind(this);
 
 		// deal with enter key submission
-		function sharedSubmission(e) {
+		const sharedSubmission = (e) => {
 			var key = e.which || e.keyCode;
 
-			if (e.keyCode == 13)
+			if (e.keyCode === 13)
 				submission();
 		};
 
-		if (this.props.formType == "Sign up") {
-			document.getElementById('verify-name-input').addEventListener("keypress", function(e) {
-				sharedSubmission(e);
-			});
-
-			document.getElementById('verify-password-confirm-input').addEventListener("keypress", function(e) {
+		if (this.props.formType === "Sign up") {
+			eventListenerMacro('verify-name-input verify-password-confirm-input', 'keypress', function(e) {
 				sharedSubmission(e);
 			});
 		}
-		
-		document.getElementById('verify-email-input').addEventListener("keypress", function(e) {
-			sharedSubmission(e);
-		});
-		document.getElementById('verify-password-input').addEventListener("keypress", function(e) {
+
+		eventListenerMacro('verify-email-input verify-password-input', 'keypress', function(e) {
 			sharedSubmission(e);
 		});
 
@@ -340,7 +326,7 @@ class SignupSigninForm extends Component {
 	}
 
 	render() {
-		if(this.props.formType == "Sign up")
+		if(this.props.formType === "Sign up")
 			return this.signUpForm();
 		else
 			return this.signInForm();
