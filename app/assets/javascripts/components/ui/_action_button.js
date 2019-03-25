@@ -22,7 +22,7 @@ class ActionButton extends Component {
 }
 
 ActionButton.propTypes = {
-	text: PropTypes.string
+	text: PropTypes.string.isRequired
 };
 
 export default ActionButton;

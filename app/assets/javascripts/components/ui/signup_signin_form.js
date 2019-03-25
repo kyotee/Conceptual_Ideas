@@ -334,7 +334,7 @@ class SignupSigninForm extends Component {
 }
 
 SignupSigninForm.propTypes = {
-	formType: PropTypes.string
+	formType: PropTypes.string.isRequired
 };
 
 export default SignupSigninForm;

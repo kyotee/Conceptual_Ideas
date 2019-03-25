@@ -33,8 +33,8 @@ class StatusMessages extends Component {
 }
 
 StatusMessages.propTypes = {
-	color: PropTypes.string,
- 	message: PropTypes.string
+	color: PropTypes.string.isRequired,
+ 	message: PropTypes.string.isRequired
 };
 
 export default StatusMessages;

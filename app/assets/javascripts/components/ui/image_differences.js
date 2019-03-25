@@ -123,7 +123,7 @@ class ImageDifferences extends Component {
 }
 
 ImageDifferences.propTypes = {
-	index: PropTypes.bool
+	index: PropTypes.bool.isRequired
 };
 
 export default ImageDifferences;
