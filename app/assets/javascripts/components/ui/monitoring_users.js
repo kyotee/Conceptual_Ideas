@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
 class MonitoringUsers extends Component {
-	componentDidMount() {
-
-	}
 	tableType(list, users) {
 		if (list === true) {
 			users.sort(function(a,b) {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);} );

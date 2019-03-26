@@ -13,6 +13,8 @@ class CourseList extends Component {
 		let catChange = document.getElementById('cat-selector');
 		let sortChange = document.getElementById('sort-selector');
 		let levelChange = document.getElementById('level-selector');
+		let enrolledCourses = this.props.courses.map(({ course_id }) => course_id).toString().replace(/,/g, ' ');
+		let unenrolledCourses = this.props.courses.map(({ course_id }) => course_id).toString().replace(/,/g, '-Unenrolled ');
 
 		catChange.value = this.props.courseTypes;
 		levelChange.value = this.props.courseLevels;
@@ -28,6 +30,10 @@ class CourseList extends Component {
 		 	document.getElementById('filter-position').classList.toggle('change');
 		});
 
+		eventListenerMacro(`${enrolledCourses} ${unenrolledCourses}`, 'click', function(e) {
+			alert(this.id);
+		});
+
 		eventListenerMacro('cat-selector sort-selector level-selector', 'change', function() {
 			window.location = `/courses_list/${catChange.value}/${sortChange.value}/${levelChange.value}`;
 		});
@@ -38,7 +44,7 @@ class CourseList extends Component {
 		for (let index = 0; index < courses.length; index++) {
 			coursesCombined.push(
 				<Course 
-					courseid={courses[index].course_id}
+					courseId={courses[index].course_id}
 					description={courses[index].description}
 					professor={courses[index].professor}
 					count={courses[index].count}
@@ -48,7 +54,6 @@ class CourseList extends Component {
 			        startDate={courses[index].start_date}
 			        endDate={courses[index].end_date}
 			        position={index}
-			        recordId={courses[index].id}
 			        key={index}
 			    />
 			);

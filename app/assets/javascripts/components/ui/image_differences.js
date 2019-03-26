@@ -116,7 +116,7 @@ class ImageDifferences extends Component {
 				<div id="img-diff-contain-2">
 					<div id="exit-img-2">Ⓧ</div> 				
 				</div>
-				<div id="difference-result"></div>	
+				<div id="difference-result"></div>
 			</div>
 		)
 	}

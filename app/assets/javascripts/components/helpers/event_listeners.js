@@ -4,8 +4,8 @@
 // PARAMS: element=string of id's separated by spaces; eventsList=string of events separated by spaces;
 //         action=function
 export function eventListenerMacro(element, eventsList, action) {
-	const events = eventsList.split(' ');
 	const elements = element.split(' ');
+	const events = eventsList.split(' ');
 
 	for (let eventsCounter = 0, eventsList = events.length; eventsCounter < eventsList; eventsCounter++) {
 		for (let elementsCounter = 0, elementsList = elements.length; elementsCounter < elementsList; elementsCounter++)

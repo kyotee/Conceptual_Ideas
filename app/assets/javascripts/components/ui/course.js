@@ -31,12 +31,12 @@ class Course extends Component {
 	}
 	render() {
 		return (
-			<div className="course" id={"course-"+this.props.recordId}>
+			<div className="course">
 				<div className="tab">
 					<div className="tab-container">
-						<p className="tab-text">{this.props.courseid}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>A Boring Course</i></p>
-						<p className="tab-status no-outline">Enroll</p>
-						<div className="tab-icon-status">
+						<p className="tab-text">{this.props.courseId}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>A Boring Course</i></p>
+						<p className="tab-status no-outline" id={this.props.courseId}>Enroll</p>
+						<div className="tab-icon-status" id={this.props.courseId+"-Unenrolled"}>
 						</div>
 					</div>
 				</div>
