@@ -1,4 +1,6 @@
 class CoursesController < ApplicationController
+    before_action :user_courses, only: [:show]
+
 	def show
         @sort = params[:sort].capitalize
         categories = ["Comp", "Engl", "Fine", "Geog", "Hist", "Math", "Psyc", "Soci"]
@@ -14,10 +16,14 @@ class CoursesController < ApplicationController
         @courses = @courses.where("count < cap_off")
         @courses = @courses.paginate(page: params[:page], per_page: 15)
         @type = isCategories ? params[:filter].capitalize : "All"
+  	end
 
+    private
+
+    def user_courses
         if current_user.present?
             @userCourses = current_user.courses
             @userCoursesCount = @userCourses.size
         end
-  	end
+    end
 end

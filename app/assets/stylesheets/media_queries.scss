@@ -335,38 +335,38 @@
 }
 
 #mobile-filter {
-	@media screen and (max-width: 899px){
+	@media screen and (max-width: 1050px){
 		display: block
 	}
-	@media screen and (min-width: 900px){
+	@media screen and (min-width: 1051px){
 		display: none
 	}
 }
 
 #filter-position {
-	@media screen and (max-width: 899px){
+	@media screen and (max-width: 1050px){
 		display: none
 	}
-	@media screen and (min-width: 900px){
+	@media screen and (min-width: 1051px){
 		display: block
 	}
 }
 
 #cat-selector, #sort-selector, #level-selector {
-	@media screen and (max-width: 899px){
+	@media screen and (max-width: 1050px){
 		width: 100%
 	}
-	@media screen and (min-width: 900px){
+	@media screen and (min-width: 1051px){
 		width: 12.5em
 	}
 }
 
 #sort-selector, #level-selector {
-	@media screen and (max-width: 899px){
+	@media screen and (max-width: 1050px){
 		width: 100%;
 		margin-top: 1em
 	}
-	@media screen and (min-width: 900px){
+	@media screen and (min-width: 1051px){
 		margin-left: 3em
 	}
 }

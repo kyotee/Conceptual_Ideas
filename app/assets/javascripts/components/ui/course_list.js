@@ -61,6 +61,15 @@ class CourseList extends Component {
 
 		return coursesCombined;
 	}
+	coursesEnrolled(courses, count) {
+		if (courses != null) {
+			return (
+				<div id="enrolled-courses">
+					<p>Courses <div id="enrolled-number">{count}</div></p>
+				</div>
+			)
+		}
+	}
 	isPaginateDone(num) {
 		if (num % 15 == 0) {
 			return (
@@ -72,8 +81,8 @@ class CourseList extends Component {
 		const { courses,courseTypes,courseLevels,sort,coursesUser,coursesUserCount } = this.props;
 		return (
 			<div className="course-listings">
+				{this.coursesEnrolled(this.props.coursesUser,this.props.coursesUserCount)}
 				<p id="mobile-filter" className="no-outline">🔎</p>
-
 				<div id="filter-position">
 					<select id="cat-selector">  
 						<option value="All">All Categories</option>
@@ -98,6 +107,7 @@ class CourseList extends Component {
 						<option value="Descending">Sort High to Low</option>
 					</select>
 				</div>
+				<br/>
 				{this.listCourses(courses)}
 				{this.isPaginateDone(courses.length)}
 			</div>

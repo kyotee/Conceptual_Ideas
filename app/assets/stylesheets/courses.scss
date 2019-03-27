@@ -142,3 +142,37 @@ $course-fonts: Helvetica, Arial, sans-serif;
 #mobile-filter.change {
 	background-color: yellow
 }
+
+#enrolled-courses {
+	padding: 0.5em;
+	margin: 0;
+	border: 0.15em solid #0080ff;
+	border-radius: 0.5em;
+	width: 7em;
+	color: #0080ff;
+	text-align: center;
+	cursor: pointer;
+	float: right;
+	font-family: $course-fonts;
+	font-weight: bold;
+
+	p {
+		margin: 0.525em 0 0.525em 0
+	}
+}
+
+#enrolled-number {
+	margin-left: 0.3em;
+	display: inline;
+	padding: 0.2em 0.5em 0.2em 0.5em;
+    height: 0.5em;
+    width: 0.5em;
+    line-height: 0.4em;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #008B8B;
+    color: white;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold
+}
