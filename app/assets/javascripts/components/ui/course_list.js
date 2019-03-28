@@ -53,22 +53,24 @@ class CourseList extends Component {
 	listCourses(courses) {
 		let coursesCombined = [];
 
-		for (let index = 0; index < courses.length; index++) {
-			coursesCombined.push(
-				<Course 
-					courseId={courses[index].course_id}
-					description={courses[index].description}
-					professor={courses[index].professor}
-					count={courses[index].count}
-					capOff={courses[index].cap_off}
-					prerequisites={courses[index].prerequisites}
-			        courseType={courses[index].course_type}
-			        startDate={courses[index].start_date}
-			        endDate={courses[index].end_date}
-			        position={index}
-			        key={index}
-			    />
-			);
+		if (courses != null) {
+			for (let index = 0; index < courses.length; index++) {
+				coursesCombined.push(
+					<Course 
+						courseId={courses[index].course_id}
+						description={courses[index].description}
+						professor={courses[index].professor}
+						count={courses[index].count}
+						capOff={courses[index].cap_off}
+						prerequisites={courses[index].prerequisites}
+				        courseType={courses[index].course_type}
+				        startDate={courses[index].start_date}
+				        endDate={courses[index].end_date}
+				        position={index}
+				        key={index}
+				    />
+				);
+			}
 		}
 
 		return coursesCombined;
