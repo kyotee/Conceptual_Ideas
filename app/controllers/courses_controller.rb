@@ -22,13 +22,9 @@ class CoursesController < ApplicationController
         @course = Course.find_by course_id: course_params[:course_name]
 
         if @course != nil && current_user.present?
-            
+            Enrollment.create user: current_user, course: @course
+            # if enrollment exists; remove; else create
         end
-
-        # unless @chatter.save
-        #     flash[:alert] = "Red"
-        #     flash[:notice] = "Message can't be empty."
-        # end
     end
 
     private
