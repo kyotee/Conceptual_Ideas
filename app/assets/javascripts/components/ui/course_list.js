@@ -42,8 +42,15 @@ class CourseList extends Component {
 		 	document.getElementById('filter-position').classList.toggle('change');
 		});
 
+		const trigger = (enrollment) => {
+			if (enrollment.includes("Unenrolled"))
+				this.props.decrementCourseCount(this.props.coursesUserCount);
+			else
+				this.props.incrementCourseCount(this.props.coursesUserCount);
+		}
+
 		eventListenerMacro(`${enrolledCourses} ${unenrolledCourses}`, 'click', function(e) {
-			alert(this.id);
+			trigger(this.id);
 		});
 
 		eventListenerMacro('cat-selector sort-selector level-selector', 'change', function() {
@@ -92,7 +99,7 @@ class CourseList extends Component {
 		}
 	}
 	render() {
-		const { courses,courseTypes,courseLevels,sort,coursesUser,coursesUserCount } = this.props;
+		const { courses,courseTypes,courseLevels,sort,coursesUser,coursesUserCount, incrementCourseCount, decrementCourseCount } = this.props;
 		return (
 			<div className="course-listings">
 				{this.coursesEnrolled(this.props.coursesUser,this.props.coursesUserCount)}

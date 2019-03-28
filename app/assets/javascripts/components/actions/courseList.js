@@ -41,3 +41,17 @@ export function userCoursesCount(count) {
     coursesUserCount: count
   };
 }
+
+export function incrementCourseCount(count) {
+  return {
+    type: C.INCREMENT_COURSES_COUNT,
+    coursesUserCount: count
+  };
+}
+
+export function decrementCourseCount(count) {
+  return {
+    type: C.DECREMENT_COURSES_COUNT,
+    coursesUserCount: count
+  }; 
+}

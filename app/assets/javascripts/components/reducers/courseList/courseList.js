@@ -23,6 +23,10 @@ export default function courseList(state = initalState, action) {
     return { ...state, coursesUser: action.coursesUser };
   case C.USER_COURSES_COUNT:
     return { ...state, coursesUserCount: action.coursesUserCount };
+  case C.INCREMENT_COURSES_COUNT:
+    return { ...state, coursesUserCount: action.coursesUserCount + 1 };
+  case C.DECREMENT_COURSES_COUNT:
+    return { ...state, coursesUserCount: action.coursesUserCount - 1 };
   default:
     return state;
   }
