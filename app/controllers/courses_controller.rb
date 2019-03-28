@@ -18,6 +18,19 @@ class CoursesController < ApplicationController
         @type = isCategories ? params[:filter].capitalize : "All"
   	end
 
+    def create
+        @course = Course.find_by course_id: course_params[:course_name]
+
+        if @course != nil && current_user.present?
+            
+        end
+
+        # unless @chatter.save
+        #     flash[:alert] = "Red"
+        #     flash[:notice] = "Message can't be empty."
+        # end
+    end
+
     private
 
     def user_courses
@@ -25,5 +38,9 @@ class CoursesController < ApplicationController
             @userCourses = current_user.courses
             @userCoursesCount = @userCourses.size
         end
+    end
+
+    def course_params
+        params.require(:course).permit(:course_name)
     end
 end

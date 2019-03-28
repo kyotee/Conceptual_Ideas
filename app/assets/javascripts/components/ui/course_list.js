@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Course from './course.js';
 import Loadinggif from './_loading_gif.js';
 import { eventListenerMacro } from '../helpers/event_listeners.js';
+import { sanitization } from '../input_sanitization.js';
 
 class CourseList extends Component {
 	constructor(props) {
@@ -42,15 +43,36 @@ class CourseList extends Component {
 		 	document.getElementById('filter-position').classList.toggle('change');
 		});
 
-		const trigger = (enrollment) => {
-			if (enrollment.includes("Unenrolled"))
+		// need restrict for limiting HTTP requests
+		const addDropCourse = (enrollment) => {
+			let courseCredentials = {
+				course: {
+					course_name: sanitization(enrollment)
+				}
+			};
+
+			$.ajax({
+				type: "POST",
+				url: "/courses",
+				data: courseCredentials,
+				success: function(data, textStatus, jqXHR) {
+					console.log("Course add or remove; submission successful.");
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					console.log("Course add or remove; submission unsuccessful.");
+				}
+			});
+
+			if (enrollment.includes("Unenrolled")) {
 				this.props.decrementCourseCount(this.props.coursesUserCount);
-			else
+			}
+			else {
 				this.props.incrementCourseCount(this.props.coursesUserCount);
+			}
 		}
 
 		eventListenerMacro(`${enrolledCourses} ${unenrolledCourses}`, 'click', function(e) {
-			trigger(this.id);
+			addDropCourse(this.id);
 		});
 
 		eventListenerMacro('cat-selector sort-selector level-selector', 'change', function() {
