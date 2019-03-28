@@ -16,6 +16,18 @@ class CourseList extends Component {
 		let enrolledCourses = this.props.courses.map(({ course_id }) => course_id).toString().replace(/,/g, ' ');
 		let unenrolledCourses = this.props.courses.map(({ course_id }) => course_id).toString().replace(/,/g, '-Unenrolled ');
 
+		if (this.props.coursesUser != null) {
+			let allCourses = document.getElementById('course-list');
+			let userCourses = document.getElementById('enrolled-courses');
+			let userCoursesList = document.getElementById('course-list-user');
+
+			userCourses.addEventListener('click', function() {
+				allCourses.classList.toggle('change');
+				userCourses.classList.toggle('change');
+				userCoursesList.classList.toggle('change');
+			});
+		}
+
 		catChange.value = this.props.courseTypes;
 		levelChange.value = this.props.courseLevels;
 		sortChange.value = this.props.sort;
@@ -64,7 +76,7 @@ class CourseList extends Component {
 	coursesEnrolled(courses, count) {
 		if (courses != null) {
 			return (
-				<div id="enrolled-courses">
+				<div id="enrolled-courses" className="no-outline">
 					<p>Courses <div id="enrolled-number">{count}</div></p>
 				</div>
 			)
@@ -82,34 +94,39 @@ class CourseList extends Component {
 		return (
 			<div className="course-listings">
 				{this.coursesEnrolled(this.props.coursesUser,this.props.coursesUserCount)}
-				<p id="mobile-filter" className="no-outline">🔎</p>
-				<div id="filter-position">
-					<select id="cat-selector">  
-						<option value="All">All Categories</option>
-						<option value="Comp">Computer Science</option>
-						<option value="Engl">English</option>
-						<option value="Fine">Fine Arts</option>
-						<option value="Geog">Geography</option>
-						<option value="Hist">History</option>
-						<option value="Math">Mathematics</option>
-						<option value="Psyc">Psychology</option>
-						<option value="Soci">Sociology</option>
-					</select>
-					<select id="level-selector">
-						<option value="0">All Levels</option>
-						<option value="1">100 Level</option>
-						<option value="2">200 Level</option>
-						<option value="3">300 Level</option>
-						<option value="4">400 Level</option>
-					</select>
-					<select id="sort-selector">
-						<option value="Ascending">Sort Low to High</option>
-						<option value="Descending">Sort High to Low</option>
-					</select>
-				</div>
-				<br/>
-				{this.listCourses(courses)}
-				{this.isPaginateDone(courses.length)}
+					<p id="mobile-filter" className="no-outline">🔎</p>
+					<div id="filter-position">
+						<select id="cat-selector">  
+							<option value="All">All Categories</option>
+							<option value="Comp">Computer Science</option>
+							<option value="Engl">English</option>
+							<option value="Fine">Fine Arts</option>
+							<option value="Geog">Geography</option>
+							<option value="Hist">History</option>
+							<option value="Math">Mathematics</option>
+							<option value="Psyc">Psychology</option>
+							<option value="Soci">Sociology</option>
+						</select>
+						<select id="level-selector">
+							<option value="0">All Levels</option>
+							<option value="1">100 Level</option>
+							<option value="2">200 Level</option>
+							<option value="3">300 Level</option>
+							<option value="4">400 Level</option>
+						</select>
+						<select id="sort-selector">
+							<option value="Ascending">Sort Low to High</option>
+							<option value="Descending">Sort High to Low</option>
+						</select>
+					</div>
+					<br/>
+					<div id="course-list">
+						{this.listCourses(courses)}
+						{this.isPaginateDone(courses.length)}
+					</div>
+					<div id="course-list-user">
+						{this.listCourses(coursesUser)}
+					</div>
 			</div>
 		)
 	}

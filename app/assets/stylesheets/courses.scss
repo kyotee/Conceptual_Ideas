@@ -161,6 +161,10 @@ $course-fonts: Helvetica, Arial, sans-serif;
 	}
 }
 
+#enrolled-courses.change {
+	background-color: yellow
+}
+
 #enrolled-number {
 	margin-left: 0.3em;
 	display: inline;
@@ -170,9 +174,25 @@ $course-fonts: Helvetica, Arial, sans-serif;
     line-height: 0.4em;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    background-color: #008B8B;
+    background-color: #00bfff;
     color: white;
     text-align: center;
     font-size: 1em;
     font-weight: bold
+}
+
+#course-list {
+	display: block
+}
+
+#course-list.change {
+	display: none	
+}
+
+#course-list-user {
+	display: none
+}
+
+#course-list-user.change {
+	display: block
 }
