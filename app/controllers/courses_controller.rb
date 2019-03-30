@@ -22,8 +22,11 @@ class CoursesController < ApplicationController
         @course = Course.find_by course_id: course_params[:course_name]
 
         if @course != nil && current_user.present?
-            Enrollment.create user: current_user, course: @course
-            # if enrollment exists; remove; else create
+            if current_user.courses.where(course: @course).nil?
+                Enrollment.create user: current_user, course: @course
+            else
+                current_user.enrollments.where(course_id: @course.id).destroy_all
+            end
         end
     end
 
