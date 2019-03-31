@@ -43,7 +43,7 @@ class CourseList extends Component {
 		 	document.getElementById('filter-position').classList.toggle('change');
 		});
 
-		// need restrict for limiting HTTP requests
+		// need restriction for limiting HTTP requests
 		const addDropCourse = (enrollment) => {
 			let courseCredentials = {
 				course: {
@@ -65,9 +65,11 @@ class CourseList extends Component {
 
 			if (enrollment.includes("Unenrolled")) {
 				this.props.decrementCourseCount(this.props.coursesUserCount);
+				this.props.decrementCourse(enrollment);
 			}
 			else {
 				this.props.incrementCourseCount(this.props.coursesUserCount);
+				this.props.incrementCourse(enrollment);
 			}
 		}
 
@@ -121,7 +123,7 @@ class CourseList extends Component {
 		}
 	}
 	render() {
-		const { courses,courseTypes,courseLevels,sort,coursesUser,coursesUserCount, incrementCourseCount, decrementCourseCount } = this.props;
+		const { courses,courseTypes,courseLevels,sort,coursesUser,coursesUserCount, incrementCourseCount, decrementCourseCount, incrementCourse, decrementCourse } = this.props;
 		return (
 			<div className="course-listings">
 				{this.coursesEnrolled(this.props.coursesUser,this.props.coursesUserCount)}
