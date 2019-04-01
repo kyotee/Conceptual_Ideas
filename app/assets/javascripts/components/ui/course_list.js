@@ -45,9 +45,11 @@ class CourseList extends Component {
 
 		// need restriction for limiting HTTP requests
 		const addDropCourse = (enrollment) => {
+			let filterString = enrollment.match(/[^-]*-[^-]*/)[0];
+
 			let courseCredentials = {
 				course: {
-					course_name: sanitization(enrollment)
+					course_name: sanitization(filterString)
 				}
 			};
 
@@ -65,11 +67,11 @@ class CourseList extends Component {
 
 			if (enrollment.includes("Unenrolled")) {
 				this.props.decrementCourseCount(this.props.coursesUserCount);
-				this.props.decrementCourse(enrollment);
+				this.props.decrementCourse(filterString);
 			}
 			else {
 				this.props.incrementCourseCount(this.props.coursesUserCount);
-				this.props.incrementCourse(enrollment);
+				this.props.incrementCourse(filterString);
 			}
 		}
 

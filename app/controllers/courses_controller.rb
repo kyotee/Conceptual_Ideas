@@ -20,7 +20,6 @@ class CoursesController < ApplicationController
 
     def create
         @course = Course.find_by_course_id(course_params[:course_name])
-        puts @course.course_id
 
         if @course != nil && current_user.present?
             if current_user.courses.where(course_id: @course.course_id).empty?
