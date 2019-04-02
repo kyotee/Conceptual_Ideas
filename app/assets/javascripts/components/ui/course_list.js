@@ -83,27 +83,31 @@ class CourseList extends Component {
 			window.location = `/courses_list/${catChange.value}/${sortChange.value}/${levelChange.value}`;
 		});
 	}
-	listCourses(courses) {
+	listCourses(courses, coursesOfUser, indexOffset) {
 		let coursesCombined = [];
 
-		if (courses != null) {
-			for (let index = 0; index < courses.length; index++) {
-				coursesCombined.push(
-					<Course 
-						courseId={courses[index].course_id}
-						description={courses[index].description}
-						professor={courses[index].professor}
-						count={courses[index].count}
-						capOff={courses[index].cap_off}
-						prerequisites={courses[index].prerequisites}
-				        courseType={courses[index].course_type}
-				        startDate={courses[index].start_date}
-				        endDate={courses[index].end_date}
-				        position={index}
-				        key={index}
-				    />
-				);
-			}
+		for (let index = 0; index < courses.length; index++) {
+			let isUserCourse = false;
+
+			if (coursesOfUser.includes(courses[index].course_id)) 
+				isUserCourse = true;
+
+			coursesCombined.push(
+				<Course 
+					courseId={courses[index].course_id}
+					description={courses[index].description}
+					professor={courses[index].professor}
+					count={courses[index].count}
+					capOff={courses[index].cap_off}
+					prerequisites={courses[index].prerequisites}
+			        courseType={courses[index].course_type}
+			        startDate={courses[index].start_date}
+			        endDate={courses[index].end_date}
+			        enrolled={isUserCourse}
+			        position={index+indexOffset}
+			        key={index+indexOffset}
+			    />
+			);
 		}
 
 		return coursesCombined;
@@ -125,7 +129,13 @@ class CourseList extends Component {
 		}
 	}
 	render() {
-		const { courses,courseTypes,courseLevels,sort,coursesUser,coursesUserCount, incrementCourseCount, decrementCourseCount, incrementCourse, decrementCourse } = this.props;
+		const { courses,courseTypes,courseLevels,sort,coursesUser,coursesUserCount,incrementCourseCount,decrementCourseCount,incrementCourse,decrementCourse } = this.props;
+		
+		let coursesOfUser = [];
+
+		for (let index = 0; index < coursesUser.length; index++) {
+			coursesOfUser.push(coursesUser[index].course_id);
+		}
 		return (
 			<div className="course-listings">
 				{this.coursesEnrolled(this.props.coursesUser,this.props.coursesUserCount)}
@@ -156,11 +166,11 @@ class CourseList extends Component {
 					</div>
 					<br/>
 					<div id="course-list">
-						{this.listCourses(courses)}
+						{this.listCourses(courses,coursesOfUser,0)}
 						{this.isPaginateDone(courses.length)}
 					</div>
 					<div id="course-list-user">
-						{this.listCourses(coursesUser)}
+						{this.listCourses(coursesUser,coursesOfUser,courses.length)}
 					</div>
 			</div>
 		)

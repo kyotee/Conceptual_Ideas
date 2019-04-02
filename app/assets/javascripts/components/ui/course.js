@@ -24,6 +24,12 @@ class Course extends Component {
 			tabStatusIcon.style.display = "none";
 		});
 
+		if (this.props.enrolled === true) {
+			tabStatus.style.display = "none";
+			tabStatusIcon.style.backgroundImage = "url('/assets/check.gif?v=" + new Date().valueOf() + "')";
+			tabStatusIcon.style.display = "block";		
+		}
+
 		moreInfo.addEventListener("click", function() {
 			document.getElementsByClassName('more-info')[this.props.position].classList.toggle('show');
 			moreInfo.classList.toggle('flip');
