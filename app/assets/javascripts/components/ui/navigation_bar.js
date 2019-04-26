@@ -2,22 +2,23 @@ import React, { Component } from 'react';
 import SandwichNavigation from './sandwich_navigation.js';
 
 class NavigationBar extends Component {
-	componentDidMount() {
-		document.getElementById('name-container').addEventListener("click", function() {
-			window.location = "/";
-		});
+	constructor(props) {
+		super(props);
 
-		if (this.props.signedin == false) {
-			document.getElementById('signing-up').addEventListener("click", function() {
-				window.location = "/signup";
-			});
-		}
+		this.visitSignup = this.visitSignup.bind(this);
+	}
+	visitHome() {
+		window.location = "/";
+	}
+	visitSignup() {
+		if (this.props.signedin === false)
+			window.location = "/signup";
 	}
 	loggedin() {
-		if(this.props.signedin == false) {
+		if(this.props.signedin === false) {
 			return (
 				<div id="login-signup">
-					<p id="signing-up">Sign up</p>
+					<p id="signing-up" onClick={this.visitSignup}>Sign up</p>
 					<p><a href="/login" id="signin_link">Sign in</a></p>
 				</div>
 			)
@@ -28,7 +29,7 @@ class NavigationBar extends Component {
 		return (
 			<div id="nav">
 				<SandwichNavigationRedux signedin={signedin} admin={admin} />
-				<div id="name-container">
+				<div id="name-container" onClick={this.visitHome}>
 					<div id="idea-icon"></div>
 					<p id="title1">Conceptual</p>
 					<p id="title2">Ideas</p>

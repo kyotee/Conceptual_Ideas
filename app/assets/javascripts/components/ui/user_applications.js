@@ -3,21 +3,6 @@ import ActionButton from './_action_button.js';
 import apps from '../json_data/applications.js';
 
 class UserApplications extends Component {
-	componentDidMount() {
-		for (let index = 1; index < Object.keys(apps.app).length; index++) {
-			let detectButton = document.getElementById(`box-${index}`);
-
-			detectButton.addEventListener('mouseover', function() {
-				detectButton.style.transition = "transform .0.5s";
-				detectButton.style.transform = "scale(1.1)";
-			});
-
-			detectButton.addEventListener('mouseout', function() {
-				detectButton.style.transition = "transform .0.5s";
-				detectButton.style.transform = "scale(1)";
-			});
-		}
-	}
 	applicationBoxes() {
 		let boxes = [];
 
@@ -34,7 +19,7 @@ class UserApplications extends Component {
 						<p>{apps.app[index].description}</p>
 					</div>
 					<div className="button-apps">
-						<div className="button-apps-container" id={"box-"+index}>
+						<div className="button-apps-container">
 							<ActionButton text={"See Feature"} />
 						</div>
 					</div>

@@ -1,22 +1,39 @@
 import React, { Component } from 'react';
 
 class ActionButton extends Component {
-	componentDidMount() {
-		let detectButton = document.getElementsByClassName('img-button')[0];
+	constructor(props) {
+		super(props);
 
-		detectButton.addEventListener('mouseover', function() {
-			detectButton.style.transition = "transform .0.5s";
-			detectButton.style.transform = "scale(1.1)";
-		});
+		this.state = {	
+			enlarged: false
+		};
 
-		detectButton.addEventListener('mouseout', function() {
-			detectButton.style.transition = "transform .0.5s";
-			detectButton.style.transform = "scale(1)";
-		});
+		this.buttonEnlarger = this.buttonEnlarger.bind(this);
+		this.buttonNormal = this.buttonNormal.bind(this);
+	}
+	buttonEnlarger() {
+		this.setState({ enlarged: true });
+	}
+	buttonNormal() {
+		this.setState({ enlarged: false });
 	}
 	render() {
+	    let buttonMovement;
+
+	    if (this.state.enlarged) {
+	    	buttonMovement = { 
+	      		transition: "transform .0.5s",
+	      		transform: "scale(1.1)"
+	      	}
+	    } else {
+	    	buttonMovement = { 
+	      		transition: "transform .0.5s",
+	      		transform: "scale(1)"
+	      	}
+	    }
+
 		return (
-			<button className="img-button">{this.props.text}</button>
+			<button className="img-button" style={buttonMovement} onMouseOver={this.buttonEnlarger} onMouseOut={this.buttonNormal}>{this.props.text}</button>
 		)
 	}
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { eventListenerMacro } from '../helpers/event_listeners.js';
 import SideNavigationBar from './side_navigation_bar.js';
 
 class SandwichNavigation extends Component {
@@ -15,17 +16,7 @@ class SandwichNavigation extends Component {
 			wholeBody.classList.toggle('slide');
 		});
 
-		outNavey.addEventListener("mousedown", function() {
-			if(navey.classList.contains('slide')) {
-				sandwich.classList.toggle('change');
-				navey.classList.toggle('slide');
-				this.classList.toggle('slide');
-				wholeBody.classList.toggle('slide');
-			}
-		});
-
-		// for mobile support
-		outNavey.addEventListener("touchstart", function() {
+		eventListenerMacro('inner-body', 'mousedown touchstart', function() {
 			if(navey.classList.contains('slide')) {
 				sandwich.classList.toggle('change');
 				navey.classList.toggle('slide');

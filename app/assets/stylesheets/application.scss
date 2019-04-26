@@ -89,7 +89,7 @@ body, html {
 	position: fixed;
     width: 18em;
     left: -18.25em;
-    transition: 1s;
+    transition: 0.1s;
     background: white;
     overflow-x: hidden;
     top: 4.55em;
@@ -284,7 +284,8 @@ body, html {
 }
 
 #side-navigate.slide {
-    left: 0
+    left: 0;
+    transition: 0.4s
 }
 
 #inner-body.slide {
