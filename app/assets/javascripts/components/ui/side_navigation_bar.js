@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
 
 class SideNavigationBar extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {	
+			collasp: false
+		};
+
+		this.featureDropdown = this.featureDropdown.bind(this);
+	}
 	componentDidMount() {
-		document.getElementById("dropdown-button").addEventListener("click", function(){
-			document.querySelector("#dropdown-content").classList.toggle('active');
-			document.querySelector("#arrow-icon").classList.toggle('flip');
+		let toggleSnow = document.getElementById("toggle-snow");
+		let snowFall = document.querySelector("#snowy");
+		let penguinGlide = document.querySelector("#penguin-gif");
+
+		toggleSnow.addEventListener("click", function(){
+			snowFall.classList.toggle('snow');
+			penguinGlide.classList.toggle('snow');
 		});
-		document.getElementById("toggle-snow").addEventListener("click", function(){
-			document.querySelector("#snowy").classList.toggle('snow');
-			document.querySelector("#penguin-gif").classList.toggle('snow');
-		});
+	}
+	featureDropdown() {
+		this.setState({ collasp: !this.state.collasp });
 	}
 	loggedin() {
 		if(this.props.signedin == true) {
@@ -44,14 +56,28 @@ class SideNavigationBar extends Component {
 	}
 	render() {
 		const { signedin, admin } = this.props;
+	    let dropdownMovement;
+	    let arrowRotate;
+
+	    if (this.state.collasp) {
+	    	dropdownMovement = { 
+				display: "none",
+			    backgroundColor: "#e3e7ea"
+	      	};
+
+	    	arrowRotate = { 
+				WebkitTransform: "rotate(180deg)",
+			    transform: "rotate(180deg)"
+	      	};
+	    }
 		return (
 			<div>
 				<div id="side-navigate">
 					{this.loggedin()}
-					<button id="dropdown-button">Applications
-						<div id="arrow-icon">↑</div>
+					<button id="dropdown-button" onClick={this.featureDropdown}>Applications
+						<div id="arrow-icon" style={arrowRotate}>↑</div>
 					</button>
-					<div id="dropdown-content">
+					<div id="dropdown-content" style={dropdownMovement}>
 						<a href="/signup"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Sign up Form</a>
 						<a href="/image_differences"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;Image Differences</a>
 						{this.monitoring(admin)}

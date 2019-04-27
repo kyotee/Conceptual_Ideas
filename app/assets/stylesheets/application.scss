@@ -80,11 +80,6 @@ body, html {
 	cursor: pointer
 }
 
-#arrow-icon.flip {
-	-webkit-transform: rotate(180deg);
-    transform: rotate(180deg)
-}
-
 #side-navigate {
 	position: fixed;
     width: 18em;
@@ -138,11 +133,6 @@ body, html {
 	a {
 		background-color: #f6fbfc
 	}
-}
-
-#dropdown-content.active {
-	display: none;
-    background-color: #e3e7ea
 }
 
 .idea-dropdown, .icon-dropdown, .idea-icon-form, .idea-icon-apps {
@@ -490,7 +480,9 @@ body.slide {
 	font-size: 1em;
 	color: white;
 	background-color: #00b0b0;
-	cursor: pointer
+	cursor: pointer;
+	transition: "transform .0.5s";
+	transform: "scale(1)"
 }
 
 .boxes {

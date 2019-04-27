@@ -25,11 +25,6 @@ class ActionButton extends Component {
 	      		transition: "transform .0.5s",
 	      		transform: "scale(1.1)"
 	      	}
-	    } else {
-	    	buttonMovement = { 
-	      		transition: "transform .0.5s",
-	      		transform: "scale(1)"
-	      	}
 	    }
 
 		return (
