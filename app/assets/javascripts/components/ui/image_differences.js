@@ -6,70 +6,79 @@ import { eventListenerMacro } from '../helpers/event_listeners.js';
 class ImageDifferences extends Component {
 	constructor(props) {
 		super(props);
-	}
-	focusView(imgLrg, img1, img2, imgRes, innerBody, body) {
-	    document.body.scrollTop = 0;
-	    document.documentElement.scrollTop = 0;
-		imgLrg.style.display = "block";
-		img1.style.opacity = "0.3";
-		img2.style.opacity = "0.3";
-		imgRes.style.opacity = "0.3";
-		innerBody.classList.toggle('slider');
-		body.classList.toggle('slide');
-	}
-	focusOut(innerBody, body, imgLrg1, imgLrg2, img1, img2, imgLrgResult) {
-		innerBody.classList.toggle('slider');
-		body.classList.toggle('slide');
-		imgLrg1.style.display = "none";
-		imgLrg2.style.display = "none";
-		img1.style.opacity = "";
-		img2.style.opacity = "";
-		imgLrgResult.style.opacity = "";
+
+		this.state = {
+			view: false,
+			imgShowOne: false,
+			imgShowTwo: false
+		};
+
+		this.seeImage = this.seeImage.bind(this);
+		this.hideImage = this.hideImage.bind(this);
 	}
 	componentDidMount() {
 		let outNavey = document.getElementById('inner-body');
 		let wholeBody = document.getElementsByTagName('body')[0];
-		let img1 = document.getElementById('img-1');
-		let img2 = document.getElementById('img-2');
 		let detectButton = document.getElementsByClassName('img-button')[0];
-		let beforeImg1 = document.getElementById('img-diff-contain-1');
-		let afterImg2 = document.getElementById('img-diff-contain-2');
-		let imgResult = document.getElementById('difference-result');
-		let exitImg1 = document.getElementById("exit-img-1");
 
-		img1.addEventListener('click', function() {
-			this.focusView(beforeImg1, img1, img2, imgResult, outNavey, wholeBody);
-		}.bind(this));
+		const setImage = (id) => {
+			if (id === 'img-1') 
+				this.setState({ imgShowOne: true });
+			else
+				this.setState({ imgShowTwo: true });
+		}
 
-		img2.addEventListener('click', function() {
-			this.focusView(afterImg2, img1, img2, imgResult, outNavey, wholeBody);
-		}.bind(this));
+		eventListenerMacro('img-1 img-2', 'click', function() {
+			setImage(this.id);
 
-		// includes mobile support
-		eventListenerMacro('inner-body', 'mousedown touchstart', function(e) {
-			if(outNavey.classList.contains('slider') && 
-			!beforeImg1.contains(e.target))
-				this.focusOut(outNavey, wholeBody, beforeImg1, afterImg2, img1, img2, imgResult);
-		}.bind(this));
+		    document.body.scrollTop = 0;
+		    document.documentElement.scrollTop = 0;
+			outNavey.classList.toggle('slider');
+			wholeBody.classList.toggle('slide');
+		});
 
-		// includes mobile support
+		const closeImage = () => {
+			this.setState({ view: false,
+							imgShowOne: false,
+							imgShowTwo: false
+			});
+
+			outNavey.classList.toggle('slider');
+			wholeBody.classList.toggle('slide');
+		};
+
+		eventListenerMacro('inner-body', 'mousedown touchstart', function() {
+			if(outNavey.classList.contains('slider')) {
+				closeImage();
+			}
+		});
+
 		eventListenerMacro('exit-img-1', 'click touchstart', function() {
-			this.focusOut(outNavey, wholeBody, beforeImg1, afterImg2, img1, img2, imgResult);
-		}.bind(this));
+			closeImage();
+		});
 
-		if (detectButton != null) {
+		if (this.props.index === true) {
 			detectButton.addEventListener('click', function() {
 				window.location = "/image_differences_generate";
 			});
 		} else {
-			document.getElementsByClassName("loading-container")[0].scrollIntoView();
+			let loading = document.getElementsByClassName("loading-container")[0];
+			let imgResult = document.getElementById('difference-result');
+
+			loading.scrollIntoView();
 
 			setTimeout(
 			function() {
-				document.getElementsByClassName("loading-container")[0].style.display = "none";
-				document.getElementById("difference-result").style.display = "block";
+				loading.style.display = "none";
+				imgResult.style.display = "block";
 			}, 4500);
 		}
+	}
+	seeImage() {
+		this.setState({ view: true });
+	}
+	hideImage() {
+		this.setState({ view: false });
 	}
 	index_checker() {
 		if(this.props.index === true) {
@@ -89,6 +98,27 @@ class ImageDifferences extends Component {
 		}
 	}
 	render() {
+	    let enlargeImageOne;
+	    let enlargeImageTwo;
+	    let dimOrgImage;
+
+	    if (this.state.view) {
+	    	dimOrgImage = {
+	    		opacity: "0.3"
+	    	};
+
+	    	if (this.state.imgShowOne) {
+		    	enlargeImageOne = {
+		    		display: "block"
+		    	};
+		    }
+
+	    	if (this.state.imgShowTwo) {
+		    	enlargeImageTwo = {
+		    		display: "block"
+		    	};
+		    }
+	    }
 		return (
 			<div>
 				<div className="app-title-space">
@@ -100,20 +130,20 @@ class ImageDifferences extends Component {
 				<div id="img-compare">
 					<div className="img-lining">
 						<h2>Before Epic</h2>
-						<div id="img-1"></div>
+						<div id="img-1" style={dimOrgImage} onClick={this.seeImage}></div>
 						<p>Sign up page before epic.</p>
 					</div>
 					<div className="img-lining">
 						<h2>After Epic</h2>
-						<div id="img-2"></div>
+						<div id="img-2" style={dimOrgImage} onClick={this.seeImage}></div>
 						<p>Sign up page after epic.</p>
 					</div>
 					{this.index_checker()}
 				</div>
-				<div id="img-diff-contain-1">
+				<div id="img-diff-contain-1" style={enlargeImageOne}>
 					<div id="exit-img-1">Ⓧ</div>
 				</div>
-				<div id="img-diff-contain-2">
+				<div id="img-diff-contain-2" style={enlargeImageTwo}>
 					<div id="exit-img-2">Ⓧ</div> 				
 				</div>
 				<div id="difference-result"></div>

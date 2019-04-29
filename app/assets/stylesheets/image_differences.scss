@@ -61,11 +61,13 @@ $img-fonts: Helvetica, Arial, sans-serif;
 }
 
 #img-diff-contain-1 {
-	background-image: url(before_epic.png)
+	background-image: url(before_epic.png);
+	display: none
 }
 
 #img-diff-contain-2 {
-	background-image: url(after_epic.png)
+	background-image: url(after_epic.png);
+	display: none
 }
 
 #img-diff-contain-1, #img-diff-contain-2 {
