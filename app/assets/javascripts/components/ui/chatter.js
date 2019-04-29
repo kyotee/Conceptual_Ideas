@@ -4,64 +4,50 @@ import { sanitization } from '../input_sanitization.js';
 class Chatter extends Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {	
+			input: ""
+		};
+
+		this.chatMessages = this.chatMessages.bind(this);
+		this.newMessage = this.newMessage.bind(this);
+		this.newMessageEnter = this.newMessageEnter.bind(this);
 	}
 	componentDidMount() {
 		let scroller = document.getElementById("chatbox");
 		scroller.scrollTop = scroller.scrollHeight;
-		let submit = document.getElementById('submit-message');
-
-		submit.addEventListener('click', function() {
-			let messageCredentials = {
-				chatter: {
-					message: sanitization(document.getElementById('msg-input').value),
-					username: this.props.username,
-					user_id: this.props.user_id
-				}
-			};
-
-			document.getElementById('msg-input').value = '';
-
-			$.ajax({
-				type: "POST",
-				url: "/chatters",
-				data: messageCredentials,
-				success: function(data, textStatus, jqXHR) {
-					console.log("Message creation; submission successful.");
-				},
-				error: function(jqXHR, textStatus, errorThrown) {
-					console.log("Message creation; submission unsuccessful.");
-				}
-			});
-		}.bind(this));
-
-		// case where enter key is pressed; needs refactoring
-		document.getElementById('msg-input').addEventListener("keypress", function(e) {
-			let key = e.which || e.keyCode;
-
-			if (e.keyCode == 13) {
-				let messageCredentials = {
-					chatter: {
-						message: sanitization(document.getElementById('msg-input').value),
-						username: this.props.username,
-						user_id: this.props.user_id
-					}
-				};
-
-				document.getElementById('msg-input').value = '';
-
-				$.ajax({
-					type: "POST",
-					url: "/chatters",
-					data: messageCredentials,
-					success: function(data, textStatus, jqXHR) {
-						console.log("Message creation; submission successful.");
-					},
-					error: function(jqXHR, textStatus, errorThrown) {
-						console.log("Message creation; submission unsuccessful.");
-					}
-				});
+	}
+	chatMessages(e) {
+		this.setState({ input: e.target.value });
+	}
+	newMessage() {
+		let messageCredentials = {
+			chatter: {
+				message: sanitization(this.state.input),
+				username: this.props.username,
+				user_id: this.props.user_id
 			}
-		}.bind(this));
+		};
+
+		this.setState({ input: '' });
+
+		$.ajax({
+			type: "POST",
+			url: "/chatters",
+			data: messageCredentials,
+			success: function(data, textStatus, jqXHR) {
+				console.log("Message creation; submission successful.");
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				console.log("Message creation; submission unsuccessful.");
+			}
+		});
+	}
+	newMessageEnter(e) {
+		let key = e.which || e.keyCode;
+
+		if (e.key === 'Enter')
+			this.newMessage();
 	}
 	userMessages(messages) {
 		let rows = [];
@@ -82,10 +68,6 @@ class Chatter extends Component {
 			</div>
 		)
 	}
-	submission() {
-		let scroller = document.getElementById("chatbox");
-		scroller.scrollTop = scroller.scrollHeight;
-	}
   	render() {
 	    return (
 	        <div>
@@ -103,9 +85,9 @@ class Chatter extends Component {
 	      		</div>
 		      	<div id="chatbox-submit">
 					<div id="message-input">
-						<input id="msg-input" type="text" name="message"></input>
+						<input id="msg-input" value={this.state.input} onChange={this.chatMessages} onKeyPress={this.newMessageEnter} type="text" name="message"></input>
 					</div>
-					<div id="submit-message">
+					<div id="submit-message" onClick={this.newMessage}>
 						<p>SEND</p>
 					</div>
 		      	</div>
