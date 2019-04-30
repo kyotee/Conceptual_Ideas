@@ -5,31 +5,28 @@ class Chatter extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {	
-			input: ""
-		};
-
 		this.chatMessages = this.chatMessages.bind(this);
 		this.newMessage = this.newMessage.bind(this);
 		this.newMessageEnter = this.newMessageEnter.bind(this);
 	}
 	componentDidMount() {
 		let scroller = document.getElementById("chatbox");
+
 		scroller.scrollTop = scroller.scrollHeight;
 	}
 	chatMessages(e) {
-		this.setState({ input: e.target.value });
+		this.props.updateMessage(e.target.value);
 	}
 	newMessage() {
 		let messageCredentials = {
 			chatter: {
-				message: sanitization(this.state.input),
+				message: sanitization(this.props.message),
 				username: this.props.username,
 				user_id: this.props.user_id
 			}
 		};
 
-		this.setState({ input: '' });
+		this.props.updateMessage('');
 
 		$.ajax({
 			type: "POST",
@@ -69,6 +66,7 @@ class Chatter extends Component {
 		)
 	}
   	render() {
+  		const { messages,message } = this.props;
 	    return (
 	        <div>
 				<div className="app-title-space">
@@ -81,11 +79,11 @@ class Chatter extends Component {
 					<h2>🍺 A Beering Conversation</h2>
 				</div>
 				<div id="chatbox">
-      				{this.userMessages(this.props.messages)}
+      				{this.userMessages(messages)}
 	      		</div>
 		      	<div id="chatbox-submit">
 					<div id="message-input">
-						<input id="msg-input" value={this.state.input} onChange={this.chatMessages} onKeyPress={this.newMessageEnter} type="text" name="message"></input>
+						<input id="msg-input" value={message} onChange={this.chatMessages} onKeyPress={this.newMessageEnter} type="text" name="message"></input>
 					</div>
 					<div id="submit-message" onClick={this.newMessage}>
 						<p>SEND</p>
@@ -97,7 +95,10 @@ class Chatter extends Component {
 }
 
 Chatter.propTypes = {
-	messages: PropTypes.array
+	message: PropTypes.string.isRequired,
+	messages: PropTypes.array.isRequired,
+	username: PropTypes.string.isRequired,
+	user_id: PropTypes.number.isRequired
 };
 
 export default Chatter;

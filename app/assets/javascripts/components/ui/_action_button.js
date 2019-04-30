@@ -18,9 +18,10 @@ class ActionButton extends Component {
 		this.setState({ enlarged: false });
 	}
 	render() {
+		const { enlarged } = this.state;
 	    let buttonMovement;
 
-	    if (this.state.enlarged) {
+	    if (enlarged) {
 	    	buttonMovement = { 
 	      		transition: "transform .0.5s",
 	      		transform: "scale(1.1)"
