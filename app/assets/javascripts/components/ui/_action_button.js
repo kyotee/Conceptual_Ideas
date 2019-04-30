@@ -19,6 +19,7 @@ class ActionButton extends Component {
 	}
 	render() {
 		const { enlarged } = this.state;
+		const { text } = this.props;
 	    let buttonMovement;
 
 	    if (enlarged) {
@@ -29,7 +30,7 @@ class ActionButton extends Component {
 	    }
 
 		return (
-			<button className="img-button" style={buttonMovement} onMouseOver={this.buttonEnlarger} onMouseOut={this.buttonNormal}>{this.props.text}</button>
+			<button className="img-button" style={buttonMovement} onMouseOver={this.buttonEnlarger} onMouseOut={this.buttonNormal}>{text}</button>
 		)
 	}
 }

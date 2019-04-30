@@ -26,7 +26,7 @@ class SandwichNavigation extends Component {
 		});
 	}
 	render() {
-		const { signedin, admin } = this.props;
+		const { signedin,admin } = this.props;
 		return (
 			<div>
 				<div id="sandwich">

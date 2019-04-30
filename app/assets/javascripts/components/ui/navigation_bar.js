@@ -25,7 +25,7 @@ class NavigationBar extends Component {
 		}
 	}
 	render() {
-		const { signedin, admin } = this.props;
+		const { signedin,admin } = this.props;
 		return (
 			<div id="nav">
 				<SandwichNavigationRedux signedin={signedin} admin={admin} />
