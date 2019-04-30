@@ -7,6 +7,8 @@ class SignupSigninForm extends Component {
 		super(props);
 
 		this.buttonValidChecker = this.buttonValidChecker.bind(this);
+		this.submission = this.submission.bind(this);
+		this.submissionEnter = this.submissionEnter.bind(this);
 	}
 	buttonValidChecker() {
 		const passColor = "rgb(50, 205, 50)";
@@ -165,79 +167,68 @@ class SignupSigninForm extends Component {
 			}.bind(this));
 		}
 
-		var submission = function() {
-			if (this.props.formType === "Sign up") {
-				let userCredentials = {
-					user: {
-						  name: sanitization(document.getElementById('verify-name-input').value),
-						  email: sanitization(document.getElementById('verify-email-input').value),
-						  password: sanitization(document.getElementById('verify-password-input').value),
-						  password_confirmation: sanitization(document.getElementById('verify-password-confirm-input').value)
-					}
-				};
+		// var submission = function() {
+		// 	if (this.props.formType === "Sign up") {
+		// 		let userCredentials = {
+		// 			user: {
+		// 				  name: sanitization(document.getElementById('verify-name-input').value),
+		// 				  email: sanitization(document.getElementById('verify-email-input').value),
+		// 				  password: sanitization(document.getElementById('verify-password-input').value),
+		// 				  password_confirmation: sanitization(document.getElementById('verify-password-confirm-input').value)
+		// 			}
+		// 		};
 
-				if (userCredentials.user.name === "" || 
-					userCredentials.user.email === "" || 
-					userCredentials.user.password === "" || 
-					userCredentials.user.password_confirmation === "") 
-					return;
+		// 		if (userCredentials.user.name === "" || 
+		// 			userCredentials.user.email === "" || 
+		// 			userCredentials.user.password === "" || 
+		// 			userCredentials.user.password_confirmation === "") 
+		// 			return;
 
-				$.ajax({
-					type: "POST",
-					url: "/signup",
-					data: userCredentials,
-					success: function(data, textStatus, jqXHR) {
-						console.log("User creation; submission successful.");
-					},
-					error: function(jqXHR, textStatus, errorThrown) {
-						console.log("User creation; submission unsuccessful.");
-					}
-				});
-			}
-			else {
-				let userCredentials = {
-					userLogin: {
-						  email: sanitization(document.getElementById('verify-email-input').value),
-						  password: sanitization(document.getElementById('verify-password-input').value)
-					}
-				};
+		// 		$.ajax({
+		// 			type: "POST",
+		// 			url: "/signup",
+		// 			data: userCredentials,
+		// 			success: function(data, textStatus, jqXHR) {
+		// 				console.log("User creation; submission successful.");
+		// 			},
+		// 			error: function(jqXHR, textStatus, errorThrown) {
+		// 				console.log("User creation; submission unsuccessful.");
+		// 			}
+		// 		});
+		// 	}
+		// 	else {
+		// 		let userCredentials = {
+		// 			userLogin: {
+		// 				  email: sanitization(document.getElementById('verify-email-input').value),
+		// 				  password: sanitization(document.getElementById('verify-password-input').value)
+		// 			}
+		// 		};
 
-				if (userCredentials.userLogin.email === "" || userCredentials.userLogin.password === "")
-					return;
+		// 		if (userCredentials.userLogin.email === "" || userCredentials.userLogin.password === "")
+		// 			return;
 
-				$.ajax({
-					type: "POST",
-					url: "/login",
-					data: userCredentials,
-					success: function(data, textStatus, jqXHR) {
-						console.log("User login; submission successful.");
-					},
-					error: function(jqXHR, textStatus, errorThrown) {
-						console.log("User login; submission unsuccessful.");
-					}
-				});
-			}
-		}.bind(this);
+		// 		$.ajax({
+		// 			type: "POST",
+		// 			url: "/login",
+		// 			data: userCredentials,
+		// 			success: function(data, textStatus, jqXHR) {
+		// 				console.log("User login; submission successful.");
+		// 			},
+		// 			error: function(jqXHR, textStatus, errorThrown) {
+		// 				console.log("User login; submission unsuccessful.");
+		// 			}
+		// 		});
+		// 	}
+		// }.bind(this);
+	}
+	submission() {
 
-		// deal with enter key submission
-		const sharedSubmission = (e) => {
-			var key = e.which || e.keyCode;
+	}
+	submissionEnter(e) {
+		let key = e.which || e.keyCode;
 
-			if (e.keyCode === 13)
-				submission();
-		};
-
-		if (this.props.formType === "Sign up") {
-			eventListenerMacro('verify-name-input verify-password-confirm-input', 'keypress', function(e) {
-				sharedSubmission(e);
-			});
-		}
-
-		eventListenerMacro('verify-email-input verify-password-input', 'keypress', function(e) {
-			sharedSubmission(e);
-		});
-
-		document.getElementById('accept-button').addEventListener('click', submission);
+		if (e.key === 'Enter')
+			this.submission();		
 	}
 	signUpForm() {
 		return (
@@ -252,7 +243,7 @@ class SignupSigninForm extends Component {
 						</tr>
 						<tr>
 							<td>
-								<input id="verify-name-input" type="text" name="name"></input><br/>
+								<input id="verify-name-input" onKeyPress={this.submissionEnter} type="text" name="name"></input><br/>
 								<p className="verify-name">between 1 to 12 letters</p>
 							</td>
 						</tr>
@@ -261,7 +252,7 @@ class SignupSigninForm extends Component {
 						</tr>
 						<tr>
 							<td>
-								<input id="verify-email-input" type="text" name="email"></input><br/>
+								<input id="verify-email-input" onKeyPress={this.submissionEnter} type="text" name="email"></input><br/>
 								<p className="verify-email">valid e-mail under 40 characters</p>
 							</td>
 						</tr>
@@ -270,7 +261,7 @@ class SignupSigninForm extends Component {
 						</tr>
 						<tr>
 							<td>
-								<input id="verify-password-input" type="password" name="password"></input><br/>
+								<input id="verify-password-input" onKeyPress={this.submissionEnter} type="password" name="password"></input><br/>
 								<p className="verify-password">between 6 to 12 characters</p>
 							</td>
 						</tr>
@@ -279,12 +270,12 @@ class SignupSigninForm extends Component {
 						</tr>
 						<tr>
 							<td>
-								<input id="verify-password-confirm-input" type="password" name="verify-password"></input><br/>
+								<input id="verify-password-confirm-input" onKeyPress={this.submissionEnter} type="password" name="verify-password"></input><br/>
 								<p className="verify-password-confirm">matches password</p>
 							</td>
 						</tr>
 						<tr>
-							<td><button id="accept-button">{this.props.formType}</button></td>
+							<td><button id="accept-button" onClick={this.submission}>{this.props.formType}</button></td>
 						</tr>
 					</tbody>
 				</table>

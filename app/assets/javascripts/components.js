@@ -9,6 +9,7 @@ import ImageDifferencesRedux from './components/containers/imageDifferencesRedux
 import NavigationBarRedux from './components/containers/navigationBarRedux.js';
 import SandwichNavigationRedux from './components/containers/sandwichNavigationRedux.js';
 import SideNavigationBarRedux from './components/containers/sideNavigationBarRedux.js';
+import SignupSigninFormRedux from './components/containers/signupSigninFormRedux.js';
 
 // UI Components
 import Chatter from './components/ui/chatter.js';
@@ -18,11 +19,11 @@ import ImageDifferences from './components/ui/image_differences.js';
 import NavigationBar from './components/ui/navigation_bar.js';
 import SandwichNavigation from './components/ui/sandwich_navigation.js';
 import SideNavigationBar from './components/ui/side_navigation_bar.js';
+import SignupSigninForm from './components/ui/signup_signin_form.js';
 
 import ActionButton from './components/ui/_action_button.js';
 import MonitoringUsers from './components/ui/monitoring_users.js';
 import Loadinggif from './components/ui/_loading_gif.js';
-import SignupSigninForm from './components/ui/signup_signin_form.js';
 import StatusMessages from './components/ui/status_messages.js';
 import UserApplications from './components/ui/user_applications.js';
 
@@ -43,10 +44,11 @@ global.SandwichNavigationRedux = SandwichNavigationRedux
 global.SandwichNavigation = SandwichNavigation
 global.SideNavigationBarRedux = SideNavigationBarRedux
 global.SideNavigationBar = SideNavigationBar
+global.SignupSigninFormRedux = SignupSigninFormRedux
+global.SignupSigninForm = SignupSigninForm
 
 global.ActionButton = ActionButton
 global.MonitoringUsers = MonitoringUsers
 global.Loadinggif = Loadinggif
-global.SignupSigninForm = SignupSigninForm
 global.StatusMessages = StatusMessages
 global.UserApplications = UserApplications
