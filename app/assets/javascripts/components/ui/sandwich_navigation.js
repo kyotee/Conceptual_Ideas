@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { eventListenerMacro } from '../helpers/event_listeners.js';
-import SideNavigationBar from './side_navigation_bar.js';
 
 class SandwichNavigation extends Component {
 	componentDidMount() {
@@ -34,15 +33,15 @@ class SandwichNavigation extends Component {
 					<div id="bar2"></div>
 					<div id="bar3"></div>
 				</div>
-				<SideNavigationBar signedin={signedin} admin={admin} />
+				<SideNavigationBarRedux signedin={signedin} admin={admin} />
 			</div>
 		)
 	}
 }
 
 SandwichNavigation.propTypes = {
-	signedin: PropTypes.bool.isRequired,
-	admin: PropTypes.bool.isRequired
+  signedin: PropTypes.bool.isRequired,
+  admin: PropTypes.bool.isRequired
 };
 
 export default SandwichNavigation;

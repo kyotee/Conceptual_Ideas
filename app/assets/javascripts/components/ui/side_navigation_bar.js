@@ -4,10 +4,6 @@ class SideNavigationBar extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {	
-			collasp: false
-		};
-
 		this.featureDropdown = this.featureDropdown.bind(this);
 	}
 	componentDidMount() {
@@ -21,7 +17,7 @@ class SideNavigationBar extends Component {
 		});
 	}
 	featureDropdown() {
-		this.setState({ collasp: !this.state.collasp });
+		this.props.setCollasp(!this.props.collasp);
 	}
 	loggedin() {
 		if(this.props.signedin == true) {
@@ -55,11 +51,11 @@ class SideNavigationBar extends Component {
 		}
 	}
 	render() {
-		const { signedin, admin } = this.props;
+		const { admin,collasp } = this.props;
 	    let dropdownMovement;
 	    let arrowRotate;
 
-	    if (this.state.collasp) {
+	    if (collasp) {
 	    	dropdownMovement = { 
 				display: "none",
 			    backgroundColor: "#e3e7ea"
@@ -106,7 +102,9 @@ class SideNavigationBar extends Component {
 
 SideNavigationBar.propTypes = {
 	signedin: PropTypes.bool.isRequired,
-	admin: PropTypes.bool.isRequired
+	admin: PropTypes.bool.isRequired,
+	collasp: PropTypes.bool.isRequired,
+	setCollasp: PropTypes.func.isRequired
 };
 
 export default SideNavigationBar;

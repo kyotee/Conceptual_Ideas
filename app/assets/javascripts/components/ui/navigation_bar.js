@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SandwichNavigation from './sandwich_navigation.js';
 
 class NavigationBar extends Component {
 	constructor(props) {

@@ -7,3 +7,10 @@ export function setCredentials(signedin,admin) {
     admin: admin
   };
 }
+
+export function setCollasp(collasp) {
+  return {
+    type: C.SET_COLLASP,
+    collasp: collasp
+  };
+}
