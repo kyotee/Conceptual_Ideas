@@ -66,6 +66,7 @@ class MonitoringUsers extends Component {
 
 	}
 	render() {
+		const { list,users } = this.props;
 		return (
 			<div>
 				<div class="app-title-space">
@@ -76,14 +77,13 @@ class MonitoringUsers extends Component {
 				</div>
 				<br/>
 
-				{this.tableType(this.props.list, this.props.users)}
+				{this.tableType(list,users)}
 			</div>
 		)
 	}
 }
 
 MonitoringUsers.propTypes = {
-	users: PropTypes.array,
 	list: PropTypes.bool,
 	logs: PropTypes.array
 };
