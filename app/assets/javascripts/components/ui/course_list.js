@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Course from './course.js';
-import Loadinggif from './_loading_gif.js';
+import Loadinggif from './_loading_gif.js';      // TODO: REMOVE TO COMPONENT.JS
 import { eventListenerMacro } from '../helpers/event_listeners.js';
 import { sanitization } from '../input_sanitization.js';
 

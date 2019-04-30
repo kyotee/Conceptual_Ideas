@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ActionButton from './_action_button.js';
 import apps from '../json_data/applications.js';
 
 class UserApplications extends Component {

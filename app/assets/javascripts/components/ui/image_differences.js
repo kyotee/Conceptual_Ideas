@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
-import ActionButton from './_action_button.js';
-import Loadinggif from './_loading_gif.js';
 import { eventListenerMacro } from '../helpers/event_listeners.js';
 
 class ImageDifferences extends Component {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			view: false,
-			imgShowOne: false,
-			imgShowTwo: false
-		};
 
 		this.seeImage = this.seeImage.bind(this);
 		this.hideImage = this.hideImage.bind(this);
@@ -23,9 +15,9 @@ class ImageDifferences extends Component {
 
 		const setImage = (id) => {
 			if (id === 'img-1') 
-				this.setState({ imgShowOne: true });
+				this.props.updateShowImageOne(true);
 			else
-				this.setState({ imgShowTwo: true });
+				this.props.updateShowImageTwo(true);
 		}
 
 		eventListenerMacro('img-1 img-2', 'click', function() {
@@ -38,10 +30,9 @@ class ImageDifferences extends Component {
 		});
 
 		const closeImage = () => {
-			this.setState({ view: false,
-							imgShowOne: false,
-							imgShowTwo: false
-			});
+			this.props.updateView(false);
+			this.props.updateShowImageOne(false);
+			this.props.updateShowImageTwo(false);
 
 			outNavey.classList.toggle('slider');
 			wholeBody.classList.toggle('slide');
@@ -75,10 +66,10 @@ class ImageDifferences extends Component {
 		}
 	}
 	seeImage() {
-		this.setState({ view: true });
+		this.props.updateView(true);
 	}
 	hideImage() {
-		this.setState({ view: false });
+		this.props.updateView(false);
 	}
 	index_checker() {
 		if(this.props.index === true) {
@@ -102,18 +93,18 @@ class ImageDifferences extends Component {
 	    let enlargeImageTwo;
 	    let dimOrgImage;
 
-	    if (this.state.view) {
+	    if (this.props.view) {
 	    	dimOrgImage = {
 	    		opacity: "0.3"
 	    	};
 
-	    	if (this.state.imgShowOne) {
+	    	if (this.props.imgShowOne) {
 		    	enlargeImageOne = {
 		    		display: "block"
 		    	};
 		    }
 
-	    	if (this.state.imgShowTwo) {
+	    	if (this.props.imgShowTwo) {
 		    	enlargeImageTwo = {
 		    		display: "block"
 		    	};
@@ -153,7 +144,16 @@ class ImageDifferences extends Component {
 }
 
 ImageDifferences.propTypes = {
-	index: PropTypes.bool.isRequired
+	index: PropTypes.bool.isRequired,
+	view: PropTypes.bool.isRequired,
+	imgShowOne: PropTypes.bool.isRequired,
+	imgShowTwo: PropTypes.bool.isRequired,
+	updateView: PropTypes.func.isRequired,
+	updateShowImageOne: PropTypes.func.isRequired,
+	updateShowImageTwo: PropTypes.func.isRequired
 };
 
 export default ImageDifferences;
+
+
+
