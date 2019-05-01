@@ -222,9 +222,22 @@ class SignupSigninForm extends Component {
 		// }.bind(this);
 	}
 	submission() {
-
+		// refactor chatter with same concept
 	}
 	submissionEnter(e) {
+		let valueId = e.target.id;
+		let valueString = e.target.value;
+
+		// if else statement to enforce strict equality 
+		if (valueId === 'verify-name-input')
+			this.props.setName(valueString);
+		else if (valueId === 'verify-email-input')
+			this.props.setEmail(valueString);
+		else if (valueId === 'verify-password-input')
+			this.props.setPassword(valueString);
+		else if (valueId === 'verify-password-confirm-input')
+			return this.props.setVerifyPassword(valueString);
+
 		let key = e.which || e.keyCode;
 
 		if (e.key === 'Enter')
@@ -243,7 +256,7 @@ class SignupSigninForm extends Component {
 						</tr>
 						<tr>
 							<td>
-								<input id="verify-name-input" onKeyPress={this.submissionEnter} type="text" name="name"></input><br/>
+								<input id="verify-name-input" value={this.props.name} onChange={this.submissionEnter} type="text" name="name"></input><br/>
 								<p className="verify-name">between 1 to 12 letters</p>
 							</td>
 						</tr>
@@ -252,7 +265,7 @@ class SignupSigninForm extends Component {
 						</tr>
 						<tr>
 							<td>
-								<input id="verify-email-input" onKeyPress={this.submissionEnter} type="text" name="email"></input><br/>
+								<input id="verify-email-input" value={this.props.email} onChange={this.submissionEnter} type="text" name="email"></input><br/>
 								<p className="verify-email">valid e-mail under 40 characters</p>
 							</td>
 						</tr>
@@ -261,7 +274,7 @@ class SignupSigninForm extends Component {
 						</tr>
 						<tr>
 							<td>
-								<input id="verify-password-input" onKeyPress={this.submissionEnter} type="password" name="password"></input><br/>
+								<input id="verify-password-input" value={this.props.password} onChange={this.submissionEnter} type="password" name="password"></input><br/>
 								<p className="verify-password">between 6 to 12 characters</p>
 							</td>
 						</tr>
@@ -270,7 +283,7 @@ class SignupSigninForm extends Component {
 						</tr>
 						<tr>
 							<td>
-								<input id="verify-password-confirm-input" onKeyPress={this.submissionEnter} type="password" name="verify-password"></input><br/>
+								<input id="verify-password-confirm-input" value={this.props.verifyPassword} onChange={this.submissionEnter} type="password" name="verify-password"></input><br/>
 								<p className="verify-password-confirm">matches password</p>
 							</td>
 						</tr>
@@ -295,7 +308,7 @@ class SignupSigninForm extends Component {
 						</tr>
 						<tr>
 							<td>
-								<input id="verify-email-input" type="text" name="email"></input>
+								<input id="verify-email-input" value={this.props.email} onChange={this.submissionEnter} type="text" name="email"></input>
 							</td>
 						</tr>
 						<tr>
@@ -303,7 +316,7 @@ class SignupSigninForm extends Component {
 						</tr>
 						<tr>
 							<td>
-								<input id="verify-password-input" type="password" name="password"></input>
+								<input id="verify-password-input" value={this.props.password} onChange={this.submissionEnter} type="password" name="password"></input>
 							</td>
 						</tr>
 						<tr>
@@ -317,7 +330,9 @@ class SignupSigninForm extends Component {
 	}
 
 	render() {
-		if(this.props.formType === "Sign up")
+		const { formType } = this.props;
+
+		if(formType === "Sign up")
 			return this.signUpForm();
 		else
 			return this.signInForm();
@@ -325,7 +340,11 @@ class SignupSigninForm extends Component {
 }
 
 SignupSigninForm.propTypes = {
-	formType: PropTypes.string.isRequired
+	formType: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	email: PropTypes.string.isRequired,
+	password: PropTypes.string.isRequired,
+	verifyPassword: PropTypes.string.isRequired
 };
 
 export default SignupSigninForm;

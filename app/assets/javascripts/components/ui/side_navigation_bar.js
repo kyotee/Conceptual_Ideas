@@ -20,7 +20,7 @@ class SideNavigationBar extends Component {
 		this.props.setCollasp(!this.props.collasp);
 	}
 	loggedin() {
-		if(this.props.signedin == true) {
+		if(this.props.signedin === true) {
 			return (
 				<div>
 					<a className="line-on-it" href="/logout" data-method="delete" id="signout_link">
@@ -37,7 +37,7 @@ class SideNavigationBar extends Component {
 		}
 	}
 	monitoring(admin) {
-		if (admin == true) {
+		if (admin === true) {
 			return (
 				<div>
 					<a href="/user_monitoring"><div className="idea-dropdown"></div>&nbsp;&nbsp;&nbsp;&nbsp;User Monitoring</a>
