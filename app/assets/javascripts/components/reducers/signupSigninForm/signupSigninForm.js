@@ -4,7 +4,11 @@ const initalState = {
   name: '',
   email: '',
   password: '',
-  verifyPassword: ''
+  verifyPassword: '',
+  nameCurrentColor: 'Grey',
+  emailCurrentColor: 'Grey',
+  passCurrentColor: 'Grey',
+  vPassCurrentColor: 'Grey'
 };
 
 export default function counter(state = initalState, action) {
@@ -17,6 +21,14 @@ export default function counter(state = initalState, action) {
     return { ...state, password: action.password };
   case C.SET_VERIFY_PASSWORD:
     return { ...state, verifyPassword: action.verifyPassword };
+  case C.CHANGE_NAME_COLOR:
+    return { ...state, nameCurrentColor: action.nameCurrentColor };
+  case C.CHANGE_EMAIL_COLOR:
+    return { ...state, emailCurrentColor: action.emailCurrentColor };
+  case C.CHANGE_PASS_COLOR:
+    return { ...state, passCurrentColor: action.passCurrentColor };
+  case C.CHANGE_VPASS_COLOR:
+    return { ...state, vPassCurrentColor: action.vPassCurrentColor };
   default:
     return state;
   }

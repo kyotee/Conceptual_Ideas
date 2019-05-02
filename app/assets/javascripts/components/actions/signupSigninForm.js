@@ -27,3 +27,31 @@ export function setVerifyPassword(verifyPassword) {
     verifyPassword: verifyPassword
   };
 }
+
+export function changeNameColor(nameCurrentColor) {
+  return {
+    type: C.CHANGE_NAME_COLOR,
+    nameCurrentColor: nameCurrentColor
+  };
+}
+
+export function changeEmailColor(emailCurrentColor) {
+  return {
+    type: C.CHANGE_EMAIL_COLOR,
+    emailCurrentColor: emailCurrentColor
+  };
+}
+
+export function changePassColor(passCurrentColor) {
+  return {
+    type: C.CHANGE_PASS_COLOR,
+    passCurrentColor: passCurrentColor
+  };
+}
+
+export function changeVpassColor(vPassCurrentColor) {
+  return {
+    type: C.CHANGE_VPASS_COLOR,
+    vPassCurrentColor: vPassCurrentColor
+  };
+}

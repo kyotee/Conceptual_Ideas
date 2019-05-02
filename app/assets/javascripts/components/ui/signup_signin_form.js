@@ -9,6 +9,10 @@ class SignupSigninForm extends Component {
 		this.buttonValidChecker = this.buttonValidChecker.bind(this);
 		this.submission = this.submission.bind(this);
 		this.submissionEnter = this.submissionEnter.bind(this);
+		this.nameColor = this.nameColor.bind(this);
+		this.emailColor = this.emailColor.bind(this);
+		this.passwordColor = this.passwordColor.bind(this);
+		this.verifyPasswordColor = this.verifyPasswordColor.bind(this);
 	}
 	componentDidMount() {
 
@@ -267,7 +271,15 @@ SignupSigninForm.propTypes = {
 	name: PropTypes.string.isRequired,
 	email: PropTypes.string.isRequired,
 	password: PropTypes.string.isRequired,
-	verifyPassword: PropTypes.string.isRequired
+	verifyPassword: PropTypes.string.isRequired,
+	nameCurrentColor: PropTypes.string.isRequired,
+	emailCurrentColor: PropTypes.string.isRequired,
+	passCurrentColor: PropTypes.string.isRequired,
+	vPassCurrentColor: PropTypes.string.isRequired,
+	changeNameColor: PropTypes.func.isRequired,
+	changeEmailColor: PropTypes.func.isRequired,
+	changePassColor: PropTypes.func.isRequired,
+	changeVpassColor: PropTypes.func.isRequired
 };
 
 export default SignupSigninForm;

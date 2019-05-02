@@ -9,7 +9,11 @@ function mapStateToProps(state, ownProps) {
     email: state.signupSigninForm.email,
     password: state.signupSigninForm.password,
     verifyPassword: state.signupSigninForm.verifyPassword,
-    formType: ownProps.formType
+    formType: ownProps.formType,
+	nameCurrentColor: state.signupSigninForm.nameCurrentColor,
+	emailCurrentColor: state.signupSigninForm.emailCurrentColor,
+	passCurrentColor: state.signupSigninForm.passCurrentColor,
+	vPassCurrentColor: state.signupSigninForm.vPassCurrentColor
   }
 }
 
