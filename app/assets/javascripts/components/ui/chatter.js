@@ -81,7 +81,7 @@ class Chatter extends Component {
 	      		</div>
 		      	<div id="chatbox-submit">
 					<div id="message-input">
-						<input id="msg-input" value={message} onChange={this.newMessageEnter} type="text" name="message"></input>
+						<input id="msg-input" value={message} onChange={this.newMessageEnter} onKeyPress={this.newMessageEnter} type="text" name="message"></input>
 					</div>
 					<div id="submit-message" onClick={this.newMessage}>
 						<p>SEND</p>

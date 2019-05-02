@@ -101,7 +101,7 @@
 	}
 }
 
-#accept-button {
+#accept-button > button.img-button {
 	@media screen and (max-width: 321px){
 	    width:9em
 	}
