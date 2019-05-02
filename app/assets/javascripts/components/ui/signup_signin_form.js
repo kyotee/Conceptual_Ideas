@@ -128,104 +128,63 @@ class SignupSigninForm extends Component {
 		if (e.key === 'Enter')
 			this.submission();
 	}
-	signUpForm() {
-		return (
-			<div id="signup-table-rails">
-				<table id="signup-table">
-					<tbody>
-						<tr>
-							<th><div className="idea-icon-form"></div><h2 className="form-title">{this.props.formType}</h2></th>
-						</tr>
-						<tr>
-							<th><p className="verify-name">User Name</p></th>
-						</tr>
-						<tr>
-							<td>
-								<input id="verify-name-input" value={this.props.name} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="text" name="name"></input><br/>
-								<p className="verify-name">between 1 to 12 letters</p>
-							</td>
-						</tr>
-						<tr>
-							<th><p className="verify-email">E-mail</p></th>
-						</tr>
-						<tr>
-							<td>
-								<input id="verify-email-input" value={this.props.email} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="text" name="email"></input><br/>
-								<p className="verify-email">valid e-mail under 40 characters</p>
-							</td>
-						</tr>
-						<tr>
-							<th><p className="verify-password">Password</p></th>
-						</tr>
-						<tr>
-							<td>
-								<input id="verify-password-input" value={this.props.password} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="password" name="password"></input><br/>
-								<p className="verify-password">between 6 to 12 characters</p>
-							</td>
-						</tr>
-						<tr>
-							<th><p className="verify-password-confirm">Password Confirmation</p></th>
-						</tr>
-						<tr>
-							<td>
-								<input id="verify-password-confirm-input" value={this.props.verifyPassword} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="password" name="verify-password"></input><br/>
-								<p className="verify-password-confirm">matches password</p>
-							</td>
-						</tr>
-						<tr>
-							<td id="accept-button"><ActionButton onClick={this.submission} text={this.props.formType} /></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		)
-	}
-	signInForm() {
-		return (
-			<div id="signup-table-rails">
-				<table id="signup-table">
-					<tbody>
-						<tr>
-							<th><div className="idea-icon-form"></div><h2 className="form-title">{this.props.formType}</h2></th>
-						</tr>
-						<tr>
-							<th><p className="verify-email">E-mail</p></th>
-						</tr>
-						<tr>
-							<td>
-								<input id="verify-email-input" value={this.props.email} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="text" name="email"></input>
-							</td>
-						</tr>
-						<tr>
-							<th><p className="verify-password">Password</p></th>
-						</tr>
-						<tr>
-							<td>
-								<input id="verify-password-input" value={this.props.password} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="password" name="password"></input>
-							</td>
-						</tr>
-						<tr>
-							<td><div id="accept-button"><ActionButton id="accept-button" onClick={this.submission} text={this.props.formType} /></div></td>
-						</tr>
-						<p id="signup-now">No account? <a href="/signup">Sign up now!</a></p>
-					</tbody>
-				</table>
-			</div>
-		)
-	}
-
 	render() {
-		const { formType } = this.props;
+		const { formType,nameCurrentColor,emailCurrentColor,passCurrentColor,vPassCurrentColor } = this.props;
+	    let colorName, colorNameBorder, colorNameDisplay;
+	    let colorEmail, colorEmailBorder, colorEmailDisplay;	    
+	    let colorPassword, colorPasswordBorder, colorPasswordDisplay;
+	    let colorVpass, colorVpassBorder, colorVpassDisplay;
+	    let colorButton;
 
-		// CSS styles:
-		// BLUE:
-		// id1.style.borderColor = "#00aced";
-		// id2.style.color = "#0080ff";
-		// id3.style.display = "inline";
-		// GREEN:
-		// id1.style.borderColor = "#32CD32";
-		// id2.style.color = "#32CD32";
-		// id3.style.display = "none";
+	    let colorVariables = [[nameCurrentColor,colorName,colorNameBorder,colorNameDisplay],
+	    					  [emailCurrentColor,colorEmail,colorEmailBorder,colorEmailDisplay],
+	    					  [passCurrentColor,colorPassword,colorPasswordBorder,colorPasswordDisplay],
+	    					  [vPassCurrentColor,colorVpass,colorVpassBorder,colorVpassDisplay]];
+
+	    let blueTemplate = {
+	    	color: "#0080ff"
+	    };
+
+	    let blueBorderTemplate = {
+			borderColor: "#00aced"
+	    };
+
+	    let blueDisplayTemplate = {
+	    	display: "inline"
+	    };
+
+	    let greenTemplate = {
+	    	color: "#32CD32"
+	    };
+
+	    let greenBorderTemplate = {
+			borderColor: "#32CD32"
+	    };
+
+	    let greenDisplayTemplate = {
+	    	display: "none"
+	    };
+
+		for(let i = 0; i < colorVariables.length; i++) {
+		    let inputField = colorVariables[i];
+
+		    if (inputField[0] === 'Blue') {
+		    	inputField[1] = blueTemplate;
+		    	inputField[2] = blueBorderTemplate;
+		    	inputField[3] = blueDisplayTemplate;	    	
+		    } else if (inputField[0] === 'Green') {
+		    	inputField[1] = greenTemplate;
+		    	inputField[2] = greenBorderTemplate;
+		    	inputField[3] = greenDisplayTemplate;
+		    }
+		}
+
+	    if (nameCurrentColor === 'Green' && emailCurrentColor === 'Green' && passCurrentColor === 'Green' && vPassCurrentColor === 'Green') {
+	    	colorButton = {
+
+	    	};
+	    }
+
 		// <BUTTON>:
 		// GREEN
 		// 	buttonColor.style.color = "#FFFFFF";
@@ -233,12 +192,92 @@ class SignupSigninForm extends Component {
 		//  GREY
 		// 	buttonColor.style.color = "#68838B";
 		// 	buttonColor.style.backgroundColor = "#D3D3D3";
+		//  note: on click if grey will now be blue
 
-
-		if(formType === "Sign up")
-			return this.signUpForm();
-		else
-			return this.signInForm();
+		if(formType === "Sign up") {
+			return (
+				<div id="signup-table-rails">
+					<table id="signup-table">
+						<tbody>
+							<tr>
+								<th><div className="idea-icon-form"></div><h2 className="form-title">{this.props.formType}</h2></th>
+							</tr>
+							<tr>
+								<th><p className="verify-name">User Name</p></th>
+							</tr>
+							<tr>
+								<td>
+									<input id="verify-name-input" value={this.props.name} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="text" name="name"></input><br/>
+									<p className="verify-name" style={colorNameDisplay}>between 1 to 12 letters</p>
+								</td>
+							</tr>
+							<tr>
+								<th><p className="verify-email">E-mail</p></th>
+							</tr>
+							<tr>
+								<td>
+									<input id="verify-email-input" value={this.props.email} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="text" name="email"></input><br/>
+									<p className="verify-email" style={colorEmailDisplay}>valid e-mail under 40 characters</p>
+								</td>
+							</tr>
+							<tr>
+								<th><p className="verify-password">Password</p></th>
+							</tr>
+							<tr>
+								<td>
+									<input id="verify-password-input" value={this.props.password} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="password" name="password"></input><br/>
+									<p className="verify-password" style={colorPasswordDisplay}>between 6 to 12 characters</p>
+								</td>
+							</tr>
+							<tr>
+								<th><p className="verify-password-confirm">Password Confirmation</p></th>
+							</tr>
+							<tr>
+								<td>
+									<input id="verify-password-confirm-input" value={this.props.verifyPassword} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="password" name="verify-password"></input><br/>
+									<p className="verify-password-confirm" style={colorVpassDisplay}>matches password</p>
+								</td>
+							</tr>
+							<tr>
+								<td id="accept-button"><ActionButton onClick={this.submission} text={this.props.formType} /></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			)
+		} else {
+			return (
+				<div id="signup-table-rails">
+					<table id="signup-table">
+						<tbody>
+							<tr>
+								<th><div className="idea-icon-form"></div><h2 className="form-title">{this.props.formType}</h2></th>
+							</tr>
+							<tr>
+								<th><p className="verify-email">E-mail</p></th>
+							</tr>
+							<tr>
+								<td>
+									<input id="verify-email-input" value={this.props.email} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="text" name="email"></input>
+								</td>
+							</tr>
+							<tr>
+								<th><p className="verify-password">Password</p></th>
+							</tr>
+							<tr>
+								<td>
+									<input id="verify-password-input" value={this.props.password} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="password" name="password"></input>
+								</td>
+							</tr>
+							<tr>
+								<td><div id="accept-button"><ActionButton id="accept-button" onClick={this.submission} text={this.props.formType} /></div></td>
+							</tr>
+							<p id="signup-now">No account? <a href="/signup">Sign up now!</a></p>
+						</tbody>
+					</table>
+				</div>
+			)
+		}
 	}
 }
 
