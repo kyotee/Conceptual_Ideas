@@ -13,42 +13,63 @@ class SignupSigninForm extends Component {
 		this.passwordColor = this.passwordColor.bind(this);
 		this.verifyPasswordColor = this.verifyPasswordColor.bind(this);
 	}
-	nameColor() {
-		let name = this.props.name;
+	nameColor(e) {
+		let name = e.target.value;
 		let nameLength = name.length;
 		let reg = /^[a-zA-Z]+$/;
+
+		if (this.props.nameCurrentColor === 'Grey')
+			this.props.changeNameColor('Blue');
 
 		if (nameLength > 0 && nameLength <= 12 && reg.test(String(name)))
 			this.props.changeNameColor('Green');
 		else
 			this.props.changeNameColor('Blue');
+
+		this.props.setName(name);
 	}
-	emailColor() {
-		let email = this.props.email;
+	emailColor(e) {
+		let email = e.target.value;
+		let emailLength = email.length; 
 		let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
- 		if (re.test(String(email)) && email.length > 0 && email.length < 40)
+		if (this.props.emailCurrentColor === 'Grey')
+			this.props.changeEmailColor('Blue');
+
+ 		if (re.test(String(email)) && emailLength > 0 && emailLength < 40)
 			this.props.changeEmailColor('Green');
 		else
 			this.props.changeEmailColor('Blue');
+
+		this.props.setEmail(email);
 	}
-	passwordColor() {
-		let password = this.props.password;
+	passwordColor(e) {
+		let password = e.target.value;
 		let verifyPassword = this.props.verifyPassword;
+
+		if (this.props.passCurrentColor === 'Grey')
+			this.props.changePassColor('Blue');
 
 		if (password == verifyPassword && password != "" && password >= 6 && password <= 12)
 			this.props.changePassColor('Green');
 		else
 			this.props.changePassColor('Blue');
-	}
-	verifyPasswordColor() {
-		let password = this.props.password;
-		let verifyPassword = this.props.verifyPassword;
 
-		if (password == verifyPassword && password !== "" && password >= 6 && password <= 12) 
+		this.props.setPassword(password);
+	}
+	verifyPasswordColor(e) {
+		let password = this.props.password;
+		let verifyPassword = e.target.value;
+
+		if (this.props.vPassCurrentColor === 'Grey')
+			this.props.changeVpassColor('Blue');
+
+		if (password == verifyPassword && password != "" && password >= 6 && password <= 12) 
 			this.props.changeVpassColor('Green');
 		else
 			this.props.changeVpassColor('Blue');
+
+		this.props.setVerifyPassword(verifyPassword);
 	}
 	submission() {
 		if (this.props.formType === "Sign up") {
@@ -104,27 +125,6 @@ class SignupSigninForm extends Component {
 		}
 	}
 	submissionEnter(e) {
-		let valueId = e.target.id;
-		let valueString = e.target.value;
-
-		// if else statement to enforce strict equality 
-		if (valueId === 'verify-name-input') {
-			this.props.setName(valueString);
-			this.nameColor();
-		}
-		else if (valueId === 'verify-email-input') {
-			this.props.setEmail(valueString);
-			this.emailColor();
-		}
-		else if (valueId === 'verify-password-input') {
-			this.props.setPassword(valueString);
-			this.passwordColor();
-		}
-		else if (valueId === 'verify-password-confirm-input') {
-			this.props.setVerifyPassword(valueString);
-			this.verifyPasswordColor();
-		}
-
 		if (e.key === 'Enter')
 			this.submission();
 	}
@@ -136,54 +136,27 @@ class SignupSigninForm extends Component {
 	    let colorVpass, colorVpassBorder, colorVpassDisplay;
 	    let colorButton;
 
-	    let colorVariables = [[nameCurrentColor,colorName,colorNameBorder,colorNameDisplay],
-	    					  [emailCurrentColor,colorEmail,colorEmailBorder,colorEmailDisplay],
-	    					  [passCurrentColor,colorPassword,colorPasswordBorder,colorPasswordDisplay],
-	    					  [vPassCurrentColor,colorVpass,colorVpassBorder,colorVpassDisplay]];
-
-	    let blueTemplate = {
-	    	color: "#0080ff"
-	    };
-
-	    let blueBorderTemplate = {
-			borderColor: "#00aced"
-	    };
-
-	    let blueDisplayTemplate = {
-	    	display: "inline"
-	    };
-
-	    let greenTemplate = {
-	    	color: "#32CD32"
-	    };
-
-	    let greenBorderTemplate = {
-			borderColor: "#32CD32"
-	    };
-
-	    let greenDisplayTemplate = {
-	    	display: "none"
-	    };
-
-		for(let i = 0; i < colorVariables.length; i++) {
-		    let inputField = colorVariables[i];
-
-		    if (inputField[0] === 'Blue') {
-		    	inputField[1] = blueTemplate;
-		    	inputField[2] = blueBorderTemplate;
-		    	inputField[3] = blueDisplayTemplate;	    	
-		    } else if (inputField[0] === 'Green') {
-		    	inputField[1] = greenTemplate;
-		    	inputField[2] = greenBorderTemplate;
-		    	inputField[3] = greenDisplayTemplate;
-		    }
+		if (nameCurrentColor === 'Blue') {
+			colorName = {color: "#0080ff" };
+			colorNameBorder = { borderColor: "#00aced" };
+			colorNameDisplay = { display: "inline" };
+		} else if (nameCurrentColor === 'Green') {
+			colorName = {color: "#32CD32" };
+			colorNameBorder = { borderColor: "#32CD32" };
+			colorNameDisplay = { display: "none" };
 		}
 
-	    if (nameCurrentColor === 'Green' && emailCurrentColor === 'Green' && passCurrentColor === 'Green' && vPassCurrentColor === 'Green') {
-	    	colorButton = {
+		colorNameBorder = {
+			borderColor: "#00aced"
+		};
 
-	    	};
-	    }
+		// style tag will be call by reference
+
+	    // if (nameCurrentColor === 'Green' && emailCurrentColor === 'Green' && passCurrentColor === 'Green' && vPassCurrentColor === 'Green') {
+	    // 	colorButton = {
+
+	    // 	};
+	    // }
 
 		// <BUTTON>:
 		// GREEN
@@ -203,11 +176,11 @@ class SignupSigninForm extends Component {
 								<th><div className="idea-icon-form"></div><h2 className="form-title">{this.props.formType}</h2></th>
 							</tr>
 							<tr>
-								<th><p className="verify-name">User Name</p></th>
+								<th><p className="verify-name" style={colorName}>User Name</p></th>
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-name-input" value={this.props.name} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="text" name="name"></input><br/>
+									<input id="verify-name-input" style={colorNameBorder} value={this.props.name} onKeyPress={this.submissionEnter} onChange={this.nameColor} onClick={this.nameColor} type="text" name="name"></input><br/>
 									<p className="verify-name" style={colorNameDisplay}>between 1 to 12 letters</p>
 								</td>
 							</tr>
@@ -216,7 +189,7 @@ class SignupSigninForm extends Component {
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-email-input" value={this.props.email} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="text" name="email"></input><br/>
+									<input id="verify-email-input" value={this.props.email} onKeyPress={this.submissionEnter} onChange={this.emailColor} onClick={this.emailColor} type="text" name="email"></input><br/>
 									<p className="verify-email" style={colorEmailDisplay}>valid e-mail under 40 characters</p>
 								</td>
 							</tr>
@@ -225,7 +198,7 @@ class SignupSigninForm extends Component {
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-password-input" value={this.props.password} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="password" name="password"></input><br/>
+									<input id="verify-password-input" value={this.props.password} onKeyPress={this.submissionEnter} onChange={this.passwordColor} onClick={this.passwordColor} type="password" name="password"></input><br/>
 									<p className="verify-password" style={colorPasswordDisplay}>between 6 to 12 characters</p>
 								</td>
 							</tr>
@@ -234,7 +207,7 @@ class SignupSigninForm extends Component {
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-password-confirm-input" value={this.props.verifyPassword} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="password" name="verify-password"></input><br/>
+									<input id="verify-password-confirm-input" value={this.props.verifyPassword} onKeyPress={this.submissionEnter} onChange={this.verifyPasswordColor} onClick={this.verifyPasswordColor} type="password" name="verify-password"></input><br/>
 									<p className="verify-password-confirm" style={colorVpassDisplay}>matches password</p>
 								</td>
 							</tr>
