@@ -6,7 +6,6 @@ class SignupSigninForm extends Component {
 	constructor(props) {
 		super(props);
 
-		this.buttonValidChecker = this.buttonValidChecker.bind(this);
 		this.submission = this.submission.bind(this);
 		this.submissionEnter = this.submissionEnter.bind(this);
 		this.nameColor = this.nameColor.bind(this);
@@ -14,65 +13,42 @@ class SignupSigninForm extends Component {
 		this.passwordColor = this.passwordColor.bind(this);
 		this.verifyPasswordColor = this.verifyPasswordColor.bind(this);
 	}
-	componentDidMount() {
-
-	}
 	nameColor() {
-		// let name = verifyNameInput.value;
-		// let nameLength = verifyNameInput.value.length;
-		// let reg = /^[a-zA-Z]+$/;
+		let name = this.props.name;
+		let nameLength = name.length;
+		let reg = /^[a-zA-Z]+$/;
 
-		// if (nameLength > 0 && nameLength <= 12 && reg.test(String(name)))
-		// 	this.colorChanger(verifyNameInput, verifyNameColor, verifyNameDisplay, "Green");
+		if (nameLength > 0 && nameLength <= 12 && reg.test(String(name)))
+			this.props.changeNameColor('Green');
+		else
+			this.props.changeNameColor('Blue');
 	}
 	emailColor() {
-		// let emailValue = verifyEmailInput.value;
-		// let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		let email = this.props.email;
+		let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-		//  		if (re.test(String(emailValue)) && emailValue.length > 0 && emailValue.length < 40)
-		// 	this.colorChanger(verifyEmailInput, verifyEmailColor, verifyEmailDisplay, "Green");
+ 		if (re.test(String(email)) && email.length > 0 && email.length < 40)
+			this.props.changeEmailColor('Green');
+		else
+			this.props.changeEmailColor('Blue');
 	}
 	passwordColor() {
-		// let passwordLength = verifyPasswordInput.value.length;
+		let password = this.props.password;
+		let verifyPassword = this.props.verifyPassword;
 
-		// // case were new password field != password confirm password
-		// if (verifyPasswordInput.value != document.getElementById('verify-password-confirm-input').value
-		// 	&& document.getElementsByClassName('verify-password-confirm')[0].style.color === "rgb(50, 205, 50)") {
-		// 	document.getElementsByClassName('verify-password-confirm')[0].style.color = "#0080ff";
-		// 	document.getElementById('verify-password-confirm-input').style.borderColor = "#00aced";
-		// }
-
-		// // case where new password field == password confirm password
-		// if (verifyPasswordInput.value === document.getElementById('verify-password-confirm-input').value 
-		// 	&& verifyPasswordInput.value !== "") {
-		// 	document.getElementById('verify-password-confirm-input').style.borderColor = "#32CD32";
-		// 	document.getElementsByClassName('verify-password-confirm')[0].style.color = "#32CD32";
-		// 	document.getElementsByClassName('verify-password-confirm')[1].style.display = "none";
-		// }
-
-		// if(passwordLength >= 6 && passwordLength <= 12)
-		// 	this.colorChanger(verifyPasswordInput, verifyPasswordColor, verifyPasswordDisplay, "Green");
+		if (password == verifyPassword && password != "" && password >= 6 && password <= 12)
+			this.props.changePassColor('Green');
+		else
+			this.props.changePassColor('Blue');
 	}
 	verifyPasswordColor() {
-		// let passwordLength = verifyPasswordInput.value.length;
+		let password = this.props.password;
+		let verifyPassword = this.props.verifyPassword;
 
-		// // case were new password field != password confirm password
-		// if (verifyPasswordInput.value != document.getElementById('verify-password-confirm-input').value
-		// 	&& document.getElementsByClassName('verify-password-confirm')[0].style.color === "rgb(50, 205, 50)") {
-		// 	document.getElementsByClassName('verify-password-confirm')[0].style.color = "#0080ff";
-		// 	document.getElementById('verify-password-confirm-input').style.borderColor = "#00aced";
-		// }
-
-		// // case where new password field == password confirm password
-		// if (verifyPasswordInput.value === document.getElementById('verify-password-confirm-input').value 
-		// 	&& verifyPasswordInput.value !== "") {
-		// 	document.getElementById('verify-password-confirm-input').style.borderColor = "#32CD32";
-		// 	document.getElementsByClassName('verify-password-confirm')[0].style.color = "#32CD32";
-		// 	document.getElementsByClassName('verify-password-confirm')[1].style.display = "none";
-		// }
-
-		// if(passwordLength >= 6 && passwordLength <= 12)
-		// 	this.colorChanger(verifyPasswordInput, verifyPasswordColor, verifyPasswordDisplay, "Green");
+		if (password == verifyPassword && password !== "" && password >= 6 && password <= 12) 
+			this.props.changeVpassColor('Green');
+		else
+			this.props.changeVpassColor('Blue');
 	}
 	submission() {
 		if (this.props.formType === "Sign up") {
