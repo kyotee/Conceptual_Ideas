@@ -82,10 +82,10 @@ class SignupSigninForm extends Component {
 				this.props.changePassColor('Blue');
 
 			if (this.props.vPassCurrentColor !== 'Grey') {
-				if (password != verifyPassword)
-					this.props.changeVpassColor('Blue');
-				else
+				if (password == verifyPassword && password != "" && verifyPassword != "")
 					this.props.changeVpassColor('Green');
+				else
+					this.props.changeVpassColor('Blue');
 			}
 		} else {
 			if (passwordLength > 0)
@@ -103,7 +103,7 @@ class SignupSigninForm extends Component {
 		if (this.props.vPassCurrentColor === 'Grey')
 			this.props.changeVpassColor('Blue');
 
-		if (password == verifyPassword && password != "") 
+		if (password == verifyPassword && password != "" && verifyPassword != "") 
 			this.props.changeVpassColor('Green');
 		else
 			this.props.changeVpassColor('Blue');
@@ -201,7 +201,7 @@ class SignupSigninForm extends Component {
 	render() {
 		const { formType,nameCurrentColor,emailCurrentColor,passCurrentColor,vPassCurrentColor } = this.props;
 
-		if(formType === 'Sign up') {
+		if (formType === 'Sign up') {
 			return (
 				<div id="signup-table-rails">
 					<table id="signup-table">
@@ -214,7 +214,7 @@ class SignupSigninForm extends Component {
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-name-input" style={this.inputColoring(nameCurrentColor,'Border')} value={this.props.name} onKeyPress={this.submissionEnter} onChange={this.nameColor} onClick={this.nameColor} type="text" name="name"></input><br/>
+									<input id="verify-name-input" style={this.inputColoring(nameCurrentColor,'Border')} value={this.props.name} onKeyPress={this.submissionEnter} onChange={this.nameColor} onClick={this.nameColor} onFocus={this.nameColor} type="text" name="name"></input><br/>
 									<p className="verify-name" style={this.inputColoring(nameCurrentColor,'Display')}>between 1 to 12 letters</p>
 								</td>
 							</tr>
@@ -223,7 +223,7 @@ class SignupSigninForm extends Component {
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-email-input" style={this.inputColoring(emailCurrentColor,'Border')} value={this.props.email} onKeyPress={this.submissionEnter} onChange={this.emailColor} onClick={this.emailColor} type="text" name="email"></input><br/>
+									<input id="verify-email-input" style={this.inputColoring(emailCurrentColor,'Border')} value={this.props.email} onKeyPress={this.submissionEnter} onChange={this.emailColor} onClick={this.emailColor} onFocus={this.emailColor} type="text" name="email"></input><br/>
 									<p className="verify-email" style={this.inputColoring(emailCurrentColor,'Display')}>valid e-mail under 40 characters</p>
 								</td>
 							</tr>
@@ -232,7 +232,7 @@ class SignupSigninForm extends Component {
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-password-input" style={this.inputColoring(passCurrentColor,'Border')} value={this.props.password} onKeyPress={this.submissionEnter} onChange={this.passwordColor} onClick={this.passwordColor} type="password" name="password"></input><br/>
+									<input id="verify-password-input" style={this.inputColoring(passCurrentColor,'Border')} value={this.props.password} onKeyPress={this.submissionEnter} onChange={this.passwordColor} onClick={this.passwordColor} onFocus={this.passwordColor} type="password" name="password"></input><br/>
 									<p className="verify-password" style={this.inputColoring(passCurrentColor,'Display')}>between 6 to 12 characters</p>
 								</td>
 							</tr>
@@ -241,7 +241,7 @@ class SignupSigninForm extends Component {
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-password-confirm-input" style={this.inputColoring(vPassCurrentColor,'Border')} value={this.props.verifyPassword} onKeyPress={this.submissionEnter} onChange={this.verifyPasswordColor} onClick={this.verifyPasswordColor} type="password" name="verify-password"></input><br/>
+									<input id="verify-password-confirm-input" style={this.inputColoring(vPassCurrentColor,'Border')} value={this.props.verifyPassword} onKeyPress={this.submissionEnter} onChange={this.verifyPasswordColor} onClick={this.verifyPasswordColor} onFocus={this.verifyPasswordColor} type="password" name="verify-password"></input><br/>
 									<p className="verify-password-confirm" style={this.inputColoring(vPassCurrentColor,'Display')}>matches password</p>
 								</td>
 							</tr>
@@ -265,7 +265,7 @@ class SignupSigninForm extends Component {
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-email-input" style={this.inputColoring(emailCurrentColor,'Border')} value={this.props.email} onKeyPress={this.submissionEnter} onChange={this.emailColor} onClick={this.emailColor} type="text" name="email"></input>
+									<input id="verify-email-input" style={this.inputColoring(emailCurrentColor,'Border')} value={this.props.email} onKeyPress={this.submissionEnter} onChange={this.emailColor} onClick={this.emailColor} onFocus={this.emailColor} type="text" name="email"></input>
 								</td>
 							</tr>
 							<tr>
@@ -273,7 +273,7 @@ class SignupSigninForm extends Component {
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-password-input" style={this.inputColoring(passCurrentColor,'Border')} value={this.props.password} onKeyPress={this.submissionEnter} onChange={this.passwordColor} onClick={this.passwordColor} type="password" name="password"></input>
+									<input id="verify-password-input" style={this.inputColoring(passCurrentColor,'Border')} value={this.props.password} onKeyPress={this.submissionEnter} onChange={this.passwordColor} onClick={this.passwordColor} onFocus={this.passwordColor} type="password" name="password"></input>
 								</td>
 							</tr>
 							<tr>
