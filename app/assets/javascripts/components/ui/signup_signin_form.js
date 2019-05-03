@@ -6,12 +6,29 @@ class SignupSigninForm extends Component {
 	constructor(props) {
 		super(props);
 
+		this.isComplete = this.isComplete.bind(this); 
 		this.submission = this.submission.bind(this);
 		this.submissionEnter = this.submissionEnter.bind(this);
 		this.nameColor = this.nameColor.bind(this);
 		this.emailColor = this.emailColor.bind(this);
 		this.passwordColor = this.passwordColor.bind(this);
 		this.verifyPasswordColor = this.verifyPasswordColor.bind(this);
+	}
+	isComplete(formType) {
+		if (formType === 'Sign up') {
+			if (this.props.nameCurrentColor !== 'Green' || 
+				this.props.emailCurrentColor !== 'Green' || 
+				this.props.passCurrentColor !== 'Green' || 
+				this.props.vPassCurrentColor !== 'Green') 
+				return false;
+			else
+				return true;
+		} else {
+			if (this.props.emailCurrentColor !== 'Green' || 
+				this.props.passCurrentColor !== 'Green') 
+				return false;
+			else return true;			
+		}
 	}
 	nameColor(e) {
 		let name = e.target.value;
@@ -36,10 +53,17 @@ class SignupSigninForm extends Component {
 		if (this.props.emailCurrentColor === 'Grey')
 			this.props.changeEmailColor('Blue');
 
- 		if (re.test(String(email)) && emailLength > 0 && emailLength < 40)
-			this.props.changeEmailColor('Green');
-		else
-			this.props.changeEmailColor('Blue');
+		if (this.props.formType === 'Sign up') {
+	 		if (re.test(String(email)) && emailLength > 0 && emailLength < 40)
+				this.props.changeEmailColor('Green');
+			else
+				this.props.changeEmailColor('Blue');
+		} else {
+			if (emailLength > 0)
+				this.props.changeEmailColor('Green');
+			else
+				this.props.changeEmailColor('Blue');
+		}
 
 		this.props.setEmail(email);
 	}
@@ -51,16 +75,23 @@ class SignupSigninForm extends Component {
 		if (this.props.passCurrentColor === 'Grey')
 			this.props.changePassColor('Blue');
 
-		if (passwordLength >= 6 && passwordLength <= 12)
-			this.props.changePassColor('Green');
-		else
-			this.props.changePassColor('Blue');
-
-		if (this.props.vPassCurrentColor !== 'Grey') {
-			if (password != verifyPassword)
-				this.props.changeVpassColor('Blue');
+		if (this.props.formType === 'Sign up') {
+			if (passwordLength >= 6 && passwordLength <= 12)
+				this.props.changePassColor('Green');
 			else
-				this.props.changeVpassColor('Green');
+				this.props.changePassColor('Blue');
+
+			if (this.props.vPassCurrentColor !== 'Grey') {
+				if (password != verifyPassword)
+					this.props.changeVpassColor('Blue');
+				else
+					this.props.changeVpassColor('Green');
+			}
+		} else {
+			if (passwordLength > 0)
+				this.props.changePassColor('Green');
+			else
+				this.props.changePassColor('Blue');		
 		}
 
 		this.props.setPassword(password);
@@ -80,6 +111,9 @@ class SignupSigninForm extends Component {
 		this.props.setVerifyPassword(verifyPassword);
 	}
 	submission() {
+		if (!this.isComplete(this.props.formType))
+			return;
+
 		if (this.props.formType === "Sign up") {
 			let userCredentials = {
 				user: {
@@ -89,12 +123,6 @@ class SignupSigninForm extends Component {
 					  password_confirmation: sanitization(this.props.verifyPassword)
 				}
 			};
-
-			if (userCredentials.user.name === "" || 
-				userCredentials.user.email === "" || 
-				userCredentials.user.password === "" || 
-				userCredentials.user.password_confirmation === "") 
-				return;
 
 			$.ajax({
 				type: "POST",
@@ -115,9 +143,6 @@ class SignupSigninForm extends Component {
 					  password: sanitization(this.props.password)
 				}
 			};
-
-			if (userCredentials.userLogin.email === "" || userCredentials.userLogin.password === "")
-				return;
 
 			$.ajax({
 				type: "POST",
@@ -174,23 +199,7 @@ class SignupSigninForm extends Component {
 	render() {
 		const { formType,nameCurrentColor,emailCurrentColor,passCurrentColor,vPassCurrentColor } = this.props;
 
-		// refactor chatter to seperate methods
-	    // if (nameCurrentColor === 'Green' && emailCurrentColor === 'Green' && passCurrentColor === 'Green' && vPassCurrentColor === 'Green') {
-	    // 	colorButton = {
-
-	    // 	};
-	    // }
-
-		// <BUTTON>:
-		// GREEN
-		// 	buttonColor.style.color = "#FFFFFF";
-		// 	buttonColor.style.backgroundColor = "#32CD32";
-		//  GREY
-		// 	buttonColor.style.color = "#68838B";
-		// 	buttonColor.style.backgroundColor = "#D3D3D3";
-		//  note: on click if grey will now be blue
-
-		if(formType === "Sign up") {
+		if(formType === 'Sign up') {
 			return (
 				<div id="signup-table-rails">
 					<table id="signup-table">
@@ -250,23 +259,23 @@ class SignupSigninForm extends Component {
 								<th><div className="idea-icon-form"></div><h2 className="form-title">{this.props.formType}</h2></th>
 							</tr>
 							<tr>
-								<th><p className="verify-email">E-mail</p></th>
+								<th><p className="verify-email" style={this.inputColoring(emailCurrentColor,'Text')}>E-mail</p></th>
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-email-input" value={this.props.email} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="text" name="email"></input>
+									<input id="verify-email-input" style={this.inputColoring(emailCurrentColor,'Border')} value={this.props.email} onKeyPress={this.submissionEnter} onChange={this.emailColor} onClick={this.emailColor} type="text" name="email"></input>
 								</td>
 							</tr>
 							<tr>
-								<th><p className="verify-password">Password</p></th>
+								<th><p className="verify-password" style={this.inputColoring(passCurrentColor,'Text')}>Password</p></th>
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-password-input" value={this.props.password} onChange={this.submissionEnter} onKeyPress={this.submissionEnter} type="password" name="password"></input>
+									<input id="verify-password-input" style={this.inputColoring(passCurrentColor,'Border')} value={this.props.password} onKeyPress={this.submissionEnter} onChange={this.passwordColor} onClick={this.passwordColor} type="password" name="password"></input>
 								</td>
 							</tr>
 							<tr>
-								<td><div id="accept-button"><ActionButton id="accept-button" onClick={this.submission} text={this.props.formType} /></div></td>
+								<td><div id="accept-button"><ActionButton onClick={this.submission} text={this.props.formType} /></div></td>
 							</tr>
 							<p id="signup-now">No account? <a href="/signup">Sign up now!</a></p>
 						</tbody>
