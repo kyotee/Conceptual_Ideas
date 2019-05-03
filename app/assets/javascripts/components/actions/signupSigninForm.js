@@ -55,3 +55,9 @@ export function changeVpassColor(vPassCurrentColor) {
     vPassCurrentColor: vPassCurrentColor
   };
 }
+
+export function eraseCredentials() {
+   return {
+    type: C.ERASE_CREDENTIALS
+  }; 
+}

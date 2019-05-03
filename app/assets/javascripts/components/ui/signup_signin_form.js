@@ -114,7 +114,7 @@ class SignupSigninForm extends Component {
 		if (!this.isComplete(this.props.formType))
 			return;
 
-		if (this.props.formType === "Sign up") {
+		if (this.props.formType === 'Sign up') {
 			let userCredentials = {
 				user: {
 					  name: sanitization(this.props.name),
@@ -156,6 +156,8 @@ class SignupSigninForm extends Component {
 				}
 			});
 		}
+
+		this.props.eraseCredentials();
 	}
 	submissionEnter(e) {
 		if (e.key === 'Enter')
@@ -181,11 +183,11 @@ class SignupSigninForm extends Component {
 		} else if (color === 'Green') {
 			if (element === 'Text') {
 				styling = {
-					color: "#32CD32"
+					color: "#00ba9b"
 				};
 			} else if (element === 'Border') {
 				styling = {
-					borderColor: "#32CD32"
+					borderColor: "#00ba9b"
 				};
 			} else if (element === 'Display') {
 				styling = {
@@ -244,7 +246,7 @@ class SignupSigninForm extends Component {
 								</td>
 							</tr>
 							<tr>
-								<td id="accept-button"><ActionButton onClick={this.submission} text={this.props.formType} /></td>
+								<td><div id="accept-button" onClick={this.submission}><ActionButton text={this.props.formType} /></div></td>
 							</tr>
 						</tbody>
 					</table>
@@ -275,7 +277,7 @@ class SignupSigninForm extends Component {
 								</td>
 							</tr>
 							<tr>
-								<td><div id="accept-button"><ActionButton onClick={this.submission} text={this.props.formType} /></div></td>
+								<td><div id="accept-button" onClick={this.submission}><ActionButton text={this.props.formType} /></div></td>
 							</tr>
 							<p id="signup-now">No account? <a href="/signup">Sign up now!</a></p>
 						</tbody>
@@ -299,7 +301,12 @@ SignupSigninForm.propTypes = {
 	changeNameColor: PropTypes.func.isRequired,
 	changeEmailColor: PropTypes.func.isRequired,
 	changePassColor: PropTypes.func.isRequired,
-	changeVpassColor: PropTypes.func.isRequired
+	changeVpassColor: PropTypes.func.isRequired,
+	setName: PropTypes.func.isRequired,
+	setEmail: PropTypes.func.isRequired,
+	setPassword: PropTypes.func.isRequired,
+	setVerifyPassword: PropTypes.func.isRequired,
+	eraseCredentials: PropTypes.func.isRequired
 };
 
 export default SignupSigninForm;

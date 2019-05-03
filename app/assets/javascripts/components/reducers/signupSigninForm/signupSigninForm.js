@@ -29,6 +29,8 @@ export default function counter(state = initalState, action) {
     return { ...state, passCurrentColor: action.passCurrentColor };
   case C.CHANGE_VPASS_COLOR:
     return { ...state, vPassCurrentColor: action.vPassCurrentColor };
+  case C.ERASE_CREDENTIALS:
+    return { ...state, name: '', email: '', password: '', verifyPassword: '', nameCurrentColor: 'Grey', emailCurrentColor: 'Grey', passCurrentColor: 'Grey', vPassCurrentColor: 'Grey'};
   default:
     return state;
   }
