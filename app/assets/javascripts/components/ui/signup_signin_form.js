@@ -45,15 +45,23 @@ class SignupSigninForm extends Component {
 	}
 	passwordColor(e) {
 		let password = e.target.value;
+		let passwordLength = password.length;
 		let verifyPassword = this.props.verifyPassword;
 
 		if (this.props.passCurrentColor === 'Grey')
 			this.props.changePassColor('Blue');
 
-		if (password == verifyPassword && password != "" && password >= 6 && password <= 12)
+		if (passwordLength >= 6 && passwordLength <= 12)
 			this.props.changePassColor('Green');
 		else
 			this.props.changePassColor('Blue');
+
+		if (this.props.vPassCurrentColor !== 'Grey') {
+			if (password != verifyPassword)
+				this.props.changeVpassColor('Blue');
+			else
+				this.props.changeVpassColor('Green');
+		}
 
 		this.props.setPassword(password);
 	}
@@ -64,7 +72,7 @@ class SignupSigninForm extends Component {
 		if (this.props.vPassCurrentColor === 'Grey')
 			this.props.changeVpassColor('Blue');
 
-		if (password == verifyPassword && password != "" && password >= 6 && password <= 12) 
+		if (password == verifyPassword && password != "") 
 			this.props.changeVpassColor('Green');
 		else
 			this.props.changeVpassColor('Blue');
@@ -128,30 +136,45 @@ class SignupSigninForm extends Component {
 		if (e.key === 'Enter')
 			this.submission();
 	}
-	render() {
-		const { formType,nameCurrentColor,emailCurrentColor,passCurrentColor,vPassCurrentColor } = this.props;
-	    let colorName, colorNameBorder, colorNameDisplay;
-	    let colorEmail, colorEmailBorder, colorEmailDisplay;	    
-	    let colorPassword, colorPasswordBorder, colorPasswordDisplay;
-	    let colorVpass, colorVpassBorder, colorVpassDisplay;
-	    let colorButton;
+	inputColoring(color,element) {
+		let styling;
 
-		if (nameCurrentColor === 'Blue') {
-			colorName = {color: "#0080ff" };
-			colorNameBorder = { borderColor: "#00aced" };
-			colorNameDisplay = { display: "inline" };
-		} else if (nameCurrentColor === 'Green') {
-			colorName = {color: "#32CD32" };
-			colorNameBorder = { borderColor: "#32CD32" };
-			colorNameDisplay = { display: "none" };
+		if (color === 'Blue') {
+			if (element === 'Text') {
+				styling = {
+					color: "#0080ff"
+				};
+			} else if (element === 'Border') {
+				styling = {
+					borderColor: "#00aced"
+				};
+			} else if (element === 'Display') {
+				styling = {
+					display: "inline"
+				};
+			}
+		} else if (color === 'Green') {
+			if (element === 'Text') {
+				styling = {
+					color: "#32CD32"
+				};
+			} else if (element === 'Border') {
+				styling = {
+					borderColor: "#32CD32"
+				};
+			} else if (element === 'Display') {
+				styling = {
+					display: "none"
+				};
+			}
 		}
 
-		colorNameBorder = {
-			borderColor: "#00aced"
-		};
+		return styling;
+	}
+	render() {
+		const { formType,nameCurrentColor,emailCurrentColor,passCurrentColor,vPassCurrentColor } = this.props;
 
-		// style tag will be call by reference
-
+		// refactor chatter to seperate methods
 	    // if (nameCurrentColor === 'Green' && emailCurrentColor === 'Green' && passCurrentColor === 'Green' && vPassCurrentColor === 'Green') {
 	    // 	colorButton = {
 
@@ -176,39 +199,39 @@ class SignupSigninForm extends Component {
 								<th><div className="idea-icon-form"></div><h2 className="form-title">{this.props.formType}</h2></th>
 							</tr>
 							<tr>
-								<th><p className="verify-name" style={colorName}>User Name</p></th>
+								<th><p className="verify-name" style={this.inputColoring(nameCurrentColor,'Text')}>User Name</p></th>
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-name-input" style={colorNameBorder} value={this.props.name} onKeyPress={this.submissionEnter} onChange={this.nameColor} onClick={this.nameColor} type="text" name="name"></input><br/>
-									<p className="verify-name" style={colorNameDisplay}>between 1 to 12 letters</p>
+									<input id="verify-name-input" style={this.inputColoring(nameCurrentColor,'Border')} value={this.props.name} onKeyPress={this.submissionEnter} onChange={this.nameColor} onClick={this.nameColor} type="text" name="name"></input><br/>
+									<p className="verify-name" style={this.inputColoring(nameCurrentColor,'Display')}>between 1 to 12 letters</p>
 								</td>
 							</tr>
 							<tr>
-								<th><p className="verify-email">E-mail</p></th>
+								<th><p className="verify-email" style={this.inputColoring(emailCurrentColor,'Text')}>E-mail</p></th>
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-email-input" value={this.props.email} onKeyPress={this.submissionEnter} onChange={this.emailColor} onClick={this.emailColor} type="text" name="email"></input><br/>
-									<p className="verify-email" style={colorEmailDisplay}>valid e-mail under 40 characters</p>
+									<input id="verify-email-input" style={this.inputColoring(emailCurrentColor,'Border')} value={this.props.email} onKeyPress={this.submissionEnter} onChange={this.emailColor} onClick={this.emailColor} type="text" name="email"></input><br/>
+									<p className="verify-email" style={this.inputColoring(emailCurrentColor,'Display')}>valid e-mail under 40 characters</p>
 								</td>
 							</tr>
 							<tr>
-								<th><p className="verify-password">Password</p></th>
+								<th><p className="verify-password" style={this.inputColoring(passCurrentColor,'Text')}>Password</p></th>
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-password-input" value={this.props.password} onKeyPress={this.submissionEnter} onChange={this.passwordColor} onClick={this.passwordColor} type="password" name="password"></input><br/>
-									<p className="verify-password" style={colorPasswordDisplay}>between 6 to 12 characters</p>
+									<input id="verify-password-input" style={this.inputColoring(passCurrentColor,'Border')} value={this.props.password} onKeyPress={this.submissionEnter} onChange={this.passwordColor} onClick={this.passwordColor} type="password" name="password"></input><br/>
+									<p className="verify-password" style={this.inputColoring(passCurrentColor,'Display')}>between 6 to 12 characters</p>
 								</td>
 							</tr>
 							<tr>
-								<th><p className="verify-password-confirm">Password Confirmation</p></th>
+								<th><p className="verify-password-confirm" style={this.inputColoring(vPassCurrentColor,'Text')}>Password Confirmation</p></th>
 							</tr>
 							<tr>
 								<td>
-									<input id="verify-password-confirm-input" value={this.props.verifyPassword} onKeyPress={this.submissionEnter} onChange={this.verifyPasswordColor} onClick={this.verifyPasswordColor} type="password" name="verify-password"></input><br/>
-									<p className="verify-password-confirm" style={colorVpassDisplay}>matches password</p>
+									<input id="verify-password-confirm-input" style={this.inputColoring(vPassCurrentColor,'Border')} value={this.props.verifyPassword} onKeyPress={this.submissionEnter} onChange={this.verifyPasswordColor} onClick={this.verifyPasswordColor} type="password" name="verify-password"></input><br/>
+									<p className="verify-password-confirm" style={this.inputColoring(vPassCurrentColor,'Display')}>matches password</p>
 								</td>
 							</tr>
 							<tr>
