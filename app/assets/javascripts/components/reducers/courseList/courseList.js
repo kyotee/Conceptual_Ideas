@@ -6,7 +6,8 @@ const initalState = {
   courseLevels: "1",
   sort: "Ascending",
   coursesUser: [],
-  coursesUserCount: 0
+  coursesUserCount: 0,
+  mobileOption: false
 };
 
 export default function courseList(state = initalState, action) {
@@ -35,6 +36,8 @@ export default function courseList(state = initalState, action) {
     }
   case C.DECREMENT_COURSES:
     return { ...state, coursesUser: state.coursesUser.filter(function(x){return x.course_id != action.coursesUser; })};
+  case C.SELECT_MOBILE_OPTIONS:
+    return { ...state, mobileOption: action.mobileOption }
   default:
     return state;
   }

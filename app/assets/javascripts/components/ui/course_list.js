@@ -7,13 +7,22 @@ import { sanitization } from '../input_sanitization.js';
 class CourseList extends Component {
 	constructor(props) {
 		super(props);
+
+		this.optionChange = this.optionChange.bind(this);
+		this.mobileOptions = this.mobileOptions.bind(this);
 	}
 	componentDidMount() {
 		let clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
-		let mobileFilter = document.getElementById('mobile-filter');
-		let catChange = document.getElementById('cat-selector');
-		let sortChange = document.getElementById('sort-selector');
-		let levelChange = document.getElementById('level-selector');
+		
+		window.addEventListener('scroll', function() {
+			if (window.scrollY >= (clientHeight-400))
+				document.getElementsByClassName('next_page')[0].click();
+		});
+
+
+
+
+
 		let enrolledCourses = this.props.courses.map(({ course_id }) => course_id).toString().replace(/,/g, ' ');
 		let unenrolledCourses = this.props.courses.map(({ course_id }) => course_id).toString().replace(/,/g, '-Unenrolled ');
 
@@ -29,19 +38,8 @@ class CourseList extends Component {
 			});
 		}
 
-		catChange.value = this.props.courseTypes;
-		levelChange.value = this.props.courseLevels;
-		sortChange.value = this.props.sort;
 
-		window.addEventListener('scroll', function() {
-			if (window.scrollY >= (clientHeight-400))
-				document.getElementsByClassName('next_page')[0].click();
-		});
 
-		mobileFilter.addEventListener('click', function() {
-			mobileFilter.classList.toggle('change');
-		 	document.getElementById('filter-position').classList.toggle('change');
-		});
 
 		// need restriction for limiting HTTP requests
 		const addDropCourse = (enrollment) => {
@@ -77,10 +75,6 @@ class CourseList extends Component {
 
 		eventListenerMacro(`${enrolledCourses} ${unenrolledCourses}`, 'click', function(e) {
 			addDropCourse(this.id);
-		});
-
-		eventListenerMacro('cat-selector sort-selector level-selector', 'change', function() {
-			window.location = `/courses_list/${catChange.value}/${sortChange.value}/${levelChange.value}`;
 		});
 	}
 	listCourses(courses, coursesOfUser, indexOffset) {
@@ -128,20 +122,52 @@ class CourseList extends Component {
 			)
 		}
 	}
+	optionChange(e) {
+		let option = e.target.id;
+		let value = e.target.value;
+		let courseTypes = this.props.courseTypes;
+		let sort = this.props.sort;
+		let courseLevels = this.props.courseLevels;
+
+		if (option === 'cat-selector') {
+			courseTypes = value;
+		} else if (option === 'level-selector') {
+			courseLevels = value;
+		} else if (option === 'sort-selector') {
+			sort = value;
+		}
+
+		window.location = `/courses_list/${courseTypes}/${sort}/${courseLevels}`;
+	}
+	mobileOptions() {
+		this.props.selectMobileOptions(!this.props.mobileOption);
+	}
 	render() {
 		const { courses,courseTypes,courseLevels,sort,coursesUser,coursesUserCount,incrementCourseCount,decrementCourseCount,incrementCourse,decrementCourse } = this.props;
-		
 		let coursesOfUser = [];
+		let searchIcon;
+		let searchLayout;
 
+		// current courses belonging to the user
 		for (let index = 0; index < coursesUser.length; index++) {
 			coursesOfUser.push(coursesUser[index].course_id);
+		}
+
+		if (this.props.mobileOption) {
+			searchIcon = {
+				backgroundColor: "yellow"
+			};
+
+			searchLayout = {
+				display: "block"
+			};
 		}
 		return (
 			<div className="course-listings">
 				{this.coursesEnrolled(this.props.coursesUser,this.props.coursesUserCount)}
-					<p id="mobile-filter" className="no-outline">🔎</p>
-					<div id="filter-position">
-						<select id="cat-selector">  
+					<p id="mobile-filter" className="no-outline" style={searchIcon} onClick={this.mobileOptions}>🔎</p>
+					<div id="filter-position" style={searchLayout}>
+						<select id="cat-selector" value={this.props.courseTypes} onChange={this.optionChange}>  
 							<option value="All">All Categories</option>
 							<option value="Comp">Computer Science</option>
 							<option value="Engl">English</option>
@@ -152,14 +178,14 @@ class CourseList extends Component {
 							<option value="Psyc">Psychology</option>
 							<option value="Soci">Sociology</option>
 						</select>
-						<select id="level-selector">
+						<select id="level-selector" value={this.props.courseLevels} onChange={this.optionChange}>
 							<option value="0">All Levels</option>
 							<option value="1">100 Level</option>
 							<option value="2">200 Level</option>
 							<option value="3">300 Level</option>
 							<option value="4">400 Level</option>
 						</select>
-						<select id="sort-selector">
+						<select id="sort-selector" value={this.props.sort} onChange={this.optionChange}>
 							<option value="Ascending">Sort Low to High</option>
 							<option value="Descending">Sort High to Low</option>
 						</select>

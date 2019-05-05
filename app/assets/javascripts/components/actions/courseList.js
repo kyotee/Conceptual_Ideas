@@ -69,3 +69,10 @@ export function decrementCourse(course) {
     coursesUser: course
   };
 }
+
+export function selectMobileOptions(mobileOption) {
+  return {
+    type: C.SELECT_MOBILE_OPTIONS,
+    mobileOption: mobileOption
+  }
+}

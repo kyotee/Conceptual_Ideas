@@ -21,7 +21,7 @@ class Course extends Component {
 	}
 	render() {
 		const { detail,enroll } = this.state;
-		const { courseType,enrolled } = this.props;
+		const { courseType,enrolled,courseId,description,count,professor,capOff,startDate,endDate } = this.props;
 		let courseColor = {
 			backgroundColor: colors[courseType]
 		};
@@ -55,20 +55,20 @@ class Course extends Component {
 			<div className="course">
 				<div className="tab" style={courseColor}>
 					<div className="tab-container">
-						<p className="tab-text">{this.props.courseId}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>A Boring Course</i></p>
-						<p className="tab-status no-outline" id={this.props.courseId} style={tabStatus} onClick={this.enrollCourse}>Enroll</p>
-						<div className="tab-icon-status" id={this.props.courseId+"-Unenrolled"} style={tabStatusIcon} onClick={this.enrollCourse}>
+						<p className="tab-text">{courseId}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>A Boring Course</i></p>
+						<p className="tab-status no-outline" id={courseId} style={tabStatus} onClick={this.enrollCourse}>Enroll</p>
+						<div className="tab-icon-status" id={courseId+"-Unenrolled"} style={tabStatusIcon} onClick={this.enrollCourse}>
 						</div>
 					</div>
 				</div>
 				<div>
-					<p className="course-desc">{this.props.description}</p><br/>
+					<p className="course-desc">{description}</p><br/>
 				</div>
 				<div className="more-info" style={detailShow}>
-					<p><div className="desc-color">Professor</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.professor}</p>
-					<p><div className="desc-color">Enrollment</div>&nbsp;&nbsp;&nbsp;{this.props.count} / {this.props.capOff}</p>
-					<p><div className="desc-color">Duration</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.startDate} to {this.props.endDate}</p>
-				</div>
+					<p><div className="desc-color">Professor</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{professor}</p>
+					<p><div className="desc-color">Enrollment</div>&nbsp;&nbsp;&nbsp;{count} / {capOff}</p>
+					<p><div className="desc-color">Duration</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{startDate} to {endDate}</p>
+				</div>                                  
 				<div>
 					<p className="click-me" style={detailIcon} onClick={this.showDetails}>↑</p>
 				</div>
