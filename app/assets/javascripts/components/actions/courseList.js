@@ -76,3 +76,10 @@ export function selectMobileOptions(mobileOption) {
     mobileOption: mobileOption
   }
 }
+
+export function viewUserCourses(userView) {
+  return {
+    type: C.VIEW_USER_COURSES,
+    userView: userView
+  }
+}

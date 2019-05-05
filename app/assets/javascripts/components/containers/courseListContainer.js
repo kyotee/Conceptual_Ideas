@@ -11,7 +11,8 @@ function mapStateToProps(state) {
     sort: state.courseList.sort,
     coursesUser: state.courseList.coursesUser,
     coursesUserCount: state.courseList.coursesUserCount,
-    mobileOption: state.courseList.mobileOption
+    mobileOption: state.courseList.mobileOption,
+    userView: state.courseList.userView
   }
 }
 

@@ -144,10 +144,6 @@ $course-fonts: Helvetica, Arial, sans-serif;
 	}
 }
 
-#enrolled-courses.change {
-	background-color: yellow
-}
-
 #enrolled-number {
 	margin-left: 0.3em;
 	display: inline;
@@ -168,14 +164,6 @@ $course-fonts: Helvetica, Arial, sans-serif;
 	display: block
 }
 
-#course-list.change {
-	display: none	
-}
-
 #course-list-user {
 	display: none
-}
-
-#course-list-user.change {
-	display: block
 }

@@ -7,7 +7,8 @@ const initalState = {
   sort: "Ascending",
   coursesUser: [],
   coursesUserCount: 0,
-  mobileOption: false
+  mobileOption: false,
+  userView: false
 };
 
 export default function courseList(state = initalState, action) {
@@ -38,6 +39,8 @@ export default function courseList(state = initalState, action) {
     return { ...state, coursesUser: state.coursesUser.filter(function(x){return x.course_id != action.coursesUser; })};
   case C.SELECT_MOBILE_OPTIONS:
     return { ...state, mobileOption: action.mobileOption }
+  case C.VIEW_USER_COURSES:
+    return { ...state, userView: action.userView }
   default:
     return state;
   }

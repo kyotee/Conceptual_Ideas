@@ -10,6 +10,8 @@ class CourseList extends Component {
 
 		this.optionChange = this.optionChange.bind(this);
 		this.mobileOptions = this.mobileOptions.bind(this);
+		this.listCoursesUser = this.listCoursesUser.bind(this);
+		this.showUserCourseList = this.showUserCourseList.bind(this);
 	}
 	componentDidMount() {
 		let clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
@@ -19,27 +21,8 @@ class CourseList extends Component {
 				document.getElementsByClassName('next_page')[0].click();
 		});
 
-
-
-
-
 		let enrolledCourses = this.props.courses.map(({ course_id }) => course_id).toString().replace(/,/g, ' ');
 		let unenrolledCourses = this.props.courses.map(({ course_id }) => course_id).toString().replace(/,/g, '-Unenrolled ');
-
-		if (this.props.coursesUser != null) {
-			let allCourses = document.getElementById('course-list');
-			let userCourses = document.getElementById('enrolled-courses');
-			let userCoursesList = document.getElementById('course-list-user');
-
-			userCourses.addEventListener('click', function() {
-				allCourses.classList.toggle('change');
-				userCourses.classList.toggle('change');
-				userCoursesList.classList.toggle('change');
-			});
-		}
-
-
-
 
 		// need restriction for limiting HTTP requests
 		const addDropCourse = (enrollment) => {
@@ -77,13 +60,14 @@ class CourseList extends Component {
 			addDropCourse(this.id);
 		});
 	}
-	listCourses(courses, coursesOfUser, indexOffset) {
+	listCourses(courses, coursesUser, indexOffset) {
 		let coursesCombined = [];
+		let coursesIdUser = coursesUser.map(a => a.course_id);
 
 		for (let index = 0; index < courses.length; index++) {
 			let isUserCourse = false;
 
-			if (coursesOfUser.includes(courses[index].course_id)) 
+			if (coursesIdUser.includes(courses[index].course_id)) 
 				isUserCourse = true;
 
 			coursesCombined.push(
@@ -106,10 +90,36 @@ class CourseList extends Component {
 
 		return coursesCombined;
 	}
-	coursesEnrolled(courses, count) {
-		if (courses != null) {
+	listCoursesUser(courses, coursesUser, indexOffset) {
+		if (coursesUser !== null) {
+			let userCourses;
+
+			if (this.props.userView) {
+				userCourses = {
+					display: "block"
+				};
+			}
 			return (
-				<div id="enrolled-courses" className="no-outline">
+				<div id="course-list-user" style={userCourses}>
+					{this.listCourses(coursesUser,coursesUser,courses.length)}
+				</div>
+			)
+		}
+	}
+	showUserCourseList() {
+		this.props.viewUserCourses(!this.props.userView);
+	}
+	coursesEnrolled(coursesUser, count) {
+		if (coursesUser !== null) {
+			let coursesSelected;
+
+			if (this.props.userView) {
+				coursesSelected = {
+					backgroundColor: "yellow"
+				};
+			}
+			return (
+				<div id="enrolled-courses" className="no-outline" style={coursesSelected} onClick={this.showUserCourseList}>
 					<p>Courses <div id="enrolled-number">{count}</div></p>
 				</div>
 			)
@@ -144,14 +154,9 @@ class CourseList extends Component {
 	}
 	render() {
 		const { courses,courseTypes,courseLevels,sort,coursesUser,coursesUserCount,incrementCourseCount,decrementCourseCount,incrementCourse,decrementCourse } = this.props;
-		let coursesOfUser = [];
 		let searchIcon;
 		let searchLayout;
-
-		// current courses belonging to the user
-		for (let index = 0; index < coursesUser.length; index++) {
-			coursesOfUser.push(coursesUser[index].course_id);
-		}
+		let mainCourses;
 
 		if (this.props.mobileOption) {
 			searchIcon = {
@@ -160,6 +165,12 @@ class CourseList extends Component {
 
 			searchLayout = {
 				display: "block"
+			};
+		}
+
+		if (this.props.userView) {
+			mainCourses = {
+				display: "none"
 			};
 		}
 		return (
@@ -191,13 +202,11 @@ class CourseList extends Component {
 						</select>
 					</div>
 					<br/>
-					<div id="course-list">
-						{this.listCourses(courses,coursesOfUser,0)}
+					<div id="course-list" style={mainCourses}>
+						{this.listCourses(courses,coursesUser,0)}
 						{this.isPaginateDone(courses.length)}
 					</div>
-					<div id="course-list-user">
-						{this.listCourses(coursesUser,coursesOfUser,courses.length)}
-					</div>
+					{this.listCoursesUser(coursesUser,coursesUser,courses.length)}
 			</div>
 		)
 	}
