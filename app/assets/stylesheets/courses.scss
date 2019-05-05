@@ -42,10 +42,6 @@ $course-fonts: Helvetica, Arial, sans-serif;
 	display: none
 }
 
-.more-info.show {
-	display: block
-}
-
 #cat-selector, #sort-selector, #level-selector {
 	height: 3em;
 	padding-left: 1em;
@@ -80,11 +76,6 @@ $course-fonts: Helvetica, Arial, sans-serif;
 .more-info {
 	margin: 0;
 	padding-left: 1.5em
-}
-
-.click-me.flip {
-	-webkit-transform: rotate(0deg);
-    transform: rotate(0deg)
 }
 
 .course-desc {
