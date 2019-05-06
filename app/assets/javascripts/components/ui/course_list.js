@@ -25,18 +25,18 @@ class CourseList extends Component {
 	addUserCourse(id) {
 		console.log(id);
 	}
-
 	deleteUserCourse(id) {
 		console.log(id);
 	}
 	listCourses(courses, coursesUser, indexOffset) {
 		let coursesCombined = [];
-		let coursesIdUser = coursesUser.map(a => a.id);
+		let userExists = coursesUser !== null;
+		let coursesIdUser = userExists ? coursesUser.map(a => a.id) : [];
 
 		for (let index = 0; index < courses.length; index++) {
 			let isUserCourse = false;
 
-			if (coursesIdUser.includes(courses[index].id)) 
+			if (coursesIdUser.includes(courses[index].id) && userExists) 
 				isUserCourse = true;
 
 			coursesCombined.push(
@@ -71,6 +71,7 @@ class CourseList extends Component {
 					display: "block"
 				};
 			}
+
 			return (
 				<div id="course-list-user" style={userCourses}>
 					{this.listCourses(coursesUser,coursesUser,courses.length)}
