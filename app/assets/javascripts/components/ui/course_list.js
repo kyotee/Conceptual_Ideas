@@ -10,7 +10,6 @@ class CourseList extends Component {
 
 		this.optionChange = this.optionChange.bind(this);
 		this.mobileOptions = this.mobileOptions.bind(this);
-		this.listCoursesUser = this.listCoursesUser.bind(this);
 		this.addUserCourse = this.addUserCourse.bind(this);
 		this.deleteUserCourse = this.deleteUserCourse.bind(this);
 	}
@@ -23,41 +22,40 @@ class CourseList extends Component {
 		});
 	}
 	addUserCourse(id) {
-		console.log(id);
 		this.props.incrementCourseCount(this.props.coursesUserCount);
 		this.props.incrementCourse(id);
 	}
 	deleteUserCourse(id) {
-		console.log(id);
 		this.props.decrementCourseCount(this.props.coursesUserCount);
 		this.props.decrementCourse(id);
 	}
-	listCourses(courses, coursesUser, indexOffset) {
+	listCourses(courses, coursesUser, userView) {
 		let coursesCombined = [];
 		let userExists = coursesUser !== null;
+		let coursesCpy = userExists && userView ? coursesUser : courses;
 		let coursesIdUser = userExists ? coursesUser.map(a => a.id) : [];
 
-		for (let index = 0; index < courses.length; index++) {
+		for (let index = 0; index < coursesCpy.length; index++) {
 			let isUserCourse = false;
 
-			if (coursesIdUser.includes(courses[index].id) && userExists) 
+			if (coursesIdUser.includes(coursesCpy[index].id) && userExists) 
 				isUserCourse = true;
 
 			coursesCombined.push(
 				<Course 
-					databaseId={courses[index].id}
-					courseId={courses[index].course_id}
-					description={courses[index].description}
-					professor={courses[index].professor}
-					count={courses[index].count}
-					capOff={courses[index].cap_off}
-					prerequisites={courses[index].prerequisites}
-			        courseType={courses[index].course_type}
-			        startDate={courses[index].start_date}
-			        endDate={courses[index].end_date}
+					databaseId={coursesCpy[index].id}
+					courseId={coursesCpy[index].course_id}
+					description={coursesCpy[index].description}
+					professor={coursesCpy[index].professor}
+					count={coursesCpy[index].count}
+					capOff={coursesCpy[index].cap_off}
+					prerequisites={coursesCpy[index].prerequisites}
+			        courseType={coursesCpy[index].course_type}
+			        startDate={coursesCpy[index].start_date}
+			        endDate={coursesCpy[index].end_date}
 			        enrolled={isUserCourse}
-			        position={index+indexOffset}
-			        key={index+indexOffset}
+			        position={index}
+			        key={index}
 			        parentAdd={this.addUserCourse}
 			        parentDelete={this.deleteUserCourse}
 			    />
@@ -65,23 +63,6 @@ class CourseList extends Component {
 		}
 
 		return coursesCombined;
-	}
-	listCoursesUser(courses, coursesUser, indexOffset) {
-		if (coursesUser !== null) {
-			let userCourses;
-
-			if (this.props.userView) {
-				userCourses = {
-					display: "block"
-				};
-			}
-
-			return (
-				<div id="course-list-user" style={userCourses}>
-					{this.listCourses(coursesUser,coursesUser,courses.length)}
-				</div>
-			)
-		}
 	}
 	coursesEnrolled(coursesUser, count) {
 		if (coursesUser !== null) {
@@ -130,7 +111,6 @@ class CourseList extends Component {
 		const { courses,courseTypes,courseLevels,sort,coursesUser,coursesUserCount,incrementCourseCount,decrementCourseCount,incrementCourse,decrementCourse } = this.props;
 		let searchIcon;
 		let searchLayout;
-		let mainCourses;
 
 		if (this.props.mobileOption) {
 			searchIcon = {
@@ -139,12 +119,6 @@ class CourseList extends Component {
 
 			searchLayout = {
 				display: "block"
-			};
-		}
-
-		if (this.props.userView) {
-			mainCourses = {
-				display: "none"
 			};
 		}
 		return (
@@ -176,11 +150,10 @@ class CourseList extends Component {
 						</select>
 					</div>
 					<br/>
-					<div id="course-list" style={mainCourses}>
-						{this.listCourses(courses,coursesUser,0)}
+					<div id="course-list">
+						{this.listCourses(courses,coursesUser,this.props.userView)}
 						{this.isPaginateDone(courses.length)}
 					</div>
-					{this.listCoursesUser(coursesUser,coursesUser,courses.length)}
 			</div>
 		)
 	}
