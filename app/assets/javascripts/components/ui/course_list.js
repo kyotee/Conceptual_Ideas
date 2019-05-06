@@ -11,7 +11,8 @@ class CourseList extends Component {
 		this.optionChange = this.optionChange.bind(this);
 		this.mobileOptions = this.mobileOptions.bind(this);
 		this.listCoursesUser = this.listCoursesUser.bind(this);
-		this.showUserCourseList = this.showUserCourseList.bind(this);
+		this.addUserCourse = this.addUserCourse.bind(this);
+		this.deleteUserCourse = this.deleteUserCourse.bind(this);
 	}
 	componentDidMount() {
 		let clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
@@ -20,58 +21,27 @@ class CourseList extends Component {
 			if (window.scrollY >= (clientHeight-400))
 				document.getElementsByClassName('next_page')[0].click();
 		});
+	}
+	addUserCourse(id) {
+		console.log(id);
+	}
 
-		let enrolledCourses = this.props.courses.map(({ course_id }) => course_id).toString().replace(/,/g, ' ');
-		let unenrolledCourses = this.props.courses.map(({ course_id }) => course_id).toString().replace(/,/g, '-Unenrolled ');
-
-		// need restriction for limiting HTTP requests
-		const addDropCourse = (enrollment) => {
-			let filterString = enrollment.match(/[^-]*-[^-]*/)[0];
-
-			let courseCredentials = {
-				course: {
-					course_name: sanitization(filterString)
-				}
-			};
-
-			$.ajax({
-				type: "POST",
-				url: "/courses",
-				data: courseCredentials,
-				success: function(data, textStatus, jqXHR) {
-					console.log("Course add or remove; submission successful.");
-				},
-				error: function(jqXHR, textStatus, errorThrown) {
-					console.log("Course add or remove; submission unsuccessful.");
-				}
-			});
-
-			if (enrollment.includes("Unenrolled")) {
-				this.props.decrementCourseCount(this.props.coursesUserCount);
-				this.props.decrementCourse(filterString);
-			}
-			else {
-				this.props.incrementCourseCount(this.props.coursesUserCount);
-				this.props.incrementCourse(filterString);
-			}
-		}
-
-		eventListenerMacro(`${enrolledCourses} ${unenrolledCourses}`, 'click', function(e) {
-			addDropCourse(this.id);
-		});
+	deleteUserCourse(id) {
+		console.log(id);
 	}
 	listCourses(courses, coursesUser, indexOffset) {
 		let coursesCombined = [];
-		let coursesIdUser = coursesUser.map(a => a.course_id);
+		let coursesIdUser = coursesUser.map(a => a.id);
 
 		for (let index = 0; index < courses.length; index++) {
 			let isUserCourse = false;
 
-			if (coursesIdUser.includes(courses[index].course_id)) 
+			if (coursesIdUser.includes(courses[index].id)) 
 				isUserCourse = true;
 
 			coursesCombined.push(
 				<Course 
+					databaseId={courses[index].id}
 					courseId={courses[index].course_id}
 					description={courses[index].description}
 					professor={courses[index].professor}
@@ -84,6 +54,8 @@ class CourseList extends Component {
 			        enrolled={isUserCourse}
 			        position={index+indexOffset}
 			        key={index+indexOffset}
+			        parentAdd={this.addUserCourse}
+			        parentDelete={this.deleteUserCourse}
 			    />
 			);
 		}
@@ -106,9 +78,6 @@ class CourseList extends Component {
 			)
 		}
 	}
-	showUserCourseList() {
-		this.props.viewUserCourses(!this.props.userView);
-	}
 	coursesEnrolled(coursesUser, count) {
 		if (coursesUser !== null) {
 			let coursesSelected;
@@ -119,7 +88,7 @@ class CourseList extends Component {
 				};
 			}
 			return (
-				<div id="enrolled-courses" className="no-outline" style={coursesSelected} onClick={this.showUserCourseList}>
+				<div id="enrolled-courses" className="no-outline" style={coursesSelected} onClick={() => this.props.viewUserCourses(!this.props.userView)}>
 					<p>Courses <div id="enrolled-number">{count}</div></p>
 				</div>
 			)

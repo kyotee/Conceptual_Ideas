@@ -16,7 +16,12 @@ class Course extends Component {
 	showDetails() {
 		this.setState({ detail: !this.state.detail });
 	}
-	enrollCourse() {
+	enrollCourse(id) {
+		if (!this.state.enroll)
+			this.props.parentAdd(id);
+		else
+			this.props.parentDelete(id);
+
 		this.setState({ enroll: !this.state.enroll });
 	}
 	render() {
@@ -56,8 +61,8 @@ class Course extends Component {
 				<div className="tab" style={courseColor}>
 					<div className="tab-container">
 						<p className="tab-text">{courseId}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>A Boring Course</i></p>
-						<p className="tab-status no-outline" id={courseId} style={tabStatus} onClick={this.enrollCourse}>Enroll</p>
-						<div className="tab-icon-status" id={courseId+"-Unenrolled"} style={tabStatusIcon} onClick={this.enrollCourse}>
+						<p className="tab-status no-outline" style={tabStatus} id={this.props.databaseId} onClick={() => this.enrollCourse(this.props.databaseId)}>Enroll</p>
+						<div className="tab-icon-status" style={tabStatusIcon} id={this.props.databaseId} onClick={() => this.enrollCourse(this.props.databaseId)}>
 						</div>
 					</div>
 				</div>
