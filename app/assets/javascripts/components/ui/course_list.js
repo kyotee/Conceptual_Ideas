@@ -24,6 +24,11 @@ class CourseList extends Component {
 	addUserCourse(id) {
 		this.props.incrementCourseCount(this.props.coursesUserCount);
 		this.props.incrementCourse(id);
+
+		if (this.props.userView) {
+			this.props.decrementCourseCount(this.props.coursesUserCount);
+			this.props.decrementCourse(id);			
+		}
 	}
 	deleteUserCourse(id) {
 		this.props.decrementCourseCount(this.props.coursesUserCount);
