@@ -56,17 +56,17 @@ export function decrementCourseCount(count) {
   }; 
 }
 
-export function incrementCourse(course) {
+export function incrementCourse(id) {
   return {
     type: C.INCREMENT_COURSES,
-    coursesUser: course
+    id: id
   };
 }
 
-export function decrementCourse(course) {
+export function decrementCourse(id) {
   return {
     type: C.DECREMENT_COURSES,
-    coursesUser: course
+    id: id
   };
 }
 

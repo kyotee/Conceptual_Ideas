@@ -30,13 +30,17 @@ export default function courseList(state = initalState, action) {
   case C.DECREMENT_COURSES_COUNT:
     return { ...state, coursesUserCount: action.coursesUserCount - 1 };
   case C.INCREMENT_COURSES:
-    for (let index = 0; index < state.courses.length; index++) {
-      if (state.courses[index].course_id == action.coursesUser) {
-        return { ...state, coursesUser: state.coursesUser.concat(state.courses[index])}; 
+    if (state.coursesUser !== null) {
+      for (let index = 0; index < state.courses.length; index++) {
+        if (state.courses[index].id == action.id) {
+          return { ...state, coursesUser: state.coursesUser.concat(state.courses[index])}; 
+        }
       }
     }
   case C.DECREMENT_COURSES:
-    return { ...state, coursesUser: state.coursesUser.filter(function(x){return x.course_id != action.coursesUser; })};
+    if (state.coursesUser !== null) {
+      return { ...state, coursesUser: state.coursesUser.filter(function(x){return x.id != action.id; })};      
+    }
   case C.SELECT_MOBILE_OPTIONS:
     return { ...state, mobileOption: action.mobileOption }
   case C.VIEW_USER_COURSES:

@@ -24,9 +24,13 @@ class CourseList extends Component {
 	}
 	addUserCourse(id) {
 		console.log(id);
+		this.props.incrementCourseCount(this.props.coursesUserCount);
+		this.props.incrementCourse(id);
 	}
 	deleteUserCourse(id) {
 		console.log(id);
+		this.props.decrementCourseCount(this.props.coursesUserCount);
+		this.props.decrementCourse(id);
 	}
 	listCourses(courses, coursesUser, indexOffset) {
 		let coursesCombined = [];
