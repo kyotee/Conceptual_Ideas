@@ -103,14 +103,21 @@ class CourseList extends Component {
 	coursesEnrolled(coursesUser, count) {
 		if (coursesUser !== null) {
 			let coursesSelected;
+			let viewing = this.props.userView;
+			let paginate = document.getElementsByClassName('pagination')[0];
 
-			if (this.props.userView) {
+			if (viewing) {
 				coursesSelected = {
 					backgroundColor: "yellow"
 				};
+
+				paginate.style.display = "none";
+			} else {
+				paginate.style.display = "block";
 			}
+
 			return (
-				<div id="enrolled-courses" className="no-outline" style={coursesSelected} onClick={() => this.props.viewUserCourses(!this.props.userView)}>
+				<div id="enrolled-courses" className="no-outline" style={coursesSelected} onClick={() => this.props.viewUserCourses(!viewing)}>
 					<p>Courses <div id="enrolled-number">{count}</div></p>
 				</div>
 			)

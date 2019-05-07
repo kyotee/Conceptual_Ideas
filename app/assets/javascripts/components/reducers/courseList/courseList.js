@@ -14,7 +14,7 @@ const initalState = {
 export default function courseList(state = initalState, action) {
   switch (action.type) {
   case C.ALL_COURSES:
-  	return { ...state, courses: state.courses.concat(action.courses) };
+  	return { ...state, courses: action.courses };
   case C.COURSE_TYPE:
   	return { ...state, courseTypes: action.courseTypes };
   case C.COURSE_LEVEL:
