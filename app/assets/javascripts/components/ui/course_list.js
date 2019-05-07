@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Course from './course.js';
-import Loadinggif from './_loading_gif.js';      // TODO: REMOVE TO COMPONENT.JS
 import { eventListenerMacro } from '../helpers/event_listeners.js';
 import { sanitization } from '../input_sanitization.js';
 
@@ -13,14 +12,6 @@ class CourseList extends Component {
 		this.addUserCourse = this.addUserCourse.bind(this);
 		this.deleteCourseShare = this.deleteCourseShare.bind(this);
 		this.deleteUserCourse = this.deleteUserCourse.bind(this);
-	}
-	componentDidMount() {
-		let clientHeight = document.getElementsByClassName('course-listings')[0].clientHeight;
-		
-		window.addEventListener('scroll', function() {
-			if (window.scrollY >= (clientHeight-400))
-				document.getElementsByClassName('next_page')[0].click();
-		});
 	}
 	deleteCourseShare(id) {
 		let courseCredentials = {
@@ -125,13 +116,6 @@ class CourseList extends Component {
 			)
 		}
 	}
-	isPaginateDone(num) {
-		if (num % 15 == 0) {
-			return (
-				<Loadinggif />
-			)
-		}
-	}
 	optionChange(e) {
 		let option = e.target.id;
 		let value = e.target.value;
@@ -197,7 +181,6 @@ class CourseList extends Component {
 					<br/>
 					<div id="course-list">
 						{this.listCourses(courses,coursesUser,this.props.userView)}
-						{this.isPaginateDone(courses.length)}
 					</div>
 			</div>
 		)

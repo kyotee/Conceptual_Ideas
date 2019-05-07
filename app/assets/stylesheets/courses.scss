@@ -1,7 +1,38 @@
 $course-fonts: Helvetica, Arial, sans-serif;
 
 .pagination {
-	display: none
+	margin: 0 6.5em 0 6.5em;
+	padding: 0 !important;
+	font-family: $course-fonts;
+	font-size: 120%;
+	span,a {
+		padding: 0.5em;
+		border-radius: 0.25em;
+		underline: none;
+		text-decoration: none;
+	}
+
+	a {
+		color: #0080ff;
+		border: 0.15em solid #0080ff;
+	}
+
+	span {
+		color: grey;
+		border: 0.15em solid grey;
+	}
+
+	span.previous_page.disabled {
+		margin-right: 0.5em;
+	}
+
+	a:hover { 
+  		background-color: yellow;
+	}
+
+	a:nth-child(1) {
+		margin-right: 0.5em;
+	}
 }
 
 .course {
