@@ -11,6 +11,7 @@ class CourseList extends Component {
 		this.optionChange = this.optionChange.bind(this);
 		this.mobileOptions = this.mobileOptions.bind(this);
 		this.addUserCourse = this.addUserCourse.bind(this);
+		this.deleteCourseShare = this.deleteCourseShare.bind(this);
 		this.deleteUserCourse = this.deleteUserCourse.bind(this);
 	}
 	componentDidMount() {
@@ -21,16 +22,55 @@ class CourseList extends Component {
 				document.getElementsByClassName('next_page')[0].click();
 		});
 	}
-	addUserCourse(id) {
-		this.props.incrementCourseCount(this.props.coursesUserCount);
-		this.props.incrementCourse(id);
+	deleteCourseShare(id) {
+		let courseCredentials = {
+			course: {
+				id: parseInt(sanitization(id.toString()))
+			}
+		};
 
-		if (this.props.userView) {
+		$.ajax({
+			type: "DELETE",
+			url: "/courses_delete",
+			data: courseCredentials,
+			success: function(data, textStatus, jqXHR) {
+				console.log("Course remove; submission successful.");
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				console.log("Course remove; submission unsuccessful.");
+			}
+		});
+	}
+	addUserCourse(id) {
+		if (!this.props.userView) {
+			let courseCredentials = {
+				course: {
+					id: parseInt(sanitization(id.toString()))
+				}
+			};
+
+			$.ajax({
+				type: "POST",
+				url: "/courses",
+				data: courseCredentials,
+				success: function(data, textStatus, jqXHR) {
+					console.log("Course add; submission successful.");
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					console.log("Course add; submission unsuccessful.");
+				}
+			});
+
+			this.props.incrementCourseCount(this.props.coursesUserCount);
+			this.props.incrementCourse(id);
+		} else {
+			this.deleteCourseShare(id);
 			this.props.decrementCourseCount(this.props.coursesUserCount);
 			this.props.decrementCourse(id);			
 		}
 	}
 	deleteUserCourse(id) {
+		this.deleteCourseShare(id);
 		this.props.decrementCourseCount(this.props.coursesUserCount);
 		this.props.decrementCourse(id);
 	}

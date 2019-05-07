@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   # courses named routes
   get '/courses_list/:filter/:sort/:level', to: 'courses#show'
   post '/courses', to: 'courses#create'
+  delete '/courses_delete', to: 'courses#destroy'
 
   # chatters named routes
   get '/chatter', to: 'chatters#index'

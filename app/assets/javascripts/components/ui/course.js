@@ -60,7 +60,7 @@ class Course extends Component {
 			<div className="course">
 				<div className="tab" style={courseColor}>
 					<div className="tab-container">
-						<p className="tab-text">{courseId}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>A Boring Course</i></p>
+						<p className="tab-text"><b>{courseId}</b>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>A Boring Course</i></p>
 						<p className="tab-status no-outline" style={tabStatus} id={this.props.databaseId} onClick={() => this.enrollCourse(this.props.databaseId)}>Enroll</p>
 						<div className="tab-icon-status" style={tabStatusIcon} id={this.props.databaseId} onClick={() => this.enrollCourse(this.props.databaseId)}>
 						</div>

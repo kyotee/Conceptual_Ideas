@@ -19,14 +19,16 @@ class CoursesController < ApplicationController
   	end
 
     def create
-        @course = Course.find_by_course_id(course_params[:course_name])
+        @course = Course.find(course_params[:id])
 
         if @course != nil && current_user.present?
-            if current_user.courses.where(course_id: @course.course_id).empty?
-                Enrollment.create user: current_user, course: @course
-            else
-                current_user.enrollments.where(course_id: @course.id).destroy_all
-            end
+            Enrollment.create user: current_user, course: @course
+        end
+    end
+
+    def destroy
+        if current_user.present?
+            current_user.enrollments.find_by_course_id(course_params[:id]).destroy
         end
     end
 
@@ -40,6 +42,6 @@ class CoursesController < ApplicationController
     end
 
     def course_params
-        params.require(:course).permit(:course_name)
+        params.require(:course).permit(:id)
     end
 end
