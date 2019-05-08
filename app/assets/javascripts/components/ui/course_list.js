@@ -94,6 +94,7 @@ class CourseList extends Component {
 			        key={index}
 			        parentAdd={this.addUserCourse}
 			        parentDelete={this.deleteUserCourse}
+			        enrolledList={coursesIdUser}
 			    />
 			);
 		}
@@ -111,9 +112,11 @@ class CourseList extends Component {
 					backgroundColor: "yellow"
 				};
 
-				paginate.style.display = "none";
+				if (paginate)
+					paginate.style.display = "none";
 			} else {
-				paginate.style.display = "block";
+				if (paginate)
+					paginate.style.display = "block";
 			}
 
 			return (

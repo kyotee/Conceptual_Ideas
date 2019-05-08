@@ -46,7 +46,7 @@ class Course extends Component {
 			};
 		}
 
-		if (enroll || enrolled) {
+		if (this.props.enrolledList.includes(this.props.databaseId) && (enroll || enrolled)) {
 			tabStatus = {
 				display: "none"
 			};
