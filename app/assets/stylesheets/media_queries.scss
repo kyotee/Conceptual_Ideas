@@ -292,6 +292,12 @@
 	}
 }
 
+#not-signed-in,#admin-cred {
+	@media screen and (max-width: 767px){
+		text-align: center
+	}
+}
+
 #monitor-name {
 	@media screen and (max-width: 767px){
 		padding-left: 2em
