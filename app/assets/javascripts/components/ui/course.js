@@ -26,7 +26,7 @@ class Course extends Component {
 	}
 	render() {
 		const { detail,enroll } = this.state;
-		const { courseType,enrolled,courseId,description,count,professor,capOff,startDate,endDate } = this.props;
+		const { courseType,databaseId,enrolledList,enrolled,courseId,description,count,professor,capOff,startDate,endDate } = this.props;
 		let courseColor = {
 			backgroundColor: colors[courseType]
 		};
@@ -46,7 +46,7 @@ class Course extends Component {
 			};
 		}
 
-		if (this.props.enrolledList.includes(this.props.databaseId) && (enroll || enrolled)) {
+		if (enrolledList.includes(databaseId) && (enroll || enrolled)) {
 			tabStatus = {
 				display: "none"
 			};
@@ -61,8 +61,8 @@ class Course extends Component {
 				<div className="tab" style={courseColor}>
 					<div className="tab-container">
 						<p className="tab-text"><b>{courseId}</b>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>A Boring Course</i></p>
-						<p className="tab-status no-outline" style={tabStatus} id={this.props.databaseId} onClick={() => this.enrollCourse(this.props.databaseId)}>Enroll</p>
-						<div className="tab-icon-status" style={tabStatusIcon} id={this.props.databaseId} onClick={() => this.enrollCourse(this.props.databaseId)}>
+						<p className="tab-status no-outline" style={tabStatus} id={databaseId} onClick={() => this.enrollCourse(databaseId)}>Enroll</p>
+						<div className="tab-icon-status" style={tabStatusIcon} id={databaseId} onClick={() => this.enrollCourse(databaseId)}>
 						</div>
 					</div>
 				</div>
@@ -81,5 +81,23 @@ class Course extends Component {
 		)
 	}
 }
+
+Course.propTypes = {
+  databaseId: PropTypes.number.isRequired,
+  courseId: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  professor: PropTypes.string.isRequired,
+  count: PropTypes.string.isRequired,
+  capOff: PropTypes.string.isRequired,
+  prerequisites: PropTypes.string.isRequired,
+  courseType: PropTypes.string.isRequired,
+  startDate: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
+  enrolled: PropTypes.bool.isRequired,
+  position: PropTypes.number.isRequired,
+  parentAdd: PropTypes.func.isRequired,
+  parentDelete: PropTypes.func.isRequired,
+  enrolledList: PropTypes.array.isRequired
+};
 
 export default Course;

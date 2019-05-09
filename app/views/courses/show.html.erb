@@ -1,5 +1,10 @@
 <%= render 'titles' %>
 
+<% if @userCourses == nil && @userCoursesCount == nil %>
+	<p id="not-signed-in">You must be signed in to enroll into courses.</p>
+	<small id="admin-cred">Admin credentials: E-mail: admin@hotmail.com; password: admin1</small>
+<% end %>
+
 <%= react_component("CourseListRedux", {courses: @courses, type: @type, sort: @sort, level: @level.to_s, userCourses: @userCourses, userCoursesCount: @userCoursesCount}) %>
 
 <%= will_paginate @courses, :page_links => false %>

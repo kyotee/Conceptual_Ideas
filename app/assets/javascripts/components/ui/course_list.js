@@ -147,11 +147,11 @@ class CourseList extends Component {
 		this.props.selectMobileOptions(!this.props.mobileOption);
 	}
 	render() {
-		const { courses,courseTypes,courseLevels,sort,coursesUser,coursesUserCount,incrementCourseCount,decrementCourseCount,incrementCourse,decrementCourse } = this.props;
+		const { courses,courseTypes,courseLevels,sort,coursesUser,coursesUserCount,userView,mobileOption } = this.props;
 		let searchIcon;
 		let searchLayout;
 
-		if (this.props.mobileOption) {
+		if (mobileOption) {
 			searchIcon = {
 				backgroundColor: "yellow"
 			};
@@ -162,10 +162,10 @@ class CourseList extends Component {
 		}
 		return (
 			<div className="course-listings">
-				{this.coursesEnrolled(this.props.coursesUser,this.props.coursesUserCount)}
+				{this.coursesEnrolled(coursesUser,coursesUserCount)}
 					<p id="mobile-filter" className="no-outline" style={searchIcon} onClick={this.mobileOptions}>🔎</p>
 					<div id="filter-position" style={searchLayout}>
-						<select id="cat-selector" value={this.props.courseTypes} onChange={this.optionChange}>  
+						<select id="cat-selector" value={courseTypes} onChange={this.optionChange}>  
 							<option value="All">All Categories</option>
 							<option value="Comp">Computer Science</option>
 							<option value="Engl">English</option>
@@ -176,25 +176,39 @@ class CourseList extends Component {
 							<option value="Psyc">Psychology</option>
 							<option value="Soci">Sociology</option>
 						</select>
-						<select id="level-selector" value={this.props.courseLevels} onChange={this.optionChange}>
+						<select id="level-selector" value={courseLevels} onChange={this.optionChange}>
 							<option value="0">All Levels</option>
 							<option value="1">100 Level</option>
 							<option value="2">200 Level</option>
 							<option value="3">300 Level</option>
 							<option value="4">400 Level</option>
 						</select>
-						<select id="sort-selector" value={this.props.sort} onChange={this.optionChange}>
+						<select id="sort-selector" value={sort} onChange={this.optionChange}>
 							<option value="Ascending">Sort Low to High</option>
 							<option value="Descending">Sort High to Low</option>
 						</select>
 					</div>
 					<br/>
 					<div id="course-list">
-						{this.listCourses(courses,coursesUser,this.props.userView)}
+						{this.listCourses(courses,coursesUser,userView)}
 					</div>
 			</div>
 		)
 	}
 }
+
+CourseList.propTypes = {
+  courses: PropTypes.array.isRequired,
+  courseTypes: PropTypes.string.isRequired,
+  courseLevels: PropTypes.string.isRequired,
+  sort: PropTypes.string.isRequired,
+  coursesUserCount: PropTypes.number.isRequired,
+  incrementCourseCount: PropTypes.func.isRequired,
+  decrementCourseCount: PropTypes.func.isRequired,
+  incrementCourse: PropTypes.func.isRequired,
+  decrementCourse: PropTypes.func.isRequired,
+  userView: PropTypes.bool.isRequired,
+  mobileOption: PropTypes.bool.isRequired
+};
 
 export default CourseList;

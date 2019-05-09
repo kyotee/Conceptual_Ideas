@@ -198,3 +198,13 @@ $course-fonts: Helvetica, Arial, sans-serif;
 #course-list-user {
 	display: none
 }
+
+#not-signed-in, #admin-cred {
+	font-family: $course-fonts;
+	color: grey;
+	opacity: 0.8
+}
+
+#not-signed-in {
+	margin-bottom: 0
+}
