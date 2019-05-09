@@ -202,7 +202,6 @@ CourseList.propTypes = {
   courseTypes: PropTypes.string.isRequired,
   courseLevels: PropTypes.string.isRequired,
   sort: PropTypes.string.isRequired,
-  coursesUserCount: PropTypes.number.isRequired,
   incrementCourseCount: PropTypes.func.isRequired,
   decrementCourseCount: PropTypes.func.isRequired,
   incrementCourse: PropTypes.func.isRequired,

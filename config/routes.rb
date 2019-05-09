@@ -36,9 +36,6 @@ Rails.application.routes.draw do
   get '/chatter', to: 'chatters#index'
   post '/chatters', to: 'chatters#create'
 
-  # bids named routes
-  get '/bids', to: 'bids#index'
-
   # minings named routes
   get '/minings', to: 'minings#index'
 end

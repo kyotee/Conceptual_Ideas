@@ -25,15 +25,15 @@ const apps = {
 			color: "#E8F1D4"
 		},
 		{
-			name: "Item Bidding",
-			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-			route: "bids",
-			color: "#dbeaf2"
-		},
-		{
 			name: "Data Mining",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			route: "minings",
+			color: "#dbeaf2"
+		},
+		{
+			name: "Template",
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			route: "#",
 			color: "#E6E6FA"
 		}
 	]
