@@ -31,7 +31,7 @@ FactoryBot.define do
   end
 
   factory :enrollment do
-    user nil
-    course nil
+    user_id 1
+    course_id 1
   end
 end
