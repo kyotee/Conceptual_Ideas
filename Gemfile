@@ -39,8 +39,7 @@ gem 'will_paginate'
 gem 'pusher'
 gem 'figaro'
 # Data mining
-# gem 'rinruby', '~> 2.0', '>= 2.0.3'   # need to install R in development prior
-# https://www.digitalocean.com/community/tutorials/how-to-set-up-r-on-ubuntu-14-04
+gem 'rinruby', '~> 2.0', '>= 2.0.3'
 
 # Gems belonging to both development and test environment
 group :development, :test do
