@@ -38,8 +38,6 @@ gem 'will_paginate'
 # Chatting with users
 gem 'pusher'
 gem 'figaro'
-# Data mining
-# gem 'rinruby', '~> 2.0', '>= 2.0.3'
 
 # Gems belonging to both development and test environment
 group :development, :test do
@@ -62,6 +60,12 @@ group :development, :test do
   gem 'chromedriver-helper'
   # Headless driver for acceptance testing
   gem 'poltergeist'
+end
+
+# Gems belonging to both development and production evironment
+group :development, :production do
+  # Data mining
+  gem 'rinruby', '~> 2.0', '>= 2.0.3'
 end
 
 # Gems belonging to only development environment
