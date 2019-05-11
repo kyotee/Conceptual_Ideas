@@ -39,7 +39,7 @@ gem 'will_paginate'
 gem 'pusher'
 gem 'figaro'
 # Data mining
-gem 'rinruby', '~> 2.0', '>= 2.0.3'
+# gem 'rinruby', '~> 2.0', '>= 2.0.3'
 
 # Gems belonging to both development and test environment
 group :development, :test do
