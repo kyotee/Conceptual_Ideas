@@ -10,10 +10,10 @@ class MiningsController < ApplicationController
   private
 
   def mining_test
-	sample_size = 10
-	R.eval "x <- rnorm(#{sample_size})"
-	R.eval "summary(x)"
-	R.eval "sd(x)"
-	R.eval "plot(x)"
+  	sample_size = 10
+  	R.eval "x <- rnorm(#{sample_size})"
+  	R.eval "summary(x)"
+  	R.eval "sd(x)"
+  	R.eval "plot(x)"
   end
 end
