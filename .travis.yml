@@ -5,4 +5,4 @@ env:
   global:
     - CI=true
 script:
-- bundle exec rake spec:controllers spec:models
+- bundle exec rspec spec/models/ spec/controllers/
