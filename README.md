@@ -28,13 +28,13 @@ Application currently utilizes the following methods and technologies:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continuous integration service that builds and executes RSpec/Capybara tests (every git push)
 - `Heroku`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;host server for application (must pass their build before every deployment)
-- `Built-in debug method from Ruby on Rails`<br>
+- `Built-in debug Method from Ruby on Rails`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intuitive debugging information
-- `Built-in params.require method from Ruby on Rails`<br>
+- `Built-in params.require Method from Ruby on Rails`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;only accept permitted input values
 - `Bcrypt`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;secure hashing and salting for sensitive information
-- `SSL from Heroku server`<br>
+- `SSL for Heroku (Deployment) Server`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encrypt packets of information
 - `RSpec; Capybara; Factory Bot`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quality assurance
@@ -44,6 +44,8 @@ Application currently utilizes the following methods and technologies:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;responsive web design (ex mobile and tablet resolution support)
 - `React; Babel; ES6; Redux; Webpack; Yarn`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaScript libraries with associated syntax and managers
+- `Active Record (ORM); SQLite3 (development); PostgreSQL (production)`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;database management
 
 ## <a name="APIs"></a>APIs
 
@@ -57,16 +59,15 @@ In addition, application currently utilizes the following APIs:
 Each feature implemented into this application is documented:
 https://drive.google.com/drive/folders/1FD1H089nWSV6atxVGSfrZEpWKHIAoZiN?usp=sharing
 
-Here are the current completed and incompleted features:
+Here are the current features:
 
 - `0 - Framework Setup and Integration`<br>
 - `1 - User Management`<br>
 - `2 - Image Differences Detection`<br>
 - `3 - User Monitoring`<br>
 - `4 - Real Time Messaging`<br>
-- `5 - Item Bidding` <br>
-- `6 - College Course Selection`<br>
-- `7 - Data Mining`<br>
+- `5 - College Course Selection`<br>
+- `6 - Data Mining (in progress)`<br>
 
 Here is the Kanban board to see progress on incompleted features, miscellaneous tasks, and bugs:
 https://trello.com/b/cyxQAQQh/conceptual-ideas-progress
