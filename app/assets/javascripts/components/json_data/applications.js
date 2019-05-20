@@ -2,31 +2,31 @@ const apps = {
 	"app": [
 		{
 			name: "Sign Up Form",
-			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			description: "Intuitive sign up and sign in forms for creating and accessing user accounts.",
 			route: "signup",
 			color: "#FFEFDB"
 		},
 		{
 			name: "Image Differences",
-			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			description: "Unintentional changes in pages identification to improve manual regression testing.",
 			route: "image_differences",
 			color: "#FFFACD"
 		},
 		{
 			name: "Chatter",
-			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			description: "Real-time chat for securely publishing and saving messages.",
 			route: "chatter",
 			color: "#FFE4E1"
 		},
 		{
 			name: "Courses",
-			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			description: "Course enrollment which permits the ability to quickly enroll in courses.",
 			route: "courses_list/All/Ascending/AllLevels",
 			color: "#E8F1D4"
 		},
 		{
 			name: "Data Mining",
-			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			description: "Data set evaluation with integrated R programming language which returns information about possible patterns and rules.",
 			route: "minings",
 			color: "#dbeaf2"
 		},

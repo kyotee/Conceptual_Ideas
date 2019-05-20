@@ -495,7 +495,7 @@ body.slide {
 	cursor: pointer
 }
 
-.header-apps, .image-apps, .describe-apps, .button-apps, .button-apps-container {
+.header-apps, .image-apps, .button-apps, .button-apps-container {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -517,7 +517,15 @@ body.slide {
 .describe-apps {
 	height: 22%;
 	padding-top: 0.4em;
-	background-color: white
+	background-color: white;
+	font-family: $default-fonts;
+	text-align: center;
+
+	p {
+		margin-top: 0.8em;
+		width: 85%;
+		display: inline-block
+	}
 }
 
 .button-apps {
