@@ -20,7 +20,7 @@ const apps = {
 		},
 		{
 			name: "Courses",
-			description: "Course enrollment which permits the ability to quickly enroll in courses.",
+			description: "Enrollment service which permits the ability to quickly search and register in courses.",
 			route: "courses_list/All/Ascending/AllLevels",
 			color: "#E8F1D4"
 		},
