@@ -1,9 +1,11 @@
 require "rinruby"
 require "prawn"
+# require 'csv'
 
 class MiningsController < ApplicationController
-  def index
+  after_action :delete_file, only: [:show]
 
+  def index
   end
 
   def show
@@ -17,6 +19,13 @@ class MiningsController < ApplicationController
 
     htmlString = "Running R code...\n\n"
     begin
+      R.eval "mydata <- read.csv('#{File.dirname(__FILE__).to_s}/csv/heart_disease_dataset.csv')"
+      R.eval "summary(mydata)"
+
+      R.eval "jpeg('#{File.dirname(__FILE__).to_s}/csv/rplot.png', width = 350, height = 350)"
+      R.eval "plot(mydata)"
+      R.eval "dev.off()"
+
       R.eval "x <- rnorm(#{sample_size})"
       R.eval "sdx <- sd(x)"
       htmlString += "Succeeded running R code\n\n"
@@ -30,7 +39,13 @@ class MiningsController < ApplicationController
 
     Prawn::Document.new do
         text htmlString, :inline_format => true
+        image "#{File.dirname(__FILE__).to_s}/csv/rplot.png"
+        text "LOL"
     end.render 
+  end
+
+  def delete_file
+    File.delete("#{File.dirname(__FILE__).to_s}/csv/rplot.png") if File.exist?("#{File.dirname(__FILE__).to_s}/csv/rplot.png")
   end
 end
 
