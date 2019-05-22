@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { sanitization } from '../input_sanitization.js';
 
 class Chatter extends Component {

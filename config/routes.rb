@@ -38,4 +38,5 @@ Rails.application.routes.draw do
 
   # minings named routes
   get '/minings', to: 'minings#index'
+  get '/minings/:dataset', to: 'minings#show'
 end

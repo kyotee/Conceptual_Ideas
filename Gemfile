@@ -38,6 +38,8 @@ gem 'will_paginate'
 # Chatting with users
 gem 'pusher'
 gem 'figaro'
+# PDF generator
+gem 'prawn'
 
 # Gems belonging to both development and test environment
 group :development, :test do
