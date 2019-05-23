@@ -26,6 +26,7 @@ import MonitoringUsers from './components/ui/monitoring_users.js';
 import Loadinggif from './components/ui/_loading_gif.js';
 import StatusMessages from './components/ui/status_messages.js';
 import UserApplications from './components/ui/user_applications.js';
+import Minings from './components/ui/minings.js';
 
 global.React = React
 global.ReactDOM = ReactDOM
@@ -52,3 +53,4 @@ global.MonitoringUsers = MonitoringUsers
 global.Loadinggif = Loadinggif
 global.StatusMessages = StatusMessages
 global.UserApplications = UserApplications
+global.Minings = Minings
