@@ -12,15 +12,18 @@ class Minings extends Component {
 				</div>
 				<div id="mining-def">
 					<p>This feature utilizes the integrated R programming language to predict 
-					   patterns and rules associated to heart disease. The dataset is obtained&nbsp; 
-					   <a href="https://archive.ics.uci.edu/ml/datasets/Heart+Disease" id="mining-link" target="_blank">
-					   <u>here</u></a>&nbsp;which consists of actual data samples accumulated from 
-					   Cleveland, Ohio. Clicking the button below will execute data mining script and 
-					   then render a PDF of results found.
+					    patterns and rules associated to heart disease. The dataset (and associated information) is obtained&nbsp; 
+					    <a href="https://archive.ics.uci.edu/ml/datasets/Heart+Disease" id="mining-link" target="_blank">
+					    <u>here</u></a>:
+						<iframe id="mining-ref" src="https://archive.ics.uci.edu/ml/datasets/Heart+Disease" height="100%" width="100%">
+							<p>Your browser does not support iframes.</p>
+						</iframe>
+					    which consists of actual data samples accumulated from Cleveland, Ohio. Clicking the button below 
+					    will execute data mining script and then render a PDF of results found.
                     </p>
-				</div>
-				<div id="mining-button" onClick={() => { window.location = "/minings/heart_disease.pdf" }}>
-					<ActionButton text={"Execute R Script"} />
+					<div id="mining-button" onClick={() => { window.location = "/minings/heart_disease.pdf" }}>
+						<ActionButton text={"Execute R Script"} />
+					</div>
 				</div>
 			</div>
 		)
