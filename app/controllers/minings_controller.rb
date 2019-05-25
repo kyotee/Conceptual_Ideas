@@ -19,6 +19,8 @@ class MiningsController < ApplicationController
     htmlString = "Running R code...\n\n"
 
     begin
+      R.eval "library(rpart)"
+
       R.eval "diseaseData <- read.csv('#{dir}/csv/heart_disease_dataset.csv', header=TRUE, sep=',')"
       R.eval "diseaseData$num <- factor(diseaseData$num)"
 
@@ -32,6 +34,16 @@ class MiningsController < ApplicationController
       R.eval "trainingData[is.na(trainingData$thal), 'thal'] <- median(trainingData$thal, na.rm = TRUE)"
       R.eval "testingData[is.na(testingData$ca), 'ca'] <- median(testingData$ca, na.rm = TRUE)"
       R.eval "testingData[is.na(testingData$thal), 'thal'] <- median(testingData$thal, na.rm = TRUE)"
+
+      R.eval "decisionTree <- rpart(num ~ ., data = trainingData)"
+      R.eval "plot(decisionTree)"
+      R.eval "text(decisionTree, pretty = 0)"
+      R.eval "decisionTree"
+
+      R.eval "treePredict = predict(decisionTree, testingData, type='class')"
+      R.eval "confusionMatrix <- table(testingData$num, treePredict)"
+      R.eval "accuracy <- sum(diag(confusionMatrix))/sum(confusionMatrix)"
+      R.eval "accuracy"
 
 
       # template code for pdf (above is real code)
