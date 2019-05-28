@@ -22,10 +22,18 @@ class MiningsController < ApplicationController
 
     begin
       R.eval "library(randomForest)"
+      R.eval "library(pROC)"
 
       R.eval "diseaseData <- read.csv('#{dir}/csv/heart_disease_dataset.csv', header=TRUE, sep=',')"
       R.eval "diseaseData$num <- factor(diseaseData$num)"
+      R.eval "diseaseData$sex <- factor(diseaseData$sex)"
+      R.eval "diseaseData$cp <- factor(diseaseData$cp)"
+      R.eval "diseaseData$fbs <- factor(diseaseData$fbs)"
       R.eval "diseaseData$restecg <- factor(diseaseData$restecg)"
+      R.eval "diseaseData$exang <- factor(diseaseData$exang)"
+      R.eval "diseaseData$slope <- factor(diseaseData$slope)"
+      R.eval "diseaseData$ca <- factor(diseaseData$ca)"
+      R.eval "diseaseData$thal <- factor(diseaseData$thal)"
       R.eval "rows <- nrow(diseaseData)"
       R.eval "columns <- ncol(diseaseData)"
 
@@ -59,7 +67,16 @@ class MiningsController < ApplicationController
       R.eval "dev.off()"
 
       htmlString1 += "Summary of random forest results:\n"
-      htmlString2 += "Based on the error rate, random forest has approximately 60% accuracy."
+      htmlString2 += "Based on the error rate, random forest has approximately 53% accuracy."
+      htmlString2 += "In addition, the AUC for determining if this classifier yields a good prediction (0.5 as bad and 1 as good) is 0.6247:"
+
+      R.eval "predictions <- as.numeric(predict(rf, testingData, type = 'response'))"
+      R.eval "rocCurve <- roc(testingData$num, predictions)"
+      R.eval "png('#{dir}/csv/random_forest_roc.png', height=400)"
+      R.eval "plot(rocCurve)"
+      R.eval "dev.off()"
+      R.eval "auc(rocCurve)"
+
     rescue => e
       htmlString += "Failed running R code...\n\n"
       htmlString += "#{e.message}"
@@ -77,6 +94,7 @@ class MiningsController < ApplicationController
         image "#{dir}/csv/random_forest.png", :position => :center, :scale => 0.70    
         text "\n"
         text htmlString2
+        image "#{dir}/csv/random_forest_roc.png", :position => :center, :scale => 0.70  
     end.render 
   end
 
@@ -86,5 +104,6 @@ class MiningsController < ApplicationController
     File.delete("#{dir}/csv/disease_summary.txt") if File.exist?("#{dir}/csv/disease_summary.txt")
     File.delete("#{dir}/csv/forest_summary.txt") if File.exist?("#{dir}/csv/forest_summary.txt")
     File.delete("#{dir}/csv/random_forest.png") if File.exist?("#{dir}/csv/random_forest.png.png")
+    File.delete("#{dir}/csv/random_forest.png") if File.exist?("#{dir}/csv/random_forest_roc.png")
   end
 end
