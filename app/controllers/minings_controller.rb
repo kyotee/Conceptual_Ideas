@@ -23,17 +23,13 @@ class MiningsController < ApplicationController
     begin
       R.eval "library(randomForest)"
       R.eval "library(pROC)"
+      R.eval "library(caret)"
+      R.eval "library(e1071)"
 
       R.eval "diseaseData <- read.csv('#{dir}/csv/heart_disease_dataset.csv', header=TRUE, sep=',')"
-      R.eval "diseaseData$num <- factor(diseaseData$num)"
-      R.eval "diseaseData$sex <- factor(diseaseData$sex)"
-      R.eval "diseaseData$cp <- factor(diseaseData$cp)"
-      R.eval "diseaseData$fbs <- factor(diseaseData$fbs)"
-      R.eval "diseaseData$restecg <- factor(diseaseData$restecg)"
-      R.eval "diseaseData$exang <- factor(diseaseData$exang)"
-      R.eval "diseaseData$slope <- factor(diseaseData$slope)"
-      R.eval "diseaseData$ca <- factor(diseaseData$ca)"
-      R.eval "diseaseData$thal <- factor(diseaseData$thal)"
+      R.eval "chclass <-c('numeric','factor','factor','numeric','numeric','factor','factor','numeric','factor','numeric','factor','factor','factor','factor')"
+      R.eval "diseaseData <- convert.magic(diseaseData,chclass)"
+      R.eval "diseaseData$num[diseaseData$num > 0] <- 1"
       R.eval "rows <- nrow(diseaseData)"
       R.eval "columns <- ncol(diseaseData)"
 
@@ -58,17 +54,25 @@ class MiningsController < ApplicationController
 
       htmlString1 += "Conducting random forest analysis for classification ...\n\n"
 
-      R.eval "rf <- randomForest(num ~., data = trainingData, ntree=100)"
-      R.eval "print(rf)"
+      R.eval "trainingData$num <- as.factor(trainingData$num)"
+      R.eval "testingData$num <- as.factor(testingData$num)"
+      R.eval "set.seed(10)"
+      R.eval "rf <- randomForest(num ~., data = trainingData, importance=TRUE, ntree=2000)"
+
       R.eval "capture.output(rf, file = '#{dir}/csv/forest_summary.txt')"
       R.eval "png('#{dir}/csv/random_forest.png', height=400)"
       R.eval "plot(rf)"
       R.eval "text(rf, pretty = 0)"
       R.eval "dev.off()"
 
+      R.eval "forestPredict = predict(rf, testingData)"
+      R.eval "confusionMatrix <- table(testingData$num, forestPredict)"
+      R.eval "accuracy <- sum(diag(confusionMatrix))/sum(confusionMatrix)"
+      R.eval "accuracy"
+
       htmlString1 += "Summary of random forest results:\n"
-      htmlString2 += "Based on the error rate, random forest has approximately 53% accuracy."
-      htmlString2 += "In addition, the AUC for determining if this classifier yields a good prediction (0.5 as bad and 1 as good) is 0.6247:"
+      htmlString2 += "The accuracy of the random forest is approximately 82%.\n\n"
+      htmlString2 += "In addition, the AUC for determining if this classifier yields a good prediction (0.5 as bad and 1 as good) is 0.8204:"
 
       R.eval "predictions <- as.numeric(predict(rf, testingData, type = 'response'))"
       R.eval "rocCurve <- roc(testingData$num, predictions)"
