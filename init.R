@@ -1,5 +1,5 @@
 ## Install R packages
-my_packages <- c("randomForest","pROC")
+my_packages <- c("randomForest","pROC","caret","e1071")
 install_if_missing <- function(p) {
 	if(p %in% rownames(installed.packages())==FALSE) {
 		install.packages(p)
