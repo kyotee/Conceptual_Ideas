@@ -16,9 +16,10 @@ class MiningsController < ApplicationController
   def generate_pdf
     dir = File.dirname(__FILE__).to_s
     sample_size = 10
-    htmlString = "<b>Running R code...</b>\n\n"
+    htmlString = "<b>Running R code for investigating random forest and logistic regression classifiers with use of heart disease dataset ...</b>\n\n"
     htmlString1 = ""
     htmlString2 = ""
+    htmlString3 = ""
 
     begin
       R.eval "library(randomForest)"
@@ -52,7 +53,7 @@ class MiningsController < ApplicationController
       R.eval "trainingData <- diseaseData[trainingIndex,]"
       R.eval "testingData <- diseaseData[-trainingIndex,]"
 
-      htmlString1 += "Conducting random forest analysis for classification ...\n\n"
+      htmlString1 += "<b><i>Conducting random forest analysis for classification ...</i></b>\n\n"
 
       R.eval "trainingData$num <- as.factor(trainingData$num)"
       R.eval "testingData$num <- as.factor(testingData$num)"
@@ -81,6 +82,11 @@ class MiningsController < ApplicationController
       R.eval "dev.off()"
       R.eval "auc(rocCurve)"
 
+      htmlString3 += "The top three important attributes (based on highest gini indexes) are ca, thal, and cp:\n"
+
+      R.eval "importance(rf)"
+      R.eval "varImpPlot(rf)"
+
     rescue => e
       htmlString += "Failed running R code...\n\n"
       htmlString += "#{e.message}"
@@ -95,10 +101,10 @@ class MiningsController < ApplicationController
         text "\n"
         text htmlString1, :inline_format => true
         text forestSummary
-        image "#{dir}/csv/random_forest.png", :position => :center, :scale => 0.70    
+        image "#{dir}/csv/random_forest.png", :position => :center, :scale => 0.60    
         text "\n"
         text htmlString2
-        image "#{dir}/csv/random_forest_roc.png", :position => :center, :scale => 0.70  
+        image "#{dir}/csv/random_forest_roc.png", :position => :center, :scale => 0.60  
     end.render 
   end
 
