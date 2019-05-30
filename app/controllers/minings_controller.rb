@@ -92,7 +92,7 @@ class MiningsController < ApplicationController
       htmlString3 += "\n\n\n\n\nThe top three important attributes (based on highest gini indexes) are ca, thal, and cp:\n"
       htmlString4 += "\n\n<b><i>Conducting logistic regression analysis for classification ...</i></b>\n\n"
 
-      R.eval "logisticReg <- train(num ~., data = trainingData, method='glmnet', family='binomial')"
+      R.eval "logisticReg <- glm(num ~., data = trainingData, family='binomial')"
 
       R.eval "capture.output(logisticReg, file = '#{dir}/csv/regression_summary.txt')"
       R.eval "png('#{dir}/csv/logistic_regression.png', height=400)"
@@ -124,7 +124,7 @@ class MiningsController < ApplicationController
         image "#{dir}/csv/random_forest_gini.png", :position => :center, :scale => 0.60  
         text htmlString4, :inline_format => true
         text regressionSummary
-        image "#{dir}/csv/logistic_regression.png", :position => :center, :scale => 0.60    
+        image "#{dir}/csv/logistic_regression.png", :position => :center, :scale => 0.50    
     end.render 
   end
 
