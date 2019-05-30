@@ -20,6 +20,7 @@ class MiningsController < ApplicationController
     htmlString1 = ""
     htmlString2 = ""
     htmlString3 = ""
+    htmlString4 = ""
 
     begin
       R.eval "library(randomForest)"
@@ -82,11 +83,14 @@ class MiningsController < ApplicationController
       R.eval "dev.off()"
       R.eval "auc(rocCurve)"
 
-      htmlString3 += "The top three important attributes (based on highest gini indexes) are ca, thal, and cp:\n"
+      htmlString3 += "\n\n\n\n\nThe top three important attributes (based on highest gini indexes) are ca, thal, and cp:\n"
 
       R.eval "importance(rf)"
+      R.eval "png('#{dir}/csv/random_forest_gini.png', height=400)"
       R.eval "varImpPlot(rf)"
+      R.eval "dev.off()"
 
+      htmlString4 += "\n\n<b><i>Conducting logistic regression analysis for classification ...</i></b>\n\n"
     rescue => e
       htmlString += "Failed running R code...\n\n"
       htmlString += "#{e.message}"
@@ -103,8 +107,11 @@ class MiningsController < ApplicationController
         text forestSummary
         image "#{dir}/csv/random_forest.png", :position => :center, :scale => 0.60    
         text "\n"
-        text htmlString2
+        text htmlString2, :inline_format => true
         image "#{dir}/csv/random_forest_roc.png", :position => :center, :scale => 0.60  
+        text htmlString3, :inline_format => true
+        image "#{dir}/csv/random_forest_gini.png", :position => :center, :scale => 0.60  
+        text htmlString4, :inline_format => true
     end.render 
   end
 
@@ -113,7 +120,8 @@ class MiningsController < ApplicationController
 
     File.delete("#{dir}/csv/disease_summary.txt") if File.exist?("#{dir}/csv/disease_summary.txt")
     File.delete("#{dir}/csv/forest_summary.txt") if File.exist?("#{dir}/csv/forest_summary.txt")
-    File.delete("#{dir}/csv/random_forest.png") if File.exist?("#{dir}/csv/random_forest.png.png")
-    File.delete("#{dir}/csv/random_forest.png") if File.exist?("#{dir}/csv/random_forest_roc.png")
+    File.delete("#{dir}/csv/random_forest.png") if File.exist?("#{dir}/csv/random_forest.png")
+    File.delete("#{dir}/csv/random_forest_roc.png") if File.exist?("#{dir}/csv/random_forest_roc.png")
+    File.delete("#{dir}/csv/random_forest_gini.png") if File.exist?("#{dir}/csv/random_forest_gini.png")
   end
 end
