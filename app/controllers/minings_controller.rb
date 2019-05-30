@@ -21,6 +21,8 @@ class MiningsController < ApplicationController
     htmlString2 = ""
     htmlString3 = ""
     htmlString4 = ""
+    htmlString5 = ""
+    htmlString6 = ""
 
     begin
       R.eval "library(randomForest)"
@@ -101,6 +103,26 @@ class MiningsController < ApplicationController
       R.eval "dev.off()"
 
       htmlString4 += "Summary of logistic regression results:\n"
+
+      R.eval "regressionPredict = predict(logisticReg, testingData, type='response')"
+      R.eval "confusionMatrix <- table(testingData$num, regressionPredict)"
+      R.eval "accuracy <- sum(diag(confusionMatrix))/sum(confusionMatrix)"
+      R.eval "accuracy"
+
+      R.eval "predictions <- as.numeric(predict(logisticReg, testingData))"
+      R.eval "rocCurve <- roc(testingData$num, predictions)"
+      R.eval "png('#{dir}/csv/logistic_regression_roc.png', height=400)"
+      R.eval "plot(rocCurve)"
+      R.eval "dev.off()"
+      R.eval "auc(rocCurve)"
+
+      htmlString5 += "The accuracy of the logistic regression is approximately 88%.\n\n"
+      htmlString5 += "In addition, the AUC for determining if this classifier yields a good prediction (0.5 as bad and 1 as good) is 0.8954:"
+
+      R.eval "logisticImp <- varImp(logisticReg)"
+      R.eval "capture.output(logisticImp, file = '#{dir}/csv/logistic_regression_score.txt')"
+
+      htmlString6 += "\n\nThe top three important attributes (based on highest important scores) are ca, thal, and cp:\n"
     rescue => e
       htmlString += "Failed running R code...\n\n"
       htmlString += "#{e.message}"
@@ -109,6 +131,7 @@ class MiningsController < ApplicationController
     diseaseSummary = IO.read("#{dir}/csv/disease_summary.txt") if File.exist?("#{dir}/csv/disease_summary.txt")
     forestSummary = IO.read("#{dir}/csv/forest_summary.txt") if File.exist?("#{dir}/csv/forest_summary.txt")
     regressionSummary = IO.read("#{dir}/csv/regression_summary.txt") if File.exist?("#{dir}/csv/regression_summary.txt")
+    logisticScore = IO.read("#{dir}/csv/logistic_regression_score.txt") if File.exist?("#{dir}/csv/logistic_regression_score.txt")    
 
     Prawn::Document.new do
         text htmlString, :inline_format => true
@@ -124,7 +147,12 @@ class MiningsController < ApplicationController
         image "#{dir}/csv/random_forest_gini.png", :position => :center, :scale => 0.60  
         text htmlString4, :inline_format => true
         text regressionSummary
-        image "#{dir}/csv/logistic_regression.png", :position => :center, :scale => 0.50    
+        image "#{dir}/csv/logistic_regression.png", :position => :center, :scale => 0.50   
+        text "\n"
+        text htmlString5, :inline_format => true
+        image "#{dir}/csv/logistic_regression_roc.png", :position => :center, :scale => 0.60
+        text htmlString6, :inline_format => true
+        text logisticScore
     end.render 
   end
 
@@ -137,6 +165,8 @@ class MiningsController < ApplicationController
     File.delete("#{dir}/csv/random_forest_roc.png") if File.exist?("#{dir}/csv/random_forest_roc.png")
     File.delete("#{dir}/csv/random_forest_gini.png") if File.exist?("#{dir}/csv/random_forest_gini.png")
     File.delete("#{dir}/csv/regression_summary.txt") if File.exist?("#{dir}/csv/regression_summary.txt")
-    File.delete("#{dir}/csv/logistic_regression.png") if File.exist?("#{dir}/csv/logistic_regression.png")    
+    File.delete("#{dir}/csv/logistic_regression.png") if File.exist?("#{dir}/csv/logistic_regression.png")  
+    File.delete("#{dir}/csv/logistic_regression_roc.png") if File.exist?("#{dir}/csv/logistic_regression_roc.png")  
+    File.delete("#{dir}/csv/logistic_regression_score.txt") if File.exist?("#{dir}/csv/logistic_regression_score.txt")    
   end
 end
