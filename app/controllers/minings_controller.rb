@@ -53,12 +53,12 @@ class MiningsController < ApplicationController
       R.eval "trainingIndex <- sample(seq_len(nrow(diseaseData)), size = trainingDataSize)"
       R.eval "trainingData <- diseaseData[trainingIndex,]"
       R.eval "testingData <- diseaseData[-trainingIndex,]"
-
-      htmlString1 += "<b><i>Conducting random forest analysis for classification ...</i></b>\n\n"
-
       R.eval "trainingData$num <- as.factor(trainingData$num)"
       R.eval "testingData$num <- as.factor(testingData$num)"
       R.eval "set.seed(10)"
+
+      htmlString1 += "<b><i>Conducting random forest analysis for classification ...</i></b>\n\n"
+
       R.eval "rf <- randomForest(num ~., data = trainingData, importance=TRUE, ntree=2000)"
 
       R.eval "capture.output(rf, file = '#{dir}/csv/forest_summary.txt')"
@@ -67,14 +67,12 @@ class MiningsController < ApplicationController
       R.eval "text(rf, pretty = 0)"
       R.eval "dev.off()"
 
+      htmlString1 += "Summary of random forest results:\n"
+
       R.eval "forestPredict = predict(rf, testingData)"
       R.eval "confusionMatrix <- table(testingData$num, forestPredict)"
       R.eval "accuracy <- sum(diag(confusionMatrix))/sum(confusionMatrix)"
       R.eval "accuracy"
-
-      htmlString1 += "Summary of random forest results:\n"
-      htmlString2 += "The accuracy of the random forest is approximately 82%.\n\n"
-      htmlString2 += "In addition, the AUC for determining if this classifier yields a good prediction (0.5 as bad and 1 as good) is 0.8204:"
 
       R.eval "predictions <- as.numeric(predict(rf, testingData, type = 'response'))"
       R.eval "rocCurve <- roc(testingData$num, predictions)"
@@ -83,14 +81,26 @@ class MiningsController < ApplicationController
       R.eval "dev.off()"
       R.eval "auc(rocCurve)"
 
-      htmlString3 += "\n\n\n\n\nThe top three important attributes (based on highest gini indexes) are ca, thal, and cp:\n"
+      htmlString2 += "The accuracy of the random forest is approximately 82%.\n\n"
+      htmlString2 += "In addition, the AUC for determining if this classifier yields a good prediction (0.5 as bad and 1 as good) is 0.8204:"
 
       R.eval "importance(rf)"
       R.eval "png('#{dir}/csv/random_forest_gini.png', height=400)"
       R.eval "varImpPlot(rf)"
       R.eval "dev.off()"
 
+      htmlString3 += "\n\n\n\n\nThe top three important attributes (based on highest gini indexes) are ca, thal, and cp:\n"
       htmlString4 += "\n\n<b><i>Conducting logistic regression analysis for classification ...</i></b>\n\n"
+
+      R.eval "logisticReg <- train(num ~., data = trainingData, method='glmnet', family='binomial')"
+
+      R.eval "capture.output(logisticReg, file = '#{dir}/csv/regression_summary.txt')"
+      R.eval "png('#{dir}/csv/logistic_regression.png', height=400)"
+      R.eval "plot(logisticReg)"
+      R.eval "text(logisticReg, pretty = 0)"
+      R.eval "dev.off()"
+
+      htmlString4 += "Summary of logistic regression results:\n"
     rescue => e
       htmlString += "Failed running R code...\n\n"
       htmlString += "#{e.message}"
@@ -98,6 +108,7 @@ class MiningsController < ApplicationController
 
     diseaseSummary = IO.read("#{dir}/csv/disease_summary.txt") if File.exist?("#{dir}/csv/disease_summary.txt")
     forestSummary = IO.read("#{dir}/csv/forest_summary.txt") if File.exist?("#{dir}/csv/forest_summary.txt")
+    regressionSummary = IO.read("#{dir}/csv/regression_summary.txt") if File.exist?("#{dir}/csv/regression_summary.txt")
 
     Prawn::Document.new do
         text htmlString, :inline_format => true
@@ -112,6 +123,8 @@ class MiningsController < ApplicationController
         text htmlString3, :inline_format => true
         image "#{dir}/csv/random_forest_gini.png", :position => :center, :scale => 0.60  
         text htmlString4, :inline_format => true
+        text regressionSummary
+        image "#{dir}/csv/logistic_regression.png", :position => :center, :scale => 0.60    
     end.render 
   end
 
@@ -123,5 +136,7 @@ class MiningsController < ApplicationController
     File.delete("#{dir}/csv/random_forest.png") if File.exist?("#{dir}/csv/random_forest.png")
     File.delete("#{dir}/csv/random_forest_roc.png") if File.exist?("#{dir}/csv/random_forest_roc.png")
     File.delete("#{dir}/csv/random_forest_gini.png") if File.exist?("#{dir}/csv/random_forest_gini.png")
+    File.delete("#{dir}/csv/regression_summary.txt") if File.exist?("#{dir}/csv/regression_summary.txt")
+    File.delete("#{dir}/csv/logistic_regression.png") if File.exist?("#{dir}/csv/logistic_regression.png")    
   end
 end
