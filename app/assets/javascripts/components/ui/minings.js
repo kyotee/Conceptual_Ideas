@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 
 class Minings extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {	
+			downloaded: false
+		};
+
+		this.pdfRender = this.pdfRender.bind(this);
+	}
+	pdfRender() {
+		if (this.state.downloaded === false)
+			window.location = "/minings/heart_disease.pdf"
+
+		this.setState({ downloaded: true });
+	}
 	render() {
 		return (
 			<div>
@@ -21,7 +36,7 @@ class Minings extends Component {
 					    which consists of actual data samples accumulated from Cleveland, Ohio. Clicking the button below 
 					    will execute data mining script and then render a PDF of results found.
                     </p>
-					<div id="mining-button" onClick={() => { window.location = "/minings/heart_disease.pdf" }}>
+					<div id="mining-button" onClick={this.pdfRender}>
 						<ActionButton text={"Execute R Script"} />
 					</div>
 				</div>
