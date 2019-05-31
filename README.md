@@ -67,7 +67,7 @@ Here are the current features:
 - `3 - User Monitoring`<br>
 - `4 - Real Time Messaging`<br>
 - `5 - College Course Selection`<br>
-- `6 - Data Mining (in progress)`<br>
+- `6 - Data Mining`<br>
 
 Here is the Kanban board to see progress on incompleted features, miscellaneous tasks, and bugs:
 https://trello.com/b/cyxQAQQh/conceptual-ideas-progress
