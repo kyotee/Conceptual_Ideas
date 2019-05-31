@@ -1,0 +1,32 @@
+      age             sex               cp           trestbps    
+ Min.   :29.00   Min.   :0.0000   Min.   :1.000   Min.   : 94.0  
+ 1st Qu.:48.00   1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:120.0  
+ Median :56.00   Median :1.0000   Median :3.000   Median :130.0  
+ Mean   :54.44   Mean   :0.6799   Mean   :3.158   Mean   :131.7  
+ 3rd Qu.:61.00   3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:140.0  
+ Max.   :77.00   Max.   :1.0000   Max.   :4.000   Max.   :200.0  
+                                                                 
+      chol            fbs            restecg          thalach     
+ Min.   :126.0   Min.   :0.0000   Min.   :0.0000   Min.   : 71.0  
+ 1st Qu.:211.0   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:133.5  
+ Median :241.0   Median :0.0000   Median :1.0000   Median :153.0  
+ Mean   :246.7   Mean   :0.1485   Mean   :0.9901   Mean   :149.6  
+ 3rd Qu.:275.0   3rd Qu.:0.0000   3rd Qu.:2.0000   3rd Qu.:166.0  
+ Max.   :564.0   Max.   :1.0000   Max.   :2.0000   Max.   :202.0  
+                                                                  
+     exang           oldpeak         slope             ca        
+ Min.   :0.0000   Min.   :0.00   Min.   :1.000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.00   1st Qu.:1.000   1st Qu.:0.0000  
+ Median :0.0000   Median :0.80   Median :2.000   Median :0.0000  
+ Mean   :0.3267   Mean   :1.04   Mean   :1.601   Mean   :0.6722  
+ 3rd Qu.:1.0000   3rd Qu.:1.60   3rd Qu.:2.000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :6.20   Max.   :3.000   Max.   :3.0000  
+                                                 NA's   :4       
+      thal            num        
+ Min.   :3.000   Min.   :0.0000  
+ 1st Qu.:3.000   1st Qu.:0.0000  
+ Median :3.000   Median :0.0000  
+ Mean   :4.734   Mean   :0.4587  
+ 3rd Qu.:7.000   3rd Qu.:1.0000  
+ Max.   :7.000   Max.   :1.0000  
+ NA's   :2                       

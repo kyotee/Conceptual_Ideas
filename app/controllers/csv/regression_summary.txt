@@ -1,0 +1,14 @@
+
+Call:  glm(formula = num ~ ., family = "binomial", data = trainingData)
+
+Coefficients:
+(Intercept)          age          sex           cp     trestbps         chol  
+  -6.749597    -0.026853     0.988772     0.546223     0.017046     0.008505  
+        fbs      restecg      thalach        exang      oldpeak        slope  
+  -0.684296     0.302263    -0.022713     0.961297     0.175859     0.705833  
+         ca         thal  
+   1.509900     0.405694  
+
+Degrees of Freedom: 242 Total (i.e. Null);  229 Residual
+Null Deviance:	    333.9 
+Residual Deviance: 160.7 	AIC: 188.7

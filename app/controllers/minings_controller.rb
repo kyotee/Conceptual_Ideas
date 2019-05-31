@@ -2,8 +2,6 @@ require "rinruby"
 require "prawn"
 
 class MiningsController < ApplicationController
-  after_action :delete_file, only: [:show]
-
   def index
   end
 
@@ -41,7 +39,7 @@ class MiningsController < ApplicationController
       htmlString += "Each feature is summarized as follows:\n\n"
 
       R.eval "ds <- summary(diseaseData)"
-      R.eval "capture.output(ds, file = '#{dir}/csv/disease_summary.txt')"
+      R.eval "capture.output(ds, file = '#{dir}/csv/disease_summary.txt')" unless File.exist?("#{dir}/csv/disease_summary.txt")
 
       htmlString1 += "Imputing missing values of features with median of associated known values ...\n\n"
 
@@ -62,12 +60,14 @@ class MiningsController < ApplicationController
       htmlString1 += "<b><i>Conducting random forest analysis for classification ...</i></b>\n\n"
 
       R.eval "rf <- randomForest(num ~., data = trainingData, importance=TRUE, ntree=2000)"
+      R.eval "capture.output(rf, file = '#{dir}/csv/forest_summary.txt')" unless File.exist?("#{dir}/csv/forest_summary.txt")
 
-      R.eval "capture.output(rf, file = '#{dir}/csv/forest_summary.txt')"
-      R.eval "png('#{dir}/csv/random_forest.png', height=400)"
-      R.eval "plot(rf)"
-      R.eval "text(rf, pretty = 0)"
-      R.eval "dev.off()"
+      unless File.exist?("#{dir}/csv/random_forest.png")
+        R.eval "png('#{dir}/csv/random_forest.png', height=400)"
+        R.eval "plot(rf)"
+        R.eval "text(rf, pretty = 0)"
+        R.eval "dev.off()"
+      end
 
       htmlString1 += "Summary of random forest results:\n"
 
@@ -78,29 +78,37 @@ class MiningsController < ApplicationController
 
       R.eval "predictions <- as.numeric(predict(rf, testingData, type = 'response'))"
       R.eval "rocCurve <- roc(testingData$num, predictions)"
-      R.eval "png('#{dir}/csv/random_forest_roc.png', height=400)"
-      R.eval "plot(rocCurve)"
-      R.eval "dev.off()"
       R.eval "auc(rocCurve)"
+
+      unless File.exist?("#{dir}/csv/random_forest_roc.png")
+        R.eval "png('#{dir}/csv/random_forest_roc.png', height=400)"
+        R.eval "plot(rocCurve)"
+        R.eval "dev.off()"
+      end
 
       htmlString2 += "The accuracy of the random forest is approximately 82%.\n\n"
       htmlString2 += "In addition, the AUC for determining if this classifier yields a good prediction (0.5 as bad and 1 as good) is 0.8204:"
 
       R.eval "importance(rf)"
-      R.eval "png('#{dir}/csv/random_forest_gini.png', height=400)"
-      R.eval "varImpPlot(rf)"
-      R.eval "dev.off()"
+
+      unless File.exist?("#{dir}/csv/random_forest_gini.png")
+        R.eval "png('#{dir}/csv/random_forest_gini.png', height=400)"
+        R.eval "varImpPlot(rf)"
+        R.eval "dev.off()"
+      end
 
       htmlString3 += "\n\n\n\n\nThe top three important attributes (based on highest gini indexes) are ca, thal, and cp:\n"
       htmlString4 += "\n\n<b><i>Conducting logistic regression analysis for classification ...</i></b>\n\n"
 
       R.eval "logisticReg <- glm(num ~., data = trainingData, family='binomial')"
+      R.eval "capture.output(logisticReg, file = '#{dir}/csv/regression_summary.txt')" unless File.exist?("#{dir}/csv/regression_summary.txt")
 
-      R.eval "capture.output(logisticReg, file = '#{dir}/csv/regression_summary.txt')"
-      R.eval "png('#{dir}/csv/logistic_regression.png', height=400)"
-      R.eval "plot(logisticReg)"
-      R.eval "text(logisticReg, pretty = 0)"
-      R.eval "dev.off()"
+      unless File.exist?("#{dir}/csv/logistic_regression.png")
+        R.eval "png('#{dir}/csv/logistic_regression.png', height=400)"
+        R.eval "plot(logisticReg)"
+        R.eval "text(logisticReg, pretty = 0)"
+        R.eval "dev.off()"
+      end
 
       htmlString4 += "Summary of logistic regression results:\n"
 
@@ -111,16 +119,19 @@ class MiningsController < ApplicationController
 
       R.eval "predictions <- as.numeric(predict(logisticReg, testingData))"
       R.eval "rocCurve <- roc(testingData$num, predictions)"
-      R.eval "png('#{dir}/csv/logistic_regression_roc.png', height=400)"
-      R.eval "plot(rocCurve)"
-      R.eval "dev.off()"
       R.eval "auc(rocCurve)"
+
+      unless File.exist?("#{dir}/csv/logistic_regression_roc.png")
+        R.eval "png('#{dir}/csv/logistic_regression_roc.png', height=400)"
+        R.eval "plot(rocCurve)"
+        R.eval "dev.off()"
+      end
 
       htmlString5 += "The accuracy of the logistic regression is approximately 88%.\n\n"
       htmlString5 += "In addition, the AUC for determining if this classifier yields a good prediction (0.5 as bad and 1 as good) is 0.8954:"
 
       R.eval "logisticImp <- varImp(logisticReg)"
-      R.eval "capture.output(logisticImp, file = '#{dir}/csv/logistic_regression_score.txt')"
+      R.eval "capture.output(logisticImp, file = '#{dir}/csv/logistic_regression_score.txt')" unless File.exist?("#{dir}/csv/logistic_regression_score.txt")
 
       htmlString6 += "\n\nThe top three important attributes (based on highest important scores) are ca, thal, and cp:\n"
     rescue => e
@@ -154,19 +165,5 @@ class MiningsController < ApplicationController
         text htmlString6, :inline_format => true
         text logisticScore
     end.render 
-  end
-
-  def delete_file
-    dir = File.dirname(__FILE__).to_s
-
-    File.delete("#{dir}/csv/disease_summary.txt") if File.exist?("#{dir}/csv/disease_summary.txt")
-    File.delete("#{dir}/csv/forest_summary.txt") if File.exist?("#{dir}/csv/forest_summary.txt")
-    File.delete("#{dir}/csv/random_forest.png") if File.exist?("#{dir}/csv/random_forest.png")
-    File.delete("#{dir}/csv/random_forest_roc.png") if File.exist?("#{dir}/csv/random_forest_roc.png")
-    File.delete("#{dir}/csv/random_forest_gini.png") if File.exist?("#{dir}/csv/random_forest_gini.png")
-    File.delete("#{dir}/csv/regression_summary.txt") if File.exist?("#{dir}/csv/regression_summary.txt")
-    File.delete("#{dir}/csv/logistic_regression.png") if File.exist?("#{dir}/csv/logistic_regression.png")  
-    File.delete("#{dir}/csv/logistic_regression_roc.png") if File.exist?("#{dir}/csv/logistic_regression_roc.png")  
-    File.delete("#{dir}/csv/logistic_regression_score.txt") if File.exist?("#{dir}/csv/logistic_regression_score.txt")    
   end
 end

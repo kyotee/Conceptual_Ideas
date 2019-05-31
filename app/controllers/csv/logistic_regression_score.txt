@@ -1,0 +1,14 @@
+           Overall
+age      0.9591306
+sex      1.8069766
+cp       2.5427919
+trestbps 1.3806654
+chol     1.6706062
+fbs      1.0702875
+restecg  1.4529309
+thalach  2.0205681
+exang    2.0523408
+oldpeak  0.7504483
+slope    1.6940158
+ca       4.6969360
+thal     3.4482753
