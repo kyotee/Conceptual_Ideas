@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Ruby on Rails version
 gem 'rails', '~> 5.1.4'
 # Application server
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 4.3'
 # SCSS
 gem 'sass-rails', '~> 5.0'
 # Compressor for JavaScript assets
