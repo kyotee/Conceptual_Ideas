@@ -10,7 +10,7 @@
     "browserify-incremental": "^3.0.1",
     "chai": "^3.5.0",
     "enzyme": "^2.6.0",
-    "jsdom": "^9.8.3",
+    "jsdom": "^16.5.0",
     "mocha": "^3.2.0",
     "react-addons-test-utils": "^15.4.1"
   },
